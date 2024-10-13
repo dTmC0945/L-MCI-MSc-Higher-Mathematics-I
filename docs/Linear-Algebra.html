@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>M.Sc - Higher Mathematics I</title>
+<title>Code for Higher Mathematics I Linear Algebra</title>
 <meta name="author" content="Daniel McGuiness" />
 <meta name="generator" content="Org Mode" />
 <style>
@@ -220,146 +220,29 @@ org_html_manager.setup();  // activate after the parameters are set
  |
  <a accesskey="H" href=""> HOME </a>
 </div><div id="content" class="content">
-<h1 class="title">M.Sc - Higher Mathematics I</h1>
+<h1 class="title">Code for Higher Mathematics I Linear Algebra</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org53d2d09">Introduction</a></li>
+</ul>
+</div>
+</div>
 <p>
-Welcome to the code resource and practice materials for the
-lecture <span class="Hlight">Higher Mathematics I</span> where our focus
-will be on the topic of <span class="Hlight">ordinary differential equations and vector calculus</span>.
+These are the code snippets used in <span class="Hlight">Linear Algebra</span>
+part of <span class="Hlight">Higher Mathematics I</span>.
 </p>
 
-<p>
-All code presented were written in SageMath and have been
-tested on macOS Sonoma 14.5.
-</p>
-
-<blockquote>
-<p>
-SageMath is a computer algebra system (CAS) with
-features covering many aspects of mathematics, including algebra,
-combinatorics, graph theory, group theory, differentiable manifolds,
-numerical analysis, number theory, calculus and statistics
-<a href="https://www.sagemath.org/">[Link]​</a>. 
-</p>
-</blockquote>
-
-<p>
-The versions of the software is as follows
-</p>
-
+<div id="outline-container-org53d2d09" class="outline-2">
+<h2 id="org53d2d09">Introduction</h2>
+<div class="outline-text-2" id="text-org53d2d09">
 <div class="org-src-container">
-<pre class="src src-bash" id="orge6afe0c">sage --version &amp;&amp;
-python --version
+<pre class="src src-sage">show<span class="org-rainbow-delimiters-depth-1">(</span>plot<span class="org-rainbow-delimiters-depth-2">(</span>x<span class="org-operator">^</span>2, <span class="org-rainbow-delimiters-depth-3">(</span>x,0,5<span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
 </pre>
 </div>
-
-<pre class="example" id="orgdb3778f">
-SageMath version 10.3, Release Date: 2024-03-19
-Python 3.12.5
-</pre>
-
-<p>
-There can be a wide variety of packages and dependencies required for the
-code snippets to work, therefore don't skip on a code while working through
-the examples.
-</p>
-
-<table border="2" cellspacing="0" cellpadding="6" rules="all" frame="border" align="center" width="100%">
-
-
-<colgroup>
-<col  class="org-right" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-right">ORDER</th>
-<th scope="col" class="org-left">TOPIC</th>
-<th scope="col" class="org-left">DESCRIPTION</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="org-right">1</td>
-<td class="org-left">Introduction</td>
-<td class="org-left">Discussion of the lecture structure and what will be covered</td>
-</tr>
-
-<tr>
-<td class="org-right">2</td>
-<td class="org-left"><a href="First-Order-ODEs.html">First-Order ODEs</a></td>
-<td class="org-left">Separable ODEs, Exact ODEs, Linear ODEs</td>
-</tr>
-
-<tr>
-<td class="org-right">3</td>
-<td class="org-left"><a href="Second-Order-ODEs.html">Second-Order Linear ODEs</a></td>
-<td class="org-left">Homogeneous Linear ODEs, Euler-Cauchy Equations</td>
-</tr>
-
-<tr>
-<td class="org-right">4</td>
-<td class="org-left">Higher-Order Linear ODEs</td>
-<td class="org-left">Homogeneous and non-homogeneous Linear ODEs</td>
-</tr>
-
-<tr>
-<td class="org-right">5</td>
-<td class="org-left">Systems of ODEs. Phase Plane. Qualitative Methods</td>
-<td class="org-left">Constant-Coefficient Systems. Phase Plane Method</td>
-</tr>
-
-<tr>
-<td class="org-right">6</td>
-<td class="org-left">Series Solutions of ODEs &amp; Special Functions</td>
-<td class="org-left">Legendre’s Equation. Legendre Polynomials</td>
-</tr>
-
-<tr>
-<td class="org-right">7</td>
-<td class="org-left">Laplace Transforms</td>
-<td class="org-left">Laplace Transform. Linearity. First Shifting Theorem</td>
-</tr>
-
-<tr>
-<td class="org-right">8</td>
-<td class="org-left">Linear Algebra I: Matrices and Vectors</td>
-<td class="org-left">Linear Systems of Equations, Gauss Elimination</td>
-</tr>
-
-<tr>
-<td class="org-right">9</td>
-<td class="org-left">Linear Algebra II: Eigenvalue Problems</td>
-<td class="org-left">Determining Eigenvalues and Eigenvectors</td>
-</tr>
-
-<tr>
-<td class="org-right">10</td>
-<td class="org-left">Vector Calculus I: Grad, Div, Curl</td>
-<td class="org-left">Vector and Scalar Functions and Their Fields</td>
-</tr>
-
-<tr>
-<td class="org-right">11</td>
-<td class="org-left">Vector Calculus II: Integral Theorems</td>
-<td class="org-left">Path Independence of Line Integrals</td>
-</tr>
-
-<tr>
-<td class="org-right">12</td>
-<td class="org-left">Appendix</td>
-<td class="org-left">Tangental information related to the main topic</td>
-</tr>
-</tbody>
-</table>
-
-
-<p>
-<span class="Note"></span> Please read the code and all relevant information carefully as the wrong order of
-execution may cause issues.
-</p>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Daniel McGuiness</p>

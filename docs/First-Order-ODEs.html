@@ -213,6 +213,38 @@ org_html_manager.set("VIEW", "info");
 org_html_manager.setup();  // activate after the parameters are set
 // @license-end
 </script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -255,11 +287,11 @@ Solve the initial value problem
 </p>
 
 <p>
-\[+ 1 sin\
+\[\rp{\cos y \sinh x} + 1 \dd\x  sin\dd  \y \
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sage" id="org227f222"><span class="org-comment-delimiter"># </span><span class="org-comment">Define variables and functions</span>
+<pre class="src src-sage" id="org29932c8"><span class="org-comment-delimiter"># </span><span class="org-comment">Define variables and functions</span>
 <span class="org-variable-name">x</span> <span class="org-operator">=</span> var<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'x'</span><span class="org-rainbow-delimiters-depth-1">)</span>
 <span class="org-variable-name">y</span> <span class="org-operator">=</span> function<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'y'</span><span class="org-rainbow-delimiters-depth-1">)(</span>x<span class="org-rainbow-delimiters-depth-1">)</span>
 
@@ -271,7 +303,7 @@ desolve<span class="org-rainbow-delimiters-depth-1">(</span>func, y, ics<span cl
 </pre>
 </div>
 
-<pre class="example" id="org12bf26e">
+<pre class="example" id="org0674137">
 -cos(y(x))*cosh(x) - x == -cos(2)*cosh(1) - 1
 </pre>
 
@@ -331,7 +363,7 @@ Boca Raton: CRC Press, 2002, page 11–52, line 9).
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sage" id="org7a4ffcb"><span class="org-comment-delimiter"># </span><span class="org-comment">Define variables and functions</span>
+<pre class="src src-sage" id="org09554a3"><span class="org-comment-delimiter"># </span><span class="org-comment">Define variables and functions</span>
 <span class="org-variable-name">k</span>, <span class="org-variable-name">t</span>, <span class="org-variable-name">_C</span> <span class="org-operator">=</span> var<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'k, t, _C'</span><span class="org-rainbow-delimiters-depth-1">)</span>
 <span class="org-variable-name">y</span> <span class="org-operator">=</span> function<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'y'</span><span class="org-rainbow-delimiters-depth-1">)(</span>t<span class="org-rainbow-delimiters-depth-1">)</span>
 
@@ -350,7 +382,7 @@ simplify<span class="org-rainbow-delimiters-depth-1">(</span>solve<span class="o
 </pre>
 </div>
 
-<pre class="example" id="org4ae1cc6">
+<pre class="example" id="org68b9214">
 5312.72499110066
 </pre>
 
@@ -456,7 +488,7 @@ plt.save<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-st
 </pre>
 
 <div class="org-src-container">
-<pre class="src src-sage" id="org6cd6bfe"><span class="org-variable-name">A</span><span class="org-operator">=</span> var<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'A'</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<pre class="src src-sage" id="org52af7b3"><span class="org-variable-name">A</span><span class="org-operator">=</span> var<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'A'</span><span class="org-rainbow-delimiters-depth-1">)</span>
 <span class="org-variable-name">B</span><span class="org-operator">=</span> var<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'B'</span><span class="org-rainbow-delimiters-depth-1">)</span>
 <span class="org-variable-name">t</span><span class="org-operator">=</span> var<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'t'</span><span class="org-rainbow-delimiters-depth-1">)</span>
 
@@ -468,7 +500,7 @@ desolve<span class="org-rainbow-delimiters-depth-1">(</span>func, y, ivar <span 
 </div>
 
 <div class="org-src-container">
-<pre class="src src-sage" id="org7b73f1d"><span class="org-variable-name">x</span>,<span class="org-variable-name">y</span> <span class="org-operator">=</span> var<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'x, y'</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<pre class="src src-sage" id="org8afb086"><span class="org-variable-name">x</span>,<span class="org-variable-name">y</span> <span class="org-operator">=</span> var<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'x, y'</span><span class="org-rainbow-delimiters-depth-1">)</span>
 <span class="org-variable-name">y</span> <span class="org-operator">=</span> function<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'y'</span><span class="org-rainbow-delimiters-depth-1">)(</span>x<span class="org-rainbow-delimiters-depth-1">)</span>
 
 <span class="org-variable-name">func</span> <span class="org-operator">=</span> diff<span class="org-rainbow-delimiters-depth-1">(</span>y, x<span class="org-rainbow-delimiters-depth-1">)</span> <span class="org-operator">==</span> <span class="org-rainbow-delimiters-depth-1">(</span>e<span class="org-operator">**</span><span class="org-rainbow-delimiters-depth-2">(</span>x <span class="org-operator">+</span> y<span class="org-rainbow-delimiters-depth-2">)</span> <span class="org-operator">+</span> y <span class="org-operator">*</span> e <span class="org-operator">**</span> y<span class="org-rainbow-delimiters-depth-1">)</span> <span class="org-operator">/</span> <span class="org-rainbow-delimiters-depth-1">(</span> 1 <span class="org-operator">-</span> x <span class="org-operator">*</span> e<span class="org-operator">**</span> y<span class="org-rainbow-delimiters-depth-1">)</span>
@@ -477,7 +509,7 @@ desolve<span class="org-rainbow-delimiters-depth-1">(</span>func, y, ivar <span 
 </pre>
 </div>
 
-<pre class="example" id="orgbd05494">
+<pre class="example" id="orgda14c63">
 ((x*y(x) + e^x)*e^y(x) + 1)*e^(-y(x)) == e + 1
 </pre>
 
@@ -506,21 +538,12 @@ p.save<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-stri
 Solve the following equation
 </p>
 
-
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/First-Order-ODEs_db809dfba245a1c289eb2285fc02bcbb0c28d8ba.png" alt="\begin{equation*}
+\begin{equation}
 \cos \rp{x + y} \dd x + \rp{3x^2 + 2y + \cos \rp{x + y}} \dd y = 0
-\end{equation*}
-" />
-</span>
-<span class="equation-label">
-1
-</span>
-</div>
+\end{equation}
 
 <div class="org-src-container">
-<pre class="src src-sage" id="org5c1961d"><span class="org-variable-name">x</span> <span class="org-operator">=</span> var<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'x'</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<pre class="src src-sage" id="org62de8c5"><span class="org-variable-name">x</span> <span class="org-operator">=</span> var<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'x'</span><span class="org-rainbow-delimiters-depth-1">)</span>
 <span class="org-variable-name">y</span> <span class="org-operator">=</span> function<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'y'</span><span class="org-rainbow-delimiters-depth-1">)(</span>x<span class="org-rainbow-delimiters-depth-1">)</span>
 
 <span class="org-variable-name">func</span> <span class="org-operator">=</span> cos<span class="org-rainbow-delimiters-depth-1">(</span>x <span class="org-operator">+</span> y<span class="org-rainbow-delimiters-depth-1">)</span> <span class="org-operator">+</span> <span class="org-rainbow-delimiters-depth-1">(</span>3<span class="org-operator">*</span>y<span class="org-operator">**</span>2 <span class="org-operator">+</span> 2<span class="org-operator">*</span>y <span class="org-operator">+</span> cos<span class="org-rainbow-delimiters-depth-2">(</span>x <span class="org-operator">+</span> y<span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span><span class="org-operator">*</span> diff<span class="org-rainbow-delimiters-depth-1">(</span>y, x<span class="org-rainbow-delimiters-depth-1">)</span> <span class="org-operator">==</span> 0
@@ -529,7 +552,7 @@ desolve<span class="org-rainbow-delimiters-depth-1">(</span>func, y, ivar <span 
 </pre>
 </div>
 
-<pre class="example" id="org1a732ae">
+<pre class="example" id="org4007619">
 y(x)^3 + y(x)^2 + sin(x + y(x)) == _C
 </pre>
 
@@ -547,21 +570,15 @@ where <span class="Code">_C</span> is an arbitrary constant.
 Solve the following ODEs by integration.
 </p>
 
-
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/First-Order-ODEs_3bbbb5f9db9771cd5af447a9ebfd696789e631b5.png" alt="\begin{align*}
-y' &amp;amp;= - \sin \pi x, \\
-y' &amp;amp;= e ^{-3x}, \\
-y' &amp;amp;= x e^{x^2/2}, \\
-y' &amp;amp;= \cosh{4x}.
+\begin{align*}
+y' &= - \sin \pi x, \\
+y' &= e ^{-3x}, \\
+y' &= x e^{x^2/2}, \\
+y' &= \cosh{4x}.
 \end{align*}
-" />
-</span>
-</div>
 
 <div class="org-src-container">
-<pre class="src src-sage" id="org98a598c"><span class="org-keyword">from</span> sage.symbolic.integration.integral <span class="org-keyword">import</span> indefinite_integral
+<pre class="src src-sage" id="org5ccb33d"><span class="org-keyword">from</span> sage.symbolic.integration.integral <span class="org-keyword">import</span> indefinite_integral
 
 <span class="org-variable-name">x</span> <span class="org-operator">=</span> var<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'x'</span><span class="org-rainbow-delimiters-depth-1">)</span>
 <span class="org-variable-name">y</span> <span class="org-operator">=</span> function<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'y'</span><span class="org-rainbow-delimiters-depth-1">)(</span>x<span class="org-rainbow-delimiters-depth-1">)</span>
@@ -573,7 +590,7 @@ y' &amp;amp;= \cosh{4x}.
 </pre>
 </div>
 
-<pre class="example" id="org74cba8a">
+<pre class="example" id="org9cb54e8">
 (i)    cos(pi*x)/pi
 (ii)   -1/3*e^(-3*x)
 (iii)  e^(1/2*x^2)
@@ -591,17 +608,17 @@ The efficiency of the engines of subsonic airplanes depends on
 </p>
 
 <p>
-Find the air pressure <img src="ltximg/First-Order-ODEs_0febc8113fd31168244bf098aa68945d8de71388.png" alt="$y(x)$" /> at this height without calculation.
+Find the air pressure \(y(x)\) at this height without calculation.
 </p>
 
 <p>
 <span class="Note">Note:</span> The rate of change (y'(x)) is proportional to the
 pressure, and at 18 000 ft the pressure has decreased to half its
-value <img src="ltximg/First-Order-ODEs_9c5c2a5dee9d9c68adfb3e15a1952cfb5719ff0b.png" alt="$y_0$" /> at sea level.
+value \(y_0\) at sea level.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sage" id="orgc888562"><span class="org-variable-name">x</span>, <span class="org-variable-name">k</span>, <span class="org-variable-name">_C</span> <span class="org-operator">=</span> var<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'x, k, _C'</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<pre class="src src-sage" id="org8c39cfe"><span class="org-variable-name">x</span>, <span class="org-variable-name">k</span>, <span class="org-variable-name">_C</span> <span class="org-operator">=</span> var<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'x, k, _C'</span><span class="org-rainbow-delimiters-depth-1">)</span>
 <span class="org-variable-name">y</span> <span class="org-operator">=</span> function<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'y'</span><span class="org-rainbow-delimiters-depth-1">)(</span>x<span class="org-rainbow-delimiters-depth-1">)</span>
 
 <span class="org-variable-name">func</span> <span class="org-operator">=</span> diff<span class="org-rainbow-delimiters-depth-1">(</span>y, x<span class="org-rainbow-delimiters-depth-1">)</span> <span class="org-operator">-</span> k <span class="org-operator">*</span> y <span class="org-operator">==</span> 0
@@ -612,7 +629,7 @@ solve<span class="org-rainbow-delimiters-depth-1">(</span>_inter.subs<span class
 </pre>
 </div>
 
-<pre class="example" id="orgd0ee0eb">
+<pre class="example" id="org166033e">
 _C*e^(18000*k)
 </pre>
 </div>
@@ -626,11 +643,11 @@ Solve the initial problem
 </p>
 
 <p>
-<img src="ltximg/First-Order-ODEs_87192679516c42370cb6582a24102802562651c6.png" alt="\[y' + y \tan x = \sin 2x, \qquad y(0) = 1 \]" />
+\[y' + y \tan x = \sin 2x, \qquad y(0) = 1 \]
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sage" id="org7cfc7d3"><span class="org-comment-delimiter"># </span><span class="org-comment">Define variables and functions</span>
+<pre class="src src-sage" id="org46b2ab3"><span class="org-comment-delimiter"># </span><span class="org-comment">Define variables and functions</span>
 <span class="org-variable-name">x</span> <span class="org-operator">=</span> var<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'x'</span><span class="org-rainbow-delimiters-depth-1">)</span>
 <span class="org-variable-name">y</span> <span class="org-operator">=</span> function<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'y'</span><span class="org-rainbow-delimiters-depth-1">)(</span>x<span class="org-rainbow-delimiters-depth-1">)</span>
 
@@ -640,7 +657,7 @@ desolve<span class="org-rainbow-delimiters-depth-1">(</span>func, y, ivar<span c
 </pre>
 </div>
 
-<pre class="example" id="org2e0e926">
+<pre class="example" id="org45e1b91">
 -(2*cos(x) - 3)/sec(x)
 </pre>
 </div>
@@ -650,7 +667,7 @@ desolve<span class="org-rainbow-delimiters-depth-1">(</span>func, y, ivar<span c
 <h2 id="org49170db">Example: Electric Circuit</h2>
 <div class="outline-text-2" id="text-org49170db">
 <div class="org-src-container">
-<pre class="src src-sage" id="orgfe589f2"><span class="org-variable-name">R</span>, <span class="org-variable-name">L</span>, <span class="org-variable-name">E</span>, <span class="org-variable-name">t</span> <span class="org-operator">=</span> var<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'R, L, E, t'</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<pre class="src src-sage" id="org034c695"><span class="org-variable-name">R</span>, <span class="org-variable-name">L</span>, <span class="org-variable-name">E</span>, <span class="org-variable-name">t</span> <span class="org-operator">=</span> var<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'R, L, E, t'</span><span class="org-rainbow-delimiters-depth-1">)</span>
 <span class="org-variable-name">I</span> <span class="org-operator">=</span> function<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'I'</span><span class="org-rainbow-delimiters-depth-1">)(</span>t<span class="org-rainbow-delimiters-depth-1">)</span>
 
 <span class="org-variable-name">func</span> <span class="org-operator">=</span> diff<span class="org-rainbow-delimiters-depth-1">(</span>I, t<span class="org-rainbow-delimiters-depth-1">)</span> <span class="org-operator">+</span> R <span class="org-operator">/</span> L <span class="org-operator">*</span> I <span class="org-operator">==</span> E <span class="org-operator">/</span> L
@@ -663,7 +680,7 @@ desolve<span class="org-rainbow-delimiters-depth-1">(</span>func, y, ivar<span c
 </pre>
 </div>
 
-<pre class="example" id="orgfe3d9a3">
+<pre class="example" id="org2573d75">
 48/11*(e^(110.0*t) - 1)*e^(-110.0*t)
 </pre>
 
@@ -688,7 +705,7 @@ plt.save<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-st
 </div>
 
 <div class="org-src-container">
-<pre class="src src-sage" id="orgcfe1df8"><span class="org-variable-name">x</span> <span class="org-operator">=</span> var<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'x'</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<pre class="src src-sage" id="org9df478d"><span class="org-variable-name">x</span> <span class="org-operator">=</span> var<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'x'</span><span class="org-rainbow-delimiters-depth-1">)</span>
 <span class="org-variable-name">y</span> <span class="org-operator">=</span> function<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'y'</span><span class="org-rainbow-delimiters-depth-1">)(</span>x<span class="org-rainbow-delimiters-depth-1">)</span>
 
 <span class="org-comment-delimiter"># </span><span class="org-comment">Define function</span>
@@ -699,12 +716,12 @@ desolve<span class="org-rainbow-delimiters-depth-1">(</span>func, y, ivar <span 
 </pre>
 </div>
 
-<pre class="example" id="org3b35941">
+<pre class="example" id="orge094ddf">
 57/10*e^(3*x)
 </pre>
 
 <div class="org-src-container">
-<pre class="src src-sage" id="org0504ac5"><span class="org-variable-name">x</span> <span class="org-operator">=</span> var<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'x'</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<pre class="src src-sage" id="org308fee4"><span class="org-variable-name">x</span> <span class="org-operator">=</span> var<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'x'</span><span class="org-rainbow-delimiters-depth-1">)</span>
 <span class="org-variable-name">y</span> <span class="org-operator">=</span> function<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'y'</span><span class="org-rainbow-delimiters-depth-1">)(</span>x<span class="org-rainbow-delimiters-depth-1">)</span>
 
 <span class="org-comment-delimiter"># </span><span class="org-comment">Define function</span>
@@ -715,11 +732,11 @@ desolve<span class="org-rainbow-delimiters-depth-1">(</span>func, y, ivar <span 
 </pre>
 </div>
 
-<pre class="example" id="org543cefa">
+<pre class="example" id="orgc4570f5">
 1/2*(2*_C - log(-sin(x)^2 + 1))/sec(x)
 </pre>
 <div class="org-src-container">
-<pre class="src src-sage" id="orgdadf112"><span class="org-variable-name">x</span> <span class="org-operator">=</span> var<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'x'</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<pre class="src src-sage" id="org9eb58a7"><span class="org-variable-name">x</span> <span class="org-operator">=</span> var<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'x'</span><span class="org-rainbow-delimiters-depth-1">)</span>
 <span class="org-variable-name">y</span> <span class="org-operator">=</span> function<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'y'</span><span class="org-rainbow-delimiters-depth-1">)(</span>x<span class="org-rainbow-delimiters-depth-1">)</span>
 
 <span class="org-comment-delimiter"># </span><span class="org-comment">Define function</span>
@@ -730,12 +747,12 @@ desolve<span class="org-rainbow-delimiters-depth-1">(</span>func, y, ivar <span 
 </pre>
 </div>
 
-<pre class="example" id="org7be3e33">
+<pre class="example" id="orgdf2f2dc">
 _C + sin(x)
 </pre>
 
 <div class="org-src-container">
-<pre class="src src-sage" id="org24e5227"><span class="org-variable-name">x</span> <span class="org-operator">=</span> var<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'x'</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<pre class="src src-sage" id="orgafa8502"><span class="org-variable-name">x</span> <span class="org-operator">=</span> var<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'x'</span><span class="org-rainbow-delimiters-depth-1">)</span>
 <span class="org-variable-name">y</span> <span class="org-operator">=</span> function<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'y'</span><span class="org-rainbow-delimiters-depth-1">)(</span>x<span class="org-rainbow-delimiters-depth-1">)</span>
 
 <span class="org-comment-delimiter"># </span><span class="org-comment">Define function</span>
@@ -746,12 +763,12 @@ desolve<span class="org-rainbow-delimiters-depth-1">(</span>func, y, ivar <span 
 </pre>
 </div>
 
-<pre class="example" id="org47efac6">
+<pre class="example" id="org9e8d6a8">
 57/10*e^(3*x)
 </pre>
 
 <div class="org-src-container">
-<pre class="src src-sage" id="org606ec42"><span class="org-variable-name">x</span> <span class="org-operator">=</span> var<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'x'</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<pre class="src src-sage" id="orge6d77c0"><span class="org-variable-name">x</span> <span class="org-operator">=</span> var<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'x'</span><span class="org-rainbow-delimiters-depth-1">)</span>
 <span class="org-variable-name">y</span> <span class="org-operator">=</span> function<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'y'</span><span class="org-rainbow-delimiters-depth-1">)(</span>x<span class="org-rainbow-delimiters-depth-1">)</span>
 
 <span class="org-comment-delimiter"># </span><span class="org-comment">Define function</span>
@@ -764,12 +781,12 @@ desolve<span class="org-rainbow-delimiters-depth-1">(</span>func, y, ivar <span 
 </pre>
 </div>
 
-<pre class="example" id="org39d55b7">
+<pre class="example" id="org99843ef">
 y(x) == -sqrt(-x^2 - x/_C)
 </pre>
 
 <div class="org-src-container">
-<pre class="src src-sage" id="org279d0fc"><span class="org-variable-name">x</span> <span class="org-operator">=</span> var<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'x'</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<pre class="src src-sage" id="orgaf6cac2"><span class="org-variable-name">x</span> <span class="org-operator">=</span> var<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'x'</span><span class="org-rainbow-delimiters-depth-1">)</span>
 <span class="org-variable-name">y</span> <span class="org-operator">=</span> function<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'y'</span><span class="org-rainbow-delimiters-depth-1">)(</span>x<span class="org-rainbow-delimiters-depth-1">)</span>
 
 <span class="org-comment-delimiter"># </span><span class="org-comment">Define function</span>
@@ -782,12 +799,12 @@ y(x) == -sqrt(-x^2 - x/_C)
 </pre>
 </div>
 
-<pre class="example" id="orga88b30b">
+<pre class="example" id="org8e08fcf">
 y(x)^3 + y(x)^2 + sin(x + y(x)) == _C
 </pre>
 
 <div class="org-src-container">
-<pre class="src src-sage" id="orgec18a5c"><span class="org-variable-name">A</span>, <span class="org-variable-name">B</span>, <span class="org-variable-name">t</span><span class="org-operator">=</span> var<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'A, B, t'</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<pre class="src src-sage" id="orgc0bc857"><span class="org-variable-name">A</span>, <span class="org-variable-name">B</span>, <span class="org-variable-name">t</span><span class="org-operator">=</span> var<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'A, B, t'</span><span class="org-rainbow-delimiters-depth-1">)</span>
 
 <span class="org-variable-name">y</span> <span class="org-operator">=</span> function<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'y'</span><span class="org-rainbow-delimiters-depth-1">)(</span>t<span class="org-rainbow-delimiters-depth-1">)</span>
 

@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>M.Sc - Higher Mathematics I</title>
+<title>Code for Higher Mathematics I Vector Calculus</title>
 <meta name="author" content="Daniel McGuiness" />
 <meta name="generator" content="Org Mode" />
 <style>
@@ -220,146 +220,146 @@ org_html_manager.setup();  // activate after the parameters are set
  |
  <a accesskey="H" href=""> HOME </a>
 </div><div id="content" class="content">
-<h1 class="title">M.Sc - Higher Mathematics I</h1>
+<h1 class="title">Code for Higher Mathematics I Vector Calculus</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org74c44c0">Import Modules</a></li>
+<li><a href="#org7df92a1">Defining a Vector Field</a></li>
+</ul>
+</div>
+</div>
 <p>
-Welcome to the code resource and practice materials for the
-lecture <span class="Hlight">Higher Mathematics I</span> where our focus
-will be on the topic of <span class="Hlight">ordinary differential equations and vector calculus</span>.
+These are the code snippets used in <code>Vector Calculus</code>
+part of <code>Higher Mathematics I</code>.
 </p>
 
-<p>
-All code presented were written in SageMath and have been
-tested on macOS Sonoma 14.5.
-</p>
-
-<blockquote>
-<p>
-SageMath is a computer algebra system (CAS) with
-features covering many aspects of mathematics, including algebra,
-combinatorics, graph theory, group theory, differentiable manifolds,
-numerical analysis, number theory, calculus and statistics
-<a href="https://www.sagemath.org/">[Link]​</a>. 
-</p>
-</blockquote>
-
-<p>
-The versions of the software is as follows
-</p>
-
+<div id="outline-container-org74c44c0" class="outline-2">
+<h2 id="org74c44c0">Import Modules</h2>
+<div class="outline-text-2" id="text-org74c44c0">
 <div class="org-src-container">
-<pre class="src src-bash" id="orge6afe0c">sage --version &amp;&amp;
-python --version
+<pre class="src src-sage" id="org70399e1">E.<span class="org-operator">&lt;</span>x,y,z<span class="org-operator">&gt;</span> <span class="org-operator">=</span> EuclideanSpace<span class="org-rainbow-delimiters-depth-1">()</span>
+E
 </pre>
 </div>
 
-<pre class="example" id="orgdb3778f">
-SageMath version 10.3, Release Date: 2024-03-19
-Python 3.12.5
+<pre class="example" id="orga863036">
+Euclidean space E^3
 </pre>
 
-<p>
-There can be a wide variety of packages and dependencies required for the
-code snippets to work, therefore don't skip on a code while working through
-the examples.
-</p>
+<div class="org-src-container">
+<pre class="src src-sage">x <span class="org-keyword">is</span> E.cartesian_coordinates<span class="org-rainbow-delimiters-depth-1">()[</span>1<span class="org-rainbow-delimiters-depth-1">]</span>
+y <span class="org-keyword">is</span> E.cartesian_coordinates<span class="org-rainbow-delimiters-depth-1">()[</span>2<span class="org-rainbow-delimiters-depth-1">]</span>
+z <span class="org-keyword">is</span> E.cartesian_coordinates<span class="org-rainbow-delimiters-depth-1">()[</span>3<span class="org-rainbow-delimiters-depth-1">]</span>
+<span class="org-builtin">type</span><span class="org-rainbow-delimiters-depth-1">(</span>z<span class="org-rainbow-delimiters-depth-1">)</span>
+</pre>
+</div>
 
-<table border="2" cellspacing="0" cellpadding="6" rules="all" frame="border" align="center" width="100%">
-
-
-<colgroup>
-<col  class="org-right" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-right">ORDER</th>
-<th scope="col" class="org-left">TOPIC</th>
-<th scope="col" class="org-left">DESCRIPTION</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="org-right">1</td>
-<td class="org-left">Introduction</td>
-<td class="org-left">Discussion of the lecture structure and what will be covered</td>
-</tr>
-
-<tr>
-<td class="org-right">2</td>
-<td class="org-left"><a href="First-Order-ODEs.html">First-Order ODEs</a></td>
-<td class="org-left">Separable ODEs, Exact ODEs, Linear ODEs</td>
-</tr>
-
-<tr>
-<td class="org-right">3</td>
-<td class="org-left"><a href="Second-Order-ODEs.html">Second-Order Linear ODEs</a></td>
-<td class="org-left">Homogeneous Linear ODEs, Euler-Cauchy Equations</td>
-</tr>
-
-<tr>
-<td class="org-right">4</td>
-<td class="org-left">Higher-Order Linear ODEs</td>
-<td class="org-left">Homogeneous and non-homogeneous Linear ODEs</td>
-</tr>
-
-<tr>
-<td class="org-right">5</td>
-<td class="org-left">Systems of ODEs. Phase Plane. Qualitative Methods</td>
-<td class="org-left">Constant-Coefficient Systems. Phase Plane Method</td>
-</tr>
-
-<tr>
-<td class="org-right">6</td>
-<td class="org-left">Series Solutions of ODEs &amp; Special Functions</td>
-<td class="org-left">Legendre’s Equation. Legendre Polynomials</td>
-</tr>
-
-<tr>
-<td class="org-right">7</td>
-<td class="org-left">Laplace Transforms</td>
-<td class="org-left">Laplace Transform. Linearity. First Shifting Theorem</td>
-</tr>
-
-<tr>
-<td class="org-right">8</td>
-<td class="org-left">Linear Algebra I: Matrices and Vectors</td>
-<td class="org-left">Linear Systems of Equations, Gauss Elimination</td>
-</tr>
-
-<tr>
-<td class="org-right">9</td>
-<td class="org-left">Linear Algebra II: Eigenvalue Problems</td>
-<td class="org-left">Determining Eigenvalues and Eigenvectors</td>
-</tr>
-
-<tr>
-<td class="org-right">10</td>
-<td class="org-left">Vector Calculus I: Grad, Div, Curl</td>
-<td class="org-left">Vector and Scalar Functions and Their Fields</td>
-</tr>
-
-<tr>
-<td class="org-right">11</td>
-<td class="org-left">Vector Calculus II: Integral Theorems</td>
-<td class="org-left">Path Independence of Line Integrals</td>
-</tr>
-
-<tr>
-<td class="org-right">12</td>
-<td class="org-left">Appendix</td>
-<td class="org-left">Tangental information related to the main topic</td>
-</tr>
-</tbody>
-</table>
+<pre class="example" id="org66da9d1">
+True
+True
+True
+&lt;class 'sage.symbolic.expression.Expression'&gt;
+</pre>
 
 
-<p>
-<span class="Note"></span> Please read the code and all relevant information carefully as the wrong order of
-execution may cause issues.
-</p>
+<div class="org-src-container">
+<pre class="src src-sage">E.frames<span class="org-rainbow-delimiters-depth-1">()</span>
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org7df92a1" class="outline-2">
+<h2 id="org7df92a1">Defining a Vector Field</h2>
+<div class="outline-text-2" id="text-org7df92a1">
+<div class="org-src-container">
+<pre class="src src-sage"><span class="org-variable-name">v</span> <span class="org-operator">=</span> E.vector_field<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-operator">-</span>y, x, sin<span class="org-rainbow-delimiters-depth-2">(</span>x<span class="org-operator">*</span>y<span class="org-operator">*</span>z<span class="org-rainbow-delimiters-depth-2">)</span>, name<span class="org-operator">=</span><span class="org-string">'v'</span><span class="org-rainbow-delimiters-depth-1">)</span>
+v.display<span class="org-rainbow-delimiters-depth-1">()</span>
+</pre>
+</div>
+
+<pre class="example" id="orgd64cbcb">
+v = -y e_x + x e_y + sin(x*y*z) e_z
+</pre>
+
+<div class="org-src-container">
+<pre class="src src-sage">v<span class="org-rainbow-delimiters-depth-1">[</span>1<span class="org-rainbow-delimiters-depth-1">]</span>
+v<span class="org-rainbow-delimiters-depth-1">[</span>:<span class="org-rainbow-delimiters-depth-1">]</span>
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-sage"><span class="org-variable-name">p</span> <span class="org-operator">=</span> E<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-rainbow-delimiters-depth-2">(</span>3,<span class="org-operator">-</span>2,1<span class="org-rainbow-delimiters-depth-2">)</span>, name<span class="org-operator">=</span><span class="org-string">'p'</span><span class="org-rainbow-delimiters-depth-1">)</span>
+p
+p.coordinates<span class="org-rainbow-delimiters-depth-1">()</span>
+<span class="org-variable-name">vp</span> <span class="org-operator">=</span> v.at<span class="org-rainbow-delimiters-depth-1">(</span>p<span class="org-rainbow-delimiters-depth-1">)</span>
+vp
+vp.display<span class="org-rainbow-delimiters-depth-1">()</span>
+</pre>
+</div>
+
+<pre class="example" id="org74fbb0c">
+Point p on the Euclidean space E^3
+(3, -2, 1)
+Vector v at Point p on the Euclidean space E^3
+v = 2 e_x + 3 e_y - sin(6) e_z
+</pre>
+
+<div class="org-src-container">
+<pre class="src src-sage">v.plot<span class="org-rainbow-delimiters-depth-1">(</span>max_range<span class="org-operator">=</span>1.5, scale<span class="org-operator">=</span>0.5<span class="org-rainbow-delimiters-depth-1">)</span>
+</pre>
+</div>
+
+<pre class="example" id="orgbba9a72">
+Launched html viewer for Graphics3d Object
+</pre>
+
+<div class="org-src-container">
+<pre class="src src-sage">v.plot<span class="org-rainbow-delimiters-depth-1">(</span>fixed_coords<span class="org-operator">=</span><span class="org-rainbow-delimiters-depth-2">{</span>y: 1<span class="org-rainbow-delimiters-depth-2">}</span>, ambient_coords<span class="org-operator">=</span><span class="org-rainbow-delimiters-depth-2">(</span>x,z<span class="org-rainbow-delimiters-depth-2">)</span>, max_range<span class="org-operator">=</span>1.5,
+       scale<span class="org-operator">=</span>0.25<span class="org-rainbow-delimiters-depth-1">)</span>
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-sage">gnuplot.plot3d_parametric<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'v^2*sin(u), v*cos(u), v*(1-v)'</span><span class="org-rainbow-delimiters-depth-1">)</span>
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-octave">ans <span class="org-builtin">=</span> <span class="org-rainbow-delimiters-depth-1">[</span>8 6 4<span class="org-builtin">;</span> 2 0 <span class="org-builtin">-</span>2<span class="org-rainbow-delimiters-depth-1">]</span>
+</pre>
+</div>
+
+<pre class="example" id="org1f31f51">
+ans =
+
+   8   6   4
+   2   0  -2
+
+</pre>
+
+<div class="org-src-container">
+<pre class="src src-octave" id="orgdc629ca"><span class="org-keyword">function</span> retval <span class="org-builtin">=</span> <span class="org-function-name">mysum</span><span class="org-rainbow-delimiters-depth-1">(</span>x<span class="org-builtin">,</span> y<span class="org-rainbow-delimiters-depth-1">)</span>
+  retval <span class="org-builtin">=</span> x <span class="org-builtin">+</span> y<span class="org-builtin">;</span>
+<span class="org-keyword">end</span>
+
+ans <span class="org-builtin">=</span> mysum<span class="org-rainbow-delimiters-depth-1">(</span>5<span class="org-builtin">,</span> 12<span class="org-rainbow-delimiters-depth-1">)</span>
+</pre>
+</div>
+
+<pre class="example" id="orgaea3fee">
+36
+</pre>
+
+<div class="org-src-container">
+<pre class="src src-octave" id="orge28785d">mysum<span class="org-rainbow-delimiters-depth-1">(</span>24<span class="org-builtin">,</span> 12<span class="org-rainbow-delimiters-depth-1">)</span>
+</pre>
+</div>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Daniel McGuiness</p>
