@@ -72,19 +72,20 @@ As it currently is, the lecture covers topic from ordinary differential
 equations, linear algebra and vector calculis. The structure of the
 lecture is shown below.
 
-| ORDER | TOPIC | DESCRIPTION |
-|----|----|----|
-| 1 | Introduction | Discussion of the lecture structure and what will be covered |
-| 2 | First-Order ODEs | Separable ODEs, Exact ODEs, Linear ODEs |
-| 3 | Second-Order Linear ODEs | Homogeneous Linear ODEs, Euler-Cauchy Equations |
-| 4 | Higher-Order Linear ODEs | Homogeneous and non-homogeneous Linear ODEs |
-| 5 | Systems of ODEs. Phase Plane. Qualitative Methods | Constant-Coefficient Systems, Phase Plane Method |
-| 6 | Series Solutions of ODEs & Special Functions | Legendre’s Equation, Legendre Polynomials |
-| 7 | Laplace Transforms | Laplace Transform, Linearity, First Shifting Theorem |
-| 8 | Linear Algebra I: Matrices and Vectors | Linear Systems of Equations, Gauss Elimination |
-| 9 | Linear Algebra II: Eigenvalue Problems | Determining Eigenvalues and Eigenvectors |
-| 10 | Vector Calculus I: Grad, Div, Curl | Vector and Scalar Functions and Their Fields |
-| 11 | Vector Calculus II: Integral Theorems | Path Independence of Line Integrals |
+| ORDER | TOPIC | DESCRIPTION | SESSION |
+|----|----|----|----|
+| 1 | Introduction | Discussion of the lecture structure and what will be covered | 1 |
+| 2 | First-Order ODEs | Separable ODEs, Exact ODEs, Linear ODEs | 1-2 |
+| 3 | Second-Order Linear ODEs | Homogeneous Linear ODEs, Euler-Cauchy Equations | 3-4 |
+| 4 | Higher-Order Linear ODEs | Homogeneous and non-homogeneous Linear ODEs | 5-6 |
+| 5 | Systems of ODEs. Phase Plane. Qualitative Methods | Constant-Coefficient Systems, Phase Plane Method | 7-8 |
+| 6 | Series Solutions of ODEs & Special Functions | Legendre’s Equation, Legendre Polynomials | 8 |
+| 7 | Laplace Transforms | Laplace Transform, Linearity, First Shifting Theorem | 9-10 |
+| 8 | Linear Algebra I: Matrices and Vectors | Linear Systems of Equations, Gauss Elimination | 11-12 |
+| 9 | Linear Algebra II: Eigenvalue Problems | Determining Eigenvalues and Eigenvectors | 13-14 |
+| 10 | Vector Calculus I: Grad, Div, Curl | Vector and Scalar Functions and Their Fields | 14-15 |
+| 11 | Vector Calculus II: Curvilinear Coordinates | Spherical and Cylindrical Coordinate Systems | 16-17 |
+| 12 | Vector Calculus III: Integral Theorems | Stokes Theorem, Divergence and Green's Theorem | 17-18 |
 
 ## Code Supplement
 

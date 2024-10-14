@@ -597,7 +597,7 @@ var org_html_manager = {
     t.CONSOLE.style.overflow = "hidden";
     t.CONSOLE.style.verticalAlign = "middle";
     t.CONSOLE.style.zIndex = "9";
-    t.CONSOLE.style.border = "1px solid #cccccc";
+    t.CONSOLE.style.border = "0px solid #cccccc";
     t.CONSOLE.id = "org-info-js_console-container";
 
     t.BODY.insertBefore(t.CONSOLE, t.BODY.firstChild);

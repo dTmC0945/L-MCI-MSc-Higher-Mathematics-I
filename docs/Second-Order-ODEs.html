@@ -269,6 +269,21 @@ org_html_manager.setup();  // activate after the parameters are set
 <li><a href="#orgde44f87">Three Cases of Damped Motion</a></li>
 </ul>
 </li>
+<li><a href="#orgab4cf53">Non-Homogeneous ODEs</a>
+<ul>
+<li><a href="#org75f8861">Application of the Basic Rule (a)</a></li>
+<li><a href="#org78ccac9">Application of the Modification Rule (b)</a></li>
+<li><a href="#org55e61db">Application of the Sum Rule (c)</a></li>
+<li><a href="#org18aa8cc">Modelling: Forced Oscillations &amp; Resonance</a></li>
+<li><a href="#org0e2ad9b">Modelling: Electric Circuits</a></li>
+</ul>
+</li>
+<li><a href="#orgbcf8007">Variation of Parameters</a>
+<ul>
+<li><a href="#orga27ddb0">Method of Variation of Parameters</a></li>
+<li><a href="#orga143ccc">Euler-Cauchy Equations</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -302,7 +317,7 @@ Solve the initial value problem:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sage" id="orgfcaa573"><span class="org-variable-name">x</span> <span class="org-operator">=</span> var<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'x'</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<pre class="src src-sage" id="orgb21c126"><span class="org-variable-name">x</span> <span class="org-operator">=</span> var<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'x'</span><span class="org-rainbow-delimiters-depth-1">)</span>
 <span class="org-variable-name">y</span> <span class="org-operator">=</span> function<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'y'</span><span class="org-rainbow-delimiters-depth-1">)(</span>x<span class="org-rainbow-delimiters-depth-1">)</span>
 
 <span class="org-variable-name">func_a</span> <span class="org-operator">=</span> diff<span class="org-rainbow-delimiters-depth-1">(</span>y, x, 2<span class="org-rainbow-delimiters-depth-1">)</span> <span class="org-operator">+</span> y <span class="org-operator">==</span> 0
@@ -315,7 +330,7 @@ Solve the initial value problem:
 </pre>
 </div>
 
-<pre class="example" id="org04de3b9">
+<pre class="example" id="orge7ef7c1">
 3*cos(x) - 1/2*sin(x)
 </pre>
 </div>
@@ -333,7 +348,7 @@ Find a basis of solutions of the ODE:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sage" id="orga9a5f63"><span class="org-variable-name">x</span>, <span class="org-variable-name">_K1</span>, <span class="org-variable-name">_K2</span> <span class="org-operator">=</span> var<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'x _K1 _K2'</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<pre class="src src-sage" id="org06abf1e"><span class="org-variable-name">x</span>, <span class="org-variable-name">_K1</span>, <span class="org-variable-name">_K2</span> <span class="org-operator">=</span> var<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'x _K1 _K2'</span><span class="org-rainbow-delimiters-depth-1">)</span>
 <span class="org-variable-name">y</span> <span class="org-operator">=</span> function<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'y'</span><span class="org-rainbow-delimiters-depth-1">)(</span>x<span class="org-rainbow-delimiters-depth-1">)</span>
 
 <span class="org-variable-name">func_a</span> <span class="org-operator">=</span> diff<span class="org-rainbow-delimiters-depth-1">(</span>y, x, 2<span class="org-rainbow-delimiters-depth-1">)</span> <span class="org-operator">*</span> <span class="org-rainbow-delimiters-depth-1">(</span>x <span class="org-operator">**</span> 2 <span class="org-operator">-</span> x<span class="org-rainbow-delimiters-depth-1">)</span> <span class="org-operator">-</span> x <span class="org-operator">*</span> diff<span class="org-rainbow-delimiters-depth-1">(</span>y, x, 1<span class="org-rainbow-delimiters-depth-1">)</span> <span class="org-operator">+</span> y  <span class="org-operator">==</span> 0
@@ -346,31 +361,9 @@ Find a basis of solutions of the ODE:
 </pre>
 </div>
 
-<pre class="example" id="org854e853">
+<pre class="example" id="orge36678a">
 x*log(x) + x + 1
 </pre>
-
-<div class="org-src-container">
-<pre class="src src-sage" id="org537cd9e"><span class="org-variable-name">ax</span> <span class="org-operator">=</span> <span class="org-rainbow-delimiters-depth-1">[</span>0 ,3 ,0, 10<span class="org-rainbow-delimiters-depth-1">]</span>; <span class="org-variable-name">ratio</span> <span class="org-operator">=</span> 0.50
-
-<span class="org-variable-name">kwargs</span> <span class="org-operator">=</span> <span class="org-rainbow-delimiters-depth-1">{</span>
-    <span class="org-string">'xmin'</span> : ax<span class="org-rainbow-delimiters-depth-2">[</span>0<span class="org-rainbow-delimiters-depth-2">]</span> ,
-    <span class="org-string">'xmax'</span> : ax<span class="org-rainbow-delimiters-depth-2">[</span>1<span class="org-rainbow-delimiters-depth-2">]</span> ,
-    <span class="org-string">'ymin'</span> : ax<span class="org-rainbow-delimiters-depth-2">[</span>2<span class="org-rainbow-delimiters-depth-2">]</span> ,
-    <span class="org-string">'ymax'</span> : ax<span class="org-rainbow-delimiters-depth-2">[</span>3<span class="org-rainbow-delimiters-depth-2">]</span> ,
-    <span class="org-string">'gridlines'</span> : <span class="org-string">'minor'</span> ,
-    <span class="org-string">'frame'</span> : <span class="org-constant">False</span> ,
-    <span class="org-string">'axes'</span> : <span class="org-constant">True</span> ,
-    <span class="org-string">'fig_tight'</span>: <span class="org-constant">True</span>,
-    <span class="org-string">'gridlinesstyle'</span>: <span class="org-builtin">dict</span><span class="org-rainbow-delimiters-depth-2">(</span>color<span class="org-operator">=</span><span class="org-string">"</span><span class="custom"><span class="custom-1">#E5E4E2</span></span><span class="org-string">"</span>, linestyle<span class="org-operator">=</span><span class="org-string">":"</span>, linewidth<span class="org-operator">=</span>0.25<span class="org-rainbow-delimiters-depth-2">)</span>,
-    <span class="org-string">'transparent'</span> : <span class="org-constant">True</span>,
-    <span class="org-string">'figsize'</span> : 6,
-    <span class="org-string">'aspect_ratio'</span> : <span class="org-builtin">abs</span><span class="org-rainbow-delimiters-depth-2">(</span>ax<span class="org-rainbow-delimiters-depth-3">[</span>1<span class="org-rainbow-delimiters-depth-3">]</span> <span class="org-operator">-</span> ax<span class="org-rainbow-delimiters-depth-3">[</span>0<span class="org-rainbow-delimiters-depth-3">]</span><span class="org-rainbow-delimiters-depth-2">)</span> <span class="org-operator">/</span> <span class="org-builtin">abs</span><span class="org-rainbow-delimiters-depth-2">(</span>ax<span class="org-rainbow-delimiters-depth-3">[</span>3<span class="org-rainbow-delimiters-depth-3">]</span> <span class="org-operator">-</span> ax<span class="org-rainbow-delimiters-depth-3">[</span>2<span class="org-rainbow-delimiters-depth-3">]</span><span class="org-rainbow-delimiters-depth-2">)</span> <span class="org-operator">*</span> ratio,
-     <span class="org-rainbow-delimiters-depth-1">}</span>
-
-plt.save<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">"images/Second-Order-ODEs/reduction-of-order-if-a-solution-is-known.pdf"</span>,<span class="org-operator">**</span>kwargs<span class="org-rainbow-delimiters-depth-1">)</span>
-</pre>
-</div>
 </div>
 </div>
 
@@ -390,7 +383,7 @@ respectively.
 </blockquote>
 
 <div class="org-src-container">
-<pre class="src src-sage" id="orga0889a7"><span class="org-variable-name">r</span> <span class="org-operator">=</span> var<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'r'</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<pre class="src src-sage" id="orge5de81e"><span class="org-variable-name">r</span> <span class="org-operator">=</span> var<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'r'</span><span class="org-rainbow-delimiters-depth-1">)</span>
 <span class="org-variable-name">v</span> <span class="org-operator">=</span> function<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'v'</span><span class="org-rainbow-delimiters-depth-1">)(</span>r<span class="org-rainbow-delimiters-depth-1">)</span>
 
 <span class="org-variable-name">func_a</span> <span class="org-operator">=</span> r<span class="org-operator">*</span>diff<span class="org-rainbow-delimiters-depth-1">(</span>v, r, 2<span class="org-rainbow-delimiters-depth-1">)</span> <span class="org-operator">+</span> 2 <span class="org-operator">*</span> diff<span class="org-rainbow-delimiters-depth-1">(</span>v, r, 1<span class="org-rainbow-delimiters-depth-1">)</span> <span class="org-operator">==</span> 0
@@ -403,7 +396,7 @@ respectively.
 </pre>
 </div>
 
-<pre class="example" id="orgf9063e5">
+<pre class="example" id="org21d0a3c">
 1100/r - 110
 </pre>
 </div>
@@ -412,40 +405,76 @@ respectively.
 <div id="outline-container-orgf4274d0" class="outline-3">
 <h3 id="orgf4274d0">IVP: In Case of Distinct Real Roots</h3>
 <div class="outline-text-3" id="text-orgf4274d0">
+<p>
+Solve the initial value problem
+</p>
+
+<p>
+\[y\prime\prime + y\prime - 2y = 0, \quad  y(0) = 4, \quad y\prime(0) = -5 \]
+</p>
+
 <div class="org-src-container">
-<pre class="src src-sage" id="org9dd5160"><span class="org-variable-name">x</span> <span class="org-operator">=</span> var<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'x'</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<pre class="src src-sage" id="org7495e18"><span class="org-variable-name">x</span> <span class="org-operator">=</span> var<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'x'</span><span class="org-rainbow-delimiters-depth-1">)</span>
 <span class="org-variable-name">y</span> <span class="org-operator">=</span> function<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'y'</span><span class="org-rainbow-delimiters-depth-1">)(</span>x<span class="org-rainbow-delimiters-depth-1">)</span>
 
 <span class="org-variable-name">func</span> <span class="org-operator">=</span> diff<span class="org-rainbow-delimiters-depth-1">(</span>y, x, 2<span class="org-rainbow-delimiters-depth-1">)</span> <span class="org-operator">+</span> diff<span class="org-rainbow-delimiters-depth-1">(</span>y, x, 1<span class="org-rainbow-delimiters-depth-1">)</span> <span class="org-operator">-</span> 2<span class="org-operator">*</span>y <span class="org-operator">==</span> 0
 
 <span class="org-variable-name">result</span> <span class="org-operator">=</span> desolve<span class="org-rainbow-delimiters-depth-1">(</span>func, y, ics <span class="org-operator">=</span> <span class="org-rainbow-delimiters-depth-2">[</span>0, 4, <span class="org-operator">-</span>5<span class="org-rainbow-delimiters-depth-2">]</span><span class="org-rainbow-delimiters-depth-1">)</span>
 
+<span class="org-builtin">print</span><span class="org-rainbow-delimiters-depth-1">(</span>result<span class="org-rainbow-delimiters-depth-1">)</span>
+
 <span class="org-variable-name">plt</span> <span class="org-operator">=</span> result.plot<span class="org-rainbow-delimiters-depth-1">(</span>x, 0, 4<span class="org-rainbow-delimiters-depth-1">)</span>
 </pre>
 </div>
+
+<pre class="example" id="orgc2592db">
+3*e^(-2*x) + e^x
+</pre>
 </div>
 </div>
 
 <div id="outline-container-orgc9cce5a" class="outline-3">
 <h3 id="orgc9cce5a">IVP: In Case of a Double Root</h3>
 <div class="outline-text-3" id="text-orgc9cce5a">
+<p>
+Solve the initial value problem
+</p>
+
+<p>
+\[y\prime\prime + y\prime + 0.25y = 0, \quad  y(0) = 3, \quad y\prime(0) = -3.5 \]
+</p>
+
 <div class="org-src-container">
-<pre class="src src-sage" id="org2af9da5"><span class="org-variable-name">x</span> <span class="org-operator">=</span> var<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'x'</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<pre class="src src-sage" id="org94c3968"><span class="org-variable-name">x</span> <span class="org-operator">=</span> var<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'x'</span><span class="org-rainbow-delimiters-depth-1">)</span>
 <span class="org-variable-name">y</span> <span class="org-operator">=</span> function<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'y'</span><span class="org-rainbow-delimiters-depth-1">)(</span>x<span class="org-rainbow-delimiters-depth-1">)</span>
 
 <span class="org-variable-name">func</span> <span class="org-operator">=</span> diff<span class="org-rainbow-delimiters-depth-1">(</span>y, x, 2<span class="org-rainbow-delimiters-depth-1">)</span> <span class="org-operator">+</span> diff<span class="org-rainbow-delimiters-depth-1">(</span>y, x, 1<span class="org-rainbow-delimiters-depth-1">)</span> <span class="org-operator">+</span> 0.25<span class="org-operator">*</span>y <span class="org-operator">==</span> 0
 
 <span class="org-variable-name">result</span> <span class="org-operator">=</span> desolve<span class="org-rainbow-delimiters-depth-1">(</span>func, y, ics <span class="org-operator">=</span> <span class="org-rainbow-delimiters-depth-2">[</span>0, 3, <span class="org-operator">-</span>3.5<span class="org-rainbow-delimiters-depth-2">]</span><span class="org-rainbow-delimiters-depth-1">)</span>
 
+<span class="org-builtin">print</span><span class="org-rainbow-delimiters-depth-1">(</span>result<span class="org-rainbow-delimiters-depth-1">)</span>
+
 <span class="org-variable-name">plt</span> <span class="org-operator">=</span> result.plot<span class="org-rainbow-delimiters-depth-1">(</span>x, 0, 15<span class="org-rainbow-delimiters-depth-1">)</span>
 </pre>
 </div>
+
+<pre class="example" id="org0cc9f04">
+-(2*x - 3)*e^(-1/2*x)
+</pre>
 </div>
 </div>
 
 <div id="outline-container-orgfb3bbbe" class="outline-3">
 <h3 id="orgfb3bbbe">IVP: In Case of Complex Roots</h3>
 <div class="outline-text-3" id="text-orgfb3bbbe">
+<p>
+Solve the initial value problem
+</p>
+
+<p>
+\[y\prime\prime + 0.4y\prime + 9.04y = 0, \quad  y(0) = 0, \quad y\prime(0) = 3 \]
+</p>
+
 <div class="org-src-container">
 <pre class="src src-sage" id="org83696fe"><span class="org-variable-name">x</span> <span class="org-operator">=</span> var<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'x'</span><span class="org-rainbow-delimiters-depth-1">)</span>
 <span class="org-variable-name">y</span> <span class="org-operator">=</span> function<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'y'</span><span class="org-rainbow-delimiters-depth-1">)(</span>x<span class="org-rainbow-delimiters-depth-1">)</span>
@@ -463,8 +492,25 @@ respectively.
 <div id="outline-container-orgde44f87" class="outline-3">
 <h3 id="orgde44f87">Three Cases of Damped Motion</h3>
 <div class="outline-text-3" id="text-orgde44f87">
+<p>
+How does the motion of the damped system change if we change the damping constant \(c\)
+from one to another of the following three values, with:
+</p>
+
+
+\begin{align}
+	 c &= 100, \\
+	 c &= 60, \\
+	c &= 10,
+\end{align}
+
+
+<p>
+with \(y(0) = 0.16\) and \(y\prime(0) = 0\).
+</p>
+
 <div class="org-src-container">
-<pre class="src src-sage" id="orgdfba326"><span class="org-variable-name">x</span> <span class="org-operator">=</span> var<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'x'</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<pre class="src src-sage" id="org5e9b45f"><span class="org-variable-name">x</span> <span class="org-operator">=</span> var<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'x'</span><span class="org-rainbow-delimiters-depth-1">)</span>
 <span class="org-variable-name">y</span> <span class="org-operator">=</span> function<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'y'</span><span class="org-rainbow-delimiters-depth-1">)(</span>x<span class="org-rainbow-delimiters-depth-1">)</span>
 
 <span class="org-variable-name">func_a</span> <span class="org-operator">=</span> 10<span class="org-operator">*</span>diff<span class="org-rainbow-delimiters-depth-1">(</span>y, x, 2<span class="org-rainbow-delimiters-depth-1">)</span> <span class="org-operator">+</span> 100 <span class="org-operator">*</span> diff<span class="org-rainbow-delimiters-depth-1">(</span>y, x, 1<span class="org-rainbow-delimiters-depth-1">)</span> <span class="org-operator">+</span> 90 <span class="org-operator">*</span> y <span class="org-operator">==</span> 0
@@ -481,11 +527,287 @@ respectively.
 </pre>
 </div>
 
-<pre class="example" id="orgdbad728">
+<pre class="example" id="org55b54b7">
 9/50*e^(-x) - 1/50*e^(-9*x)
 4/25*(3*x + 1)*e^(-3*x)
 4/875*(sqrt(35)*sin(1/2*sqrt(35)*x) + 35*cos(1/2*sqrt(35)*x))*e^(-1/2*x)
 </pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgab4cf53" class="outline-2">
+<h2 id="orgab4cf53">Non-Homogeneous ODEs</h2>
+<div class="outline-text-2" id="text-orgab4cf53">
+</div>
+<div id="outline-container-org75f8861" class="outline-3">
+<h3 id="org75f8861">Application of the Basic Rule (a)</h3>
+<div class="outline-text-3" id="text-org75f8861">
+<p>
+Solve the initial value problem
+</p>
+
+<p>
+\[ y\prime\prime + y = 0.001x^2, \quad y(0) = 0, \quad y\prime(0) = 1.5. \]
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sage" id="org055ecd8"><span class="org-variable-name">ax</span> <span class="org-operator">=</span> <span class="org-rainbow-delimiters-depth-1">[</span>0 ,40 ,<span class="org-operator">-</span>1.5, 3.5<span class="org-rainbow-delimiters-depth-1">]</span>; <span class="org-variable-name">ratio</span> <span class="org-operator">=</span> 0.5
+
+<span class="org-variable-name">kwargs</span> <span class="org-operator">=</span> <span class="org-rainbow-delimiters-depth-1">{</span>
+    <span class="org-string">'xmin'</span> : ax<span class="org-rainbow-delimiters-depth-2">[</span>0<span class="org-rainbow-delimiters-depth-2">]</span> ,
+    <span class="org-string">'xmax'</span> : ax<span class="org-rainbow-delimiters-depth-2">[</span>1<span class="org-rainbow-delimiters-depth-2">]</span> ,
+    <span class="org-string">'ymin'</span> : ax<span class="org-rainbow-delimiters-depth-2">[</span>2<span class="org-rainbow-delimiters-depth-2">]</span> ,
+    <span class="org-string">'ymax'</span> : ax<span class="org-rainbow-delimiters-depth-2">[</span>3<span class="org-rainbow-delimiters-depth-2">]</span> ,
+    <span class="org-string">'gridlines'</span> : <span class="org-string">'minor'</span> ,
+    <span class="org-string">'frame'</span> : <span class="org-constant">False</span> ,
+    <span class="org-string">'axes'</span> : <span class="org-constant">True</span> ,
+    <span class="org-string">'fig_tight'</span>: <span class="org-constant">True</span>,
+    <span class="org-string">'gridlinesstyle'</span>: <span class="org-builtin">dict</span><span class="org-rainbow-delimiters-depth-2">(</span>color<span class="org-operator">=</span><span class="org-string">"</span><span class="custom"><span class="custom-1">#E5E4E2</span></span><span class="org-string">"</span>, linestyle<span class="org-operator">=</span><span class="org-string">":"</span>, linewidth<span class="org-operator">=</span>0.25<span class="org-rainbow-delimiters-depth-2">)</span>,
+    <span class="org-string">'transparent'</span> : <span class="org-constant">True</span>,
+    <span class="org-string">'figsize'</span> : 6,
+    <span class="org-string">'aspect_ratio'</span> : <span class="org-builtin">abs</span><span class="org-rainbow-delimiters-depth-2">(</span>ax<span class="org-rainbow-delimiters-depth-3">[</span>1<span class="org-rainbow-delimiters-depth-3">]</span> <span class="org-operator">-</span> ax<span class="org-rainbow-delimiters-depth-3">[</span>0<span class="org-rainbow-delimiters-depth-3">]</span><span class="org-rainbow-delimiters-depth-2">)</span> <span class="org-operator">/</span> <span class="org-builtin">abs</span><span class="org-rainbow-delimiters-depth-2">(</span>ax<span class="org-rainbow-delimiters-depth-3">[</span>3<span class="org-rainbow-delimiters-depth-3">]</span> <span class="org-operator">-</span> ax<span class="org-rainbow-delimiters-depth-3">[</span>2<span class="org-rainbow-delimiters-depth-3">]</span><span class="org-rainbow-delimiters-depth-2">)</span> <span class="org-operator">*</span> ratio,
+     <span class="org-rainbow-delimiters-depth-1">}</span>
+
+plt.save<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">"images/Second-Order-ODEs/application-of-the-basic-rule-a.pdf"</span>,<span class="org-operator">**</span>kwargs<span class="org-rainbow-delimiters-depth-1">)</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org78ccac9" class="outline-3">
+<h3 id="org78ccac9">Application of the Modification Rule (b)</h3>
+<div class="outline-text-3" id="text-org78ccac9">
+<p>
+Solve the initial value problem
+</p>
+
+<p>
+\[ y\prime\prime + 3y\prime + 2.25y = -10 e^{-1.5x}, \quad y(0) = 1, \quad y\prime(0) = 0. \]
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sage" id="orga977baa"><span class="org-variable-name">x</span> <span class="org-operator">=</span> var<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'x'</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-variable-name">y</span> <span class="org-operator">=</span> function<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'y'</span><span class="org-rainbow-delimiters-depth-1">)(</span>x<span class="org-rainbow-delimiters-depth-1">)</span>
+
+<span class="org-variable-name">func</span> <span class="org-operator">=</span> diff<span class="org-rainbow-delimiters-depth-1">(</span>y, x, 2<span class="org-rainbow-delimiters-depth-1">)</span> <span class="org-operator">+</span> 3 <span class="org-operator">*</span> diff<span class="org-rainbow-delimiters-depth-1">(</span>y, x, 1<span class="org-rainbow-delimiters-depth-1">)</span> <span class="org-operator">+</span> 2.25 <span class="org-operator">*</span> y <span class="org-operator">==</span>  <span class="org-operator">-</span>10 <span class="org-operator">*</span> e<span class="org-operator">^</span><span class="org-rainbow-delimiters-depth-1">(</span><span class="org-operator">-</span>1.5 <span class="org-operator">*</span> x<span class="org-rainbow-delimiters-depth-1">)</span>
+
+<span class="org-variable-name">result</span> <span class="org-operator">=</span> desolve<span class="org-rainbow-delimiters-depth-1">(</span>func, y, ics <span class="org-operator">=</span> <span class="org-rainbow-delimiters-depth-2">[</span>0, 1, 0<span class="org-rainbow-delimiters-depth-2">]</span><span class="org-rainbow-delimiters-depth-1">)</span>
+
+<span class="org-variable-name">plt</span> <span class="org-operator">=</span> result.plot<span class="org-rainbow-delimiters-depth-1">(</span>x, 0, 5<span class="org-rainbow-delimiters-depth-1">)</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org55e61db" class="outline-3">
+<h3 id="org55e61db">Application of the Sum Rule (c)</h3>
+<div class="outline-text-3" id="text-org55e61db">
+<p>
+Solve the initial value problem
+</p>
+
+<p>
+\[ y\prime\prime + 2y\prime + 0.75y = 2 \cos x - 0.25 \sin x + 0.09 x, \quad y(0) = 1, \quad y\prime(0) = 0. \]
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sage" id="orgfd06509"><span class="org-variable-name">x</span> <span class="org-operator">=</span> var<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'x'</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-variable-name">y</span> <span class="org-operator">=</span> function<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'y'</span><span class="org-rainbow-delimiters-depth-1">)(</span>x<span class="org-rainbow-delimiters-depth-1">)</span>
+
+<span class="org-variable-name">func</span> <span class="org-operator">=</span> diff<span class="org-rainbow-delimiters-depth-1">(</span>y, x, 2<span class="org-rainbow-delimiters-depth-1">)</span> <span class="org-operator">+</span> 2 <span class="org-operator">*</span> diff<span class="org-rainbow-delimiters-depth-1">(</span>y, x, 1<span class="org-rainbow-delimiters-depth-1">)</span> <span class="org-operator">+</span> 0.75 <span class="org-operator">*</span> y <span class="org-operator">==</span> 2 <span class="org-operator">*</span> cos<span class="org-rainbow-delimiters-depth-1">(</span>x<span class="org-rainbow-delimiters-depth-1">)</span> <span class="org-operator">-</span> 0.25 <span class="org-operator">*</span> sin<span class="org-rainbow-delimiters-depth-1">(</span>x<span class="org-rainbow-delimiters-depth-1">)</span> <span class="org-operator">+</span> 0.09 <span class="org-operator">*</span> x
+
+<span class="org-variable-name">result</span> <span class="org-operator">=</span> desolve<span class="org-rainbow-delimiters-depth-1">(</span>func, y, ics <span class="org-operator">=</span> <span class="org-rainbow-delimiters-depth-2">[</span>0, 2.78, <span class="org-operator">-</span>0.43<span class="org-rainbow-delimiters-depth-2">]</span><span class="org-rainbow-delimiters-depth-1">)</span>
+
+<span class="org-variable-name">plt</span> <span class="org-operator">=</span> result.plot<span class="org-rainbow-delimiters-depth-1">(</span>x, 0, 20<span class="org-rainbow-delimiters-depth-1">)</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org18aa8cc" class="outline-3">
+<h3 id="org18aa8cc">Modelling: Forced Oscillations &amp; Resonance</h3>
+<div class="outline-text-3" id="text-org18aa8cc">
+<div class="org-src-container">
+<pre class="src src-sage" id="org78a47a8"><span class="org-variable-name">m</span>, <span class="org-variable-name">c</span>, <span class="org-variable-name">k</span>, <span class="org-variable-name">F_0</span>, <span class="org-variable-name">w</span>, <span class="org-variable-name">w_0</span>, <span class="org-variable-name">t</span>, <span class="org-variable-name">_K1</span>, <span class="org-variable-name">_K2</span> <span class="org-operator">=</span> var<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'m c k F_0 w w_0 t _K1 _K2'</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-variable-name">y</span> <span class="org-operator">=</span> function<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'y'</span><span class="org-rainbow-delimiters-depth-1">)(</span>t<span class="org-rainbow-delimiters-depth-1">)</span>
+
+<span class="org-variable-name">c</span> <span class="org-operator">=</span> 0
+<span class="org-variable-name">k</span> <span class="org-operator">=</span> m <span class="org-operator">*</span> w_0 <span class="org-operator">**</span> 2
+
+assume<span class="org-rainbow-delimiters-depth-1">(</span>w_0 <span class="org-operator">&gt;</span> 0<span class="org-rainbow-delimiters-depth-1">)</span>
+
+<span class="org-variable-name">func</span> <span class="org-operator">=</span> m <span class="org-operator">*</span> diff<span class="org-rainbow-delimiters-depth-1">(</span>y, t, 2<span class="org-rainbow-delimiters-depth-1">)</span> <span class="org-operator">+</span> c <span class="org-operator">*</span> diff<span class="org-rainbow-delimiters-depth-1">(</span>y, t, 1<span class="org-rainbow-delimiters-depth-1">)</span> <span class="org-operator">+</span> k <span class="org-operator">*</span> y <span class="org-operator">==</span> F_0 <span class="org-operator">*</span> cos<span class="org-rainbow-delimiters-depth-1">(</span>w <span class="org-operator">*</span> t<span class="org-rainbow-delimiters-depth-1">)</span>
+
+<span class="org-variable-name">result</span> <span class="org-operator">=</span> desolve<span class="org-rainbow-delimiters-depth-1">(</span>func, y, ivar <span class="org-operator">=</span> t<span class="org-rainbow-delimiters-depth-1">)</span>.subs<span class="org-rainbow-delimiters-depth-1">(</span>_K1 <span class="org-operator">=</span> 1, _K2 <span class="org-operator">=</span> 1<span class="org-rainbow-delimiters-depth-1">)</span>
+
+<span class="org-variable-name">rho</span> <span class="org-operator">=</span>  1 <span class="org-operator">/</span> <span class="org-rainbow-delimiters-depth-1">(</span>1 <span class="org-operator">-</span> <span class="org-rainbow-delimiters-depth-2">(</span>w <span class="org-operator">/</span> w_0<span class="org-rainbow-delimiters-depth-2">)</span> <span class="org-operator">**</span> 2<span class="org-rainbow-delimiters-depth-1">)</span>.subs<span class="org-rainbow-delimiters-depth-1">(</span>w <span class="org-operator">=</span> 1<span class="org-rainbow-delimiters-depth-1">)</span>
+
+<span class="org-builtin">print</span><span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">"rho is      : "</span>, rho<span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-builtin">print</span><span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">"solution is : "</span>, result<span class="org-rainbow-delimiters-depth-1">)</span>
+
+<span class="org-variable-name">plt_rho</span> <span class="org-operator">=</span> rho.plot<span class="org-rainbow-delimiters-depth-1">(</span>w_0, 0, 5<span class="org-rainbow-delimiters-depth-1">)</span>
+</pre>
+</div>
+
+<pre class="example" id="org86b3152">
+rho is      :  -1/(1/w_0^2 - 1)
+solution is :  -F_0*cos(t*w)/(m*w^2 - m*w_0^2) + cos(t*w_0) + sin(t*w_0)
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org0e2ad9b" class="outline-3">
+<h3 id="org0e2ad9b">Modelling: Electric Circuits</h3>
+<div class="outline-text-3" id="text-org0e2ad9b">
+<p>
+Find the current \(I(t)\) in an RLC-circuit with:
+</p>
+
+<ul class="org-ul">
+<li>\(R = 11 (ohms)\),</li>
+<li>\(L = 0.1 (henry)\),</li>
+<li>\(C = 0.01 (farad)\),</li>
+</ul>
+
+<p>
+which is connected to a source of:
+</p>
+
+<p>
+\[V(t) = 110 \sin (2 \pi 60 t) \]
+</p>
+
+<p>
+Assume that current and capacitor charge are 0 when \(t = 0\).
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sage" id="org70ea4bd"><span class="org-variable-name">t</span> <span class="org-operator">=</span> var<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'t'</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-variable-name">y</span> <span class="org-operator">=</span> function<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'y'</span><span class="org-rainbow-delimiters-depth-1">)(</span>t<span class="org-rainbow-delimiters-depth-1">)</span>
+
+<span class="org-variable-name">L</span> <span class="org-operator">=</span> 0.1
+<span class="org-variable-name">R</span> <span class="org-operator">=</span> 11
+<span class="org-variable-name">C</span> <span class="org-operator">=</span> 0.01
+<span class="org-variable-name">f</span> <span class="org-operator">=</span> 60
+<span class="org-variable-name">E</span> <span class="org-operator">=</span> 110 <span class="org-operator">*</span> sin <span class="org-rainbow-delimiters-depth-1">(</span> 2 <span class="org-operator">*</span> pi <span class="org-operator">*</span> f <span class="org-operator">*</span> t<span class="org-rainbow-delimiters-depth-1">)</span>
+
+<span class="org-variable-name">func</span> <span class="org-operator">=</span> L <span class="org-operator">*</span> diff<span class="org-rainbow-delimiters-depth-1">(</span>y, t, 2<span class="org-rainbow-delimiters-depth-1">)</span> <span class="org-operator">+</span> R <span class="org-operator">*</span> diff<span class="org-rainbow-delimiters-depth-1">(</span>y, t, 1<span class="org-rainbow-delimiters-depth-1">)</span> <span class="org-operator">+</span> 1 <span class="org-operator">/</span> C <span class="org-operator">*</span> y <span class="org-operator">==</span> diff<span class="org-rainbow-delimiters-depth-1">(</span>E, t, 1<span class="org-rainbow-delimiters-depth-1">)</span>
+
+<span class="org-variable-name">result</span> <span class="org-operator">=</span> desolve<span class="org-rainbow-delimiters-depth-1">(</span>func, y, ivar <span class="org-operator">=</span> t, ics <span class="org-operator">=</span> <span class="org-rainbow-delimiters-depth-2">[</span>0, 0 ,0<span class="org-rainbow-delimiters-depth-2">]</span><span class="org-rainbow-delimiters-depth-1">)</span>
+
+<span class="org-builtin">print</span><span class="org-rainbow-delimiters-depth-1">(</span>result<span class="org-rainbow-delimiters-depth-1">)</span>
+
+<span class="org-variable-name">plt</span> <span class="org-operator">=</span> result.plot<span class="org-rainbow-delimiters-depth-1">(</span>t, 0, 0.1<span class="org-rainbow-delimiters-depth-1">)</span>
+</pre>
+</div>
+
+<pre class="example" id="org4d4e0d1">
+-440/3*pi*e^(-10*t)/(144*pi^2 + 1) + 1100/3*pi*e^(-100*t)/(36*pi^2 + 25) + 660*(66*pi^2*sin(120*pi*t) + (5*pi - 72*pi^3)*cos(120*pi*t))/(5184*pi^4 + 3636*pi^2 + 25)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbcf8007" class="outline-2">
+<h2 id="orgbcf8007">Variation of Parameters</h2>
+<div class="outline-text-2" id="text-orgbcf8007">
+</div>
+<div id="outline-container-orga27ddb0" class="outline-3">
+<h3 id="orga27ddb0">Method of Variation of Parameters</h3>
+<div class="outline-text-3" id="text-orga27ddb0">
+<p>
+Solve the non-homogeneous ODE:
+</p>
+
+<p>
+\[ y\prime\prime + y = \sec x = \frac{1}{\cos x} \]
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sage" id="org18e9bc5"><span class="org-variable-name">x</span>, <span class="org-variable-name">_K1</span>, <span class="org-variable-name">_K2</span> <span class="org-operator">=</span> var<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'x _K1 _K2'</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-variable-name">y</span> <span class="org-operator">=</span> function<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'y'</span><span class="org-rainbow-delimiters-depth-1">)(</span>x<span class="org-rainbow-delimiters-depth-1">)</span>
+
+<span class="org-variable-name">func</span> <span class="org-operator">=</span> diff<span class="org-rainbow-delimiters-depth-1">(</span>y, x, 2<span class="org-rainbow-delimiters-depth-1">)</span> <span class="org-operator">+</span>  y <span class="org-operator">==</span> 1 <span class="org-operator">/</span> cos<span class="org-rainbow-delimiters-depth-1">(</span>x<span class="org-rainbow-delimiters-depth-1">)</span>
+
+<span class="org-variable-name">result</span> <span class="org-operator">=</span> desolve<span class="org-rainbow-delimiters-depth-1">(</span>func, y<span class="org-rainbow-delimiters-depth-1">)</span>.subs<span class="org-rainbow-delimiters-depth-1">(</span>_K1 <span class="org-operator">=</span> 1, _K2 <span class="org-operator">=</span> 1<span class="org-rainbow-delimiters-depth-1">)</span>
+
+<span class="org-builtin">print</span><span class="org-rainbow-delimiters-depth-1">(</span>result<span class="org-rainbow-delimiters-depth-1">)</span>
+
+<span class="org-variable-name">plt</span> <span class="org-operator">=</span> result.plot<span class="org-rainbow-delimiters-depth-1">(</span>x, 0, 1<span class="org-rainbow-delimiters-depth-1">)</span>
+</pre>
+</div>
+
+<pre class="example" id="org870aaba">
+cos(x)*log(cos(x)) + x*sin(x) + cos(x) + sin(x)
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orga143ccc" class="outline-3">
+<h3 id="orga143ccc">Euler-Cauchy Equations</h3>
+<div class="outline-text-3" id="text-orga143ccc">
+<div class="org-src-container">
+<pre class="src src-sage" id="orga7fd1ce"><span class="org-variable-name">x</span>, <span class="org-variable-name">a</span>, <span class="org-variable-name">b</span>, <span class="org-variable-name">_K1</span>, <span class="org-variable-name">_K2</span> <span class="org-operator">=</span> var<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'x a b _K1 _K2'</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-variable-name">y</span> <span class="org-operator">=</span> function<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">'y'</span><span class="org-rainbow-delimiters-depth-1">)(</span>x<span class="org-rainbow-delimiters-depth-1">)</span>
+
+<span class="org-variable-name">func</span> <span class="org-operator">=</span> x <span class="org-operator">**</span> 2 <span class="org-operator">*</span> diff<span class="org-rainbow-delimiters-depth-1">(</span>y, x, 2<span class="org-rainbow-delimiters-depth-1">)</span> <span class="org-operator">+</span>  a <span class="org-operator">*</span> x <span class="org-operator">*</span> diff<span class="org-rainbow-delimiters-depth-1">(</span>y, x, 1<span class="org-rainbow-delimiters-depth-1">)</span> <span class="org-operator">+</span> b <span class="org-operator">*</span> y <span class="org-operator">==</span> 0
+
+assume<span class="org-rainbow-delimiters-depth-1">(</span>4<span class="org-operator">*</span>b<span class="org-operator">-</span>a<span class="org-operator">^</span>2<span class="org-operator">+</span>2<span class="org-operator">*</span>a<span class="org-operator">-</span>1 <span class="org-operator">==</span> 0<span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-variable-name">result</span> <span class="org-operator">=</span> desolve<span class="org-rainbow-delimiters-depth-1">(</span>func, y, ivar <span class="org-operator">=</span> x<span class="org-rainbow-delimiters-depth-1">)</span>.subs<span class="org-rainbow-delimiters-depth-1">(</span>_K1 <span class="org-operator">=</span> 1, _K2 <span class="org-operator">=</span> 1<span class="org-rainbow-delimiters-depth-1">)</span>
+
+<span class="org-builtin">print</span><span class="org-rainbow-delimiters-depth-1">(</span>result<span class="org-rainbow-delimiters-depth-1">)</span>
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">ax = [0 ,3 ,0, 10]; ratio = 0.30</span>
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">kwargs = {</span>
+<span class="org-comment-delimiter">#     </span><span class="org-comment">'xmin' : ax[0] ,</span>
+<span class="org-comment-delimiter">#     </span><span class="org-comment">'xmax' : ax[1] ,</span>
+<span class="org-comment-delimiter">#     </span><span class="org-comment">'ymin' : ax[2] ,</span>
+<span class="org-comment-delimiter">#     </span><span class="org-comment">'ymax' : ax[3] ,</span>
+<span class="org-comment-delimiter">#     </span><span class="org-comment">'gridlines' : 'minor' ,</span>
+<span class="org-comment-delimiter">#     </span><span class="org-comment">'frame' : False ,</span>
+<span class="org-comment-delimiter">#     </span><span class="org-comment">'axes' : True ,</span>
+<span class="org-comment-delimiter">#     </span><span class="org-comment">'fig_tight': True,</span>
+<span class="org-comment-delimiter">#     </span><span class="org-comment">'gridlinesstyle': dict(color="</span><span class="custom"><span class="custom-1">#E5E4E2</span></span><span class="org-comment">", linestyle=":", linewidth=0.25),</span>
+<span class="org-comment-delimiter">#     </span><span class="org-comment">'transparent' : True,</span>
+<span class="org-comment-delimiter">#     </span><span class="org-comment">'figsize' : 6,</span>
+<span class="org-comment-delimiter">#     </span><span class="org-comment">'aspect_ratio' : abs(ax[1] - ax[0]) / abs(ax[3] - ax[2]) * ratio,</span>
+<span class="org-comment-delimiter">#      </span><span class="org-comment">}</span>
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">plt.save("images/Second-Order-ODEs/euler-cauchy.pdf",**kwargs)</span>
+</pre>
+</div>
+
+<pre class="example" id="orgf10760a">
+(log(x) + 1)/x^(1/2*a - 1/2)
+</pre>
+
+<div class="org-src-container">
+<pre class="src src-sage" id="org2e49a57">
+
+
+
+<span class="org-variable-name">ax</span> <span class="org-operator">=</span> <span class="org-rainbow-delimiters-depth-1">[</span>0 ,3 ,0, 10<span class="org-rainbow-delimiters-depth-1">]</span>; <span class="org-variable-name">ratio</span> <span class="org-operator">=</span> 0.30
+
+<span class="org-variable-name">kwargs</span> <span class="org-operator">=</span> <span class="org-rainbow-delimiters-depth-1">{</span>
+    <span class="org-string">'xmin'</span> : ax<span class="org-rainbow-delimiters-depth-2">[</span>0<span class="org-rainbow-delimiters-depth-2">]</span> ,
+    <span class="org-string">'xmax'</span> : ax<span class="org-rainbow-delimiters-depth-2">[</span>1<span class="org-rainbow-delimiters-depth-2">]</span> ,
+    <span class="org-string">'ymin'</span> : ax<span class="org-rainbow-delimiters-depth-2">[</span>2<span class="org-rainbow-delimiters-depth-2">]</span> ,
+    <span class="org-string">'ymax'</span> : ax<span class="org-rainbow-delimiters-depth-2">[</span>3<span class="org-rainbow-delimiters-depth-2">]</span> ,
+    <span class="org-string">'gridlines'</span> : <span class="org-string">'minor'</span> ,
+    <span class="org-string">'frame'</span> : <span class="org-constant">False</span> ,
+    <span class="org-string">'axes'</span> : <span class="org-constant">True</span> ,
+    <span class="org-string">'fig_tight'</span>: <span class="org-constant">True</span>,
+    <span class="org-string">'gridlinesstyle'</span>: <span class="org-builtin">dict</span><span class="org-rainbow-delimiters-depth-2">(</span>color<span class="org-operator">=</span><span class="org-string">"</span><span class="custom"><span class="custom-1">#E5E4E2</span></span><span class="org-string">"</span>, linestyle<span class="org-operator">=</span><span class="org-string">":"</span>, linewidth<span class="org-operator">=</span>0.25<span class="org-rainbow-delimiters-depth-2">)</span>,
+    <span class="org-string">'transparent'</span> : <span class="org-constant">True</span>,
+    <span class="org-string">'figsize'</span> : 6,
+    <span class="org-string">'aspect_ratio'</span> : <span class="org-builtin">abs</span><span class="org-rainbow-delimiters-depth-2">(</span>ax<span class="org-rainbow-delimiters-depth-3">[</span>1<span class="org-rainbow-delimiters-depth-3">]</span> <span class="org-operator">-</span> ax<span class="org-rainbow-delimiters-depth-3">[</span>0<span class="org-rainbow-delimiters-depth-3">]</span><span class="org-rainbow-delimiters-depth-2">)</span> <span class="org-operator">/</span> <span class="org-builtin">abs</span><span class="org-rainbow-delimiters-depth-2">(</span>ax<span class="org-rainbow-delimiters-depth-3">[</span>3<span class="org-rainbow-delimiters-depth-3">]</span> <span class="org-operator">-</span> ax<span class="org-rainbow-delimiters-depth-3">[</span>2<span class="org-rainbow-delimiters-depth-3">]</span><span class="org-rainbow-delimiters-depth-2">)</span> <span class="org-operator">*</span> ratio,
+     <span class="org-rainbow-delimiters-depth-1">}</span>
+
+plt.save<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">"images/Second-Order-ODEs/euler-cauchy.pdf"</span>,<span class="org-operator">**</span>kwargs<span class="org-rainbow-delimiters-depth-1">)</span>
+</pre>
+</div>
 </div>
 </div>
 </div>
