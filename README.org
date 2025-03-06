@@ -1,0 +1,278 @@
+#+title: MSc Higher Mathematics I
+
+** Table of Contents :TOC_2:
+  - [[#lecture-information][Lecture Information]]
+  - [[#requirements-and-the-learning-outcomes][Requirements and the Learning Outcomes]]
+  - [[#grading-of-the-lecture][Grading of the Lecture]]
+  - [[#lecture-sources][Lecture Sources]]
+  - [[#content-and-unit-distribution][Content and Unit Distribution]]
+  - [[#lecture-table-of-contents][Lecture Table of Contents]]
+  - [[#related-links][Related Links]]
+
+** Lecture Information
+
+- The goal of this lecture is to introduce you to the tools you need to learn
+  to tackle more advanced engineering problems.
+- These could be ranging from doing circuit analysis to calculating the stress
+  experienced by a bridge which will be covered in this lecture series as
+  examples.
+     
+The structure for this lecture is as follows.
+
+| DESCRIPTION        | VALUE                          |
+| Official Name      | Höhere Mathematik 1            |
+| Lecture Code       | HMA                            |
+| Module Code        | MECH-M-1-HMA-HMA-VO            |
+| Degree             | M.Sc                           |
+| Program Name       | Mechatronik Smart Technologies |
+| Lecture Name       | Drive Systems                  |
+| Semester           | 1                              |
+| Season             | WS                             |
+| Room Type          | Lecture Room                   |
+| Assignments        | Personal Assignment Final Exam |
+| Lecturer           | Daniel T. McGuiness, Ph.D      |
+| Module Responsible | DaM                            |
+| Software           | Python, SageMath               |
+| Hardware           | -                              |
+| SWS Total          | 2                              |
+| SWS Teaching       | 2                              |
+| ECTS               | 3                              |
+| Lecture Type       | VO                             |
+
+** Requirements and the Learning Outcomes
+
+- The student should be comfortable with working with calculus and be
+  familiar with taking derivatives and doing integration.
+
+| REQUIREMENTS   | TAUGHT LECTURE | CODE   | DEGREE | OUTCOME                   |
+| Calculus       | Mathematics I  | MAT I  | B.Sc   | Advanced Vector Calculus  |
+| Linear Algebra | Mathematics II | MAT II | B.Sc   | ODE Solving Methods       |
+| -              |                |        |        | Understanding Transforms  |
+| -              |                |        |        | Eigenvalues, Eigenvectors |
+| -              |                |        |        |                           |
+
+** Grading of the Lecture
+
+    
+- The lecture will have a single personal assignment comprising of a set list of
+  questions and a final exam comprising of all the topics covered in the lecture.
+
+- For the written exam you are allowed to write your own equation reference paper, as
+  long as it is a single sheet of A4, double sided and contains no exercise or solutions.  
+  
+| ASSIGNMENT TYPE     | VALUE |
+| Personal Assignment |    40 |
+| Final Exam          |    60 |
+| SUM                 |   100 |
+
+** Lecture Sources
+
+The following are a table of documentation which are useful resources which
+goes well with the lectures.
+
+| AUTHOR                  | TITLE                                                                       | PUBLISHER             |
+| G. B. Thomas, Jr. et.al | Thomas Calculus (12th Edition)                                              | Pearson (2010)        |
+| A. Gut                  | Probability: A Graduate Course                                              | Springer (2005)       |
+| S.L. Sobolev            | Partial Differential Equations of Mathematical Physics                      | Addison Wesley (2019) |
+| W. A. Strauss           | Partial Differential Equations - An Introduction                            | Wiley (2008)          |
+| R. E. Walpole, et. al   | Probability and Statistics for Engineers & Scientists                       | Pearson (2012)        |
+| M. L. Boas              | Mathematical Methods in the Physical Sciences (3rd Edition)                 | Wiley (2006)          |
+| K. F. Riley, et. al     | Mathematical Methods for Physics and Engineering (3rd Edition)              | Cambridge (2006)      |
+| G. F. Simmons           | Differential Equations with Applications and Historical Notes (3rd Edition) | CRC Press (2017)      |
+| E. Kreyszig             | Advanced Engineering Calculus (9th Edition)                                 | Wiley (2011)          |
+| D. C. Montgomery        | Applied Statistics and Probability for Engineers (3rd Edition)              | Wiley (2003)          |
+| J. F. James             | A Students Guide to Fourier Transform                                       | Cambridge (2011)      |
+| J. Crank                | Mathematics of Diffusion                                                    | Oxford (1975)         |
+| A. Sommerfeld           | Partial Differential Equations in Physics                                   | Academic Press (1949) |
+| E. Cinlar               | Probability and Stochastics                                                 | Springer (2010)       |
+| H. C. Berg              | Random Walks in Biology                                                     | Princeton (1983)      |
+
+** Content and Unit Distribution
+
+- The content and unit distribution of the lecture is as follows where a unit
+  is defined as 45 min lecture.
+    
+| TOPIC                                        | UNITS | SELF STUDY |
+| First-Order Ordinary Differential Equations  |     2 |          4 |
+| Second-Order Ordinary Differential Equations |     4 |          8 |
+| Higher-Order Ordinary Differential Equations |     2 |          4 |
+| Systems of ODEs                              |     4 |          8 |
+| Special Functions for ODEs                   |     2 |          4 |
+| Laplace Transform                            |     4 |          8 |
+| Linear Algebra I - Fundamentals              |     2 |          4 |
+| Eigenvalue Problems                          |     4 |          8 |
+| Vector Differential Calculus                 |     4 |          8 |
+| Vector Integral Calculus                     |     2 |          4 |
+| SUM                                          |    30 |         60 |
+
+** Lecture Table of Contents
+
+The structure of the M.Sc Higher Mathematics I can be grouped into
+three (3) parts:
+
+1. Ordinary Differential Equations (ODEs)
+2. Linear Algebra
+3. Vector Calculus
+
+Below is the detailed structure of the lecture.
+
+- First-Order Ordinary Differential Equations
+  - Introduction to Modelling
+    - Initial Value Problem
+  - Separable ODEs
+      - Reduction to Separable Form
+  - Exact ODEs
+    - Integrating Factors
+  - Linear ODEs
+    - Introduction
+      - Homogeneous Linear ODE
+      - Non-Homogeneous Linear ODE
+- Second-Order Ordinary Differential Equations
+  - Introduction
+    - Superposition Principle
+    - Initial Value Problem
+    - Reduction of Order
+  - Homogeneous Linear ODEs
+    - A Study of Damped System
+      - Case III: Under-Damping
+    - Euler-Cauchy Equations
+    - Non-homogeneous ODEs
+      - Method of Undetermined Coefficients
+      - Step 1: General Solution of the Homogeneous ODE
+      - Step 2: Solution of the non-Homogeneous ODE
+      - Step 3. Solution of the initial value problem.
+      - Step 1.General solution of the homogeneous ODE
+      - Step 2.Solution $y_{p
+      - Step 3. Solution of the initial value problem
+      - Step 3. Solution of the initial value problem
+    - A Study of Forced Oscillations and Resonance
+      - Solving the Non-homogeneous ODE
+    - Solving Electric Circuits
+      - Solving the ODE for the Current
+      - Case I
+      - Case II
+      - Case III
+      - Step 1. General solution of the homogeneous ODE
+      - Step 2. Particular solution $I[p]$
+    - Forced Oscillations
+- Higher-Order Ordinary Differential Equations
+  - Homogeneous Linear ODEs
+      - Superposition and General Solution
+      - General solution
+      - Particular solution
+    - Wronskian: Linear Independence of Solutions
+    - Homogeneous Linear ODEs with Constant Coefficients
+      - Distinct Real Roots
+      - Simple Complex Roots
+      - Multiple Real Roots
+      - Multiple Complex Roots
+    - Non-Homogeneous Linear ODEs
+      - Step 1
+      - Step 2
+      - Step 3
+    - Application: Modelling an Elastic Beam
+      - Problem Description
+      - Boundary Conditions
+      - Solution Derivation
+- Systems of ODEs
+  - Introduction
+    - System of ODEs as Models in Engineering
+      - Setting Up the Model
+      - General Solution
+      - Use of initial conditions
+      - Answer
+      - Setting up the mathematical model
+      - General Solution
+    - Conversion of an n-th Order ODE to a System
+    - Linear Systems
+  - Constant-Coefficient Systems
+    - Phase Plane Method
+    - Critical Points of the System
+      - Five Types of Critical Points
+  - Criteria for Critical Points & Stability
+  - Qualitative Methods for Non-Linear Systems
+    - Linearisation of Non-Linear Systems
+      - Setting Up the Mathematical Model
+      - Critical Points ($pm2gpin,,0$) and Linearisation
+      - Critical Points ($pm(2n -1)gpi,,0$) and Linearisation
+- Special Functions for odes
+  - Introduction
+  - Power Series Method
+  - Legendre's Equation
+    - Legendre Polynomials ($fnr{P[n]
+      - Polynomial Solutions
+  - Extended Power Series: Frobenius Method
+    - Indicial Equation
+    - Typical Applications
+  - Bessel's Function
+    - Bessel Functions ($J[n]$) for Integers
+    - Bessel Functions of the super{2
+- Laplace Transform
+  - Introduction
+  - First Shifting Theorem (s-Shifting)
+    - Replacing s by s - a in the Transform
+  - Transforming Derivatives and Integrals
+    - Laplace Transform a Function Integral
+    - Differential Equations with Initial Values
+  - Unit Step Function (t - Shifting)
+    - Unit Step Function (Heaviside Function)
+    - Time Shifting (t-Shifting): Replacing t by t - a in f(t)
+  - Dirac Delta Function
+  - Convolution
+- Linear Algebra I - Fundamentals
+  - Introduction
+  - Matrices and Vectors
+    - Addition and Scalar Multiplication
+    - General Concepts and Notations
+    - Vectors
+  - Matrix Multiplication
+  - Solutions to Linear Systems
+    - Principles of Existence and Uniqueness
+  - Second and Third Order Determinants
+  - Linear Independence
+    - Linear Independence and Dependence of Vectors
+    - Vector Space
+  - Solution of Linear Systems
+  - Inverse of a Matrix
+    - Gauss-Jordan Method
+    - Trace of a Matrix
+- Eigenvalue Problems
+  - Introduction
+  - The Eigenvalue Problem
+    - Determining Eigenvalues and Eigenvectors
+    - The Process of Finding Eigenvalues and Eigenvectors
+  - Eigenvalue Applications
+  - Symmetric, Skew-Symmetric and Orthogonal Matrices
+    - Necessary Definitions
+    - Orthogonal Transformations and Matrices
+  - Eigenbases, Diagonalisation and Quadratic Forms
+    - Similarity of Matrices and Diagonalisation
+    - Quadratic Forms and Transformation to Principle Axis
+  - Complex Matrices
+    - Eigenvalues of Complex Matrices
+- Vector Differential Calculus
+  - Vectors in 2D Space
+    - Vector Components
+    - Addition and Scalar	Multiplication
+  - Inner Product
+  - Vector Product
+    - Scalar Triple Product
+  - Vector Calculus: Derivatives
+    - Vector Calculus
+  - Theory of Curves
+    - Tangent to a Curve
+    - Length of a Curve
+    - Arc Length s of a Curve
+    - The Gradient of a Scalar Field
+    - Directional Derivative
+    - Gradient as A Vector Normal
+    - The Gradient of a Scalar Field
+  - Divergence of a Vector Field
+  - Curl of a Vector Field
+- Vector Integral Calculus
+  - Introduction
+  - Line Integrals
+    - Defining and Evaluating Line Integrals
+  - Path Independence of Line Integrals
+
+(-DTMc 2025)
