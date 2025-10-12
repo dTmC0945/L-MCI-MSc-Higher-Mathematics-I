@@ -92,17 +92,17 @@ goes well with the lectures.
 - The content and unit distribution of the lecture is as follows where a unit
   is defined as 45 min lecture.
     
-| TOPIC   | UNITS | SELF STUDY |
-| First Order Ordinary Differential Equations|4|8|
-| Second Order Ordinary Differential Equations|4|8|
-| Higher Order Ordinary Differential Equations|4|8|
-| Systems of ODEs|4|8|
-| Special Functions for ODEs|4|8|
-| Laplace Transform|4|8|
-| Linear Algebra I || Fundamentals|
-| Eigenvalue Problems|4|8|
-| Vector Calculus|4|8|
-| SUM  | |   |
+| ORDER | TOPIC                                        | UNITS | SELF STUDY |
+|     1 | First Order Ordinary Differential Equations  |     4 |          8 |
+|     2 | Second Order Ordinary Differential Equations |     4 |          8 |
+|     3 | Higher Order Ordinary Differential Equations |     2 |          4 |
+|     4 | Systems of ODEs                              |     4 |          8 |
+|     5 | Special Functions for ODEs                   |     4 |          8 |
+|     6 | Laplace Transform                            |     2 |          4 |
+|     7 | Linear Algebra                               |     2 |          4 |
+|     8 | Eigenvalue Problems                          |     2 |          4 |
+|     9 | Vector Calculus                              |     4 |          8 |
+|    10 | SUM                                          |    28 |         56 |
  
 ** Lecture Table of Contents
 
@@ -258,6 +258,8 @@ Below is the detailed structure of the lecture.
   - Vector Field Theory
     - Helmholtz Theorem
     - Potentials
+- Final Exam
+  - Final Exam 
 
 ** Documentation
 
