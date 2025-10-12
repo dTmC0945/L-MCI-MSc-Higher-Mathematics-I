@@ -7,6 +7,7 @@
   - [[#lecture-sources][Lecture Sources]]
   - [[#content-and-unit-distribution][Content and Unit Distribution]]
   - [[#lecture-table-of-contents][Lecture Table of Contents]]
+  - [[#documentation][Documentation]]
   - [[#related-links][Related Links]]
 
 ** Lecture Information
@@ -16,8 +17,6 @@
 - These could be ranging from doing circuit analysis to calculating the stress
   experienced by a bridge which will be covered in this lecture series as
   examples.
-     
-The structure for this lecture is as follows.
 
 | DESCRIPTION        | VALUE                          |
 | Official Name      | Höhere Mathematik 1            |
@@ -25,7 +24,7 @@ The structure for this lecture is as follows.
 | Module Code        | MECH-M-1-HMA-HMA-VO            |
 | Degree             | M.Sc                           |
 | Program Name       | Mechatronik Smart Technologies |
-| Lecture Name       | Drive Systems                  |
+| Lecture Name       | Higher Mathematics I           |
 | Semester           | 1                              |
 | Season             | WS                             |
 | Room Type          | Lecture Room                   |
@@ -36,8 +35,10 @@ The structure for this lecture is as follows.
 | Hardware           | -                              |
 | SWS Total          | 2                              |
 | SWS Teaching       | 2                              |
+| UE Total           | 30                             |
 | ECTS               | 3                              |
 | Lecture Type       | VO                             |
+| Working Language   | English                        |
 
 ** Requirements and the Learning Outcomes
 
@@ -56,14 +57,13 @@ The structure for this lecture is as follows.
     
 - The lecture will have a single personal assignment comprising of a set list of
   questions and a final exam comprising of all the topics covered in the lecture.
-
 - For the written exam you are allowed to write your own equation reference paper, as
   long as it is a single sheet of A4, double sided and contains no exercise or solutions.  
   
-| ASSIGNMENT TYPE     | VALUE |
-| Personal Assignment |    40 |
-| Final Exam          |    60 |
-| SUM                 |   100 |
+| ASSIGNMENT TYPE     | VALUE | QUANTITY |
+| Personal Assignment |    40 |        1 |
+| Final Exam          |    60 |        1 |
+| SUM                 |   100 |        2 |
 
 ** Lecture Sources
 
@@ -92,19 +92,18 @@ goes well with the lectures.
 - The content and unit distribution of the lecture is as follows where a unit
   is defined as 45 min lecture.
     
-| TOPIC                                        | UNITS | SELF STUDY |
-| First-Order Ordinary Differential Equations  |     2 |          4 |
-| Second-Order Ordinary Differential Equations |     4 |          8 |
-| Higher-Order Ordinary Differential Equations |     2 |          4 |
-| Systems of ODEs                              |     4 |          8 |
-| Special Functions for ODEs                   |     2 |          4 |
-| Laplace Transform                            |     4 |          8 |
-| Linear Algebra I - Fundamentals              |     2 |          4 |
-| Eigenvalue Problems                          |     4 |          8 |
-| Vector Differential Calculus                 |     4 |          8 |
-| Vector Integral Calculus                     |     2 |          4 |
-| SUM                                          |    30 |         60 |
-
+| TOPIC   | UNITS | SELF STUDY |
+| First Order Ordinary Differential Equations|4|8|
+| Second Order Ordinary Differential Equations|4|8|
+| Higher Order Ordinary Differential Equations|4|8|
+| Systems of ODEs|4|8|
+| Special Functions for ODEs|4|8|
+| Laplace Transform|4|8|
+| Linear Algebra I || Fundamentals|
+| Eigenvalue Problems|4|8|
+| Vector Calculus|4|8|
+| SUM  | |   |
+ 
 ** Lecture Table of Contents
 
 The structure of the M.Sc Higher Mathematics I can be grouped into
@@ -118,15 +117,13 @@ Below is the detailed structure of the lecture.
 
 - First-Order Ordinary Differential Equations
   - Introduction to Modelling
-    - Initial Value Problem
-  - Separable ODEs
-      - Reduction to Separable Form
-  - Exact ODEs
-    - Integrating Factors
-  - Linear ODEs
-    - Introduction
-      - Homogeneous Linear ODE
-      - Non-Homogeneous Linear ODE
+    - The Initial Value Problem
+  - Separable Ordinary Differential Equations
+    - Reduction to Separable Form
+  - Exact Ordinary Differential Equations
+  - Linear Ordinary Differential Equations
+    - Homogeneous Linear Ordinary Differential Equations
+    - Non-Homogeneous Linear Ordinary Differential Equations
 - Second-Order Ordinary Differential Equations
   - Introduction
     - Superposition Principle
@@ -134,79 +131,54 @@ Below is the detailed structure of the lecture.
     - Reduction of Order
   - Homogeneous Linear ODEs
     - A Study of Damped System
-      - Case III: Under-Damping
-    - Euler-Cauchy Equations
-    - Non-homogeneous ODEs
+      - A Deeper Look into the Three Cases
+  - Euler-Cauchy Equations
+  - Non-Homogeneous ODEs
       - Method of Undetermined Coefficients
-      - Step 1: General Solution of the Homogeneous ODE
-      - Step 2: Solution of the non-Homogeneous ODE
-      - Step 3. Solution of the initial value problem.
-      - Step 1.General solution of the homogeneous ODE
-      - Step 2.Solution $y_{p
-      - Step 3. Solution of the initial value problem
-      - Step 3. Solution of the initial value problem
-    - A Study of Forced Oscillations and Resonance
+  - A Study of Forced Oscillations and Resonance
       - Solving the Non-homogeneous ODE
     - Solving Electric Circuits
       - Solving the ODE for the Current
-      - Case I
-      - Case II
-      - Case III
-      - Step 1. General solution of the homogeneous ODE
-      - Step 2. Particular solution $I[p]$
     - Forced Oscillations
 - Higher-Order Ordinary Differential Equations
   - Homogeneous Linear ODEs
       - Superposition and General Solution
-      - General solution
-      - Particular solution
     - Wronskian: Linear Independence of Solutions
     - Homogeneous Linear ODEs with Constant Coefficients
       - Distinct Real Roots
       - Simple Complex Roots
       - Multiple Real Roots
       - Multiple Complex Roots
-    - Non-Homogeneous Linear ODEs
-      - Step 1
-      - Step 2
-      - Step 3
+  - Non-Homogeneous Linear ODEs
     - Application: Modelling an Elastic Beam
-      - Problem Description
+      - Describing the Problem
       - Boundary Conditions
-      - Solution Derivation
+      - Deriving the Solution
 - Systems of ODEs
-  - Introduction
-    - System of ODEs as Models in Engineering
-      - Setting Up the Model
-      - General Solution
-      - Use of initial conditions
-      - Answer
-      - Setting up the mathematical model
-      - General Solution
+  - Looking at Connected ODEs
+    - System of ODEs as Engineering Models
     - Conversion of an n-th Order ODE to a System
     - Linear Systems
-  - Constant-Coefficient Systems
-    - Phase Plane Method
-    - Critical Points of the System
-      - Five Types of Critical Points
-  - Criteria for Critical Points & Stability
+  - Constant Coefficient Systems
+    - The Phase Plane Method
+    - The Critical Points of a System
+    - The Five Types of Critical Points
+  - Criteria for Critical Points and Stability
   - Qualitative Methods for Non-Linear Systems
     - Linearisation of Non-Linear Systems
-      - Setting Up the Mathematical Model
-      - Critical Points ($pm2gpin,,0$) and Linearisation
-      - Critical Points ($pm(2n -1)gpi,,0$) and Linearisation
-- Special Functions for odes
-  - Introduction
-  - Power Series Method
+  - Self-Sustained Oscillations - Van der Pol Equation
+- Special Functions for ODEs
+  - Defining Special Functions
+  - The Method of Power Series
   - Legendre's Equation
-    - Legendre Polynomials ($fnr{P[n]
-      - Polynomial Solutions
-  - Extended Power Series: Frobenius Method
+    - The Polynomials of Legendre
+    - Polynomial Solutions
+  - Extending the Power Series using Frobenius Method
+      - Regular and Singular Points
     - Indicial Equation
     - Typical Applications
   - Bessel's Function
     - Bessel Functions ($J[n]$) for Integers
-    - Bessel Functions of the super{2
 - Laplace Transform
   - Introduction
   - First Shifting Theorem (s-Shifting)
@@ -250,29 +222,47 @@ Below is the detailed structure of the lecture.
     - Quadratic Forms and Transformation to Principle Axis
   - Complex Matrices
     - Eigenvalues of Complex Matrices
-- Vector Differential Calculus
-  - Vectors in 2D Space
-    - Vector Components
-    - Addition and Scalar	Multiplication
-  - Inner Product
-  - Vector Product
-    - Scalar Triple Product
-  - Vector Calculus: Derivatives
-    - Vector Calculus
-  - Theory of Curves
-    - Tangent to a Curve
-    - Length of a Curve
-    - Arc Length s of a Curve
-    - The Gradient of a Scalar Field
-    - Directional Derivative
-    - Gradient as A Vector Normal
-    - The Gradient of a Scalar Field
-  - Divergence of a Vector Field
-  - Curl of a Vector Field
-- Vector Integral Calculus
-  - Introduction
-  - Line Integrals
-    - Defining and Evaluating Line Integrals
-  - Path Independence of Line Integrals
+- Vector Calculus
+  - Vector Algebra
+    - Vector Component Forms
+    - Triple Products
+      - Scalar Triple Product
+      - Vector Triple Product
+    - Position, Displacement, and Separation Vectors
+  - Differential Calculus
+    - Ordinary Derivatives
+    - Gradient
+    - The Del Operator
+    - Divergence
+    - Curl
+    - Product Rules
+    - Second Derivatives
+      - Divergence of a Gradient
+      - Curl of a Gradient
+      - Gradient of Divergence
+      - Divergence of a
+      - Curl of a
+  - Integral Calculus
+    - Line, Surface, and Volume Integrals
+    - The Fundamental Theorem of Calculus
+    - The Fundamental Theorem for Gradients
+      - The Fundamental Theorem for
+    - The Fundamental Theorem for Curls
+  - Curvilinear Coordinates
+    - Spherical Coordinate System
+    - Cylindrical Coordinates
+  - Dirac Delta Function
+    - A Mathematical Anomaly
+    - The 1D Dirac Delta Function
+    - The 3D Dirac Delta
+  - Vector Field Theory
+    - Helmholtz Theorem
+    - Potentials
+
+** Documentation
+
+For any student in need of a LaTeX class designed from the ground-up for
+assignment/lab/thesis/slide for MCI needs please have a look at ~mcidoc~ class
+hosted at [[https://github.com/dTmC0945/C-MCI-LaTeX-Class-mcidoc][GitHub]].
 
 (-DTMc 2025)
