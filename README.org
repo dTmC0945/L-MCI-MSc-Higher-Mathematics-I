@@ -1,4 +1,5 @@
-#+title: MSc Higher Mathematics I
+#+title: LS MSc Higher Mathematics I
+
 
 ** Table of Contents :TOC_2:
   - [[#lecture-information][Lecture Information]]
@@ -8,9 +9,9 @@
   - [[#content-and-unit-distribution][Content and Unit Distribution]]
   - [[#lecture-table-of-contents][Lecture Table of Contents]]
   - [[#documentation][Documentation]]
-  - [[#related-links][Related Links]]
 
 ** Lecture Information
+
 
 - The goal of this lecture is to introduce you to the tools you need to learn
   to tackle more advanced engineering problems.
@@ -18,39 +19,57 @@
   experienced by a bridge which will be covered in this lecture series as
   examples.
 
-| DESCRIPTION        | VALUE                          |
-| Official Name      | Höhere Mathematik 1            |
-| Lecture Code       | HMA                            |
-| Module Code        | MECH-M-1-HMA-HMA-VO            |
-| Degree             | M.Sc                           |
-| Program Name       | Mechatronik Smart Technologies |
-| Lecture Name       | Higher Mathematics I           |
-| Semester           | 1                              |
-| Season             | WS                             |
-| Room Type          | Lecture Room                   |
-| Assignments        | Personal Assignment Final Exam |
-| Lecturer           | Daniel T. McGuiness, Ph.D      |
-| Module Responsible | DaM                            |
-| Software           | Python, SageMath               |
-| Hardware           | -                              |
-| SWS Total          | 2                              |
-| SWS Teaching       | 2                              |
-| UE Total           | 30                             |
-| ECTS               | 3                              |
-| Lecture Type       | VO                             |
-| Working Language   | English                        |
+| INDEX | DESCRIPTION        | VALUE                          | STATUS |
+|-------+--------------------+--------------------------------+--------|
+|     1 | Official Name      | Höhere Mathematik 1            |        |
+|-------+--------------------+--------------------------------+--------|
+|     2 | Lecture Code       | HMA                            | A      |
+|     3 | Module Code        | MECH-M-1-HMA-HMA-VO            | A      |
+|     4 | Degree             | M.Sc                           | A      |
+|     5 | Program Name       | Mechatronik Smart Technologies | A      |
+|     6 | Lecture Name       | Higher Mathematics I           |        |
+|     7 | Semester           | 1                              | A      |
+|     8 | Season             | WS                             | A      |
+|     9 | Room Type          | Lecture Room                   |        |
+|    10 | Assignments        | Personal Assignment Final Exam | A      |
+|    11 | Lecturer           | Daniel T. McGuiness, Ph.D      |        |
+|    12 | Module Responsible | DaM                            | A      |
+|-------+--------------------+--------------------------------+--------|
+|    13 | Software           | Python, SageMath               |        |
+|    14 | Hardware           | -                              |        |
+|-------+--------------------+--------------------------------+--------|
+|    15 | SWS Total          | 2                              | A      |
+|    16 | SWS Teaching       | 2                              |        |
+|    17 | SWS Tutorial       | 0                              |        |
+|    18 | SWS Laboratory     | 0                              |        |
+|    19 | SWS Project Work   | 0                              |        |
+|-------+--------------------+--------------------------------+--------|
+|    20 | UE Total           | 30                             | A      |
+|    21 | UE Teaching        | 30                             | A      |
+|    22 | UE Tutorial        | 0                              | A      |
+|    23 | UE Laboratory      | 0                              | A      |
+|    24 | Assessment Units   | 0                              | A      |
+|    25 | Planned Units      | 30                             | A      |
+|-------+--------------------+--------------------------------+--------|
+|    26 | ECTS               | 3                              | A      |
+|    27 | Lecture Type       | VO                             | A      |
+|    28 | Working Language   | English                        |        |
+|-------+--------------------+--------------------------------+--------|
+
 
 ** Requirements and the Learning Outcomes
 
 - The student should be comfortable with working with calculus and be
   familiar with taking derivatives and doing integration.
 
-| REQUIREMENTS   | TAUGHT LECTURE | CODE   | DEGREE | OUTCOME                   |
-| Calculus       | Mathematics I  | MAT I  | B.Sc   | Advanced Vector Calculus  |
-| Linear Algebra | Mathematics II | MAT II | B.Sc   | ODE Solving Methods       |
-| -              |                |        |        | Understanding Transforms  |
-| -              |                |        |        | Eigenvalues, Eigenvectors |
-| -              |                |        |        |                           |
+| INDEX | REQUIREMENTS   | TAUGHT LECTURE | CODE   | DEGREE | OUTCOME                   |
+|-------+----------------+----------------+--------+--------+---------------------------|
+|     1 | Calculus       | Mathematics I  | MAT I  | B.Sc   | Advanced Vector Calculus  |
+|     2 | Linear Algebra | Mathematics II | MAT II | B.Sc   | ODE Solving Methods       |
+|     3 | -              |                |        |        | Understanding Transforms  |
+|     4 | -              |                |        |        | Eigenvalues, Eigenvectors |
+|     5 | -              |                |        |        |                           |
+|-------+----------------+----------------+--------+--------+---------------------------|
 
 ** Grading of the Lecture
 
@@ -61,8 +80,10 @@
   long as it is a single sheet of A4, double sided and contains no exercise or solutions.  
   
 | ASSIGNMENT TYPE     | VALUE | QUANTITY |
+|---------------------+-------+----------|
 | Personal Assignment |    40 |        1 |
 | Final Exam          |    60 |        1 |
+|---------------------+-------+----------|
 | SUM                 |   100 |        2 |
 
 ** Lecture Sources
@@ -70,29 +91,34 @@
 The following are a table of documentation which are useful resources which
 goes well with the lectures.
 
-| AUTHOR                  | TITLE                                                                       | PUBLISHER             |
-| G. B. Thomas, Jr. et.al | Thomas Calculus (12th Edition)                                              | Pearson (2010)        |
-| A. Gut                  | Probability: A Graduate Course                                              | Springer (2005)       |
-| S.L. Sobolev            | Partial Differential Equations of Mathematical Physics                      | Addison Wesley (2019) |
-| W. A. Strauss           | Partial Differential Equations - An Introduction                            | Wiley (2008)          |
-| R. E. Walpole, et. al   | Probability and Statistics for Engineers & Scientists                       | Pearson (2012)        |
-| M. L. Boas              | Mathematical Methods in the Physical Sciences (3rd Edition)                 | Wiley (2006)          |
-| K. F. Riley, et. al     | Mathematical Methods for Physics and Engineering (3rd Edition)              | Cambridge (2006)      |
-| G. F. Simmons           | Differential Equations with Applications and Historical Notes (3rd Edition) | CRC Press (2017)      |
-| E. Kreyszig             | Advanced Engineering Calculus (9th Edition)                                 | Wiley (2011)          |
-| D. C. Montgomery        | Applied Statistics and Probability for Engineers (3rd Edition)              | Wiley (2003)          |
-| J. F. James             | A Students Guide to Fourier Transform                                       | Cambridge (2011)      |
-| J. Crank                | Mathematics of Diffusion                                                    | Oxford (1975)         |
-| A. Sommerfeld           | Partial Differential Equations in Physics                                   | Academic Press (1949) |
-| E. Cinlar               | Probability and Stochastics                                                 | Springer (2010)       |
-| H. C. Berg              | Random Walks in Biology                                                     | Princeton (1983)      |
+| INDEX | AUTHOR                  | TITLE                                                                       | PUBLISHER             | TYPE | LINK |
+|-------+-------------------------+-----------------------------------------------------------------------------+-----------------------+------+------|
+|     1 | G. B. Thomas, Jr. et.al | Thomas Calculus (12th Edition)                                              | Pearson (2010)        | Book |      |
+|     2 | A. Gut                  | Probability: A Graduate Course                                              | Springer (2005)       | Book |      |
+|     3 | S.L. Sobolev            | Partial Differential Equations of Mathematical Physics                      | Addison Wesley (2019) | Book |      |
+|     4 | W. A. Strauss           | Partial Differential Equations - An Introduction                            | Wiley (2008)          | Book |      |
+|     5 | R. E. Walpole, et. al   | Probability and Statistics for Engineers & Scientists                       | Pearson (2012)        | Book |      |
+|     6 | M. L. Boas              | Mathematical Methods in the Physical Sciences (3rd Edition)                 | Wiley (2006)          | Book |      |
+|     7 | K. F. Riley, et. al     | Mathematical Methods for Physics and Engineering (3rd Edition)              | Cambridge (2006)      | Book |      |
+|     8 | G. F. Simmons           | Differential Equations with Applications and Historical Notes (3rd Edition) | CRC Press (2017)      | Book |      |
+|     9 | E. Kreyszig             | Advanced Engineering Calculus (9th Edition)                                 | Wiley (2011)          | Book |      |
+|    10 | D. C. Montgomery        | Applied Statistics and Probability for Engineers (3rd Edition)              | Wiley (2003)          | Book |      |
+|    11 | J. F. James             | A Students Guide to Fourier Transform                                       | Cambridge (2011)      | Book |      |
+|    12 | J. Crank                | Mathematics of Diffusion                                                    | Oxford (1975)         | Book |      |
+|    13 | A. Sommerfeld           | Partial Differential Equations in Physics                                   | Academic Press (1949) | Book |      |
+|    14 | E. Cinlar               | Probability and Stochastics                                                 | Springer (2010)       | Book |      |
+|    15 | H. C. Berg              | Random Walks in Biology                                                     | Princeton (1983)      | Book |      |
+|-------+-------------------------+-----------------------------------------------------------------------------+-----------------------+------+------|
+
 
 ** Content and Unit Distribution
+
 
 - The content and unit distribution of the lecture is as follows where a unit
   is defined as 45 min lecture.
     
 | ORDER | TOPIC                                        | UNITS | SELF STUDY |
+|-------+----------------------------------------------+-------+------------|
 |     1 | First Order Ordinary Differential Equations  |     4 |          8 |
 |     2 | Second Order Ordinary Differential Equations |     4 |          8 |
 |     3 | Higher Order Ordinary Differential Equations |     2 |          4 |
@@ -102,6 +128,7 @@ goes well with the lectures.
 |     7 | Linear Algebra                               |     2 |          4 |
 |     8 | Eigenvalue Problems                          |     2 |          4 |
 |     9 | Vector Calculus                              |     4 |          8 |
+|-------+----------------------------------------------+-------+------------|
 |    10 | SUM                                          |    28 |         56 |
  
 ** Lecture Table of Contents
@@ -261,10 +288,10 @@ Below is the detailed structure of the lecture.
 - Final Exam
   - Final Exam 
 
+
 ** Documentation
 
 For any student in need of a LaTeX class designed from the ground-up for
 assignment/lab/thesis/slide for MCI needs please have a look at ~mcidoc~ class
 hosted at [[https://github.com/dTmC0945/C-MCI-LaTeX-Class-mcidoc][GitHub]].
 
-(-DTMc 2025)
