@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><title>Linear Independence and Rank of a Matrix Vector Space</title>
+<meta charset="utf-8"/>
+<meta content="lms-WebBook" name="generator"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js" type="text/javascript"></script>
+<link href="logo/lms.ico" rel="icon" type="image/x-icon"/>
+<link href="./pagefind/pagefind-component-ui.css" rel="stylesheet"/>
+<script src="./pagefind/pagefind-component-ui.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link href="https://cdn.jsdelivr.net/gh/sugina-dev/latin-modern-web@1.0.1/style/latinmodern-mono.css" rel="stylesheet"/>
+<link href="flatweb.css" rel="stylesheet" type="text/css"/>
+<script src="flatweb.js" type="text/javascript"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/base16/solarized-light.min.css" rel="stylesheet"/>
+<script src="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.js"></script>
+<link href="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/cpp.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/latex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/matlab.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/dockerfile.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/cmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/makefile.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/markdown.min.js"></script>
+ </head><body>
+<page>
+<nav class="wide"> <div class="header"><div class="header-left"><span class="header-lecture-grade">M.Sc</span>
+<span class="header-lecture-name">Higher Mathematics I</span>
+<span class="header-webBook">WebBook 2.1</span></div><div class="header-right"><span class="header-version">2026.WS</span>
+<span class="header-chapter">Linear Algebra I - Fundamentals</span></div></div><div class="toc"><pagefind-modal-trigger></pagefind-modal-trigger><pagefind-modal></pagefind-modal><div class="toc-links"><a href="https://github.com/dTmC0945" title="Lecturer GitHub Repo"><i class="fab fa-github" style="font-size:20px"></i></a><a href="https://scholar.google.com/citations?view_op=list_works\&amp;hl=en\&amp;user=lxQGADMAAAAJ" title="Lecturer Google Scholar Page"><i class="fa-brands fa-google-scholar" style="font-size:20px"></i></a><a href="https://www.researchgate.net/profile/Daniel-Mcguiness-2" title="Lecturer ResearchGate Account"><i class="fa-brands fa-researchgate" style="font-size:20px"></i></a><a href="https://dtmc0945.github.io/Th-MCI-Thesis-Topics/" title="Lecturer Thesis Ideas for B.Sc and M.Sc"><i class="fa-solid fa-book" style="font-size:20px"></i></a><a href="https://github.com/dTmC0945/C-MCI-LaTeX-Class-mcidoc/tree/main" title="mcidoc LaTeX Standard"><i class="fa-regular fa-file-lines" style="font-size:20px"></i></a></div><hr/><span class="chapterToc"><span class="number"></span><span class="title"><a href="index.html#x2-10000">Entry Point</a></span></span><span class="chapterToc"><span class="number">1</span><span class="title"><a href="LinearAlgebraIFundamentals.html#x3-20001">Linear Algebra I - Fundamentals</a></span></span><span class="sectionToc"><span class="number">1.1</span><span class="title"><a href="MatricesVectorsAdditionandScalarMultiplication.html#x4-30001.1">Matrices, Vectors: Addition and Scalar
+Multiplication</a></span></span><span class="subsectionToc"><span class="number">1.1.1</span><span class="title"><a href="MatricesVectorsAdditionandScalarMultiplication.html#x4-40001.1.1">General Concepts and Notations</a></span></span><span class="subsectionToc"><span class="number">1.1.2</span><span class="title"><a href="MatricesVectorsAdditionandScalarMultiplication.html#x4-50001.1.2">Vectors</a></span></span><span class="subsectionToc"><span class="number">1.1.3</span><span class="title"><a href="MatricesVectorsAdditionandScalarMultiplication.html#x4-60001.1.3">Addition and
+Scalar Multiplication of Matrices and Vectors</a></span></span><span class="subsectionToc"><span class="number">1.1.4</span><span class="title"><a href="MatricesVectorsAdditionandScalarMultiplication.html#x4-80001.1.4">Matrix Multiplication</a></span></span><span class="subsectionToc"><span class="number">1.1.5</span><span class="title"><a href="MatricesVectorsAdditionandScalarMultiplication.html#x4-90001.1.5">The use
+of Linear Transformations in Multiplication of Matrices</a></span></span><span class="sectionToc"><span class="number">1.2</span><span class="title"><a href="LinearSystemsofEquationsGaussElimination.html#x5-150001.2">Linear Systems of Equations
+Gauss Elimination</a></span></span><span class="subsectionToc"><span class="number">1.2.1</span><span class="title"><a href="LinearSystemsofEquationsGaussElimination.html#x5-160001.2.1">Linear System, Coefficient Matrix, Augmented Matrix</a></span></span><span class="subsectionToc"><span class="number">1.2.2</span><span class="title"><a href="LinearSystemsofEquationsGaussElimination.html#x5-180001.2.2">Gauss
+Elimination and Back Substitution</a></span></span><span class="subsectionToc"><span class="number">1.2.3</span><span class="title"><a href="LinearSystemsofEquationsGaussElimination.html#x5-190001.2.3">Elementary Row Operations. Row-Equivalent
+Systems</a></span></span><span class="sectionToc"><span class="number">1.3</span><span class="title"><a href="#x6-220001.3">Linear Independence and Rank of a Matrix Vector Space</a></span></span><span class="subsectionToc"><span class="number">1.3.1</span><span class="title"><a href="#x6-230001.3.1">Linear
+Independence and Dependence of Vectors</a></span></span><span class="subsectionToc"><span class="number">1.3.2</span><span class="title"><a href="#x6-240001.3.2">Rank of a Matrix</a></span></span><span class="subsectionToc"><span class="number">1.3.3</span><span class="title"><a href="#x6-250001.3.3">Vector
+Space</a></span></span><span class="subsectionToc"><span class="number">1.3.4</span><span class="title"><a href="#x6-260001.3.4">Solutions of Linear Systems: Existence, Uniqueness</a></span></span><span class="sectionToc"><span class="number">1.4</span><span class="title"><a href="DeterminantsandCramersRule.html#x7-290001.4">Determinants
+and Cramer’s Rule</a></span></span><span class="subsectionToc"><span class="number">1.4.1</span><span class="title"><a href="DeterminantsandCramersRule.html#x7-300001.4.1">A Quick Refreshment on Determinants</a></span></span><span class="subsectionToc"><span class="number">1.4.2</span><span class="title"><a href="DeterminantsandCramersRule.html#x7-320001.4.2">Third-Order
+Determinants</a></span></span><span class="subsectionToc"><span class="number">1.4.3</span><span class="title"><a href="DeterminantsandCramersRule.html#x7-340001.4.3">General Properties of Determinants</a></span></span><span class="subsectionToc"><span class="number">1.4.4</span><span class="title"><a href="DeterminantsandCramersRule.html#x7-350001.4.4">Cramer’s Rule</a></span></span><span class="sectionToc"><span class="number">1.5</span><span class="title"><a href="InverseofaMatrixusingGaussJordanElimination.html#x8-360001.5">Inverse
+of a Matrix using Gauss-Jordan Elimination</a></span></span><span class="subsectionToc"><span class="number">1.5.1</span><span class="title"><a href="InverseofaMatrixusingGaussJordanElimination.html#x8-370001.5.1">Determination of the Inverse by the
+Gauss-Jordan Method</a></span></span><span class="subsectionToc"><span class="number">1.5.2</span><span class="title"><a href="InverseofaMatrixusingGaussJordanElimination.html#x8-390001.5.2">Formulas for Inverses</a></span></span><span class="subsectionToc"><span class="number">1.5.3</span><span class="title"><a href="InverseofaMatrixusingGaussJordanElimination.html#x8-400001.5.3">Unusual Properties of Matrix
+Multiplication. Cancellation Laws</a></span></span><span class="subsectionToc"><span class="number">1.5.4</span><span class="title"><a href="InverseofaMatrixusingGaussJordanElimination.html#x8-410001.5.4">Determinants of Matrix Products</a></span></span><span class="sectionToc"><span class="number">1.6</span><span class="title"><a href="VectorandInnerProductSpacesLinearTransformations.html#x9-420001.6">Vector, and
+Inner Product Spaces, Linear Transformations</a></span></span><span class="subsectionToc"><span class="number">1.6.1</span><span class="title"><a href="VectorandInnerProductSpacesLinearTransformations.html#x9-430001.6.1">Inner Product Spaces</a></span></span><span class="subsectionToc"><span class="number">1.6.2</span><span class="title"><a href="VectorandInnerProductSpacesLinearTransformations.html#x9-440001.6.2">Linear
+Transformations</a></span></span><span class="subsectionToc"><span class="number">1.6.3</span><span class="title"><a href="VectorandInnerProductSpacesLinearTransformations.html#x9-460001.6.3">Composition of Linear Transformations</a></span></span><span class="chapterToc"><span class="number">2</span><span class="title"><a href="LinearAlgebraIIEigenvalueProblems.html#x10-470002">Linear Algebra II - Eigenvalue
+Problems</a></span></span><span class="sectionToc"><span class="number">2.1</span><span class="title"><a href="DeterminingEigenvaluesandEigenvectors.html#x11-500002.1">Determining Eigenvalues and Eigenvectors</a></span></span><span class="subsectionToc"><span class="number">2.1.1</span><span class="title"><a href="DeterminingEigenvaluesandEigenvectors.html#x11-510002.1.1">How to Find Eigenvalues and
+Eigenvectors</a></span></span><span class="subsectionToc"><span class="number">2.1.2</span><span class="title"><a href="DeterminingEigenvaluesandEigenvectors.html#x11-520002.1.2">Applications of Eigenvalue Problems</a></span></span><span class="sectionToc"><span class="number">2.2</span><span class="title"><a href="SymmetricSkewSymmetricandOrthogonalMatrices.html#x12-530002.2">Symmetric, Skew-Symmetric,
+and Orthogonal Matrices</a></span></span><span class="subsectionToc"><span class="number">2.2.1</span><span class="title"><a href="SymmetricSkewSymmetricandOrthogonalMatrices.html#x12-540002.2.1">Orthogonal Transformations and Orthogonal
+Matrices</a></span></span><span class="sectionToc"><span class="number">2.3</span><span class="title"><a href="EigenbasesDiagonalizationQuadraticForms.html#x13-550002.3">Eigenbases. Diagonalization. Quadratic Forms</a></span></span><span class="subsectionToc"><span class="number">2.3.1</span><span class="title"><a href="EigenbasesDiagonalizationQuadraticForms.html#x13-560002.3.1">Similarity of Matrices and
+Diagonalization</a></span></span><span class="subsectionToc"><span class="number">2.3.2</span><span class="title"><a href="EigenbasesDiagonalizationQuadraticForms.html#x13-570002.3.2">Quadratic Forms and Transformation to Principal Axes</a></span></span><span class="sectionToc"><span class="number">2.4</span><span class="title"><a href="ComplexMatricesandForms.html#x14-580002.4">Complex
+Matrices and Forms</a></span></span><span class="subsectionToc"><span class="number">2.4.1</span><span class="title"><a href="ComplexMatricesandForms.html#x14-590002.4.1">Eigenvalues</a></span></span><span class="subsectionToc"><span class="number">2.4.2</span><span class="title"><a href="ComplexMatricesandForms.html#x14-600002.4.2">Hermitian and Skew-Hermitian Forms</a></span></span>
+<div class="nav-footer"><div class="nav-footer-left"><span class="nav-footer-lecture">D. T. McGuiness, PhD</span>
+<span class="nav-footer-webBook"><b>Last Updated:</b> 20.10.2026, at 10:2.</span></div></div><p class="nav-comments">The website you are viewing is auto-generated using lms-WebBook and therefore subject to slight errors in typography and formatting. When in doubt, please consult the LectureBook. </p></div></nav>
+<article class="chapter">
+<nav class="crosslinks-top"> <span class="nav-button"><i class="fa-solid fa-caret-right"></i><a class="nav-link" href="DeterminantsandCramersRule.html">Determinants and Cramer’s Rule</a></span><span class="nav-button"><i class="fa-solid fa-caret-left"></i><a class="nav-link" href="LinearSystemsofEquationsGaussElimination.html">Linear Systems of Equations Gauss Elimination</a></span><span class="nav-button"><i class="fa-solid fa-caret-up"></i><a class="nav-link" href="LinearAlgebraIFundamentals.html#LinearIndependenceandRankofaMatrixVectorSpace.html">Chapter: Linear Algebra I -
+Fundamentals</a></span><span class="nav-button">
+<a href="index.html" rel="index" title="Visit Entry Point">
+<i class="fa-solid fa-table-list">
+</i>
+<span class="nav-info">Visit Index Page</span>
+</a></span><span class="nav-button">
+<a href="Index.html" rel="index" title="Visit Material GitHub Repo">
+<i class="fa-brands fa-git-alt"></i>
+<span class="nav-info">Visit Material GitHub Repo</span>
+</a></span></nav>
+<div class="section-header"> <h3 id="header-section-1.3"> <a class="pdf-icon" href="HigherMathematicsILectureBook.pdf#section.1.3"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a> <span class="number">1.3</span> <span class="title"> <a id="x6-220001.3"></a>Linear Independence and
+Rank of a Matrix Vector Space</span></h3></div>
+<p class="noindent">Given our next goal is to <span class="alert">fully characterize</span> the behavior of linear systems in terms of <b>existence</b> and <b>uniqueness</b> of
+solutions which is in <span class="refsection-ref"><a href="#x6-220001.3">Linear Independence and Rank of a Matrix Vector Space</a></span>, we have to introduce
+new fundamental linear algebraic concepts that will aid us in doing so. Foremost among these are
+<b>linear independence</b> and the <span class="alert">rank</span> of a matrix.c
+</p>
+<div class="block-minor warning"><div class="body">
+<p class="noindent">These concepts are intimately linked with the important Gauss elimination method and how it works.
+</p></div></div>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-1.3.1"> <a class="pdf-icon" href="HigherMathematicsILectureBook.pdf#subsection.1.3.1"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">1.3.1</span> <span class="title"> <a id="x6-230001.3.1"></a>Linear Independence and Dependence of Vectors</span></h4></div>
+</p><p class="noindent">Given any set of m vectors <math display="inline"><msub><mrow><mstyle mathvariant="bold"><mi>a</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><mi>…</mi><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mstyle mathvariant="bold"><mi>a</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>m</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub></math><span class="margin-block">,
+<span class="margin-comment"><a class="ellipsis" href="#m-ref-19">[19]</a>
+<span class="sidenote">with the same number of components.</span></span></span> a linear combination of these vectors is an expression of the
+form: </p><table class="equation-star"><tr><td>
+<math class="equation" display="block">
+<msub><mrow><mi>c</mi></mrow><mrow><mn>1</mn></mrow></msub><msub><mrow><mstyle mathvariant="bold"><mi>a</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>c</mi></mrow><mrow><mn>2</mn></mrow></msub><msub><mrow><mstyle mathvariant="bold"><mi>a</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <mo class="MathClass-rel" stretchy="false">⋯</mo> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>c</mi></mrow><mrow><mi>m</mi></mrow></msub><msub><mrow><mstyle mathvariant="bold"><mi>a</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>m</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub>
+</math></td></tr></table>
+<p class="noindent">where <math display="inline"><msub><mrow><mi>c</mi></mrow><mrow><mn>1</mn></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>c</mi></mrow><mrow><mn>2</mn></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><mi>…</mi><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>c</mi></mrow><mrow><mi>m</mi></mrow></msub></math>
+are any scalars. Now consider the equation </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x6-23001r42"></mstyle>
+<msub><mrow><mi>c</mi></mrow><mrow><mn>1</mn></mrow></msub><msub><mrow><mstyle mathvariant="bold"><mi>a</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>c</mi></mrow><mrow><mn>2</mn></mrow></msub><msub><mrow><mstyle mathvariant="bold"><mi>a</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <mo class="MathClass-rel" stretchy="false">⋯</mo> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>c</mi></mrow><mrow><mi>m</mi></mrow></msub><msub><mrow><mstyle mathvariant="bold"><mi>a</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>m</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="bold"><mn>0</mn></mstyle><mo class="MathClass-punc" stretchy="false">.</mo>
+</math></td><td class="eq-no">(1.42)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">Clearly, this vector equation Eq. (<a href="#x6-23001r42">1.42</a>) holds if we choose all
+<math display="inline"><msub><mrow><mi>c</mi></mrow><mrow><mi>j</mi></mrow></msub></math>’s zero, because then it
+becomes <math display="inline"><mstyle mathvariant="bold"><mn>0</mn></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="bold"><mn>0</mn></mstyle></math>. If this is the only
+<math display="inline"><mi>m</mi></math>-tuple of scalars for which Eq.
+(<a href="#x6-23001r42">1.42</a>) 
+holds, then our vectors <math display="inline"><msub><mrow><mstyle mathvariant="bold"><mi>a</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><mi>…</mi><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mstyle mathvariant="bold"><mi>a</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>m</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub></math>
+are said to form a <b>linearly independent set</b> or, more briefly, we call them <b>linearly
+independent</b>. Otherwise, if Eq. (<a href="#x6-23001r42">1.42</a>) also holds with scalars not all zero, we call these
+vectors <b>linearly dependent</b>. This means that we can express at least one of the vectors
+as a linear combination of the other vectors. For instance, if Eq. (<a href="#x6-23001r42">1.42</a>) holds with, say,
+<math display="inline"><msub><mrow><mi>c</mi></mrow><mrow><mn>1</mn></mrow></msub> <mi>≠</mi> <mn>0</mn></math>, we can solve Eq.
+(<a href="#x6-23001r42">1.42</a>) 
+for <math display="inline"><msub><mrow><mstyle mathvariant="bold"><mi>a</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub></math><span class="margin-block">: <span class="margin-comment"><a class="ellipsis" href="#m-ref-20">[20]</a>
+<span class="sidenote">Some
+<math display="inline"><msub><mrow><mi>k</mi></mrow><mrow><mi>j</mi></mrow></msub></math>’s may be zero. Or even
+all of them, namely, if <math display="inline"><msub><mrow><mstyle mathvariant="bold"><mi>a</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="bold"><mn>0</mn></mstyle></math>.</span></span></span>
+</p><table class="equation-star"><tr><td>
+<math class="equation" display="block"><msub><mrow>
+<mstyle mathvariant="bold">
+<mi>a</mi></mstyle>
+</mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub>
+<mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>k</mi></mrow><mrow><mn>2</mn></mrow></msub><msub><mrow><mstyle mathvariant="bold"><mi>a</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <mo class="MathClass-rel" stretchy="false">⋯</mo> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>k</mi></mrow><mrow><mi>m</mi></mrow></msub><msub><mrow><mstyle mathvariant="bold"><mi>a</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>m</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub><mspace class="qquad" width="2em"></mspace><mstyle class="text"><mtext>where</mtext></mstyle><mspace class="qquad" width="2em"></mspace><msub><mrow><mi>k</mi></mrow><mrow><mi>j</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-bin" stretchy="false">−</mo><msub><mrow><mi>c</mi></mrow><mrow><mi>j</mi></mrow></msub><mo class="MathClass-bin" stretchy="false">/</mo><msub><mrow><mi>c</mi></mrow><mrow><mn>1</mn></mrow></msub>
+</math></td></tr></table>
+<p class="noindent">But why is linear independence important?
+</p><p class="noindent">Well, if a set of vectors is linearly dependent, then we can get rid of at least one or perhaps more of the
+vectors until we get a linearly independent set. This set is then the smallest <b>truly essential</b>x set with
+which we can work. </p><div class="quote">  Thus, we cannot express any of the vectors, of this set, linearly in terms of the
+others. </div>
+<div class="block-major exer-block" id="exer-block-1.17"> <a class="copiable-link" href="#exer-block-1.17"> ¶</a> <span class="upper"> <span class="header"> <b>Example 1.<a id="x6-23002r17"></a>17: </b> </span> <span class="title"> Linear Independence and Dependence </span> </span> <div class="body">
+<p class="noindent">The three vectors shown below: </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x6-23003r43"></mstyle><mtable class="aligned" displaystyle="true"><mtr><mtd columnalign="right"><msub><mrow><mstyle mathvariant="bold"><mi>a</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub></mtd>
+<mtd columnalign="left"> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>3</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>2</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>2</mn> </mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow></mtd>
+<mtd columnalign="right"></mtd>
+</mtr><mtr><mtd columnalign="right"><msub><mrow><mstyle mathvariant="bold"><mi>a</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub></mtd>
+<mtd columnalign="left"> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>6</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>4</mn><mn>2</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>2</mn><mn>4</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>5</mn><mn>4</mn> </mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow></mtd>
+</mtr><mtr><mtd columnalign="right"><msub><mrow><mstyle mathvariant="bold"><mi>a</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>3</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub></mtd>
+<mtd columnalign="left"> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>2</mn><mn>1</mn> </mtd><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>2</mn><mn>1</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn><mn>5</mn> </mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow></mtd>
+</mtr> </mtable>
+</math></td><td class="eq-no">(1.43)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">are <span class="alert">linearly dependent</span> as: </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x6-23004r44"></mstyle>
+<mn>6</mn><msub><mrow><mstyle mathvariant="bold"><mi>a</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub> <mo class="MathClass-bin" stretchy="false">−</mo> <mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<mn>2</mn></mrow></mfrac><msub><mrow><mstyle mathvariant="bold"><mi>a</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub> <mo class="MathClass-bin" stretchy="false">−</mo><msub><mrow> <mstyle mathvariant="bold"><mi>a</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>3</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="bold"><mn>0</mn></mstyle><mo class="MathClass-punc" stretchy="false">.</mo>
+</math></td><td class="eq-no">(1.44)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">Although this is easily checked by vector arithmetic, it is not so easy to discover. However, a systematic method
+for finding out about linear independence and dependence follows below. </p>
+<hr/>
+<p class="noindent"> 
+First two vectors are linearly
+independent as <math display="inline"><msub><mrow><mi>c</mi></mrow><mrow><mn>1</mn></mrow></msub><msub><mrow><mstyle mathvariant="bold"><mi>a</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>c</mi></mrow><mrow><mn>2</mn></mrow></msub><msub><mrow><mstyle mathvariant="bold"><mi>a</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="bold"><mn>0</mn></mstyle></math>
+implies <math display="inline"><msub><mrow><mi>c</mi></mrow><mrow><mn>2</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></math>
+and <math display="inline"><msub><mrow><mi>c</mi></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></math>.
+</p>
+</div> </div>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-1.3.2"> <a class="pdf-icon" href="HigherMathematicsILectureBook.pdf#subsection.1.3.2"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">1.3.2</span> <span class="title"> <a id="x6-240001.3.2"></a>Rank of a Matrix</span></h4></div>
+</p><p class="noindent">Before we begin, let’s properly define what a rank is.
+</p>
+<div class="block-major desc-block" id="desc-block-1.6"> <a class="copiable-link" href="#desc-block-1.6"> ¶</a> <span class="upper"> <span class="header"> <b>Description: 1.<a id="x6-24001r6"></a>6: </b> </span> <span class="title"> Rank of a Matrix </span> </span> <div class="body">
+<p class="noindent">The <span class="alert">rank</span> of a matrix <math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math>
+is the maximum number of linearly independent row vectors of
+<math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math>. It is denoted
+by rank <math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math>. </p></div>
+</div>
+<p class="noindent">Our further discussion will show that the rank of a matrix is an important key concept for
+understanding general properties of matrices and linear systems of equations.
+</p>
+<div class="block-major exer-block" id="exer-block-1.18"> <a class="copiable-link" href="#exer-block-1.18"> ¶</a> <span class="upper"> <span class="header"> <b>Example 1.<a id="x6-24002r18"></a>18: </b> </span> <span class="title"> Rank of a Matrix </span> </span> <div class="body">
+<p class="noindent">The matrix </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x6-24003r45"></mstyle><mstyle mathvariant="bold"><mi>A</mi></mstyle>
+<mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>3</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>2</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>2</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>6</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>4</mn><mn>2</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>2</mn><mn>4</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>5</mn><mn>4</mn></mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>2</mn><mn>1</mn> </mtd><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>2</mn><mn>1</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn><mn>5</mn> </mtd>
+</mtr>
+</mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow>
+</math></td><td class="eq-no">(1.45)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">has rank 2, as <a class="block-ref" href="#x6-23002r17">Example 1.17</a> shows that the first two row vectors are <span class="alert">linearly independent</span>, whereas all three row vectors are linearly
+dependent. </p>
+<hr/>
+<p class="noindent"> 
+rank <math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></math>
+if and only if <math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></math>.
+This follows directly from the definition.
+</p>
+</div> </div>
+<p class="noindent">We call a matrix <math display="inline"><msub><mrow><mstyle mathvariant="bold"><mi>A</mi></mstyle></mrow><mrow><mn>1</mn></mrow></msub></math>
+<b>row-equivalent</b> to a matrix <math display="inline"><msub><mrow><mstyle mathvariant="bold"><mi>A</mi></mstyle></mrow><mrow><mn>2</mn></mrow></msub></math>
+if <math display="inline"><msub><mrow><mstyle mathvariant="bold"><mi>A</mi></mstyle></mrow><mrow><mn>1</mn></mrow></msub></math> can be
+obtained from <math display="inline"><msub><mrow><mstyle mathvariant="bold"><mi>A</mi></mstyle></mrow><mrow><mn>2</mn></mrow></msub></math>
+by finitely many, elementary row operations.
+</p><p class="noindent">Now the maximum number of linearly independent row vectors of a matrix does
+<b>NOT</b> change if we change the order of rows or multiply a row by a nonzero
+<math display="inline"><mi>c</mi></math> or take
+a linear combination by adding a multiple of a row to another row.
+</p><p class="noindent">This shows that rank is <span class="alert">invariant</span> under elementary row operations:
+</p>
+<div class="block-major theo-block" id="theo-block-1.2"> <a class="copiable-link" href="#theo-block-1.2"> ¶</a> <span class="upper"> <span class="header"> <b>Theory 1.<a id="x6-24004r2"></a>2: </b> </span> <span class="title"> Row-Equivalent Matrices </span> </span> <div class="body">
+<p class="noindent">Row-equivalent matrices have <span class="alert">the same rank</span>. </p></div> </div>
+<p class="noindent">Therefore we can determine the rank of a matrix by reducing the matrix to row-echelon
+form, as was done in <span class="refsection-ref"><a href="LinearSystemsofEquationsGaussElimination.html#x5-150001.2">Linear Systems of Equations Gauss Elimination</a></span>. Once the matrix is in
+row-echelon form, we count the number of nonzero rows, which is precisely the rank of the
+matrix.
+</p>
+<div class="block-major exer-block" id="exer-block-1.19"> <a class="copiable-link" href="#exer-block-1.19"> ¶</a> <span class="upper"> <span class="header"> <b>Example 1.<a id="x6-24005r19"></a>19: </b> </span> <span class="title"> Determination of Rank </span> </span> <div class="body">
+<p class="noindent">For the matrix in Example 2 we obtain successively </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x6-24006r46"></mstyle><mtable class="aligned" displaystyle="true"><mtr><mtd columnalign="right"><mstyle mathvariant="bold"><mi>A</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo></mtd>
+<mtd columnalign="left"> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>3</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>2</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>2</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>6</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>4</mn><mn>2</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>2</mn><mn>4</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>5</mn><mn>4</mn></mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>2</mn><mn>1</mn> </mtd><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>2</mn><mn>1</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn><mn>5</mn> </mtd>
+</mtr>
+</mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow></mtd>
+<mtd columnalign="right"></mtd>
+</mtr><mtr><mtd columnalign="right"></mtd> <mtd columnalign="left"> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>3</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>2</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>2</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>4</mn><mn>2</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>2</mn><mn>8</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>5</mn><mn>8</mn></mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>2</mn><mn>1</mn> </mtd><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn><mn>4</mn> </mtd><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>2</mn><mn>9</mn> </mtd>
+</mtr>
+</mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow> <mtable align="axis" class="array" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> </mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mstyle class="text"><mtext>Row </mtext></mstyle><mn>2</mn> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>2</mn><mstyle class="text"><mtext> Row </mtext></mstyle><mn>1</mn> </mtd> </mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mstyle class="text"><mtext>Row </mtext></mstyle> <mn>3</mn> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>7</mn><mstyle class="text"><mtext> Row </mtext></mstyle> <mn>1</mn></mtd> </mtr> </mtable> </mtd>
+</mtr><mtr><mtd columnalign="right"></mtd>
+<mtd columnalign="left"> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>3</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>2</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>2</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>4</mn><mn>2</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>2</mn><mn>8</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>5</mn><mn>8</mn></mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow> <mtable align="axis" class="array" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> </mtd>
+</mtr>
+<mtr class="array-row"><mtd class="array-td" columnalign="center"> </mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mstyle class="text"><mtext>Row </mtext></mstyle><mn>3</mn> <mo class="MathClass-bin" stretchy="false">+</mo> <mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<mn>2</mn></mrow></mfrac><mstyle class="text"><mtext>Row </mtext></mstyle><mn>2</mn><mo class="MathClass-punc" stretchy="false">.</mo> </mtd> </mtr> </mtable> </mtd>
+</mtr> </mtable>
+</math></td><td class="eq-no">(1.46)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">The last matrix is in row-echelon form and has two nonzero rows. Hence rank
+<math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>2</mn></math>, as
+before <math display="inline"><mspace class="quad" width="1em"></mspace><mo class="MathClass-ord">■</mo></math>
+</p>
+</div> </div>
+<p class="noindent">Examples 13 illustrate the following useful theorem (with
+<math display="inline"><mi>p</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>3</mn></math>,
+<math display="inline"><mi>n</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>3</mn></math>, and the rank
+of the matrix <math display="inline"> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>2</mn></math>).
+</p>
+<div class="block-major theo-block" id="theo-block-1.3"> <a class="copiable-link" href="#theo-block-1.3"> ¶</a> <span class="upper"> <span class="header"> <b>Theory 1.<a id="x6-24007r3"></a>3: </b> </span> <span class="title"> Linear Independence and Dependence of Vectors </span> </span> <div class="body">
+<p class="noindent">Consider <math display="inline"><mi>p</mi></math> vectors
+that each have <math display="inline"><mi>n</mi></math>
+components. Then these vectors are <span class="alert">linearly independent</span> if the matrix formed, with these vectors as row vectors, has rank
+<math display="inline"><mi>p</mi></math>.
+</p><p class="noindent">However, these vectors are <span class="alert">linearly dependent</span> if that matrix has rank less than
+<math display="inline"><mi>p</mi></math>.
+</p>
+</div> </div>
+<p class="noindent">Further important properties will result from the basic
+</p>
+<div class="block-major theo-block" id="theo-block-1.4"> <a class="copiable-link" href="#theo-block-1.4"> ¶</a> <span class="upper"> <span class="header"> <b>Theory 1.<a id="x6-24008r4"></a>4: </b> </span> <span class="title"> Rank in Terms of Column Vectors </span> </span> <div class="body">
+<p class="noindent">The rank <math display="inline"><mi>r</mi></math>
+of a matrix <math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math>
+equals the maximum number of linearly independent column vectors of
+<math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math>. Hence
+<math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math> and its
+transpose <math display="inline"><msup><mrow><mstyle mathvariant="bold"><mi>A</mi></mstyle></mrow><mrow><mi>T</mi></mrow></msup></math>
+have the same rank.
+</p>
+</div> </div>
+<div class="block-major exer-block" id="exer-block-1.20"> <a class="copiable-link" href="#exer-block-1.20"> ¶</a> <span class="upper"> <span class="header"> <b>Example 1.<a id="x6-24009r20"></a>20: </b> </span> <span class="title"> Illustration of “Rank in Terms of Column Vectors” </span> </span> <div class="body">
+<p class="noindent">Illustration of Theorem 3 The matrix in  has rank 2. From <a class="block-ref" href="#x6-24005r19">Example 1.19</a> we see that the first two row
+vectors are <span class="alert">linearly independent</span> and by <i>working backward</i> we can verify that: </p><table class="equation-star"><tr><td>
+<math class="equation" display="block">
+<mstyle class="text"><mtext>Row </mtext></mstyle>
+<mn>3</mn> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>6</mn><mstyle class="text"><mtext> Row </mtext></mstyle><mn>1</mn> <mo class="MathClass-bin" stretchy="false">−</mo> <mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<mn>2</mn></mrow></mfrac><mstyle class="text"><mtext> Row </mtext></mstyle><mn>2</mn>
+</math></td></tr></table>
+<p class="noindent">Similarly, the first two columns are linearly independent, and by reducing the last matrix in <a class="block-ref" href="#x6-24005r19">Example
+1.19</a> by columns we find that: </p><table class="equation-star"><tr><td>
+<math class="equation" display="block">
+<mstyle class="text"><mtext>Column 3</mtext></mstyle>
+<mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><mn>2</mn></mrow>
+<mrow>
+<mn>3</mn></mrow></mfrac><mstyle class="text"><mtext>Column 1</mtext></mstyle> <mo class="MathClass-bin" stretchy="false">+</mo> <mfrac><mrow><mn>2</mn></mrow>
+<mrow>
+<mn>3</mn></mrow></mfrac><mstyle class="text"><mtext>Column 2</mtext></mstyle><mspace class="qquad" width="2em"></mspace><mstyle class="text"><mtext>and</mtext></mstyle><mspace class="qquad" width="2em"></mspace><mstyle class="text"><mtext>Column 4</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><mn>2</mn></mrow>
+<mrow>
+<mn>3</mn></mrow></mfrac><mstyle class="text"><mtext>Column 1</mtext></mstyle> <mo class="MathClass-bin" stretchy="false">+</mo> <mfrac><mrow><mn>2</mn><mn>9</mn></mrow>
+<mrow>
+<mn>2</mn><mn>1</mn></mrow></mfrac><mstyle class="text"><mtext>Column 2</mtext></mstyle><mspace class="quad" width="1em"></mspace><mo class="MathClass-ord">■</mo>
+</math></td></tr></table>
+</div> </div>
+<p class="noindent">Combining <a class="block-ref" href="#x6-24007r3">Theory 1.3</a> and  we obtain
+</p>
+<div class="block-major theo-block" id="theo-block-1.5"> <a class="copiable-link" href="#theo-block-1.5"> ¶</a> <span class="upper"> <span class="header"> <b>Theory 1.<a id="x6-24010r5"></a>5: </b> </span> <span class="title"> Linear Dependence of Vectors </span> </span> <div class="body">
+<p class="noindent">Consider <math display="inline"><mi>p</mi></math> vectors
+each having <math display="inline"><mi>n</mi></math>
+components. If <math display="inline"><mi>n</mi> <mo class="MathClass-rel" stretchy="false">&lt;</mo> <mi>p</mi></math>,
+then these vectors are <span class="alert">linearly dependent</span>.
+</p>
+</div> </div>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-1.3.3"> <a class="pdf-icon" href="HigherMathematicsILectureBook.pdf#subsection.1.3.3"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">1.3.3</span> <span class="title"> <a id="x6-250001.3.3"></a>Vector Space</span></h4></div>
+</p><p class="noindent">The following related concepts are of general interest in <span class="alert">linear algebra</span>.
+</p>
+<div class="block-minor knowledge"><div class="body">
+<p class="noindent">In the present context they provide a clarification of essential properties of matrices and their role in
+connection with linear systems. </p></div></div>
+<p class="noindent">Consider a nonempty set <math display="inline"><mi>V</mi> </math>
+of vectors where each vector has the same number of components. If, for any two vectors
+<math display="inline"><mstyle mathvariant="bold"><mi>a</mi></mstyle></math> and
+<math display="inline"><mstyle mathvariant="bold"><mi>b</mi></mstyle></math> in
+<math display="inline"><mi>V</mi> </math>, we have that all their
+linear combinations <math display="inline"><mi>α</mi><mstyle mathvariant="bold"><mi>a</mi></mstyle> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>β</mi><mstyle mathvariant="bold"><mi>b</mi></mstyle></math>,
+where <math display="inline"><mi>α</mi></math> and
+<math display="inline"><mi>β</mi></math> are any real numbers,
+are also elements of <math display="inline"><mi>V</mi> </math>,
+and if, furthermore, <math display="inline"><mstyle mathvariant="bold"><mi>a</mi></mstyle></math>
+and <math display="inline"><mstyle mathvariant="bold"><mi>b</mi></mstyle></math>
+satisfy the laws in (3a), (3c), (3d), and (4) in Sec. 7.1, as well as any vectors <b>a</b>, <b>b</b>, <b>c</b> in
+<math display="inline"><mi>V</mi> </math> satisfy
+(3b) then <math display="inline"><mi>V</mi> </math>
+is a vector space.
+</p><p class="noindent">Note that here we wrote laws (3) and (4) of Sec. 7.1 in lowercase letters a, b, c, which is our notation
+for vectors. More on vector spaces in Sec. 7.9. The maximum number of linearly independent vectors in
+V is called the <b>dimension</b> of V and is denoted by dim V. Here we assume the dimension to be finite;
+infinite dimension will be defined in Sec. 7.9.
+</p><p class="noindent">A linearly independent set in <math display="inline"><mi>V</mi> </math>
+consisting of a maximum possible number of vectors in
+<math display="inline"><mi>V</mi> </math> is called a
+<b>basis</b> for <math display="inline"><mi>V</mi> </math>.
+In other words, any largest possible set of independent vectors in
+<math display="inline"><mi>V</mi> </math> forms basis
+for <math display="inline"><mi>V</mi> </math>.
+</p>
+<div class="block-minor knowledge"><div class="body">
+<p class="noindent">That means, if we add one or more vector to that set, the set will be linearly dependent.
+</p></div></div>
+<p class="noindent">Therefore, the number of vectors of a basis for <math display="inline"><mi>V</mi> </math>
+equals dim V.
+</p><p class="noindent">The set of all linear combinations of given vectors
+<math display="inline"><msub><mrow><mstyle mathvariant="bold"><mi>a</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><mi>…</mi><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mstyle mathvariant="bold"><mi>a</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>p</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub></math> with the same
+number of components is called the <b>span</b> of these vectors. Obviously, a span is a vector space. If in addition, the
+given vectors <math display="inline"><msub><mrow><mstyle mathvariant="bold"><mi>a</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><mi>…</mi><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mstyle mathvariant="bold"><mi>a</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>p</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub></math>
+are linearly independent, then they form a basis for that vector space.
+</p><p class="noindent">This then leads to another equivalent definition of basis. A set of vectors is a basis for a vector space
+<math display="inline"><mi>V</mi> </math>
+if (1) the vectors in the set are linearly independent, and if (2) any vector in
+<math display="inline"><mi>V</mi> </math> can be expressed
+as a linear combination of the vectors in the set. If (2) holds, we also say that the set of vectors <b>spans</b> the
+vector space <math display="inline"><mi>V</mi> </math>.
+</p><p class="noindent">By a <b>subspace</b> of a vector space V we mean a nonempty subset of V (including V itself) that forms a vector
+space with respect to the two algebraic operations (addition and scalar multiplication) defined for the
+vectors of <math display="inline"><mi>V</mi> </math>.
+</p>
+<div class="block-major exer-block" id="exer-block-1.21"> <a class="copiable-link" href="#exer-block-1.21"> ¶</a> <span class="upper"> <span class="header"> <b>Example 1.<a id="x6-25001r21"></a>21: </b> </span> <span class="title"> Vector Space, Dimension, and Basis </span> </span> <div class="body">
+<p class="noindent">The span of the three vectors in Example 1 is a vector space of dimension 2. A
+basis of this vector space consists of any two of those three vectors, for instance,
+<math display="inline"><msub><mrow><mstyle mathvariant="bold"><mi>a</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub></math>,
+<math display="inline"><msub><mrow><mstyle mathvariant="bold"><mi>a</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub></math>, or
+<math display="inline"><msub><mrow><mstyle mathvariant="bold"><mi>a</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub></math>,
+<math display="inline"><msub><mrow><mstyle mathvariant="bold"><mi>a</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>3</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub></math>,
+etc.
+</p>
+</div> </div>
+<p class="noindent">We further note the following theorem
+</p>
+<div class="block-major theo-block" id="theo-block-1.6"> <a class="copiable-link" href="#theo-block-1.6"> ¶</a> <span class="upper"> <span class="header"> <b>Theory 1.<a id="x6-25002r6"></a>6: </b> </span> <span class="title"> Vector Space </span> </span> <div class="body">
+<p class="noindent">The vector space <math display="inline"><msup><mrow><mi>ℝ</mi></mrow><mrow><mi>n</mi></mrow></msup></math> consisting
+of all vectors with <math display="inline"><mi>n</mi></math>
+components has dimension <math display="inline"><mi>n</mi></math>.
+</p>
+</div> </div>
+<p class="noindent">For a matrix <math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math>,
+we call the span of the row vectors the <b>row space</b> of
+<math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math>. Similarly, the span of
+the column vectors of <math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math>
+is called the <b>column space</b> of <b>A</b>. Now, Theorem 3 shows that a matrix A has as many linearly
+independent rows as columns. By the definition of dimension, their number is the dimension of the row
+space or the column space of <b>A</b>. This proves the following:
+</p>
+<div class="block-major theo-block" id="theo-block-1.7"> <a class="copiable-link" href="#theo-block-1.7"> ¶</a> <span class="upper"> <span class="header"> <b>Theory 1.<a id="x6-25003r7"></a>7: </b> </span> <span class="title"> Row Space and Column Space </span> </span> <div class="body">
+<p class="noindent">The row space and the column space of a matrix A have the same dimension, equal to rank
+A.
+</p>
+</div> </div>
+<p class="noindent">Finally, for a given matrix <math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math> the solution
+set of the homogeneous system <math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle><mstyle mathvariant="bold"><mi>x</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></math>
+is a vector space, called the <b>null space</b> of <b>A</b>, and its dimension is called the <b>nullity</b> of <b>A</b> with the
+following important relation:
+</p>
+<table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x6-25004r47"></mstyle>
+<mi>r</mi><mi>a</mi><mi>n</mi><mi>k</mi><mi>A</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>n</mi><mi>u</mi><mi>l</mi><mi>l</mi><mi>i</mi><mi>t</mi><mi>y</mi><mi>A</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>N</mi><mi>u</mi><mi>m</mi><mi>b</mi><mi>e</mi><mi>r</mi><mi>o</mi><mi>f</mi><mi>c</mi><mi>o</mi><mi>l</mi><mi>u</mi><mi>m</mi><mi>n</mi><mi>s</mi><mi>o</mi><mi>f</mi><mi>A</mi><mo class="MathClass-punc" stretchy="false">.</mo>
+</math></td><td class="eq-no">(1.47)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-1.3.4"> <a class="pdf-icon" href="HigherMathematicsILectureBook.pdf#subsection.1.3.4"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">1.3.4</span> <span class="title"> <a id="x6-260001.3.4"></a>Solutions of Linear Systems: Existence, Uniqueness</span></h4></div>
+</p><p class="noindent">Rank, as defined in <span class="refsection-ref"><a href="#x6-220001.3">Linear Independence and Rank of a Matrix Vector Space</a></span>, gives complete information about
+existence, uniqueness, and general structure of the solution set of linear systems as follows. A linear system of
+equations in <math display="inline"><mi>n</mi></math>
+unknowns has a unique solution if the coefficient matrix and the augmented matrix have the same rank
+<math display="inline"><mi>n</mi></math>, and
+infinitely many solutions if that common rank is less than n.
+</p>
+<div class="block-minor warning"><div class="body">
+<p class="noindent">The system has no solution if those two matrices have different rank. </p></div></div>
+<p class="noindent">To state this precisely and prove it, we shall use the generally important concept of a submatrix of A.
+By this we mean any matrix obtained from A by omitting some rows or columns (or both). By
+definition this includes A itself (as the matrix obtained by omitting no rows or columns); this is
+practical.
+</p>
+<div class="block-major theo-block" id="theo-block-1.8"> <a class="copiable-link" href="#theo-block-1.8"> ¶</a> <span class="upper"> <span class="header"> <b>Theory 1.<a id="x6-26001r8"></a>8: </b> </span> <span class="title"> Fundamental Theorem for Linear Systems </span> </span> <div class="body">
+<p class="noindent">
+</p>
+<dl class="enumerate-enumitem"><dt class="enumerate-enumitem">   
+i. 
+</dt><dd class="enumerate-enumitem"><b>Existence</b> A linear system of m equations in
+<math display="inline"><mi>n</mi></math> unknowns
+<math display="inline"><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><mi>…</mi><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>x</mi></mrow><mrow><mi>n</mi></mrow></msub></math>
+<table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x6-26003r48"></mstyle><mtable class="aligned" displaystyle="true"><mtr><mtd columnalign="right"><msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>1</mn></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>2</mn></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <mo class="MathClass-rel" stretchy="false">⋯</mo> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mi>n</mi></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mi>n</mi></mrow></msub></mtd>
+<mtd columnalign="left"> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>b</mi></mrow><mrow><mn>1</mn></mrow></msub></mtd>
+<mtd columnalign="right"></mtd>
+</mtr><mtr><mtd columnalign="right"><msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mn>1</mn></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mn>2</mn></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <mo class="MathClass-rel" stretchy="false">⋯</mo> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mi>n</mi></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mi>n</mi></mrow></msub></mtd>
+<mtd columnalign="left"> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>b</mi></mrow><mrow><mn>2</mn></mrow></msub></mtd>
+</mtr><mtr><mtd columnalign="right"><mo class="MathClass-rel" stretchy="false">⋯</mo><mo class="MathClass-rel" stretchy="false">⋯</mo><mo class="MathClass-rel" stretchy="false">⋯</mo><mo class="MathClass-rel" stretchy="false">⋯</mo><mo class="MathClass-rel" stretchy="false">⋯</mo><mo class="MathClass-rel" stretchy="false">⋯</mo><mo class="MathClass-rel" stretchy="false">⋯</mo></mtd>
+<mtd columnalign="left"><mo class="MathClass-rel" stretchy="false">⋯</mo></mtd>
+</mtr><mtr><mtd columnalign="right"><msub><mrow><mi>a</mi></mrow><mrow><mi>m</mi><mn>1</mn></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>a</mi></mrow><mrow><mi>m</mi><mn>2</mn></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <mo class="MathClass-rel" stretchy="false">⋯</mo> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>a</mi></mrow><mrow><mi>m</mi><mi>n</mi></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mi>n</mi></mrow></msub></mtd>
+<mtd columnalign="left"> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>b</mi></mrow><mrow><mi>m</mi></mrow></msub></mtd>
+</mtr><mtr><mtd columnalign="right"></mtd>
+</mtr> </mtable>
+</math></td><td class="eq-no">(1.48)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">is <b>consistent</b>, which means it has solutions, if and only if the coefficient matrix
+<math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math> and the
+augmented matrix <math display="inline"><mover accent="true"><mrow><mstyle mathvariant="bold"><mi>A</mi></mstyle></mrow><mo accent="true">~</mo></mover></math>
+have the <span class="alert">same rank</span>. Here,
+</p>
+</dd>
+<dt class="enumerate-enumitem">
+ii. 
+</dt><dd class="enumerate-enumitem"><b>Uniqueness</b> The system given in Eq. (<a href="MatricesVectorsAdditionandScalarMultiplication.html#x4-3001r1">1.1</a>) has precisely one solution if and only if this common rank
+<math display="inline"><mi>r</mi></math> of
+<math display="inline"><mi>A</mi></math> and
+<math display="inline"><mi>Ã</mi></math> equals
+<math display="inline"><mi>n</mi></math>.
+</dd>
+<dt class="enumerate-enumitem">
+iii. 
+</dt><dd class="enumerate-enumitem"><b>Infinitely many solutions</b> If this common rank r is less than
+<math display="inline"><mi>n</mi></math>, the
+system Eq. (<a href="MatricesVectorsAdditionandScalarMultiplication.html#x4-3001r1">1.1</a>) has infinitely many solutions. All of these solutions are obtained by determining
+<math display="inline"><mi>r</mi></math>
+suitable <span class="margin-block">unknowns <span class="margin-comment"><a class="ellipsis" href="#m-ref-21">[21]</a>
+<span class="sidenote">whose submatrix of coefficients must have rank r.</span></span></span> in terms of the remaining
+<math display="inline"><mi>n</mi> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>r</mi></math>
+unknowns, to which arbitrary values can be assigned.
+</dd>
+<dt class="enumerate-enumitem">
+iv. 
+</dt><dd class="enumerate-enumitem"><b>Gauss elimination</b> If solutions exist, they can all be obtained by the Gauss elimination.</dd></dl>
+</div> </div>
+<p class="noindent">The theorem is illustrated in <span class="refsection-ref"><a href="LinearSystemsofEquationsGaussElimination.html#x5-150001.2">Linear Systems of Equations Gauss Elimination</a></span>. In Example 2 there is a unique
+solution since rank <math display="inline"><mi>A</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle class="text"><mtext>rank </mtext></mstyle><mi>A</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>n</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>3</mn></math>
+(as can be seen from the last matrix in the example). In Example 3 we have rank
+<math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo><mi class="qopname"> rank</mi><mo> ⁡ </mo><mstyle mathvariant="bold"><mi>A</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>2</mn> <mo class="MathClass-rel" stretchy="false">&lt;</mo> <mi>n</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>4</mn></math> and can
+choose <math display="inline"><msub><mrow><mi>x</mi></mrow><mrow><mn>3</mn></mrow></msub></math> and
+<math display="inline"><msub><mrow><mi>x</mi></mrow><mrow><mn>4</mn></mrow></msub></math> arbitrarily. In Example 4 there
+is no solution because rank <math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>2</mn> <mo class="MathClass-rel" stretchy="false">&lt;</mo><mi class="qopname"> rank</mi><mo> ⁡ </mo><mover accent="true"><mrow><mstyle mathvariant="bold"><mi>A</mi></mstyle></mrow><mo accent="true">~</mo></mover> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>3</mn></math>.
+</p>
+<p class="noindent"><h5 class="subsubsectionHead" id="header-subsubsection-4"> <a id="x6-27000"></a>Homogeneous Linear System</h5>
+</p><p class="noindent">Recall from <span class="refsection-ref"><a href="LinearSystemsofEquationsGaussElimination.html#x5-150001.2">Linear Systems of Equations Gauss Elimination</a></span> that a
+linear system given in Eq. (<a href="#x6-26003r48">1.48</a>) is called <b>homogeneous</b> if all the
+<math display="inline"><msub><mrow><mi>b</mi></mrow><mrow><mi>j</mi></mrow></msub></math>’s are zero, and <b>nonhomogeneous</b>
+if one or several <math display="inline"><msub><mrow><mi>b</mi></mrow><mrow><mi>i</mi></mrow></msub></math>’s
+are not zero. For the homogeneous system we obtain from the Fundamental Theorem the following
+results.
+</p>
+<div class="block-major theo-block" id="theo-block-1.9"> <a class="copiable-link" href="#theo-block-1.9"> ¶</a> <span class="upper"> <span class="header"> <b>Theory 1.<a id="x6-27001r9"></a>9: </b> </span> <span class="title"> Homogeneous Linear System </span> </span> <div class="body">
+<p class="noindent">A homogeneous linear system of the form: </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x6-27002r49"></mstyle><mtable class="aligned" displaystyle="true"><mtr><mtd columnalign="right"><msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>1</mn></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>2</mn></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <mo class="MathClass-rel" stretchy="false">⋯</mo> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mi>n</mi></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mi>n</mi></mrow></msub></mtd>
+<mtd columnalign="left"> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></mtd>
+<mtd columnalign="right"></mtd>
+</mtr><mtr><mtd columnalign="right"><msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mn>1</mn></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mn>2</mn></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <mo class="MathClass-rel" stretchy="false">⋯</mo> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mi>n</mi></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mi>n</mi></mrow></msub></mtd>
+<mtd columnalign="left"> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></mtd>
+</mtr><mtr><mtd columnalign="right"><mo class="MathClass-rel" stretchy="false">⋯</mo></mtd> <mtd columnalign="left"></mtd>
+</mtr><mtr><mtd columnalign="right"><msub><mrow><mi>a</mi></mrow><mrow><mi>m</mi><mn>1</mn></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>a</mi></mrow><mrow><mi>m</mi><mn>2</mn></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <mo class="MathClass-rel" stretchy="false">⋯</mo> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>a</mi></mrow><mrow><mi>m</mi><mi>n</mi></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mi>n</mi></mrow></msub></mtd>
+<mtd columnalign="left"> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></mtd>
+</mtr> </mtable>
+</math></td><td class="eq-no">(1.49)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">always has the <b>trivial solution</b> <math display="inline"><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn><mo class="MathClass-punc" stretchy="false">,</mo><mi>…</mi><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>x</mi></mrow><mrow><mi>n</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></math>. Nontrivial
+solutions exist if and only if rank <math display="inline"><mi>A</mi> <mo class="MathClass-rel" stretchy="false">&lt;</mo> <mi>n</mi></math>.
+If rank <math display="inline"><mi>A</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>r</mi> <mo class="MathClass-rel" stretchy="false">&lt;</mo> <mi>n</mi></math>, these solutions, together
+with <math display="inline"><mi>x</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></math>, form a vector space (see
+Sec. 7.4) of dimension <math display="inline"><mi>n</mi> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>r</mi></math> called the
+solution space of (4). </p>
+<hr/>
+<p class="noindent"> 
+In particular, if <math display="inline"><msub><mrow><mstyle mathvariant="bold"><mi>x</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub></math>
+and <math display="inline"><msub><mrow><mstyle mathvariant="bold"><mi>x</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub></math> are solution
+vectors of (4), then <math display="inline"><mstyle mathvariant="bold"><mi>x</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>c</mi></mrow><mrow><mn>1</mn></mrow></msub><msub><mrow><mstyle mathvariant="bold"><mi>x</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>c</mi></mrow><mrow><mn>2</mn></mrow></msub><msub><mrow><mstyle mathvariant="bold"><mi>x</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub></math>
+with any scalars <math display="inline"><msub><mrow><mi>c</mi></mrow><mrow><mn>1</mn></mrow></msub></math>
+and <math display="inline"><msub><mrow><mi>c</mi></mrow><mrow><mn>2</mn></mrow></msub></math> is
+a solution vector of Eq. (<a href="#x6-27002r49">1.49</a>)<span class="margin-block">. <span class="margin-comment"><a class="ellipsis" href="#m-ref-22">[22]</a>
+<span class="sidenote">This <b>does not hold</b> for non-homogeneous systems. Also, the term
+solution space is used for homogeneous systems only.</span></span></span>
+</p>
+</div> </div>
+<p class="noindent">The solution space of Eq. (<a href="#x6-27002r49">1.49</a>) is also called the <b>null space</b> of
+<math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math> as
+<math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle><mstyle mathvariant="bold"><mi>x</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="bold"><mn>0</mn></mstyle></math> for
+every <b>x</b> in the solution space of (4). Its dimension is called the <b>nullity</b> of <b>A</b>. Therefore <a class="block-ref" href="#x6-27001r9">Theory 1.9</a>
+states that </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x6-27003r50"></mstyle>
+<mo class="MathClass-open" stretchy="false">(</mo><mn>5</mn><mo class="MathClass-close" stretchy="false">)</mo><mi>r</mi><mi>a</mi><mi>n</mi><mi>k</mi><mi>A</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>n</mi><mi>u</mi><mi>l</mi><mi>l</mi><mi>i</mi><mi>t</mi><mi>y</mi><mi>A</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>n</mi>
+</math></td><td class="eq-no">(1.50)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">where <math display="inline"><mi>n</mi></math>
+is the number of <span class="margin-block">unknowns. <span class="margin-comment"><a class="ellipsis" href="#m-ref-23">[23]</a>
+<span class="sidenote">Or we can say it is the numbers of columns of
+<math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math>.</span></span></span> Furthermore, by the
+definition of rank we have rank <math display="inline"><mi>A</mi> <mo class="MathClass-rel" stretchy="false">⩽</mo> <mi>m</mi></math>
+in (4). Hence if <math display="inline"><mi>m</mi> <mo class="MathClass-rel" stretchy="false">&lt;</mo> <mi>n</mi></math>,
+then rank <math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle> <mo class="MathClass-rel" stretchy="false">&lt;</mo> <mi>n</mi></math>.
+By <a class="block-ref" href="#x6-27001r9">Theory 1.9</a>, this gives the practically important
+</p>
+<div class="block-major theo-block" id="theo-block-1.10"> <a class="copiable-link" href="#theo-block-1.10"> ¶</a> <span class="upper"> <span class="header"> <b>Theory 1.<a id="x6-27004r10"></a>10: </b> </span> <span class="title"> Homogeneous Linear System with Fewer Equations Than Unknowns </span> </span>
+<div class="body">
+<p class="noindent">A homogeneous linear system with fewer equations than unknowns <span class="alert">always has nontrivial solutions</span>.
+</p>
+</div> </div>
+<p class="noindent"><h5 class="subsubsectionHead" id="header-subsubsection-5"> <a id="x6-28000"></a>Nonhomogeneous Linear Systems</h5>
+</p><p class="noindent">The characterization of all solutions of the linear system (1) is now quite simple, as follows.
+</p>
+<div class="block-major theo-block" id="theo-block-1.11"> <a class="copiable-link" href="#theo-block-1.11"> ¶</a> <span class="upper"> <span class="header"> <b>Theory 1.<a id="x6-28001r11"></a>11: </b> </span> <span class="title"> Nonhomogeneous Linear System </span> </span> <div class="body">
+<p class="noindent">If a nonhomogeneous linear system (1) is consistent, then all of its solutions are obtained as
+</p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x6-28002r51"></mstyle>
+<mstyle mathvariant="bold">
+<mi>x</mi></mstyle>
+<mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="bold"><msub><mrow><mi>x</mi></mrow><mrow><mn>0</mn></mrow></msub></mstyle> <mo class="MathClass-bin" stretchy="false">+</mo><msub><mrow> <mstyle mathvariant="bold"><mi>x</mi></mstyle></mrow><mrow><mi>h</mi></mrow></msub>
+</math></td><td class="eq-no">(1.51)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">where <math display="inline"><mstyle mathvariant="bold"><msub><mrow><mi>x</mi></mrow><mrow><mn>0</mn></mrow></msub></mstyle></math> is any (fixed)
+solution of (1) and <math display="inline"><mstyle mathvariant="bold"><msub><mrow><mi>x</mi></mrow><mrow><mi>h</mi></mrow></msub></mstyle></math>
+runs through all the solutions of the corresponding homogeneous system (4). The difference
+<math display="inline"><msub><mrow><mstyle mathvariant="bold"><mi>x</mi></mstyle></mrow><mrow><mi>h</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="bold"><mi>x</mi></mstyle> <mo class="MathClass-bin" stretchy="false">−</mo><msub><mrow> <mstyle mathvariant="bold"><mi>x</mi></mstyle></mrow><mrow><mn>0</mn></mrow></msub></math> of any
+two solutions of (1) is a solution of (4) because
+</p>
+</div> </div>
+<p class="noindent">This covers a main part of our discussion of characterizing the solutions of systems of linear equations.
+Our next main topic is determinants and their role in linear equations.
+<div class="section-header">
+<h3 id="header-section-references">
+<span class="number">
+<i class="fa-regular fa-note-sticky"></i>
+</span>
+<span class="title">
+<a id="page-glossary"></a>
+                    Page Footnotes</span>
+</h3>
+</div>
+<div class="footnote-block">
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-19"><span class="acr-short">[19].</span></dt>
+<dd class="enumerate-enumitem"><span class="">with the same number of components.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-20"><span class="acr-short">[20].</span></dt>
+<dd class="enumerate-enumitem"><span class="">Some
+<math display="inline"><msub><mrow><mi>k</mi></mrow><mrow><mi>j</mi></mrow></msub></math>’s may be zero. Or even
+all of them, namely, if <math display="inline"><msub><mrow><mstyle mathvariant="bold"><mi>a</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="bold"><mn>0</mn></mstyle></math>.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-21"><span class="acr-short">[21].</span></dt>
+<dd class="enumerate-enumitem"><span class="">whose submatrix of coefficients must have rank r.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-22"><span class="acr-short">[22].</span></dt>
+<dd class="enumerate-enumitem"><span class="">This <b>does not hold</b> for non-homogeneous systems. Also, the term
+solution space is used for homogeneous systems only.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-23"><span class="acr-short">[23].</span></dt>
+<dd class="enumerate-enumitem"><span class="">Or we can say it is the numbers of columns of
+<math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math>.</span></dd>
+</dl></div><nav class="crosslinks-bottom"><div class="navigation"><span class="nav-button"><a href="DeterminantsandCramersRule.html"><i class="fa-solid fa-caret-right"></i></a></span><span class="nav-button"><a href="LinearSystemsofEquationsGaussElimination.html"><i class="fa-solid fa-caret-left"></i></a></span><span class="nav-button"><a href="LinearAlgebraIFundamentals.html#LinearIndependenceandRankofaMatrixVectorSpace.html"><i class="fa-solid fa-caret-up"></i></a></span><span class="nav-button">
+<a href="index.html" rel="index" title="Index">
+<i class="fa-solid fa-table-list">
+</i>
+</a></span><span class="nav-button">
+<a href="Index.html" rel="index" title="Index">
+<i class="fa-brands fa-git-alt"></i>
+</a></span></div></nav> </p><div class="footer"> <div class="footer-left"><span class="footer-lecture">D. T. McGuiness, PhD</span>
+<span class="footer-webBook"><b>Last Updated:</b> 20.10.2026, at 10:2.</span></div></div><div class="author-notes">
+<span class="note">Authors Note </span>
+<span class="text">The website you are viewing is auto-generated using lms-WebBook and therefore subject to slight errors in typography and formatting. When in doubt, please consult the LectureBook. </span>
+</div>
+</article>
+<div class="mode-line">
+<div class="core-line"><div class="core-line-image"><img class="webbook-logo" src="logo/webbook-logo.svg"/></div>
+<div class="current-header">
+<span class="header-pretext">Viewing | </span>
+<span class="header-text">Section 1.3: Linear Independence and Rank of a Matrix Vector Space</span>
+</div>
+<div class="button-group">
+</div>
+</div>
+<div class="supp-line"></div>
+</div>
+</page>
+</body>
+</html>

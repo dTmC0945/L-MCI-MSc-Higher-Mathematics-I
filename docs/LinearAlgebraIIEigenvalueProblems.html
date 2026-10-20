@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><title>2 Linear Algebra II - Eigenvalue Problems</title>
+<meta charset="utf-8"/>
+<meta content="lms-WebBook" name="generator"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js" type="text/javascript"></script>
+<link href="logo/lms.ico" rel="icon" type="image/x-icon"/>
+<link href="./pagefind/pagefind-component-ui.css" rel="stylesheet"/>
+<script src="./pagefind/pagefind-component-ui.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link href="https://cdn.jsdelivr.net/gh/sugina-dev/latin-modern-web@1.0.1/style/latinmodern-mono.css" rel="stylesheet"/>
+<link href="flatweb.css" rel="stylesheet" type="text/css"/>
+<script src="flatweb.js" type="text/javascript"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/base16/solarized-light.min.css" rel="stylesheet"/>
+<script src="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.js"></script>
+<link href="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/cpp.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/latex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/matlab.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/dockerfile.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/cmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/makefile.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/markdown.min.js"></script>
+ </head><body>
+<page>
+<nav class="wide"> <div class="header"><div class="header-left"><span class="header-lecture-grade">M.Sc</span>
+<span class="header-lecture-name">Higher Mathematics I</span>
+<span class="header-webBook">WebBook 2.1</span></div><div class="header-right"><span class="header-version">2026.WS</span>
+<span class="header-chapter">Linear Algebra II - Eigenvalue Problems</span></div></div><div class="toc"><pagefind-modal-trigger></pagefind-modal-trigger><pagefind-modal></pagefind-modal><div class="toc-links"><a href="https://github.com/dTmC0945" title="Lecturer GitHub Repo"><i class="fab fa-github" style="font-size:20px"></i></a><a href="https://scholar.google.com/citations?view_op=list_works\&amp;hl=en\&amp;user=lxQGADMAAAAJ" title="Lecturer Google Scholar Page"><i class="fa-brands fa-google-scholar" style="font-size:20px"></i></a><a href="https://www.researchgate.net/profile/Daniel-Mcguiness-2" title="Lecturer ResearchGate Account"><i class="fa-brands fa-researchgate" style="font-size:20px"></i></a><a href="https://dtmc0945.github.io/Th-MCI-Thesis-Topics/" title="Lecturer Thesis Ideas for B.Sc and M.Sc"><i class="fa-solid fa-book" style="font-size:20px"></i></a><a href="https://github.com/dTmC0945/C-MCI-LaTeX-Class-mcidoc/tree/main" title="mcidoc LaTeX Standard"><i class="fa-regular fa-file-lines" style="font-size:20px"></i></a></div><hr/><span class="chapterToc"><span class="number"></span><span class="title"><a href="index.html#x2-10000">Entry Point</a></span></span><span class="chapterToc"><span class="number">1</span><span class="title"><a href="LinearAlgebraIFundamentals.html#x3-20001">Linear Algebra I - Fundamentals</a></span></span><span class="sectionToc"><span class="number">1.1</span><span class="title"><a href="MatricesVectorsAdditionandScalarMultiplication.html#x4-30001.1">Matrices, Vectors: Addition and Scalar
+Multiplication</a></span></span><span class="subsectionToc"><span class="number">1.1.1</span><span class="title"><a href="MatricesVectorsAdditionandScalarMultiplication.html#x4-40001.1.1">General Concepts and Notations</a></span></span><span class="subsectionToc"><span class="number">1.1.2</span><span class="title"><a href="MatricesVectorsAdditionandScalarMultiplication.html#x4-50001.1.2">Vectors</a></span></span><span class="subsectionToc"><span class="number">1.1.3</span><span class="title"><a href="MatricesVectorsAdditionandScalarMultiplication.html#x4-60001.1.3">Addition and
+Scalar Multiplication of Matrices and Vectors</a></span></span><span class="subsectionToc"><span class="number">1.1.4</span><span class="title"><a href="MatricesVectorsAdditionandScalarMultiplication.html#x4-80001.1.4">Matrix Multiplication</a></span></span><span class="subsectionToc"><span class="number">1.1.5</span><span class="title"><a href="MatricesVectorsAdditionandScalarMultiplication.html#x4-90001.1.5">The use
+of Linear Transformations in Multiplication of Matrices</a></span></span><span class="sectionToc"><span class="number">1.2</span><span class="title"><a href="LinearSystemsofEquationsGaussElimination.html#x5-150001.2">Linear Systems of Equations
+Gauss Elimination</a></span></span><span class="subsectionToc"><span class="number">1.2.1</span><span class="title"><a href="LinearSystemsofEquationsGaussElimination.html#x5-160001.2.1">Linear System, Coefficient Matrix, Augmented Matrix</a></span></span><span class="subsectionToc"><span class="number">1.2.2</span><span class="title"><a href="LinearSystemsofEquationsGaussElimination.html#x5-180001.2.2">Gauss
+Elimination and Back Substitution</a></span></span><span class="subsectionToc"><span class="number">1.2.3</span><span class="title"><a href="LinearSystemsofEquationsGaussElimination.html#x5-190001.2.3">Elementary Row Operations. Row-Equivalent
+Systems</a></span></span><span class="sectionToc"><span class="number">1.3</span><span class="title"><a href="LinearIndependenceandRankofaMatrixVectorSpace.html#x6-220001.3">Linear Independence and Rank of a Matrix Vector Space</a></span></span><span class="subsectionToc"><span class="number">1.3.1</span><span class="title"><a href="LinearIndependenceandRankofaMatrixVectorSpace.html#x6-230001.3.1">Linear
+Independence and Dependence of Vectors</a></span></span><span class="subsectionToc"><span class="number">1.3.2</span><span class="title"><a href="LinearIndependenceandRankofaMatrixVectorSpace.html#x6-240001.3.2">Rank of a Matrix</a></span></span><span class="subsectionToc"><span class="number">1.3.3</span><span class="title"><a href="LinearIndependenceandRankofaMatrixVectorSpace.html#x6-250001.3.3">Vector
+Space</a></span></span><span class="subsectionToc"><span class="number">1.3.4</span><span class="title"><a href="LinearIndependenceandRankofaMatrixVectorSpace.html#x6-260001.3.4">Solutions of Linear Systems: Existence, Uniqueness</a></span></span><span class="sectionToc"><span class="number">1.4</span><span class="title"><a href="DeterminantsandCramersRule.html#x7-290001.4">Determinants
+and Cramer’s Rule</a></span></span><span class="subsectionToc"><span class="number">1.4.1</span><span class="title"><a href="DeterminantsandCramersRule.html#x7-300001.4.1">A Quick Refreshment on Determinants</a></span></span><span class="subsectionToc"><span class="number">1.4.2</span><span class="title"><a href="DeterminantsandCramersRule.html#x7-320001.4.2">Third-Order
+Determinants</a></span></span><span class="subsectionToc"><span class="number">1.4.3</span><span class="title"><a href="DeterminantsandCramersRule.html#x7-340001.4.3">General Properties of Determinants</a></span></span><span class="subsectionToc"><span class="number">1.4.4</span><span class="title"><a href="DeterminantsandCramersRule.html#x7-350001.4.4">Cramer’s Rule</a></span></span><span class="sectionToc"><span class="number">1.5</span><span class="title"><a href="InverseofaMatrixusingGaussJordanElimination.html#x8-360001.5">Inverse
+of a Matrix using Gauss-Jordan Elimination</a></span></span><span class="subsectionToc"><span class="number">1.5.1</span><span class="title"><a href="InverseofaMatrixusingGaussJordanElimination.html#x8-370001.5.1">Determination of the Inverse by the
+Gauss-Jordan Method</a></span></span><span class="subsectionToc"><span class="number">1.5.2</span><span class="title"><a href="InverseofaMatrixusingGaussJordanElimination.html#x8-390001.5.2">Formulas for Inverses</a></span></span><span class="subsectionToc"><span class="number">1.5.3</span><span class="title"><a href="InverseofaMatrixusingGaussJordanElimination.html#x8-400001.5.3">Unusual Properties of Matrix
+Multiplication. Cancellation Laws</a></span></span><span class="subsectionToc"><span class="number">1.5.4</span><span class="title"><a href="InverseofaMatrixusingGaussJordanElimination.html#x8-410001.5.4">Determinants of Matrix Products</a></span></span><span class="sectionToc"><span class="number">1.6</span><span class="title"><a href="VectorandInnerProductSpacesLinearTransformations.html#x9-420001.6">Vector, and
+Inner Product Spaces, Linear Transformations</a></span></span><span class="subsectionToc"><span class="number">1.6.1</span><span class="title"><a href="VectorandInnerProductSpacesLinearTransformations.html#x9-430001.6.1">Inner Product Spaces</a></span></span><span class="subsectionToc"><span class="number">1.6.2</span><span class="title"><a href="VectorandInnerProductSpacesLinearTransformations.html#x9-440001.6.2">Linear
+Transformations</a></span></span><span class="subsectionToc"><span class="number">1.6.3</span><span class="title"><a href="VectorandInnerProductSpacesLinearTransformations.html#x9-460001.6.3">Composition of Linear Transformations</a></span></span><span class="chapterToc"><span class="number">2</span><span class="title"><a href="#x10-470002">Linear Algebra II - Eigenvalue
+Problems</a></span></span><span class="sectionToc"><span class="number">2.1</span><span class="title"><a href="DeterminingEigenvaluesandEigenvectors.html#x11-500002.1">Determining Eigenvalues and Eigenvectors</a></span></span><span class="subsectionToc"><span class="number">2.1.1</span><span class="title"><a href="DeterminingEigenvaluesandEigenvectors.html#x11-510002.1.1">How to Find Eigenvalues and
+Eigenvectors</a></span></span><span class="subsectionToc"><span class="number">2.1.2</span><span class="title"><a href="DeterminingEigenvaluesandEigenvectors.html#x11-520002.1.2">Applications of Eigenvalue Problems</a></span></span><span class="sectionToc"><span class="number">2.2</span><span class="title"><a href="SymmetricSkewSymmetricandOrthogonalMatrices.html#x12-530002.2">Symmetric, Skew-Symmetric,
+and Orthogonal Matrices</a></span></span><span class="subsectionToc"><span class="number">2.2.1</span><span class="title"><a href="SymmetricSkewSymmetricandOrthogonalMatrices.html#x12-540002.2.1">Orthogonal Transformations and Orthogonal
+Matrices</a></span></span><span class="sectionToc"><span class="number">2.3</span><span class="title"><a href="EigenbasesDiagonalizationQuadraticForms.html#x13-550002.3">Eigenbases. Diagonalization. Quadratic Forms</a></span></span><span class="subsectionToc"><span class="number">2.3.1</span><span class="title"><a href="EigenbasesDiagonalizationQuadraticForms.html#x13-560002.3.1">Similarity of Matrices and
+Diagonalization</a></span></span><span class="subsectionToc"><span class="number">2.3.2</span><span class="title"><a href="EigenbasesDiagonalizationQuadraticForms.html#x13-570002.3.2">Quadratic Forms and Transformation to Principal Axes</a></span></span><span class="sectionToc"><span class="number">2.4</span><span class="title"><a href="ComplexMatricesandForms.html#x14-580002.4">Complex
+Matrices and Forms</a></span></span><span class="subsectionToc"><span class="number">2.4.1</span><span class="title"><a href="ComplexMatricesandForms.html#x14-590002.4.1">Eigenvalues</a></span></span><span class="subsectionToc"><span class="number">2.4.2</span><span class="title"><a href="ComplexMatricesandForms.html#x14-600002.4.2">Hermitian and Skew-Hermitian Forms</a></span></span>
+<div class="nav-footer"><div class="nav-footer-left"><span class="nav-footer-lecture">D. T. McGuiness, PhD</span>
+<span class="nav-footer-webBook"><b>Last Updated:</b> 20.10.2026, at 10:2.</span></div></div><p class="nav-comments">The website you are viewing is auto-generated using lms-WebBook and therefore subject to slight errors in typography and formatting. When in doubt, please consult the LectureBook. </p></div></nav>
+<article class="chapter">
+<nav class="crosslinks-top"> <span class="nav-button"><i class="fa-solid fa-caret-right"></i><a class="nav-link" href="DeterminingEigenvaluesandEigenvectors.html">Determining Eigenvalues and Eigenvectors</a></span><span class="nav-button"><i class="fa-solid fa-caret-left"></i><a class="nav-link" href="VectorandInnerProductSpacesLinearTransformations.html">Vector, and Inner Product Spaces, Linear Transformations</a></span><span class="nav-button"><i class="fa-solid fa-caret-up"></i></span><span class="nav-button">
+<a href="index.html" rel="index" title="Visit Entry Point">
+<i class="fa-solid fa-table-list">
+</i>
+<span class="nav-info">Visit Index Page</span>
+</a></span><span class="nav-button">
+<a href="Index.html" rel="index" title="Visit Material GitHub Repo">
+<i class="fa-brands fa-git-alt"></i>
+<span class="nav-info">Visit Material GitHub Repo</span>
+</a></span></nav>
+<h2 class="chapterHead"><div class="chapter-header">Chapter <span class="titlemark">2</span>  </div><br/> <a id="x10-470002"></a>Linear Algebra II
+- Eigenvalue Problems</h2>
+<p class="noindent">A matrix eigenvalue problem considers the following vector equation: </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x10-47001r1"></mstyle>
+<mstyle mathvariant="bold">
+<mi>A</mi></mstyle>
+<mstyle mathvariant="bold">
+<mi>x</mi></mstyle>
+<mo class="MathClass-rel" stretchy="false">=</mo> <mi>λ</mi><mstyle mathvariant="bold"><mi>x</mi></mstyle>
+</math></td><td class="eq-no">(2.1)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">Here <math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math> is a given
+square matrix, <math display="inline"><mi>λ</mi></math> an
+unknown scalar, and <math display="inline"><mstyle mathvariant="bold"><mi>x</mi></mstyle></math>
+an unknown vector. In a matrix eigenvalue problem, the task is to determine
+<math display="inline"><mi>λ</mi></math>’s and
+<math display="inline"><mstyle mathvariant="bold"><mi>x</mi></mstyle></math>’s that
+satisfy Eq. (<a href="EigenbasesDiagonalizationQuadraticForms.html#x13-55002r56">2.56</a>).
+</p>
+<div class="block-minor knowledge"><div class="body">
+<p class="noindent">Since <math display="inline"><mi>x</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></math> is always
+a solution for any <math display="inline"><mi>λ</mi></math>
+and therefore <b>NOT</b> interesting, we only focus on solutions with
+<math display="inline"><mi>x</mi> <mi>≠</mi> <mn>0</mn></math>.
+</p></div></div>
+<p class="noindent">The solutions to Eq. (<a href="EigenbasesDiagonalizationQuadraticForms.html#x13-55002r56">2.56</a>) are given the following names: </p><div class="quote">   The
+<math display="inline"><mi>λ</mi></math>’s that satisfy Eq. (<a href="EigenbasesDiagonalizationQuadraticForms.html#x13-55002r56">2.56</a>) are
+called <span class="alert">eigenvalues</span> of <math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math> and the corresponding
+nonzero <math display="inline"><mstyle mathvariant="bold"><mi>x</mi></mstyle></math>’s that also satisfy
+Eq. 
+(<a href="EigenbasesDiagonalizationQuadraticForms.html#x13-55002r56">2.56</a>) 
+are called <span class="alert">eigenvectors</span> of <math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math>.
+</div>
+<p class="noindent">From this rather innocent looking vector equation flows an amazing amount of relevant theory and an
+incredible richness of applications.
+</p>
+<div class="block-major info-block" id="info-block-2.4"> <a class="copiable-link" href="#info-block-2.4"> ¶</a> <span class="upper"> <span class="header"> <b>Information 2.<a id="x10-47002r4"></a>4: </b> </span> <span class="title"> Applications of Eigenvalues </span> </span> <div class="body">
+<p class="noindent">Eigenvalue problems come up all the time in engineering, physics, geometry, numerics, theoretical
+mathematics, biology, environmental science, urban planning, economics, psychology, and other <span class="margin-block">areas.
+<span class="margin-comment"><a class="ellipsis" href="#m-ref-37">[37]</a>
+<span class="sidenote">Thus, in your career you are likely to encounter eigenvalue problems.</span></span></span>
+</p>
+</div></div>
+<p class="noindent">We start with the fundamentals and describe the concept of eigenvalue problems in <span class="refsection-ref"><a href="DeterminingEigenvaluesandEigenvectors.html#x11-500002.1">Determining
+Eigenvalues and Eigenvectors</a></span> and explain Eq. (<a href="EigenbasesDiagonalizationQuadraticForms.html#x13-55002r56">2.56</a>) with numerous matrices and then we will closely
+look at different applications where this can be applied ranging from mass-spring systems of physics to
+population control models of environmental science.
+</p><p class="noindent">Later on we will investigate eigenvalue problems for real symmetric, skew-symmetric, and orthogonal
+matrices in in <span class="refsection-ref"><a href="SymmetricSkewSymmetricandOrthogonalMatrices.html#x12-530002.2">Symmetric, Skew-Symmetric, and Orthogonal Matrices</a></span> and their complex <span class="margin-block">counterparts
+<span class="margin-comment"><a class="ellipsis" href="#m-ref-38">[38]</a>
+<span class="sidenote">which are important in modern physics.</span></span></span> in <span class="refsection-ref"><a href="ComplexMatricesandForms.html#x14-580002.4">Complex Matrices and Forms</a></span>. Between these section, in
+<span class="refsection-ref"><a href="EigenbasesDiagonalizationQuadraticForms.html#x13-550002.3">Eigenbases. Diagonalization. Quadratic Forms</a></span>, we will have a look at how by diagonalizing a matrix,
+we obtain its eigenvalues.
+</p>
+<div class="likesubsectionTOCS">
+<span class="likesubsectionToc"><a href="#x10-48000" id="QQ2-10-49">A History of Eigenvalues</a></span>
+<br/><span class="sectionToc">2.1  <a href="DeterminingEigenvaluesandEigenvectors.html#x11-500002.1">Determining Eigenvalues and Eigenvectors</a></span>
+<br/><span class="subsectionToc">2.1.1  <a href="DeterminingEigenvaluesandEigenvectors.html#x11-510002.1.1">How to Find Eigenvalues and Eigenvectors</a></span>
+<br/><span class="subsectionToc">2.1.2  <a href="DeterminingEigenvaluesandEigenvectors.html#x11-520002.1.2">Applications of Eigenvalue Problems</a></span>
+<br/><span class="sectionToc">2.2  <a href="SymmetricSkewSymmetricandOrthogonalMatrices.html#x12-530002.2">Symmetric, Skew-Symmetric, and Orthogonal Matrices</a></span>
+<br/><span class="subsectionToc">2.2.1  <a href="SymmetricSkewSymmetricandOrthogonalMatrices.html#x12-540002.2.1">Orthogonal Transformations and Orthogonal Matrices</a></span>
+<br/><span class="sectionToc">2.3  <a href="EigenbasesDiagonalizationQuadraticForms.html#x13-550002.3">Eigenbases. Diagonalization. Quadratic Forms</a></span>
+<br/><span class="subsectionToc">2.3.1  <a href="EigenbasesDiagonalizationQuadraticForms.html#x13-560002.3.1">Similarity of Matrices and Diagonalization</a></span>
+<br/><span class="subsectionToc">2.3.2  <a href="EigenbasesDiagonalizationQuadraticForms.html#x13-570002.3.2">Quadratic Forms and Transformation to Principal Axes</a></span>
+<br/><span class="sectionToc">2.4  <a href="ComplexMatricesandForms.html#x14-580002.4">Complex Matrices and Forms</a></span>
+<br/><span class="subsectionToc">2.4.1  <a href="ComplexMatricesandForms.html#x14-590002.4.1">Eigenvalues</a></span>
+<br/><span class="subsectionToc">2.4.2  <a href="ComplexMatricesandForms.html#x14-600002.4.2">Hermitian and Skew-Hermitian Forms</a></span>
+</div>
+<p class="noindent">
+</p>
+<h4 class="likesubsectionHead"> <a id="x10-48000"></a>A History of Eigenvalues</h4>
+<p class="noindent">It is quite interesting that, eigenvalues are often introduced in the context of <i>linear algebra</i> or theory of
+matrices. However, from a historical standpoint, they were first used in the study of <b>quadratic forms</b>
+and <b>differential equations</b>.
+</p><p class="noindent">In the <math display="inline"><msup><mrow><mstyle class="text"><mtext>18</mtext></mstyle></mrow><mrow><mstyle class="text"><mtext>th</mtext></mstyle></mrow></msup></math>
+century, <i>Leonhard Euler</i> studied the <i>rotational motion of a rigid body</i>, and discovered the importance of
+the principal <span class="margin-block"><span class="margin"><span>axes. <a class="ellipsis" href="#m-ref-39">[39]</a></span><span class="sidenote"><a class="copiable-link" href="#m-ref-39" id="m-ref-39"> ¶</a><span class="sidenote-image"><img alt="PIC" src="figures/Linear-Algebra-II---Eigenvalue-Problems/raster/portrait-rigid-body.png" style=""/></span><span class="sidenote-text"><span class="ellipsis">[39]</span>In 1751, he proved that any body has a principal axis of rotation. In his paper
+“<i>Du mouvement d’un corps solide quelconque lorsqu’il tourne autour d’un axe mobile</i>”, he states:
+<math display="inline"><mo class="MathClass-rel" stretchy="false">⋯</mo><mspace class="thinspace" width="0.17em"></mspace></math>
+Whatever be the shape of the body, one can always assign to it such an axis, which passes
+through its center of gravity, around which it can rotate freely and with a uniform motion.
+For example, Movement of each of the components of the Boulton &amp; Watt Steam Engine (1784) can be
+described as a collection of rigid body elements given the parts do not deform under the action of
+applied forces.</span></span></span></span> <i>Joseph-Louis Lagrange</i> realized that the principal axes are the eigenvectors of the inertia
+matrix <span class="cite"><a class="cite-show" href="#w3-20001">[†-1]</a><span class="cite-detail"> <a id="x10-48001"></a>Hawkins, T. Cauchy and the spectral theory of matrices. Historia mathematica <b>2</b><b>,</b> 1–29
+(1975)</span></span>.
+</p><p class="noindent">In the early <math display="inline"><msup><mrow><mstyle class="text"><mtext>19</mtext></mstyle></mrow><mrow><mstyle class="text"><mtext>th</mtext></mstyle></mrow></msup></math>
+century, <i>Augustin-Louis Cauchy</i> saw how their work could be used to classify the <span class="margin-block">quadric surfaces, <span class="margin-comment"><a class="ellipsis" href="#m-ref-40">[40]</a>
+<span class="sidenote">a
+generalization of conic sections i.e., ellipses, parabolas, and hyperbolas.</span></span></span> and generalized it to arbitrary
+dimensions <span class="cite"><a class="cite-show" href="#w3-20001">[†-1]</a><span class="cite-detail"> Hawkins, T. Cauchy and the spectral theory of matrices. Historia mathematica <b>2</b><b>,</b> 1–29
+(1975)</span></span>. Cauchy also coined the term <i>racine caractéristique</i> (characteristic root), for what is now
+called <b>eigenvalue</b> which his term survives in characteristic equation on solving differential
+equations.
+</p><p class="noindent">Later, <i>Joseph Fourier</i> used the work of <i>Lagrange</i> and <i>Pierre-Simon Laplace</i> to solve the heat equation
+by separation of variables in his 1822 treatise The Analytic Theory of Heat <span class="cite"><a class="cite-show" href="#w3-20001">[†-2]</a><span class="cite-detail"> <a id="x10-48002"></a>Kline, M. Mathematical
+thought from ancient to modern times (Oxford university press, 1990)</span></span>. <i>Charles-François Sturm</i> further
+elaborated on <i>Fourier</i>’s ideas, and brought them to the attention of <i>Cauchy</i>, who combined them with
+his own ideas and arrived at the fact that real symmetric matrices have real eigenvalues <span class="cite"><a class="cite-show" href="#w3-20001">[†-1]</a><span class="cite-detail">
+Hawkins, T. Cauchy and the spectral theory of matrices. Historia mathematica <b>2</b><b>,</b> 1–29 (1975)</span></span>. </p><div class="quote">
+This was extended by Charles Hermite in 1855 to what we call <i>Hermitian matrices</i> <span class="cite"><a class="cite-show" href="#w3-20001">[†-2]</a><span class="cite-detail">
+Kline, M. Mathematical thought from ancient to modern times (Oxford university press, 1990)</span></span>.
+</div>
+<p class="noindent">Around the same time, <i>Francesco Brioschi</i> proved that the eigenvalues of orthogonal matrices lie on the
+unit circle <span class="cite"><a class="cite-show" href="#w3-20001">[†-1]</a><span class="cite-detail"> Hawkins, T. Cauchy and the spectral theory of matrices. Historia mathematica <b>2</b><b>,</b> 1–29
+(1975)</span></span>, and <i>Alfred Clebsch</i> found the corresponding result for <b>skew-symmetric matrices</b> <span class="cite"><a class="cite-show" href="#w3-20001">[†-2]</a><span class="cite-detail">
+Kline, M. Mathematical thought from ancient to modern times (Oxford university press,
+1990)</span></span>.
+</p><p class="noindent">Finally, Karl Weierstrass clarified an important aspect in the stability theory started by Laplace, by
+realizing that defective matrices can cause instability <span class="cite"><a class="cite-show" href="#w3-20001">[†-1]</a><span class="cite-detail"> Hawkins, T. Cauchy and the spectral theory of
+matrices. Historia mathematica <b>2</b><b>,</b> 1–29 (1975)</span></span>.
+</p><p class="noindent">In the meantime, <i>Joseph Liouville</i> studied eigenvalue problems similar to those of <i>Sturm</i>; the
+discipline that grew out of their work is now called <b>SturmLiouville</b> theory <span class="cite"><a class="cite-show" href="#w3-20001">[†-2]</a><span class="cite-detail"> <a id="x10-48003"></a>Kline, M.
+Mathematical thought from ancient to modern times (Oxford university press, 1990)</span></span><span class="margin-block">. <span class="margin-comment"><a class="ellipsis" href="#m-ref-41">[41]</a>
+<span class="sidenote">This
+topic will be covered in <b>M.Sc Higher Mathematics II</b>.</span></span></span> <i>Karl Hermann Amandus Schwarz</i>
+studied the first eigenvalue of <i>Laplace</i>’s equation on general domains towards the end of the
+<math display="inline"><msup><mrow><mstyle class="text"><mtext>19</mtext></mstyle></mrow><mrow><mstyle class="text"><mtext>th</mtext></mstyle></mrow></msup></math>
+century, while <i>Poincaré</i> studied <i>Poisson</i>’s equation a few years later <span class="cite"><a class="cite-show" href="#w3-20001">[†-2]</a><span class="cite-detail"> Kline, M. Mathematical thought
+from ancient to modern times (Oxford university press, 1990)</span></span>.
+</p><p class="noindent">At the start of the <math display="inline"><msup><mrow><mstyle class="text"><mtext>20</mtext></mstyle></mrow><mrow><mstyle class="text"><mtext>th</mtext></mstyle></mrow></msup></math>
+century, <i>David Hilbert</i> studied the eigenvalues of integral operators by viewing the operators as infinite
+matrices <span class="cite"><a class="cite-show" href="#w3-20001">[†-2]</a><span class="cite-detail"> Kline, M. Mathematical thought from ancient to modern times (Oxford university press, 1990)</span></span>.
+He was the first to use the German word <b>eigen</b>, which means <b>own</b> <span class="cite"><a class="cite-show" href="#w3-20001">[†-3]</a><span class="cite-detail"> <a id="x10-48004"></a>Hilbert, D. Grundzüge einer
+allgemeinen Theorie der linearen Integralgleichungen in Integralgleichungen und Gleichungen mit unendlich
+vielen Unbekannten 6–169 (Springer, 1989)</span></span>, to denote eigenvalues and <span class="margin-block">eigenvectors <span class="margin-comment"><a class="ellipsis" href="#m-ref-42">[42]</a>
+<span class="sidenote">In his paper he writes
+“Insbesondere in dieser ersten Mitteilung gelange ich zu Formeln, die die Entwickelung einer willkürlichen
+Funktion nach gewissen ausgezeichneten Funktionen, die ich ’Eigenfunktionen’ nenne, liefern:
+<math display="inline"><mo>…</mo></math>”
+(<i>In particular, in this first report I arrive at formulas that provide the [series] development of
+an arbitrary function in terms of some distinctive functions, which I call eigenfunctions:
+<math display="inline"><mo>…</mo></math> </i>)
+“Dieser Erfolg ist wesentlich durch den Umstand bedingt, daß ich nicht, wie es
+bisher geschah, in erster Linie auf den Beweis für die Existenz der Eigenwerte ausgehe,
+<math display="inline"><mo>…</mo></math>”
+(<i>This success is fundamentally attributable to the fact that I do not, as it has
+happened until now, first of all aim at a proof of the existence of eigenvalues
+<math display="inline"><mo>…</mo></math></i>)</span></span></span>
+though he may have been following a related usage by <i>Hermann von Helmholtz</i>. For some time, the
+standard term in English was “proper value”, but the more distinctive term “eigenvalue” became the
+standard today <span class="cite"><a class="cite-show" href="#w3-20001">[†-4]</a><span class="cite-detail"> <a id="x10-48005"></a>Aldrich, J. Eigenvalue, eigenfunction, eigenvector, and related terms. Earliest known
+uses of some of the words of mathematics (2006)</span></span>.
+</p>
+<p class="noindent"><span class="paragraphHead"> <a id="x10-49000"></a>Numerical Solving of Eigenvalues</span>
+The first numerical algorithm for computing eigenvalues and eigenvectors appeared in 1929, when
+<i>Richard von Mises</i> published the <b>power method</b> <span class="cite"><a class="cite-show" href="#w3-20001">[†-5]</a><span class="cite-detail"> <a id="x10-49001"></a>Mises, R. &amp; Pollaczek-Geiringer, H.
+Praktische verfahren der gleichungsauflösung. ZAMM-Journal of Applied Mathematics and
+Mechanics/Zeitschrift für Angewandte Mathematik und Mechanik <b>9</b><b>,</b> 58–77 (1929)</span></span>. One of
+the most popular methods today, the <b>QR algorithm</b>, was proposed independently by
+John G. F. Francis <span class="cite"><a class="cite-show" href="#w3-20001">[†-6]</a><span class="cite-detail"> <a id="x10-49002"></a>Francis, J. G. The QR transformation a unitary analogue to the LR
+transformation–Part 1. The Computer Journal <b>4</b><b>,</b> 265–271 (1961)</span></span> and Vera Kublanovskaya <span class="cite"><a class="cite-show" href="#w3-20001">[†-7]</a><span class="cite-detail">
+<a id="x10-49003"></a>Kublanovskaya, V. N. On some algorithms for the solution of the complete eigenvalue problem. USSR
+Computational Mathematics and Mathematical Physics <b>1</b><b>,</b> 637–657 (1962)</span></span> in 1961 <span class="cite"><a class="cite-show" href="#w3-20001">[†-8]</a><span class="cite-detail"> <a id="x10-49004"></a>Golub, G. H. &amp;
+Van Loan, C. F. Matrix computations 3rd edition. The John Hopkins University, Baltimore
+(1996)</span></span>.
+</p>
+<p class="noindent">
+</p>
+<p class="noindent">
+</p>
+<p class="noindent">
+</p>
+<div class="section-header">
+<h3 id="header-section-references">
+<span class="number">
+<i class="fa-solid fa-magnifying-glass"></i>
+</span>
+<span class="title">
+<a id="page-glossary"></a>
+            Page References</span>
+</h3>
+</div>
+<div class="cite-block">
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="w3-20001"><span class="acr-short">1.</span><span class="acr-long"></span></dt>
+<dd class="enumerate-enumitem"> Hawkins, T. Cauchy and the spectral theory of matrices. Historia mathematica 2, 1–29 (1975)</dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="w3-20001"><span class="acr-short">2.</span><span class="acr-long"></span></dt>
+<dd class="enumerate-enumitem"> Kline, M. Mathematical thought from ancient to modern times (Oxford university press, 1990)</dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="w3-20001"><span class="acr-short">3.</span><span class="acr-long"></span></dt>
+<dd class="enumerate-enumitem"> Hilbert, D. Grundzüge einer allgemeinen Theorie der linearen Integralgleichungen in Integralgleichungen und Gleichungen mit unendlich vielen Unbekannten 6–169 (Springer, 1989)</dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="w3-20001"><span class="acr-short">4.</span><span class="acr-long"></span></dt>
+<dd class="enumerate-enumitem"> Aldrich, J. Eigenvalue, eigenfunction, eigenvector, and related terms. Earliest known uses of some of the words of mathematics (2006)</dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="w3-20001"><span class="acr-short">5.</span><span class="acr-long"></span></dt>
+<dd class="enumerate-enumitem"> Mises, R. &amp; Pollaczek-Geiringer, H. Praktische verfahren der gleichungsauflösung. ZAMM-Journal of Applied Mathematics and Mechanics/Zeitschrift für Angewandte Mathematik und Mechanik 9, 58–77 (1929)</dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="w3-20001"><span class="acr-short">6.</span><span class="acr-long"></span></dt>
+<dd class="enumerate-enumitem"> Francis, J. G. The QR transformation a unitary analogue to the LR transformation–Part 1. The Computer Journal 4, 265–271 (1961)</dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="w3-20001"><span class="acr-short">7.</span><span class="acr-long"></span></dt>
+<dd class="enumerate-enumitem"> Kublanovskaya, V. N. On some algorithms for the solution of the complete eigenvalue problem. USSR Computational Mathematics and Mathematical Physics 1, 637–657 (1962)</dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="w3-20001"><span class="acr-short">8.</span><span class="acr-long"></span></dt>
+<dd class="enumerate-enumitem"> Golub, G. H. &amp; Van Loan, C. F. Matrix computations 3rd edition. The John Hopkins University, Baltimore (1996)</dd>
+</dl></div>
+<div class="section-header">
+<h3 id="header-section-references">
+<span class="number">
+<i class="fa-regular fa-note-sticky"></i>
+</span>
+<span class="title">
+<a id="page-glossary"></a>
+                    Page Footnotes</span>
+</h3>
+</div>
+<div class="footnote-block">
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-37"><span class="acr-short">[37].</span></dt>
+<dd class="enumerate-enumitem"><span class="">Thus, in your career you are likely to encounter eigenvalue problems.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-38"><span class="acr-short">[38].</span></dt>
+<dd class="enumerate-enumitem"><span class="">which are important in modern physics.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-40"><span class="acr-short">[40].</span></dt>
+<dd class="enumerate-enumitem"><span class="">a
+generalization of conic sections i.e., ellipses, parabolas, and hyperbolas.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-41"><span class="acr-short">[41].</span></dt>
+<dd class="enumerate-enumitem"><span class="">This
+topic will be covered in <b>M.Sc Higher Mathematics II</b>.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-42"><span class="acr-short">[42].</span></dt>
+<dd class="enumerate-enumitem"><span class="">In his paper he writes
+“Insbesondere in dieser ersten Mitteilung gelange ich zu Formeln, die die Entwickelung einer willkürlichen
+Funktion nach gewissen ausgezeichneten Funktionen, die ich ’Eigenfunktionen’ nenne, liefern:
+<math display="inline"><mo>…</mo></math>”
+(<i>In particular, in this first report I arrive at formulas that provide the [series] development of
+an arbitrary function in terms of some distinctive functions, which I call eigenfunctions:
+<math display="inline"><mo>…</mo></math> </i>)
+“Dieser Erfolg ist wesentlich durch den Umstand bedingt, daß ich nicht, wie es
+bisher geschah, in erster Linie auf den Beweis für die Existenz der Eigenwerte ausgehe,
+<math display="inline"><mo>…</mo></math>”
+(<i>This success is fundamentally attributable to the fact that I do not, as it has
+happened until now, first of all aim at a proof of the existence of eigenvalues
+<math display="inline"><mo>…</mo></math></i>)</span></dd>
+</dl></div><nav class="crosslinks-bottom"><div class="navigation"><span class="nav-button"><a href="DeterminingEigenvaluesandEigenvectors.html"><i class="fa-solid fa-caret-right"></i></a></span><span class="nav-button"><a href="VectorandInnerProductSpacesLinearTransformations.html"><i class="fa-solid fa-caret-left"></i></a></span><span class="nav-button"><a href=""><i class="fa-solid fa-caret-up"></i></a></span><span class="nav-button">
+<a href="index.html" rel="index" title="Index">
+<i class="fa-solid fa-table-list">
+</i>
+</a></span><span class="nav-button">
+<a href="Index.html" rel="index" title="Index">
+<i class="fa-brands fa-git-alt"></i>
+</a></span></div></nav> <div class="footer"> <div class="footer-left"><span class="footer-lecture">D. T. McGuiness, PhD</span>
+<span class="footer-webBook"><b>Last Updated:</b> 20.10.2026, at 10:2.</span></div></div><div class="author-notes">
+<span class="note">Authors Note </span>
+<span class="text">The website you are viewing is auto-generated using lms-WebBook and therefore subject to slight errors in typography and formatting. When in doubt, please consult the LectureBook. </span>
+</div>
+</article>
+<div class="mode-line">
+<div class="core-line"><div class="core-line-image"><img class="webbook-logo" src="logo/webbook-logo.svg"/></div>
+<div class="current-header">
+<span class="header-pretext">Viewing | </span>
+<span class="header-text">Chapter 2: Linear Algebra II - Eigenvalue Problems</span>
+</div>
+<div class="button-group">
+</div>
+</div>
+<div class="supp-line"></div>
+</div>
+</page>
+</body>
+</html>

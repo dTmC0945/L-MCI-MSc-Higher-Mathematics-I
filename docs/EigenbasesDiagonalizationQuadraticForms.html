@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><title>Eigenbases. Diagonalization. Quadratic Forms</title>
+<meta charset="utf-8"/>
+<meta content="lms-WebBook" name="generator"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js" type="text/javascript"></script>
+<link href="logo/lms.ico" rel="icon" type="image/x-icon"/>
+<link href="./pagefind/pagefind-component-ui.css" rel="stylesheet"/>
+<script src="./pagefind/pagefind-component-ui.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link href="https://cdn.jsdelivr.net/gh/sugina-dev/latin-modern-web@1.0.1/style/latinmodern-mono.css" rel="stylesheet"/>
+<link href="flatweb.css" rel="stylesheet" type="text/css"/>
+<script src="flatweb.js" type="text/javascript"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/base16/solarized-light.min.css" rel="stylesheet"/>
+<script src="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.js"></script>
+<link href="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/cpp.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/latex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/matlab.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/dockerfile.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/cmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/makefile.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/markdown.min.js"></script>
+ </head><body>
+<page>
+<nav class="wide"> <div class="header"><div class="header-left"><span class="header-lecture-grade">M.Sc</span>
+<span class="header-lecture-name">Higher Mathematics I</span>
+<span class="header-webBook">WebBook 2.1</span></div><div class="header-right"><span class="header-version">2026.WS</span>
+<span class="header-chapter">Linear Algebra II - Eigenvalue Problems</span></div></div><div class="toc"><pagefind-modal-trigger></pagefind-modal-trigger><pagefind-modal></pagefind-modal><div class="toc-links"><a href="https://github.com/dTmC0945" title="Lecturer GitHub Repo"><i class="fab fa-github" style="font-size:20px"></i></a><a href="https://scholar.google.com/citations?view_op=list_works\&amp;hl=en\&amp;user=lxQGADMAAAAJ" title="Lecturer Google Scholar Page"><i class="fa-brands fa-google-scholar" style="font-size:20px"></i></a><a href="https://www.researchgate.net/profile/Daniel-Mcguiness-2" title="Lecturer ResearchGate Account"><i class="fa-brands fa-researchgate" style="font-size:20px"></i></a><a href="https://dtmc0945.github.io/Th-MCI-Thesis-Topics/" title="Lecturer Thesis Ideas for B.Sc and M.Sc"><i class="fa-solid fa-book" style="font-size:20px"></i></a><a href="https://github.com/dTmC0945/C-MCI-LaTeX-Class-mcidoc/tree/main" title="mcidoc LaTeX Standard"><i class="fa-regular fa-file-lines" style="font-size:20px"></i></a></div><hr/><span class="chapterToc"><span class="number"></span><span class="title"><a href="index.html#x2-10000">Entry Point</a></span></span><span class="chapterToc"><span class="number">1</span><span class="title"><a href="LinearAlgebraIFundamentals.html#x3-20001">Linear Algebra I - Fundamentals</a></span></span><span class="sectionToc"><span class="number">1.1</span><span class="title"><a href="MatricesVectorsAdditionandScalarMultiplication.html#x4-30001.1">Matrices, Vectors: Addition and Scalar
+Multiplication</a></span></span><span class="subsectionToc"><span class="number">1.1.1</span><span class="title"><a href="MatricesVectorsAdditionandScalarMultiplication.html#x4-40001.1.1">General Concepts and Notations</a></span></span><span class="subsectionToc"><span class="number">1.1.2</span><span class="title"><a href="MatricesVectorsAdditionandScalarMultiplication.html#x4-50001.1.2">Vectors</a></span></span><span class="subsectionToc"><span class="number">1.1.3</span><span class="title"><a href="MatricesVectorsAdditionandScalarMultiplication.html#x4-60001.1.3">Addition and
+Scalar Multiplication of Matrices and Vectors</a></span></span><span class="subsectionToc"><span class="number">1.1.4</span><span class="title"><a href="MatricesVectorsAdditionandScalarMultiplication.html#x4-80001.1.4">Matrix Multiplication</a></span></span><span class="subsectionToc"><span class="number">1.1.5</span><span class="title"><a href="MatricesVectorsAdditionandScalarMultiplication.html#x4-90001.1.5">The use
+of Linear Transformations in Multiplication of Matrices</a></span></span><span class="sectionToc"><span class="number">1.2</span><span class="title"><a href="LinearSystemsofEquationsGaussElimination.html#x5-150001.2">Linear Systems of Equations
+Gauss Elimination</a></span></span><span class="subsectionToc"><span class="number">1.2.1</span><span class="title"><a href="LinearSystemsofEquationsGaussElimination.html#x5-160001.2.1">Linear System, Coefficient Matrix, Augmented Matrix</a></span></span><span class="subsectionToc"><span class="number">1.2.2</span><span class="title"><a href="LinearSystemsofEquationsGaussElimination.html#x5-180001.2.2">Gauss
+Elimination and Back Substitution</a></span></span><span class="subsectionToc"><span class="number">1.2.3</span><span class="title"><a href="LinearSystemsofEquationsGaussElimination.html#x5-190001.2.3">Elementary Row Operations. Row-Equivalent
+Systems</a></span></span><span class="sectionToc"><span class="number">1.3</span><span class="title"><a href="LinearIndependenceandRankofaMatrixVectorSpace.html#x6-220001.3">Linear Independence and Rank of a Matrix Vector Space</a></span></span><span class="subsectionToc"><span class="number">1.3.1</span><span class="title"><a href="LinearIndependenceandRankofaMatrixVectorSpace.html#x6-230001.3.1">Linear
+Independence and Dependence of Vectors</a></span></span><span class="subsectionToc"><span class="number">1.3.2</span><span class="title"><a href="LinearIndependenceandRankofaMatrixVectorSpace.html#x6-240001.3.2">Rank of a Matrix</a></span></span><span class="subsectionToc"><span class="number">1.3.3</span><span class="title"><a href="LinearIndependenceandRankofaMatrixVectorSpace.html#x6-250001.3.3">Vector
+Space</a></span></span><span class="subsectionToc"><span class="number">1.3.4</span><span class="title"><a href="LinearIndependenceandRankofaMatrixVectorSpace.html#x6-260001.3.4">Solutions of Linear Systems: Existence, Uniqueness</a></span></span><span class="sectionToc"><span class="number">1.4</span><span class="title"><a href="DeterminantsandCramersRule.html#x7-290001.4">Determinants
+and Cramer’s Rule</a></span></span><span class="subsectionToc"><span class="number">1.4.1</span><span class="title"><a href="DeterminantsandCramersRule.html#x7-300001.4.1">A Quick Refreshment on Determinants</a></span></span><span class="subsectionToc"><span class="number">1.4.2</span><span class="title"><a href="DeterminantsandCramersRule.html#x7-320001.4.2">Third-Order
+Determinants</a></span></span><span class="subsectionToc"><span class="number">1.4.3</span><span class="title"><a href="DeterminantsandCramersRule.html#x7-340001.4.3">General Properties of Determinants</a></span></span><span class="subsectionToc"><span class="number">1.4.4</span><span class="title"><a href="DeterminantsandCramersRule.html#x7-350001.4.4">Cramer’s Rule</a></span></span><span class="sectionToc"><span class="number">1.5</span><span class="title"><a href="InverseofaMatrixusingGaussJordanElimination.html#x8-360001.5">Inverse
+of a Matrix using Gauss-Jordan Elimination</a></span></span><span class="subsectionToc"><span class="number">1.5.1</span><span class="title"><a href="InverseofaMatrixusingGaussJordanElimination.html#x8-370001.5.1">Determination of the Inverse by the
+Gauss-Jordan Method</a></span></span><span class="subsectionToc"><span class="number">1.5.2</span><span class="title"><a href="InverseofaMatrixusingGaussJordanElimination.html#x8-390001.5.2">Formulas for Inverses</a></span></span><span class="subsectionToc"><span class="number">1.5.3</span><span class="title"><a href="InverseofaMatrixusingGaussJordanElimination.html#x8-400001.5.3">Unusual Properties of Matrix
+Multiplication. Cancellation Laws</a></span></span><span class="subsectionToc"><span class="number">1.5.4</span><span class="title"><a href="InverseofaMatrixusingGaussJordanElimination.html#x8-410001.5.4">Determinants of Matrix Products</a></span></span><span class="sectionToc"><span class="number">1.6</span><span class="title"><a href="VectorandInnerProductSpacesLinearTransformations.html#x9-420001.6">Vector, and
+Inner Product Spaces, Linear Transformations</a></span></span><span class="subsectionToc"><span class="number">1.6.1</span><span class="title"><a href="VectorandInnerProductSpacesLinearTransformations.html#x9-430001.6.1">Inner Product Spaces</a></span></span><span class="subsectionToc"><span class="number">1.6.2</span><span class="title"><a href="VectorandInnerProductSpacesLinearTransformations.html#x9-440001.6.2">Linear
+Transformations</a></span></span><span class="subsectionToc"><span class="number">1.6.3</span><span class="title"><a href="VectorandInnerProductSpacesLinearTransformations.html#x9-460001.6.3">Composition of Linear Transformations</a></span></span><span class="chapterToc"><span class="number">2</span><span class="title"><a href="LinearAlgebraIIEigenvalueProblems.html#x10-470002">Linear Algebra II - Eigenvalue
+Problems</a></span></span><span class="sectionToc"><span class="number">2.1</span><span class="title"><a href="DeterminingEigenvaluesandEigenvectors.html#x11-500002.1">Determining Eigenvalues and Eigenvectors</a></span></span><span class="subsectionToc"><span class="number">2.1.1</span><span class="title"><a href="DeterminingEigenvaluesandEigenvectors.html#x11-510002.1.1">How to Find Eigenvalues and
+Eigenvectors</a></span></span><span class="subsectionToc"><span class="number">2.1.2</span><span class="title"><a href="DeterminingEigenvaluesandEigenvectors.html#x11-520002.1.2">Applications of Eigenvalue Problems</a></span></span><span class="sectionToc"><span class="number">2.2</span><span class="title"><a href="SymmetricSkewSymmetricandOrthogonalMatrices.html#x12-530002.2">Symmetric, Skew-Symmetric,
+and Orthogonal Matrices</a></span></span><span class="subsectionToc"><span class="number">2.2.1</span><span class="title"><a href="SymmetricSkewSymmetricandOrthogonalMatrices.html#x12-540002.2.1">Orthogonal Transformations and Orthogonal
+Matrices</a></span></span><span class="sectionToc"><span class="number">2.3</span><span class="title"><a href="#x13-550002.3">Eigenbases. Diagonalization. Quadratic Forms</a></span></span><span class="subsectionToc"><span class="number">2.3.1</span><span class="title"><a href="#x13-560002.3.1">Similarity of Matrices and
+Diagonalization</a></span></span><span class="subsectionToc"><span class="number">2.3.2</span><span class="title"><a href="#x13-570002.3.2">Quadratic Forms and Transformation to Principal Axes</a></span></span><span class="sectionToc"><span class="number">2.4</span><span class="title"><a href="ComplexMatricesandForms.html#x14-580002.4">Complex
+Matrices and Forms</a></span></span><span class="subsectionToc"><span class="number">2.4.1</span><span class="title"><a href="ComplexMatricesandForms.html#x14-590002.4.1">Eigenvalues</a></span></span><span class="subsectionToc"><span class="number">2.4.2</span><span class="title"><a href="ComplexMatricesandForms.html#x14-600002.4.2">Hermitian and Skew-Hermitian Forms</a></span></span>
+<div class="nav-footer"><div class="nav-footer-left"><span class="nav-footer-lecture">D. T. McGuiness, PhD</span>
+<span class="nav-footer-webBook"><b>Last Updated:</b> 20.10.2026, at 10:2.</span></div></div><p class="nav-comments">The website you are viewing is auto-generated using lms-WebBook and therefore subject to slight errors in typography and formatting. When in doubt, please consult the LectureBook. </p></div></nav>
+<article class="chapter">
+<nav class="crosslinks-top"> <span class="nav-button"><i class="fa-solid fa-caret-right"></i><a class="nav-link" href="ComplexMatricesandForms.html">Complex Matrices and Forms</a></span><span class="nav-button"><i class="fa-solid fa-caret-left"></i><a class="nav-link" href="SymmetricSkewSymmetricandOrthogonalMatrices.html">Symmetric, Skew-Symmetric, and Orthogonal Matrices</a></span><span class="nav-button"><i class="fa-solid fa-caret-up"></i><a class="nav-link" href="LinearAlgebraIIEigenvalueProblems.html#EigenbasesDiagonalizationQuadraticForms.html">Chapter: Linear Algebra II
+- Eigenvalue Problems</a></span><span class="nav-button">
+<a href="index.html" rel="index" title="Visit Entry Point">
+<i class="fa-solid fa-table-list">
+</i>
+<span class="nav-info">Visit Index Page</span>
+</a></span><span class="nav-button">
+<a href="Index.html" rel="index" title="Visit Material GitHub Repo">
+<i class="fa-brands fa-git-alt"></i>
+<span class="nav-info">Visit Material GitHub Repo</span>
+</a></span></nav>
+<div class="section-header"> <h3 id="header-section-2.3"> <a class="pdf-icon" href="HigherMathematicsILectureBook.pdf#section.2.3"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a> <span class="number">2.3</span> <span class="title"> <a id="x13-550002.3"></a>Eigenbases.
+Diagonalization. Quadratic Forms</span></h3></div>
+<p class="noindent">Up to now, we have emphasized properties of eigenvalues.
+</p><p class="noindent">We now turn our attention to the general properties of eigenvectors. Eigenvectors of an
+<math display="inline"><mi>n</mi> <mi>×</mi> <mi>n</mi></math> matrix
+<math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math> may form a basis for
+<math display="inline"><msup><mrow><mi>R</mi></mrow><mrow><mi>n</mi></mrow></msup></math>. If we are interested
+in a transformation <math display="inline"><mstyle mathvariant="bold"><mi>y</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="bold"><mi>A</mi></mstyle><mstyle mathvariant="bold"><mi>x</mi></mstyle></math>,
+such an “eigenbasis” (basis of eigenvectors)-if it exists-is of great advantage because then we can represent
+any <math display="inline"><mstyle mathvariant="bold"><mi>x</mi></mstyle></math> in
+<math display="inline"><msup><mrow><mi>ℝ</mi></mrow><mrow><mi>n</mi></mrow></msup></math> uniquely as a linear
+combination of the eigenvectors <math display="inline"><msub><mrow><mstyle mathvariant="bold"><mi>x</mi></mstyle></mrow><mrow><mn>1</mn></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><mi>…</mi><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mstyle mathvariant="bold"><mi>x</mi></mstyle></mrow><mrow><mi>n</mi></mrow></msub></math>,
+say, </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x13-55001r55"></mstyle>
+<mstyle mathvariant="bold">
+<mi>x</mi></mstyle>
+<mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>c</mi></mrow><mrow><mn>1</mn></mrow></msub><msub><mrow><mstyle mathvariant="bold"><mi>x</mi></mstyle></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>c</mi></mrow><mrow><mn>2</mn></mrow></msub><msub><mrow><mstyle mathvariant="bold"><mi>x</mi></mstyle></mrow><mrow><mn>2</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <mo class="MathClass-rel" stretchy="false">⋯</mo> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>c</mi></mrow><mrow><mi>n</mi></mrow></msub><msub><mrow><mstyle mathvariant="bold"><mi>x</mi></mstyle></mrow><mrow><mi>n</mi></mrow></msub><mo class="MathClass-punc" stretchy="false">.</mo>
+</math></td><td class="eq-no">(2.55)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">And, denoting the <span class="margin-block">corresponding <span class="margin-comment"><a class="ellipsis" href="#m-ref-57">[57]</a>
+<span class="sidenote">not necessarily distinct.</span></span></span> eigenvalues of the matrix
+<math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math> by
+<math display="inline"><msub><mrow><mi>λ</mi></mrow><mrow><mn>1</mn></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><mi>…</mi><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>λ</mi></mrow><mrow><mi>n</mi></mrow></msub></math>, we
+have <math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle><msub><mrow><mstyle mathvariant="bold"><mi>x</mi></mstyle></mrow><mrow><mi>j</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>λ</mi></mrow><mrow><mi>j</mi></mrow></msub><msub><mrow><mstyle mathvariant="bold"><mi>x</mi></mstyle></mrow><mrow><mi>j</mi></mrow></msub></math>,
+so that we simply obtain: </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x13-55002r56"></mstyle><mtable class="aligned" displaystyle="true"><mtr><mtd columnalign="right"><mstyle mathvariant="bold"><mi>y</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo></mtd>
+<mtd columnalign="left"><mstyle mathvariant="bold"><mi>A</mi></mstyle><mstyle mathvariant="bold"><mi>x</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="bold"><mi>A</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>c</mi></mrow><mrow><mn>1</mn></mrow></msub><msub><mrow><mstyle mathvariant="bold"><mi>x</mi></mstyle></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <mo class="MathClass-rel" stretchy="false">⋯</mo> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>c</mi></mrow><mrow><mi>n</mi></mrow></msub><msub><mrow><mstyle mathvariant="bold"><mi>x</mi></mstyle></mrow><mrow><mi>n</mi></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo></mtd>
+<mtd columnalign="right"></mtd>
+</mtr><mtr><mtd columnalign="right"> <mo class="MathClass-rel" stretchy="false">=</mo></mtd> <mtd columnalign="left"><msub><mrow><mi>c</mi></mrow><mrow><mn>1</mn></mrow></msub><mstyle mathvariant="bold"><mi>A</mi></mstyle><msub><mrow><mstyle mathvariant="bold"><mi>x</mi></mstyle></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <mo class="MathClass-rel" stretchy="false">⋯</mo> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>c</mi></mrow><mrow><mi>n</mi></mrow></msub><mstyle mathvariant="bold"><mi>A</mi></mstyle><msub><mrow><mstyle mathvariant="bold"><mi>x</mi></mstyle></mrow><mrow><mi>n</mi></mrow></msub></mtd>
+</mtr><mtr><mtd columnalign="right"> <mo class="MathClass-rel" stretchy="false">=</mo></mtd>
+<mtd columnalign="left"><msub><mrow><mi>c</mi></mrow><mrow><mn>1</mn></mrow></msub><msub><mrow><mi>λ</mi></mrow><mrow><mn>1</mn></mrow></msub><msub><mrow><mstyle mathvariant="bold"><mi>x</mi></mstyle></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <mo class="MathClass-rel" stretchy="false">⋯</mo> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>c</mi></mrow><mrow><mi>n</mi></mrow></msub><msub><mrow><mi>λ</mi></mrow><mrow><mi>n</mi></mrow></msub><msub><mrow><mstyle mathvariant="bold"><mi>x</mi></mstyle></mrow><mrow><mi>n</mi></mrow></msub><mo class="MathClass-punc" stretchy="false">.</mo></mtd>
+</mtr> </mtable>
+</math></td><td class="eq-no">(2.56)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">This shows that we have decomposed the complicated action of
+<math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math> on an arbitrary
+vector <math display="inline"><mstyle mathvariant="bold"><mi>x</mi></mstyle></math>
+into a sum of simple <span class="margin-block">actions <span class="margin-comment"><a class="ellipsis" href="#m-ref-58">[58]</a>
+<span class="sidenote">i.e., multiplication by scalars</span></span></span> on the eigenvectors of
+<math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math>.
+</p>
+<div class="block-minor warning"><div class="body">
+<p class="noindent">This is the point of an <span class="alert">eigenbasis</span>. </p></div></div>
+<p class="noindent">Now if the <math display="inline"><mi>n</mi></math>
+eigenvalues are all different, we do obtain a basis:
+</p>
+<div class="block-major theo-block" id="theo-block-2.27"> <a class="copiable-link" href="#theo-block-2.27"> ¶</a> <span class="upper"> <span class="header"> <b>Theory 2.<a id="x13-55003r27"></a>27: </b> </span> <span class="title"> Basis of Eigenvectors </span> </span> <div class="body">
+<p class="noindent">If an <math display="inline"><mi>n</mi> <mi>×</mi> <mi>n</mi></math>
+matrix <math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math> has
+<math display="inline"><mi>n</mi></math> distinct
+eigenvalues, then <math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math>
+has a basis of eigenvectors </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x13-55004r57"></mstyle><msub><mrow>
+<mstyle mathvariant="bold">
+<mi>x</mi></mstyle>
+</mrow><mrow><mn>1</mn></mrow></msub>
+<mo class="MathClass-punc" stretchy="false">,</mo><mo class="MathClass-rel" stretchy="false">⋯</mo><mspace class="thinspace" width="0.17em"></mspace><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mstyle mathvariant="bold"><mi>x</mi></mstyle></mrow><mrow><mi>n</mi></mrow></msub><mstyle class="text"><mtext> for </mtext></mstyle><msup><mrow><mi>R</mi></mrow><mrow><mi>n</mi></mrow></msup>
+</math></td><td class="eq-no">(2.57)</td></tr></table>
+<p class="noindent"></p>
+</div> </div>
+<div class="block-major exer-block" id="exer-block-2.43"> <a class="copiable-link" href="#exer-block-2.43"> ¶</a> <span class="upper"> <span class="header"> <b>Example 2.<a id="x13-55005r43"></a>43: </b> </span> <span class="title"> Eigenbasis, Nondistinct Eigenvalues, and Nonexsitence </span> </span> <div class="body">
+<p class="noindent">The matrix <math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>5</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>3</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>3</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>5</mn></mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow></math> has a
+basis of eigenvectors <math display="inline"> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>1</mn></mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow></math>,
+<math display="inline"> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow></math> corresponding to
+the eigenvalues <math display="inline"><msub><mrow><mi>λ</mi></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>8</mn></math>,
+<math display="inline"><msub><mrow><mi>λ</mi></mrow><mrow><mn>2</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>2</mn></math><span class="margin-block">.
+<span class="margin-comment"><a class="ellipsis" href="#m-ref-59">[59]</a>
+<span class="sidenote">For more information please look at <a class="block-ref" href="DeterminingEigenvaluesandEigenvectors.html#x11-51008r32">Example 2.32</a>.</span></span></span> Even if not all
+<math display="inline"><mi>n</mi></math> eigenvalues are different,
+a matrix <math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math> may still
+provide an eigenbasis for <math display="inline"><msup><mrow><mi>R</mi></mrow><mrow><mi>n</mi></mrow></msup></math>.
+See <a class="block-ref" href="DeterminingEigenvaluesandEigenvectors.html#x11-51008r32">Example 2.32</a> in <span class="refsection-ref"><a href="DeterminingEigenvaluesandEigenvectors.html#x11-500002.1">Determining Eigenvalues and Eigenvectors</a></span>, where
+<math display="inline"><mi>n</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>3</mn></math>. On the
+other hand, <math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math>
+may not have enough linearly independent eigenvectors to make up a basis. For instance,
+<math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math> in
+<a class="block-ref" href="DeterminingEigenvaluesandEigenvectors.html#x11-51016r33">Example 2.33</a> is </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x13-55006r58"></mstyle><mstyle mathvariant="bold"><mi>A</mi></mstyle>
+<mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>0</mn></mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow><mspace class="quad" width="1em"></mspace><mstyle class="text"><mtext>and has only one eigenvector</mtext></mstyle><mspace class="quad" width="1em"></mspace> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mi>k</mi> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn></mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow><mspace class="quad" width="1em"></mspace><mstyle class="text"><mtext>where</mtext></mstyle><mspace class="quad" width="1em"></mspace><mo class="MathClass-open" stretchy="false">(</mo><mi>k</mi> <mi>≠</mi> <mn>0</mn><mo class="MathClass-punc" stretchy="false">,</mo><mstyle class="text"><mtext> arbitrary</mtext></mstyle><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-punc" stretchy="false">.</mo>
+</math></td><td class="eq-no">(2.58)</td></tr></table>
+<p class="noindent"></p>
+</div> </div>
+<p class="noindent">Actually, eigenbases exist under much more general conditions than those in <a class="block-ref" href="#x13-55003r27">Theory 2.27</a>. An important
+case is the following.
+</p>
+<div class="block-major theo-block" id="theo-block-2.28"> <a class="copiable-link" href="#theo-block-2.28"> ¶</a> <span class="upper"> <span class="header"> <b>Theory 2.<a id="x13-55007r28"></a>28: </b> </span> <span class="title"> Symmetric Matrices </span> </span> <div class="body">
+<p class="noindent">A <span class="alert">symmetric matrix</span> has an orthonormal basis of eigenvectors for
+<math display="inline"><msup><mrow><mi>ℝ</mi></mrow><mrow><mi>n</mi></mrow></msup></math>.
+</p>
+</div> </div>
+<div class="block-major exer-block" id="exer-block-2.44"> <a class="copiable-link" href="#exer-block-2.44"> ¶</a> <span class="upper"> <span class="header"> <b>Example 2.<a id="x13-55008r44"></a>44: </b> </span> <span class="title"> Orthonormal Basis of Eigenvectors </span> </span> <div class="body">
+<p class="noindent">The first matrix in Example 1 is symmetric, and an orthonormal basis of eigenvectors is
+<math display="inline"><msup><mrow><mo class="MathClass-open" stretchy="false">[</mo><mn>1</mn><mo class="MathClass-bin" stretchy="false">/</mo><msqrt><mrow>
+<mn>2</mn></mrow></msqrt><mspace class="quad" width="1em"></mspace><mn>1</mn><mo class="MathClass-bin" stretchy="false">/</mo><msqrt><mrow>
+<mn>2</mn></mrow></msqrt><mo class="MathClass-close" stretchy="false">]</mo></mrow><mrow><mstyle class="text"><mtext>T</mtext></mstyle></mrow></msup></math>,
+</p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x13-55009r59"></mstyle>
+<msup><mrow><mo class="MathClass-open" stretchy="false">[</mo><mn>1</mn><mo class="MathClass-bin" stretchy="false">/</mo><msqrt><mrow>
+<mn>2</mn></mrow></msqrt> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>1</mn><mo class="MathClass-bin" stretchy="false">/</mo><msqrt><mrow>
+<mn>2</mn></mrow></msqrt><mo class="MathClass-close" stretchy="false">]</mo></mrow><mrow><mstyle class="text"><mtext>T</mtext></mstyle></mrow></msup><mspace class="quad" width="1em"></mspace><mo class="MathClass-ord">■</mo>
+</math></td><td class="eq-no">(2.59)</td></tr></table>
+<p class="noindent"></p>
+</div> </div>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-2.3.1"> <a class="pdf-icon" href="HigherMathematicsILectureBook.pdf#subsection.2.3.1"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">2.3.1</span> <span class="title"> <a id="x13-560002.3.1"></a>Similarity of Matrices and Diagonalization</span></h4></div>
+</p><p class="noindent">Eigenbases also play a role in reducing <math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math>
+to a diagonal matrix whose entries are the eigenvalues of
+<math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math>. This is
+done by a <b>similarity transformation</b>, which is defined as follows:
+</p>
+<div class="block-major desc-block" id="desc-block-2.10"> <a class="copiable-link" href="#desc-block-2.10"> ¶</a> <span class="upper"> <span class="header"> <b>Description: 2.<a id="x13-56001r10"></a>10: </b> </span> <span class="title"> Similar Matrices, Similarity Transformation </span> </span> <div class="body">
+<p class="noindent">An <math display="inline"><mi>n</mi> <mi>×</mi> <mi>n</mi></math> matrix
+<math display="inline"><mover accent="true"><mrow><mstyle mathvariant="bold"><mi>A</mi></mstyle></mrow><mo accent="true">^</mo></mover></math> is called
+<b>similar</b> to an <math display="inline"><mi>n</mi> <mi>×</mi> <mi>n</mi></math>
+matrix <math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math>
+if </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x13-56002r60"></mstyle>
+<mover accent="true"><mrow><mstyle mathvariant="bold"><mi>A</mi></mstyle></mrow><mo accent="true">^</mo></mover>
+<mo class="MathClass-rel" stretchy="false">=</mo><msup><mrow> <mstyle mathvariant="bold"><mi>P</mi></mstyle></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msup><mstyle mathvariant="bold"><mi>A</mi></mstyle><mstyle mathvariant="bold"><mi>P</mi></mstyle>
+</math></td><td class="eq-no">(2.60)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">for some, nonsingular, <math display="inline"><mi>n</mi> <mi>×</mi> <mi>n</mi></math>
+matrix <math display="inline"><mstyle mathvariant="bold"><mi>P</mi></mstyle></math>. </p>
+<hr/>
+<p class="noindent"> 
+This
+transformation, which gives <math display="inline"><mover accent="true"><mrow><mstyle mathvariant="bold"><mi>A</mi></mstyle></mrow><mo accent="true">^</mo></mover></math>
+from <math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math>,
+is called a <b>similarity transformation</b>.
+</p>
+</div> </div>
+<p class="noindent">The key property of this transformation is that it <b>preserves the eigenvalues</b> of
+<math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math>:
+</p>
+<div class="block-major theo-block" id="theo-block-2.29"> <a class="copiable-link" href="#theo-block-2.29"> ¶</a> <span class="upper"> <span class="header"> <b>Theory 2.<a id="x13-56003r29"></a>29: </b> </span> <span class="title"> Eigenvalues and Eigenvectors of Similar Matrices </span> </span> <div class="body">
+<p class="noindent">If <math display="inline"><mover accent="true"><mrow><mstyle mathvariant="bold"><mi>A</mi></mstyle></mrow><mo accent="true">^</mo></mover></math> is <span class="alert">similar</span> to
+<math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math>, then
+<math display="inline"><mover accent="true"><mrow><mstyle mathvariant="bold"><mi>A</mi></mstyle></mrow><mo accent="true">^</mo></mover></math> has the <span class="alert">same eigenvalues</span> as
+<math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math>. </p>
+<hr/>
+<p class="noindent"> 
+In addition to the
+previous statement, if <math display="inline"><mstyle mathvariant="bold"><mi>x</mi></mstyle></math>
+is an eigenvector of <math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math>,
+then <math display="inline"><mstyle mathvariant="bold"><mi>y</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo><msup><mrow> <mstyle mathvariant="bold"><mi>P</mi></mstyle></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msup><mstyle mathvariant="bold"><mi>x</mi></mstyle></math> is an
+eigenvector of <math display="inline"><mover accent="true"><mrow><mstyle mathvariant="bold"><mi>A</mi></mstyle></mrow><mo accent="true">^</mo></mover></math>
+corresponding to the same eigenvalue.
+</p>
+</div> </div>
+<div class="block-major exer-block" id="exer-block-2.45"> <a class="copiable-link" href="#exer-block-2.45"> ¶</a> <span class="upper"> <span class="header"> <b>Example 2.<a id="x13-56004r45"></a>45: </b> </span> <span class="title"> Eigenvalues and Vectors of Similar Matrices </span> </span> <div class="body">
+<p class="noindent">Let </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x13-56005r61"></mstyle><mstyle mathvariant="bold"><mi>A</mi></mstyle>
+<mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>6</mn> </mtd><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>3</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>4</mn> </mtd> <mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow><mspace class="qquad" width="2em"></mspace><mstyle class="text"><mtext>and</mtext></mstyle><mspace class="qquad" width="2em"></mspace><mstyle mathvariant="bold"><mi>P</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>3</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>4</mn></mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow><mo class="MathClass-punc" stretchy="false">.</mo>
+</math></td><td class="eq-no">(2.61)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">Then </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x13-56006r62"></mstyle><mover accent="true"><mrow><mstyle mathvariant="bold"><mi>A</mi></mstyle></mrow><mo accent="true">^</mo></mover>
+<mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>4</mn> </mtd><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>3</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>1</mn></mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>6</mn> </mtd><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>3</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>4</mn> </mtd> <mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>3</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>4</mn></mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>3</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>2</mn></mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow><mo class="MathClass-punc" stretchy="false">.</mo>
+</math></td><td class="eq-no">(2.62)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">Here <math display="inline"><msup><mrow><mstyle mathvariant="bold"><mi>P</mi></mstyle></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msup></math> was obtained from
+(4*) in Sec. 7.8 with <math display="inline"><mi class="qopname">det</mi><mo> ⁡ </mo><mstyle mathvariant="bold"><mi>P</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn></math>.
+We see that <math display="inline"><mover accent="true"><mrow><mstyle mathvariant="bold"><mi>A</mi></mstyle></mrow><mo accent="true">^</mo></mover></math> has the
+eigenvalues <math display="inline"><msub><mrow><mi>λ</mi></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>3</mn><mo class="MathClass-punc" stretchy="false">,</mo><mspace class="thinspace" width="0.17em"></mspace><msub><mrow><mi>λ</mi></mrow><mrow><mn>2</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>2</mn></math>. The
+characteristic equation of <math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math>
+is <math display="inline"><mo class="MathClass-open" stretchy="false">(</mo><mn>6</mn> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>λ</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-open" stretchy="false">(</mo><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>λ</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>1</mn><mn>2</mn> <mo class="MathClass-rel" stretchy="false">=</mo> <msup><mrow><mi>λ</mi></mrow><mrow><mn>2</mn></mrow></msup> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>5</mn><mi>λ</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>6</mn> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></math>. It has the roots
+(the eigenvalues of <math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math>)
+<math display="inline"><msub><mrow><mi>λ</mi></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>3</mn></math>,
+<math display="inline"><msub><mrow><mi>λ</mi></mrow><mrow><mn>2</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>2</mn></math>,
+confirming the first part of <a class="block-ref" href="#x13-56003r29">Theory 2.29</a>.
+</p><p class="noindent">We confirm the second part. From the first component of
+<math display="inline"><mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>A</mi></mstyle> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>λ</mi><mstyle mathvariant="bold"><mi>I</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo><mstyle mathvariant="bold"><mi>x</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="bold"><mn>0</mn></mstyle></math> we have
+<math display="inline"><mo class="MathClass-open" stretchy="false">(</mo><mn>6</mn><mi>λ</mi><mo class="MathClass-close" stretchy="false">)</mo><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub><mn>3</mn><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></math>. For
+<math display="inline"><mi>λ</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>3</mn></math> this
+gives <math display="inline"><mn>3</mn><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>3</mn><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></math>,
+say <math display="inline"><mstyle mathvariant="bold"><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <msup><mrow><mo class="MathClass-open" stretchy="false">[</mo><mn>1</mn><mspace class="quad" width="1em"></mspace><mn>1</mn><mo class="MathClass-close" stretchy="false">]</mo></mrow><mrow><mstyle class="text"><mtext>T</mtext></mstyle></mrow></msup></math>.
+For <math display="inline"><mi>λ</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>2</mn></math>, it
+gives, <math display="inline"><mn>4</mn><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>3</mn><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></math>,
+say, <math display="inline"><mstyle mathvariant="bold"><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <msup><mrow><mo class="MathClass-open" stretchy="false">[</mo><mn>3</mn><mspace class="quad" width="1em"></mspace><mn>4</mn><mo class="MathClass-close" stretchy="false">]</mo></mrow><mrow><mstyle class="text"><mtext>T</mtext></mstyle></mrow></msup></math>. In
+Theorem 3 we therefore have; </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x13-56007r63"></mstyle><msub><mrow><mstyle mathvariant="bold"><mi>y</mi></mstyle>
+</mrow><mrow><mn>1</mn></mrow></msub>
+<mo class="MathClass-rel" stretchy="false">=</mo><msup><mrow> <mstyle mathvariant="bold"><mi>P</mi></mstyle></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msup><msub><mrow><mstyle mathvariant="bold"><mi>x</mi></mstyle></mrow><mrow>
+<mn>1</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>4</mn> </mtd><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>3</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>1</mn></mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>1</mn></mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn></mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow><mo class="MathClass-punc" stretchy="false">,</mo><mspace class="qquad" width="2em"></mspace><msub><mrow><mstyle mathvariant="bold"><mi>y</mi></mstyle></mrow><mrow><mn>2</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo><msup><mrow> <mstyle mathvariant="bold"><mi>P</mi></mstyle></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msup><msub><mrow><mstyle mathvariant="bold"><mi>x</mi></mstyle></mrow><mrow>
+<mn>2</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>4</mn> </mtd><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>3</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>1</mn></mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>3</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>4</mn></mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>1</mn></mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow><mo class="MathClass-punc" stretchy="false">.</mo>
+</math></td><td class="eq-no">(2.63)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">Indeed, these are eigenvectors of the diagonal matrix
+<math display="inline"><mover accent="true"><mrow><mstyle mathvariant="bold"><mi>A</mi></mstyle></mrow><mo accent="true">^</mo></mover></math>.
+</p><p class="noindent">Perhaps we see that <math display="inline"><msub><mrow><mstyle mathvariant="bold"><mi>x</mi></mstyle></mrow><mrow><mn>1</mn></mrow></msub></math>
+and <math display="inline"><msub><mrow><mstyle mathvariant="bold"><mi>x</mi></mstyle></mrow><mrow><mn>2</mn></mrow></msub></math> are the
+columns of <math display="inline"><mstyle mathvariant="bold"><mi>P</mi></mstyle></math>.
+This suggests the general method of transforming a matrix
+<math display="inline"><mover accent="true"><mrow><mstyle mathvariant="bold"><mi>A</mi></mstyle></mrow><mo accent="true">^</mo></mover></math> to diagonal
+form <math display="inline"><mstyle mathvariant="bold"><mi>D</mi></mstyle></math> by
+using <math display="inline"><mstyle mathvariant="bold"><mi>P</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="bold"><mi>X</mi></mstyle></math>,
+the matrix with eigenvectors as columns.
+</p>
+</div> </div>
+<p class="noindent">By a suitable similarity transformation we can now transform a matrix
+<math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math> to a diagonal matrix
+<math display="inline"><mstyle mathvariant="bold"><mi>D</mi></mstyle></math> whose diagonal entries
+are the eigenvalues of <math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math>:
+</p>
+<div class="block-major theo-block" id="theo-block-2.30"> <a class="copiable-link" href="#theo-block-2.30"> ¶</a> <span class="upper"> <span class="header"> <b>Theory 2.<a id="x13-56008r30"></a>30: </b> </span> <span class="title"> Diagonalization of a Matrix </span> </span> <div class="body">
+<p class="noindent">If an <math display="inline"><mi>n</mi> <mi>×</mi> <mi>n</mi></math>
+matrix <math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math>
+has a <span class="alert">basis of eigenvectors</span>, then </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x13-56009r64"></mstyle>
+<mstyle mathvariant="bold">
+<mi>D</mi></mstyle>
+<mo class="MathClass-rel" stretchy="false">=</mo><msup><mrow> <mstyle mathvariant="bold"><mi>X</mi></mstyle></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msup><mstyle mathvariant="bold"><mi>A</mi></mstyle><mstyle mathvariant="bold"><mi>X</mi></mstyle>
+</math></td><td class="eq-no">(2.64)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">is <span class="alert">diagonal</span>, with the eigenvalues of <math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math> as the
+entries on the main diagonal. Here <math display="inline"><mstyle mathvariant="bold"><mi>X</mi></mstyle></math>
+is the matrix with these eigenvectors as column vectors. Also, </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x13-56010r65"></mstyle><msup><mrow>
+<mstyle mathvariant="bold">
+<mi>D</mi></mstyle>
+</mrow><mrow><mi>m</mi></mrow></msup>
+<mo class="MathClass-rel" stretchy="false">=</mo><msup><mrow> <mstyle mathvariant="bold"><mi>X</mi></mstyle></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msup><msup><mrow><mstyle mathvariant="bold"><mi>A</mi></mstyle></mrow><mrow><mi>m</mi></mrow></msup><mstyle mathvariant="bold"><mi>X</mi></mstyle><mspace class="qquad" width="2em"></mspace><mstyle class="text"><mtext>where</mtext></mstyle><mspace class="qquad" width="2em"></mspace><mi>m</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>2</mn><mo class="MathClass-punc" stretchy="false">,</mo><mn>3</mn><mo class="MathClass-punc" stretchy="false">,</mo><mo class="MathClass-rel" stretchy="false">⋯</mo>
+</math></td><td class="eq-no">(2.65)</td></tr></table>
+<p class="noindent"></p>
+</div> </div>
+<div class="block-major exer-block" id="exer-block-2.46"> <a class="copiable-link" href="#exer-block-2.46"> ¶</a> <span class="upper"> <span class="header"> <b>Example 2.<a id="x13-56011r46"></a>46: </b> </span> <span class="title"> Application of Diagonalization </span> </span> <div class="body">
+<p class="noindent">Diagonalize </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x13-56012r66"></mstyle><mstyle mathvariant="bold"><mi>A</mi></mstyle>
+<mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>7</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>3</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>2</mn> </mtd><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>3</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>7</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn><mn>1</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>5</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>1</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>0</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>5</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>5</mn></mtd>
+</mtr>
+<mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>1</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>7</mn> </mtd>
+<mtd class="array-td" columnalign="center"> <mn>1</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>2</mn> </mtd>
+<mtd class="array-td" columnalign="center"> <mn>0</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>2</mn> </mtd>
+</mtr>
+</mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow><mo class="MathClass-punc" stretchy="false">.</mo>
+</math></td><td class="eq-no">(2.66)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent"></p>
+<hr/>
+<p class="noindent"> 
+The characteristic determinant gives the characteristic equation
+<math display="inline"> <mo class="MathClass-bin" stretchy="false">−</mo> <msup><mrow><mi>λ</mi></mrow><mrow><mn>3</mn></mrow></msup> <mo class="MathClass-bin" stretchy="false">−</mo> <msup><mrow><mi>λ</mi></mrow><mrow><mn>2</mn></mrow></msup> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>1</mn><mn>2</mn><mi>λ</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></math>. The roots
+(eigenvalues of <math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math>)
+are <math display="inline"><msub><mrow><mi>λ</mi></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>3</mn></math>,
+<math display="inline"><msub><mrow><mi>λ</mi></mrow><mrow><mn>2</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-bin" stretchy="false">−</mo><mn>4</mn></math>,
+<math display="inline"><msub><mrow><mi>λ</mi></mrow><mrow><mn>3</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></math>. By the Gauss
+elimination applied to <math display="inline"><mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>A</mi></mstyle> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>λ</mi><mi>I</mi><mo class="MathClass-close" stretchy="false">)</mo><mi>x</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></math>
+with <math display="inline"><mi>λ</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>λ</mi></mrow><mrow><mn>1</mn></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>λ</mi></mrow><mrow><mn>2</mn></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>λ</mi></mrow><mrow><mn>3</mn></mrow></msub></math> we find
+eigenvectors and then <math display="inline"><msup><mrow><mstyle mathvariant="bold"><mi>X</mi></mstyle></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msup></math>
+by the GaussJordan elimination (Sec. 7.8, Example 1). The results are: </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x13-56013r67"></mstyle>
+<mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>3</mn></mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd></mtr></mtable>
+</mrow><mo fence="true" form="postfix">]</mo></mrow><mo class="MathClass-punc" stretchy="false">,</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mtd>
+</mtr>
+<mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>3</mn> </mtd>
+</mtr>
+</mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow><mo class="MathClass-punc" stretchy="false">,</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>2</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>1</mn></mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>4</mn> </mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow><mo class="MathClass-punc" stretchy="false">,</mo><mspace class="quad" width="1em"></mspace><mstyle mathvariant="bold"><mi>X</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>2</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>3</mn> </mtd> <mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>1</mn></mtd>
+</mtr>
+<mtr class="array-row"><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn> </mtd>
+<mtd class="array-td" columnalign="center"> <mn>3</mn> </mtd>
+<mtd class="array-td" columnalign="center"> <mn>4</mn> </mtd>
+</mtr>
+</mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow><mo class="MathClass-punc" stretchy="false">,</mo><mspace class="quad" width="1em"></mspace><msup><mrow><mstyle mathvariant="bold"><mi>X</mi></mstyle></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msup> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>0</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>7</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>2</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>3</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>3</mn> </mtd> <mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>0</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>2</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>0</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>7</mn></mtd>
+</mtr>
+<mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>8</mn> </mtd>
+<mtd class="array-td" columnalign="center"> <mn>0</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>2</mn> </mtd>
+<mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>0</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>2</mn> </mtd>
+</mtr>
+</mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow><mo class="MathClass-punc" stretchy="false">.</mo>
+</math></td><td class="eq-no">(2.67)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">Calculating <math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle><mstyle mathvariant="bold"><mi>X</mi></mstyle></math> and
+multiplying by <math display="inline"><msup><mrow><mstyle mathvariant="bold"><mi>X</mi></mstyle></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msup></math>
+from the left, we thus obtain </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x13-56014r68"></mstyle><mstyle mathvariant="bold"><mi>D</mi></mstyle>
+<mo class="MathClass-rel" stretchy="false">=</mo><msup><mrow> <mstyle mathvariant="bold"><mi>X</mi></mstyle></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msup><mstyle mathvariant="bold"><mi>A</mi></mstyle><mstyle mathvariant="bold"><mi>X</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>0</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>7</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>2</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>3</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>3</mn> </mtd> <mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>0</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>2</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>0</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>7</mn></mtd>
+</mtr>
+<mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>8</mn> </mtd>
+<mtd class="array-td" columnalign="center"> <mn>0</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>2</mn> </mtd>
+<mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>0</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>2</mn> </mtd>
+</mtr>
+</mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>3</mn> </mtd><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>4</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>9</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>4</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>0</mn></mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>3</mn> </mtd><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn><mn>2</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd>
+</mtr>
+</mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>3</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd> <mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>4</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>0</mn></mtd>
+</mtr>
+<mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd>
+<mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd>
+<mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd>
+</mtr>
+</mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow><mspace class="quad" width="1em"></mspace><mo class="MathClass-ord">■</mo>
+</math></td><td class="eq-no">(2.68)</td></tr></table>
+<p class="noindent"></p>
+</div> </div>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-2.3.2"> <a class="pdf-icon" href="HigherMathematicsILectureBook.pdf#subsection.2.3.2"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">2.3.2</span> <span class="title"> <a id="x13-570002.3.2"></a>Quadratic Forms and Transformation to Principal Axes</span></h4></div>
+</p><p class="noindent">By definition, a <b>quadratic form</b> <math display="inline"><mi>Q</mi></math>
+in the components <math display="inline"><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><mi>…</mi><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>x</mi></mrow><mrow><mi>n</mi></mrow></msub></math>
+of a vector <math display="inline"><mstyle mathvariant="bold"><mi>x</mi></mstyle></math>
+is a sum of <math display="inline"><msup><mrow><mi>n</mi></mrow><mrow><mn>2</mn></mrow></msup></math>
+terms, namely, </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x13-57001r69"></mstyle><mtable class="aligned" displaystyle="true"><mtr><mtd columnalign="right"><mi>Q</mi> <mo class="MathClass-rel" stretchy="false">=</mo></mtd>
+<mtd columnalign="left"><msup><mrow><mstyle mathvariant="bold"><mi>x</mi></mstyle></mrow><mrow><mstyle class="text"><mtext>T</mtext></mstyle></mrow></msup><mstyle mathvariant="bold"><mi>A</mi></mstyle><mstyle mathvariant="bold"><mi>x</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo><munderover accent="false" accentunder="false"><mrow><mo> ∑</mo>
+</mrow><mrow><mi>i</mi><mo class="MathClass-rel" stretchy="false">=</mo><mn>1</mn></mrow><mrow><mi>n</mi></mrow></munderover><munderover accent="false" accentunder="false"><mrow><mo> ∑</mo>
+</mrow><mrow><mi>k</mi><mo class="MathClass-rel" stretchy="false">=</mo><mn>1</mn></mrow><mrow><mi>n</mi></mrow></munderover><msub><mrow><mi>a</mi></mrow><mrow>
+<mi>j</mi><mi>k</mi></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mi>j</mi></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mi>k</mi></mrow></msub></mtd>
+<mtd columnalign="right"></mtd>
+</mtr><mtr><mtd columnalign="right"> <mo class="MathClass-rel" stretchy="false">=</mo></mtd>
+<mtd columnalign="left"><msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>1</mn></mrow></msub><msubsup><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></msubsup> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>a</mi></mrow><mrow>
+<mn>1</mn><mn>2</mn></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <mo class="MathClass-rel" stretchy="false">⋯</mo> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mi>n</mi></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mi>n</mi></mrow></msub></mtd>
+</mtr><mtr><mtd columnalign="right"></mtd> <mtd columnalign="left"> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mn>1</mn></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mn>2</mn></mrow></msub><msubsup><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow><mrow><mn>2</mn></mrow></msubsup> <mo class="MathClass-bin" stretchy="false">+</mo> <mo class="MathClass-rel" stretchy="false">⋯</mo> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>a</mi></mrow><mrow>
+<mn>2</mn><mi>n</mi></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mi>n</mi></mrow></msub></mtd>
+</mtr><mtr><mtd columnalign="right"></mtd>
+<mtd columnalign="left"><mo class="MathClass-rel" stretchy="false">⋯</mo></mtd>
+</mtr><mtr><mtd columnalign="right"></mtd>
+<mtd columnalign="left"><msub><mrow><mi>a</mi></mrow><mrow><mi>n</mi><mn>1</mn></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mi>n</mi></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>a</mi></mrow><mrow><mi>n</mi><mn>2</mn></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mi>n</mi></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <mo class="MathClass-rel" stretchy="false">⋯</mo> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>a</mi></mrow><mrow><mi>n</mi><mi>n</mi></mrow></msub><msubsup><mrow><mi>x</mi></mrow><mrow><mi>n</mi></mrow><mrow><mn>2</mn></mrow></msubsup></mtd>
+</mtr> </mtable>
+</math></td><td class="eq-no">(2.69)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent"><math display="inline"><mi>A</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-open" stretchy="false">[</mo><msub><mrow><mi>a</mi></mrow><mrow><mi>j</mi><mi>k</mi></mrow></msub><mo class="MathClass-close" stretchy="false">]</mo></math> is
+called the <b>coefficient matrix</b> of the form. We may assume that A is symmetric, because we can take
+off-diagonal terms together in pairs and write the result as a sum of two equal terms; see the following
+example.
+</p>
+<div class="block-major exer-block" id="exer-block-2.47"> <a class="copiable-link" href="#exer-block-2.47"> ¶</a> <span class="upper"> <span class="header"> <b>Example 2.<a id="x13-57002r47"></a>47: </b> </span> <span class="title"> Quadratic Form and Symmetric Coefficient Matrix </span> </span> <div class="body">
+<table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x13-57003r70"></mstyle><msup><mrow><mstyle mathvariant="bold"><mi>x</mi></mstyle>
+</mrow><mrow><mstyle class="text"><mtext>T</mtext></mstyle></mrow></msup>
+<mstyle mathvariant="bold">
+<mi>A</mi></mstyle>
+<mstyle mathvariant="bold">
+<mi>x</mi></mstyle>
+<mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub> </mtd><mtd class="array-td" columnalign="center"> <msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub> </mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>3</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>4</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>6</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>2</mn></mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub> </mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub> </mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>3</mn><msubsup><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></msubsup><mo class="MathClass-bin" stretchy="false">+</mo><mn>4</mn><msub><mrow><mi>x</mi></mrow><mrow>
+<mn>1</mn></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub><mo class="MathClass-bin" stretchy="false">+</mo><mn>6</mn><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub><mo class="MathClass-bin" stretchy="false">+</mo><mn>2</mn><msubsup><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow><mrow><mn>2</mn></mrow></msubsup> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>3</mn><msubsup><mrow><mi>x</mi></mrow><mrow>
+<mn>1</mn></mrow><mrow><mn>2</mn></mrow></msubsup><mo class="MathClass-bin" stretchy="false">+</mo><mn>1</mn><mn>0</mn><msub><mrow><mi>x</mi></mrow><mrow>
+<mn>1</mn></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub><mo class="MathClass-bin" stretchy="false">+</mo><mn>2</mn><msubsup><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow><mrow><mn>2</mn></mrow></msubsup><mo class="MathClass-punc" stretchy="false">.</mo>
+</math></td><td class="eq-no">(2.70)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">Here <math display="inline"><mn>4</mn> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>6</mn> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn><mn>0</mn> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>5</mn> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>5</mn></math>. From the
+corresponding <span class="alert">symmetric</span> matrix <math display="inline"><mi>C</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-open" stretchy="false">[</mo><msub><mrow><mi>c</mi></mrow><mrow><mi>i</mi><mi>k</mi></mrow></msub><mo class="MathClass-close" stretchy="false">]</mo></math>,
+where <math display="inline"><msub><mrow><mi>c</mi></mrow><mrow><mi>i</mi><mi>k</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<mn>2</mn></mrow></mfrac><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>a</mi></mrow><mrow><mi>i</mi><mi>k</mi></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>a</mi></mrow><mrow><mi>k</mi><mi>i</mi></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo></math>,
+thus <math display="inline"><msub><mrow><mi>c</mi></mrow><mrow><mn>1</mn><mn>1</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>3</mn></math>,
+<math display="inline"><msub><mrow><mi>c</mi></mrow><mrow><mn>1</mn><mn>2</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>c</mi></mrow><mrow><mn>2</mn><mn>1</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>5</mn></math>,
+<math display="inline"><msub><mrow><mi>c</mi></mrow><mrow><mn>2</mn><mn>2</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>2</mn></math>, we get
+the same result; indeed, </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x13-57004r71"></mstyle><msup><mrow><mstyle mathvariant="bold"><mi>x</mi></mstyle>
+</mrow><mrow><mstyle class="text"><mtext>T</mtext></mstyle></mrow></msup>
+<mstyle mathvariant="bold">
+<mi>C</mi></mstyle>
+<mstyle mathvariant="bold">
+<mi>x</mi></mstyle>
+<mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub> </mtd><mtd class="array-td" columnalign="center"> <msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub> </mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>3</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>5</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>5</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>2</mn></mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub> </mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub> </mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>3</mn><msubsup><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></msubsup><mo class="MathClass-bin" stretchy="false">+</mo><mn>5</mn><msub><mrow><mi>x</mi></mrow><mrow>
+<mn>1</mn></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub><mo class="MathClass-bin" stretchy="false">+</mo><mn>5</mn><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub><mo class="MathClass-bin" stretchy="false">+</mo><mn>2</mn><msubsup><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow><mrow><mn>2</mn></mrow></msubsup> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>3</mn><msubsup><mrow><mi>x</mi></mrow><mrow>
+<mn>1</mn></mrow><mrow><mn>2</mn></mrow></msubsup><mo class="MathClass-bin" stretchy="false">+</mo><mn>1</mn><mn>0</mn><msub><mrow><mi>x</mi></mrow><mrow>
+<mn>1</mn></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub><mo class="MathClass-bin" stretchy="false">+</mo><mn>2</mn><msubsup><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow><mrow><mn>2</mn></mrow></msubsup><mo class="MathClass-punc" stretchy="false">.</mo>
+</math></td><td class="eq-no">(2.71)</td></tr></table>
+<p class="noindent"></p>
+</div> </div>
+<p class="noindent">Quadratic forms occur in physics and geometry, for instance, in connection with conic sections (ellipses
+<math display="inline"><msubsup><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></msubsup><mo class="MathClass-bin" stretchy="false">/</mo><msup><mrow><mi>a</mi></mrow><mrow><mn>2</mn></mrow></msup> <mo class="MathClass-bin" stretchy="false">+</mo> <msubsup><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow><mrow><mn>2</mn></mrow></msubsup><mo class="MathClass-bin" stretchy="false">/</mo><msup><mrow><mi>b</mi></mrow><mrow><mn>2</mn></mrow></msup> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn></math>, etc.)
+and quadratic surfaces (cones, etc.). Their transformation to principal axes is an important practical
+task related to the diagonalization of matrices, as follows.
+</p><p class="noindent">By <a class="block-ref" href="#x13-55007r28">Theory 2.28</a>, the symmetric coefficient matrix
+<math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math> of Eq. (<a href="#x13-57001r69">2.69</a>)
+has an orthonormal basis of eigenvectors. Hence if we take these as column vectors, we obtain a matrix
+<math display="inline"><mstyle mathvariant="bold"><mi>X</mi></mstyle></math> that is orthogonal,
+so that <math display="inline"><msup><mrow><mstyle mathvariant="bold"><mi>X</mi></mstyle></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msup> <mo class="MathClass-rel" stretchy="false">=</mo><msup><mrow> <mstyle mathvariant="bold"><mi>X</mi></mstyle></mrow><mrow><mstyle class="text"><mtext>T</mtext></mstyle></mrow></msup></math>. From Eq.
+(<a href="#x13-56009r64">2.64</a>) 
+we thus have <math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="bold"><mi>X</mi></mstyle><mstyle mathvariant="bold"><mi>D</mi></mstyle><msup><mrow><mstyle mathvariant="bold"><mi>X</mi></mstyle></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msup> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="bold"><mi>X</mi></mstyle><mstyle mathvariant="bold"><mi>D</mi></mstyle><msup><mrow><mstyle mathvariant="bold"><mi>X</mi></mstyle></mrow><mrow><mstyle class="text"><mtext>T</mtext></mstyle></mrow></msup></math>.
+Substitution into Eq. (<a href="#x13-57001r69">2.69</a>) gives </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x13-57005r72"></mstyle>
+<mi>Q</mi> <mo class="MathClass-rel" stretchy="false">=</mo><msup><mrow> <mstyle mathvariant="bold"><mi>x</mi></mstyle></mrow><mrow><mstyle class="text"><mtext>T</mtext></mstyle></mrow></msup><mstyle mathvariant="bold"><mi>X</mi></mstyle><mstyle mathvariant="bold"><mi>D</mi></mstyle><msup><mrow><mstyle mathvariant="bold"><mi>X</mi></mstyle></mrow><mrow><mstyle class="text"><mtext>T</mtext></mstyle></mrow></msup><mstyle mathvariant="bold"><mi>x</mi></mstyle><mo class="MathClass-punc" stretchy="false">.</mo>
+</math></td><td class="eq-no">(2.72)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">If we set <math display="inline"><msup><mrow><mstyle mathvariant="bold"><mi>X</mi></mstyle></mrow><mrow><mstyle class="text"><mtext>T</mtext></mstyle></mrow></msup><mstyle mathvariant="bold"><mi>x</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="bold"><mi>y</mi></mstyle></math>,
+then, since <math display="inline"><msup><mrow><mstyle mathvariant="bold"><mi>X</mi></mstyle></mrow><mrow><mstyle class="text"><mtext>T</mtext></mstyle><mi>x</mi></mrow></msup> <mo class="MathClass-rel" stretchy="false">=</mo><msup><mrow> <mstyle mathvariant="bold"><mi>X</mi></mstyle></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msup></math>,
+we have <math display="inline"><msup><mrow><mstyle mathvariant="bold"><mi>X</mi></mstyle></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msup><mstyle mathvariant="bold"><mi>x</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="bold"><mi>y</mi></mstyle></math>
+and thus obtain </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x13-57006r73"></mstyle>
+<mstyle mathvariant="bold">
+<mi>x</mi></mstyle>
+<mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="bold"><mi>X</mi></mstyle><mstyle mathvariant="bold"><mi>y</mi></mstyle>
+</math></td><td class="eq-no">(2.73)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">Furthermore, in Eq. (<a href="#x13-57005r72">2.72</a>) we have <math display="inline"><msup><mrow><mstyle mathvariant="bold"><mi>x</mi></mstyle></mrow><mrow><mstyle class="text"><mtext>T</mtext></mstyle></mrow></msup><mstyle mathvariant="bold"><mi>X</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <msup><mrow><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mstyle mathvariant="bold"><mi>X</mi></mstyle></mrow><mrow><mstyle class="text"><mtext>T</mtext></mstyle></mrow></msup><mstyle mathvariant="bold"><mi>x</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mstyle class="text"><mtext>T</mtext></mstyle></mrow></msup> <mo class="MathClass-rel" stretchy="false">=</mo><msup><mrow> <mstyle mathvariant="bold"><mi>y</mi></mstyle></mrow><mrow><mstyle class="text"><mtext>T</mtext></mstyle></mrow></msup></math>
+and <math display="inline"><msup><mrow><mstyle mathvariant="bold"><mi>X</mi></mstyle></mrow><mrow><mstyle class="text"><mtext>T</mtext></mstyle></mrow></msup><mstyle mathvariant="bold"><mi>x</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="bold"><mi>y</mi></mstyle></math>, so
+that <math display="inline"><mi>Q</mi></math>
+becomes simply </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x13-57007r74"></mstyle>
+<mi>Q</mi> <mo class="MathClass-rel" stretchy="false">=</mo><msup><mrow> <mstyle mathvariant="bold"><mi>y</mi></mstyle></mrow><mrow><mstyle class="text"><mtext>T</mtext></mstyle></mrow></msup><mstyle mathvariant="bold"><mi>D</mi></mstyle><mstyle mathvariant="bold"><mi>y</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>λ</mi></mrow><mrow><mn>1</mn></mrow></msub><msubsup><mrow><mi>y</mi></mrow><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></msubsup> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>λ</mi></mrow><mrow>
+<mn>2</mn></mrow></msub><msubsup><mrow><mi>y</mi></mrow><mrow><mn>2</mn></mrow><mrow><mn>2</mn></mrow></msubsup> <mo class="MathClass-bin" stretchy="false">+</mo> <mo class="MathClass-rel" stretchy="false">⋯</mo> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>λ</mi></mrow><mrow>
+<mi>n</mi></mrow></msub><msubsup><mrow><mi>y</mi></mrow><mrow><mi>n</mi></mrow><mrow><mn>2</mn></mrow></msubsup><mo class="MathClass-punc" stretchy="false">.</mo>
+</math></td><td class="eq-no">(2.74)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">This proves the following basic theorem.
+</p>
+<div class="block-major theo-block" id="theo-block-2.31"> <a class="copiable-link" href="#theo-block-2.31"> ¶</a> <span class="upper"> <span class="header"> <b>Theory 2.<a id="x13-57008r31"></a>31: </b> </span> <span class="title"> Principal Axes Theorem </span> </span> <div class="body">
+<p class="noindent">The substitution Eq. (<a href="#x13-57006r73">2.73</a>) transforms a quadratic form </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x13-57009r75"></mstyle>
+<mi>Q</mi> <mo class="MathClass-rel" stretchy="false">=</mo><msup><mrow> <mstyle mathvariant="bold"><mi>x</mi></mstyle></mrow><mrow><mstyle class="text"><mtext>T</mtext></mstyle></mrow></msup><mstyle mathvariant="bold"><mi>A</mi></mstyle><mstyle mathvariant="bold"><mi>x</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo><munderover accent="false" accentunder="false"><mrow><mo> ∑</mo>
+</mrow><mrow><mi>i</mi><mo class="MathClass-rel" stretchy="false">=</mo><mn>1</mn></mrow><mrow><mi>n</mi></mrow></munderover><munderover accent="false" accentunder="false"><mrow><mo> ∑</mo>
+</mrow><mrow><mi>k</mi><mo class="MathClass-rel" stretchy="false">=</mo><mn>1</mn></mrow><mrow><mi>n</mi></mrow></munderover><msub><mrow><mi>a</mi></mrow><mrow>
+<mi>j</mi><mi>k</mi></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mi>j</mi></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mi>k</mi></mrow></msub><mspace class="qquad" width="2em"></mspace><mstyle class="text"><mtext>where</mtext></mstyle><mspace class="qquad" width="2em"></mspace><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>a</mi></mrow><mrow><mi>k</mi><mi>j</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>a</mi></mrow><mrow><mi>j</mi><mi>k</mi></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo>
+</math></td><td class="eq-no">(2.75)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">to the principal axes form or canonical form Eq. (<a href="#x13-57007r74">2.74</a>), where
+<math display="inline"><msub><mrow><mi>λ</mi></mrow><mrow><mn>1</mn></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><mi>…</mi><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>λ</mi></mrow><mrow><mi>n</mi></mrow></msub></math>
+are the <span class="margin-block">eigenvalues <span class="margin-comment"><a class="ellipsis" href="#m-ref-60">[60]</a>
+<span class="sidenote">Which are not necessarily distinct.</span></span></span> of the symmetric matrix
+<math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math>, and
+<math display="inline"><mstyle mathvariant="bold"><mi>X</mi></mstyle></math> is an orthogonal matrix with
+corresponding eigenvectors <math display="inline"><msub><mrow><mstyle mathvariant="bold"><mi>x</mi></mstyle></mrow><mrow><mn>1</mn></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><mi>…</mi><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mstyle mathvariant="bold"><mi>x</mi></mstyle></mrow><mrow><mi>n</mi></mrow></msub></math>,
+respectively, as column vectors.
+</p>
+</div> </div>
+<div class="block-major exer-block" id="exer-block-2.48"> <a class="copiable-link" href="#exer-block-2.48"> ¶</a> <span class="upper"> <span class="header"> <b>Example 2.<a id="x13-57010r48"></a>48: </b> </span> <span class="title"> Transformation to Principal Axes and Conic Sections </span> </span> <div class="body">
+<p class="noindent">Find out what type of conic section the following quadratic form represents and transform it to
+principal axes: </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x13-57011r76"></mstyle>
+<mi>Q</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn><mn>7</mn><msubsup><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></msubsup> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>3</mn><mn>0</mn><msub><mrow><mi>x</mi></mrow><mrow>
+<mn>1</mn></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>1</mn><mn>7</mn><msubsup><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow><mrow><mn>2</mn></mrow></msubsup> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn><mn>2</mn><mn>8</mn><mo class="MathClass-punc" stretchy="false">.</mo>
+</math></td><td class="eq-no">(2.76)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent"></p>
+<hr/>
+<p class="noindent"> 
+We have <math display="inline"><mi>Q</mi> <mo class="MathClass-rel" stretchy="false">=</mo><msup><mrow> <mstyle mathvariant="bold"><mi>x</mi></mstyle></mrow><mrow><mstyle class="text"><mtext>T</mtext></mstyle></mrow></msup><mstyle mathvariant="bold"><mi>A</mi></mstyle><mstyle mathvariant="bold"><mi>x</mi></mstyle></math>,
+where </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x13-57012r77"></mstyle><mstyle mathvariant="bold"><mi>A</mi></mstyle>
+<mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>1</mn><mn>7</mn> </mtd><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn><mn>5</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn><mn>5</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>1</mn><mn>7</mn></mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow><mo class="MathClass-punc" stretchy="false">,</mo><mspace class="quad" width="1em"></mspace><mstyle mathvariant="bold"><mi>x</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub> </mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub> </mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow> <mo class="MathClass-punc" stretchy="false">.</mo>
+</math></td><td class="eq-no">(2.77)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">This gives the characteristic equation <math display="inline"><msup><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mn>7</mn> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>λ</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mn>2</mn></mrow></msup> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>1</mn><msup><mrow><mn>5</mn></mrow><mrow><mn>2</mn></mrow></msup> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></math>.
+It has the roots <math display="inline"><msub><mrow><mi>λ</mi></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>2</mn></math>,
+<math display="inline"><msub><mrow><mi>λ</mi></mrow><mrow><mn>2</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>3</mn><mn>2</mn></math>. Hence
+Eq. 
+(<a href="#x13-57007r74">2.74</a>) 
+becomes </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x13-57013r78"></mstyle>
+<mi>Q</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>2</mn><msubsup><mrow><mi>y</mi></mrow><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></msubsup> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>3</mn><mn>2</mn><msubsup><mrow><mi>y</mi></mrow><mrow>
+<mn>2</mn></mrow><mrow><mn>2</mn></mrow></msubsup><mo class="MathClass-punc" stretchy="false">.</mo>
+</math></td><td class="eq-no">(2.78)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">We see that <math display="inline"><mi>Q</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn><mn>2</mn><mn>8</mn></math>
+represents the ellipse <math display="inline"><mn>2</mn><msubsup><mrow><mi>y</mi></mrow><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></msubsup> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>3</mn><mn>2</mn><msubsup><mrow><mi>y</mi></mrow><mrow><mn>2</mn></mrow><mrow><mn>2</mn></mrow></msubsup> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn><mn>2</mn><mn>8</mn></math>,
+that is, </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x13-57014r79"></mstyle>
+<mfrac>
+<mrow>
+<msubsup><mrow><mi>y</mi></mrow><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></msubsup></mrow>
+<mrow><msubsup><mrow>
+<mi>y</mi></mrow><mrow><mn>2</mn></mrow><mrow><mn>2</mn></mrow></msubsup></mrow></mfrac>
+<mo class="MathClass-bin" stretchy="false">+</mo> <mfrac><mrow><msubsup><mrow><mi>y</mi></mrow><mrow><mn>2</mn></mrow><mrow><mn>2</mn></mrow></msubsup></mrow>
+<mrow><msubsup><mrow>
+<mi>y</mi></mrow><mrow><mn>2</mn></mrow><mrow><mn>2</mn></mrow></msubsup></mrow></mfrac> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn><mo class="MathClass-punc" stretchy="false">.</mo>
+</math></td><td class="eq-no">(2.79)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">If we want to know the direction of the principal axes in the
+<math display="inline"><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub></math>-coordinates, we have to determine
+normalized eigenvectors from <math display="inline"><mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>A</mi></mstyle> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>λ</mi><mstyle mathvariant="bold"><mi>I</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo><mstyle mathvariant="bold"><mi>x</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></math>
+with <math display="inline"><mi>λ</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>λ</mi></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>2</mn></math>
+and <math display="inline"><mi>λ</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>λ</mi></mrow><mrow><mn>2</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>3</mn><mn>2</mn></math>
+and then use Eq. (<a href="#x13-57006r73">2.73</a>). We get </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x13-57015r80"></mstyle>
+<mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>1</mn><mo class="MathClass-bin" stretchy="false">/</mo><msqrt><mrow>
+<mn>2</mn></mrow></msqrt> </mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>1</mn><mo class="MathClass-bin" stretchy="false">/</mo><msqrt><mrow><mn>2</mn></mrow></msqrt> </mtd>
+</mtr>
+</mtable>
+</mrow><mo fence="true" form="postfix">]</mo></mrow><mspace class="qquad" width="2em"></mspace><mstyle class="text"><mtext>and</mtext></mstyle><mspace class="qquad" width="2em"></mspace> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn><mo class="MathClass-bin" stretchy="false">/</mo><msqrt><mrow>
+<mn>2</mn></mrow></msqrt> </mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>1</mn><mo class="MathClass-bin" stretchy="false">/</mo><msqrt><mrow><mn>2</mn></mrow></msqrt> </mtd>
+</mtr>
+</mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow><mo class="MathClass-punc" stretchy="false">,</mo>
+</math></td><td class="eq-no">(2.80)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">Therefore </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x13-57016r81"></mstyle><mstyle mathvariant="bold"><mi>x</mi></mstyle>
+<mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="bold"><mi>X</mi></mstyle><mstyle mathvariant="bold"><mi>y</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>1</mn><mo class="MathClass-bin" stretchy="false">/</mo><msqrt><mrow>
+<mn>2</mn></mrow></msqrt> </mtd><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn><mo class="MathClass-bin" stretchy="false">/</mo><msqrt><mrow>
+<mn>2</mn></mrow></msqrt> </mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>1</mn><mo class="MathClass-bin" stretchy="false">/</mo><msqrt><mrow><mn>2</mn></mrow></msqrt> </mtd><mtd class="array-td" columnalign="center"> <mn>1</mn><mo class="MathClass-bin" stretchy="false">/</mo><msqrt><mrow><mn>2</mn></mrow></msqrt> </mtd>
+</mtr>
+</mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>y</mi></mrow><mrow><mn>1</mn></mrow></msub> </mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>y</mi></mrow><mrow><mn>2</mn></mrow></msub> </mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow> <mo class="MathClass-punc" stretchy="false">,</mo><mspace class="qquad" width="2em"></mspace><mtable class="aligned" displaystyle="true"><mtr><mtd columnalign="right"><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub></mtd>
+<mtd columnalign="left"> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>y</mi></mrow><mrow><mn>1</mn></mrow></msub><mo class="MathClass-bin" stretchy="false">/</mo><msqrt><mrow>
+<mn>2</mn></mrow></msqrt> <mo class="MathClass-bin" stretchy="false">−</mo> <msub><mrow><mi>y</mi></mrow><mrow><mn>2</mn></mrow></msub><mo class="MathClass-bin" stretchy="false">/</mo><msqrt><mrow>
+<mn>2</mn></mrow></msqrt></mtd>
+<mtd columnalign="right"></mtd>
+</mtr><mtr><mtd columnalign="right"><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub></mtd><mtd columnalign="left"> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>y</mi></mrow><mrow><mn>1</mn></mrow></msub><mo class="MathClass-bin" stretchy="false">/</mo><msqrt><mrow>
+<mn>2</mn></mrow></msqrt> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>y</mi></mrow><mrow><mn>2</mn></mrow></msub><mo class="MathClass-bin" stretchy="false">/</mo><msqrt><mrow>
+<mn>2</mn></mrow></msqrt><mo class="MathClass-punc" stretchy="false">.</mo></mtd>
+</mtr> </mtable>
+</math></td><td class="eq-no">(2.81)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">This is a <math display="inline"><mn>4</mn><mn>5</mn></math><math display="inline"><mstyle mathvariant="normal"><mi>◦</mi></mstyle></math>
+rotation <math display="inline"><mspace class="quad" width="1em"></mspace><mo class="MathClass-ord">■</mo></math>
+</p>
+</div> </div>
+<div class="section-header">
+<h3 id="header-section-references">
+<span class="number">
+<i class="fa-regular fa-note-sticky"></i>
+</span>
+<span class="title">
+<a id="page-glossary"></a>
+                    Page Footnotes</span>
+</h3>
+</div>
+<div class="footnote-block">
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-57"><span class="acr-short">[57].</span></dt>
+<dd class="enumerate-enumitem"><span class="">not necessarily distinct.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-58"><span class="acr-short">[58].</span></dt>
+<dd class="enumerate-enumitem"><span class="">i.e., multiplication by scalars</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-59"><span class="acr-short">[59].</span></dt>
+<dd class="enumerate-enumitem"><span class="">For more information please look at <a class="block-ref" href="DeterminingEigenvaluesandEigenvectors.html#x11-51008r32">Example 2.32</a>.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-60"><span class="acr-short">[60].</span></dt>
+<dd class="enumerate-enumitem"><span class="">Which are not necessarily distinct.</span></dd>
+</dl></div><nav class="crosslinks-bottom"><div class="navigation"><span class="nav-button"><a href="ComplexMatricesandForms.html"><i class="fa-solid fa-caret-right"></i></a></span><span class="nav-button"><a href="SymmetricSkewSymmetricandOrthogonalMatrices.html"><i class="fa-solid fa-caret-left"></i></a></span><span class="nav-button"><a href="LinearAlgebraIIEigenvalueProblems.html#EigenbasesDiagonalizationQuadraticForms.html"><i class="fa-solid fa-caret-up"></i></a></span><span class="nav-button">
+<a href="index.html" rel="index" title="Index">
+<i class="fa-solid fa-table-list">
+</i>
+</a></span><span class="nav-button">
+<a href="Index.html" rel="index" title="Index">
+<i class="fa-brands fa-git-alt"></i>
+</a></span></div></nav> <div class="footer"> <div class="footer-left"><span class="footer-lecture">D. T. McGuiness, PhD</span>
+<span class="footer-webBook"><b>Last Updated:</b> 20.10.2026, at 10:2.</span></div></div><div class="author-notes">
+<span class="note">Authors Note </span>
+<span class="text">The website you are viewing is auto-generated using lms-WebBook and therefore subject to slight errors in typography and formatting. When in doubt, please consult the LectureBook. </span>
+</div>
+</article>
+<div class="mode-line">
+<div class="core-line"><div class="core-line-image"><img class="webbook-logo" src="logo/webbook-logo.svg"/></div>
+<div class="current-header">
+<span class="header-pretext">Viewing | </span>
+<span class="header-text">Section 2.3: Eigenbases. Diagonalization. Quadratic Forms</span>
+</div>
+<div class="button-group">
+</div>
+</div>
+<div class="supp-line"></div>
+</div>
+</page>
+</body>
+</html>

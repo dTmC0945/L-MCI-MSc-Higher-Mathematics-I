@@ -1,0 +1,4073 @@
+/*
+  #INFO: css for the WebBook Documentation
+ 
+  ------------------------------------------------------------------------------
+  
+  Author: DTMc
+  
+  This file is part of lms. 
+  
+  lms is free software: you can redistribute it and/or modify it under the 
+  terms of the GNU General Public License as published by the Free Software 
+  Foundation, either version 3 of the License, or (at your option) any later 
+  version. 
+  
+  lms is distributed in the hope that it will be useful, but WITHOUT ANY 
+  WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
+  A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+  
+  ------------------------------------------------------------------------------
+*/
+
+/* GLOBAL VARIABLES --------------------------------------------------------- */
+
+/* Set global settings and colour information */
+:root {
+    
+    --header-color: #eee8d5;
+    --header-color-05: color-mix(var(--header-color), black 5%);
+    --header-color-10: color-mix(var(--header-color), black 10%);
+    --modeline-color :  #363737;
+
+    --link-color       : #1481b8;
+    --link-inact-top   : #fdf6e3;
+    --link-inact-bot   : #2b2c2c;
+    --sidenote-color   : #2C2D2d;
+    --block-text-color : #444;
+    --core-line-color  : #2C2D2d;
+    --alert-color      : #B9484C;
+    --verb-color       : #fdf6e3;
+    --verb-text-color  : #586e75;
+    --code-color       : #bf0000;
+    --comment-color    : #fdf6e3;
+    --quote-color      : #88807B;
+
+    /* Block settings */
+    --alert-block     : #fcc055;
+    --alert-body      : #fef2dd;
+    --knowledge-block : #4fb1a1;
+    --knowledge-body  : #dcefec;
+    --info-block      : #7BA591;
+    --info-body       : #e5ede9;
+    
+    --exer-block      : #326199;
+    --exer-body       : #e8eff7;
+    
+    --theo-block      : #42395f;
+    --theo-body       : #ebe9f2;
+    
+    --desc-block      : #eb8d50;
+    --desc-body       : #fbe8dc;
+    --docs-block      : snow;
+    --code-block      : #586e75;
+    --code-h-block    : #F2F2F2;
+
+    --code-body       : #fae8b6;
+
+    --nav-font-color  : white;
+    --nav-width       : 336px;
+
+    /* Colour domain settings */
+    --fundamental-science : #42395f;
+    --ai-science          : #0063B2;
+    --robotic-science     : #0a2a0a;
+    --computer-science    : #313244;
+    --electro-science     : #1c2e4a;
+    --org-science         : #004983;
+
+    --box-shadow-config   : 0px 10px 15px -10px rgba(0, 0, 0, 0.3);
+    
+    /* Some propeties of buttons */
+    --button-radius       : 0px;
+
+    --output-code        : #FAFAFA;
+    --table-row-color    : #F2F2F2;
+    --on-this-page-color : snow;
+    
+    --chosen-science     : var(--fundamental-science);
+
+    --title-linewidth    : 1.3;
+    --text-lineheight    : 1.8;
+    --tblr-lineheight    : 1.5;
+
+    --tblr-inner-brdr    : 0.5px solid gray;
+    --nav-thin-line      : 0.2px solid black;
+
+    --main-text-font:              15px  "Roboto", sans-serif;
+    --toc-title-font:       bold   20px  "Roboto", sans-serif;
+    --toc-s-----font:              15px  "Roboto", sans-serif;
+    --toc-ss----font:              12px  "Roboto", sans-serif;
+    --toc-sss---font:              12px  "Roboto", sans-serif;
+    --box--text-font:              14px  "Roboto", sans-serif;
+    --tblr-text-font:       normal 14px  "Roboto", sans-serif;
+    --side-text-font:       normal 12px  "Roboto", sans-serif;
+    --quot-text-font:       normal 14px  "Roboto", sans-serif;
+    --toc--text-font:       normal 16px  "Roboto", sans-serif;
+    --chap-head-font:       normal 16px / 30px  "Roboto", sans-serif;
+    --mode-text-font:       normal 12px  "Roboto", sans-serif;
+    --supp-text-font:       normal 13px  "Roboto", sans-serif;
+    --comm-text-font:       normal 13px / 20px "Roboto", sans-serif;
+    --code-text-font:       normal 13px / 20px "Source Code Pro", Menlo, Consolas, Monaco, monospace;
+    
+
+    --h1---text-font:       bold   48px  "Roboto", sans-serif;
+    --h2---text-font:       bold   48px  "Roboto", sans-serif;
+
+    --h1-s-text-font:       bold   30px  "Roboto", sans-serif;
+    --h3-s-text-font:       bold   24px / 30px  "Roboto", sans-serif;
+    --h4-s-text-font:       bold   20px / 30px  "Roboto", sans-serif;
+}
+
+html {
+    /* Control the overall behavior of the website */
+    overscroll-behavior : none;
+    scroll-behavior     : smooth !important;
+    height              : 100%;
+    scroll-padding-top  : 4rem; 
+}
+
+
+/*
+  CODE STRUCTURE ---------------------------------------------------------------
+
+  Make sure all the tags are written in the form of
+
+  - Position modifiers,
+  - Colour and fonr modifiers.
+
+  ------------------------------------------------------------------------------
+*/
+
+page
+{
+    top            : 50px;   
+}
+
+
+body
+{
+    margin         : 0;
+    padding-bottom : 200px;
+    color          : black;
+    font           :  var(--main-text-font);   
+}
+
+p {
+    /* Add this options so the top p above body is set to contain no space */
+    margin         : 24px 0;
+    text-align     : left;
+    line-height    : var(--text-lineheight);
+}
+
+
+pagefind-modal-trigger {
+    display        : flex;
+    padding-bottom : 30px;
+}
+
+.main-toc::before
+{
+    content:  "Main Table of Contents";
+    font: var(--h3-s-text-font);
+}
+
+.main-toc
+{
+    columns        : 1;
+    position       : relative;
+    margin-left    : 10px;
+    margin-right   : 10px;
+    white-space    : pre;
+    text-wrap-mode : nowrap;
+    text-wrap      : stable;
+    color          : black ;
+
+    a
+    {
+        color: black !important;
+    }
+
+    hr
+    {
+        border     : none;
+        background : lightgray;
+        height     : 1px;
+    }
+
+    .toc-links
+    {
+        font            : var(--toc--text-font);
+        color           : black;
+        overflow        : auto;
+        white-space     : pre;
+        display         : flex;
+        justify-content : space-between;
+        padding-top     : 0px;
+        padding-bottom  : 20px;
+        
+    }
+
+    .chapterToc,
+    .appendixToc,
+    .sectionToc,
+    .subsectionToc
+    {
+        display     : flow-root;
+        line-height : var(--text-lineheight) !important;
+
+        .title
+        {
+            white-space : initial;             
+            max-width   : 300px;
+            float       : left;
+        }
+        
+        .number
+        {
+            float : right;
+        }
+    }
+
+    .addchapToc,
+    .chapterToc,
+    .appendixToc
+    {
+        margin-top     : 40px;
+        font           : var(--toc--text-font);
+        font-weight    : bold;
+        padding-bottom : 5px;
+        border-bottom  : 0.5px solid gray;       
+    }
+    
+    .sectionToc
+    {
+        padding-bottom : 10px;
+        margin-top     : 30px;
+
+        font           : var(--toc-s-----font);
+              
+        .title {
+            max-width     : 300px;
+            padding-right : 5px;                      
+        }
+    }
+
+    .subsectionToc
+    {
+        padding-top    : 0px;
+        padding-left   : 20px;        
+        padding-bottom : 0px;
+        padding-right  : 0px;;
+        
+        font           : var(--toc-ss----font);
+      
+        .title {
+            padding-right: 10px;         
+        }       
+    }
+}
+
+
+/* Here we define the on the page TOC  */
+.chapter-contents
+{
+
+    display               : block;    
+    text-align            : left;
+    z-index               : 1;
+    
+    line-height           : 1.5;
+    
+    overscroll-behavior-y : none;
+    box-sizing            : content-box; /* So the width will be 100% + 17px */
+    padding-bottom        : 10px;
+    right                 : 0px;
+    
+    border-top               : 1px solid lightgray;
+    border-bottom               : 1px solid lightgray;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    scrollbar-width      : none;
+
+    .section-header
+    {
+        margin: unset;
+        margin-bottom: 10px;
+
+        h3
+        {
+            padding-bottom:  0px;
+            
+        }
+    }
+    
+    .chapterToc,
+    .appendixToc
+    {
+        margin-top: 40px;
+        font: bold 16px/24px "Source Sans Pro", sans-serif;
+        color: black ;
+        
+        border-bottom: 0.1px solid  rgba(255, 255, 255, .5);
+        display: flow-root;
+
+        
+        .number
+        {
+            font: bold 16px/24px "Source Sans Pro", sans-serif;
+            float: right;
+        }
+        
+        .title
+        {
+            white-space: initial;
+            float: inherit;
+            width: 200px;
+
+            a
+            {
+                color: white !important;
+            }
+        }
+    }
+
+    
+    .sectionToc
+    {
+        padding-bottom : 10px;
+        color          : black ;
+        display        : flow-root;
+        font           : var(--toc-s-----font);
+        line-height    : var(--text-lineheight) !important;
+
+        margin-top     : 30px;
+        
+        .number
+        {
+            float         : right;
+        }
+        
+        .title {
+            white-space   : normal;
+            float         : inherit;
+            padding-right : 5px;
+            
+            a{
+                color: black !important;
+            }
+        }
+    }
+
+    .generic-info-header,
+    .generic-command-header,
+    .subsectionToc
+    {
+        padding-top    : 0px;
+        padding-left   : 20px;
+        padding-right  : 0px;;
+        padding-bottom : 0px;
+        
+        font           : var(--toc-ss----font);
+        
+        line-height    : var(--text-lineheight) !important;
+        display        : flow-root;
+
+        .number {
+            float: right;
+            color: black;
+        } 
+        
+        .title {
+            white-space: normal;
+            float: inherit;
+            padding-right: 10px;
+            a{
+                color: black;
+            }
+        }
+
+        
+        
+    }
+
+     .subsubsectionToc
+    {
+        padding-top    : 0px;
+        padding-left   : 40px;
+        padding-right  : 0px;;
+        padding-bottom : 0px;
+        
+        font           : var(--toc-ss----font);
+        
+        line-height    : var(--text-lineheight) !important;
+        display        : flow-root;
+
+        .number {
+            float: right;
+            color: black;
+        } 
+        
+        .title {
+            white-space: normal;
+            float: inherit;
+            padding-right: 10px;
+            a{
+                color: black;
+            }
+        }
+
+        
+        
+    }
+
+    
+
+    .addchapToc { 
+        padding: 12px 0 0 36px;
+        font:
+            normal 16px/24px "Source Sans Pro",
+            sans-serif;
+        color: #7aa0b8;
+        list-style-type: none;
+        line-height: 30px;
+        font-weight: bold;
+    }
+    
+
+    .content {
+        position: relative;
+        white-space: pre;
+        text-wrap-mode: nowrap;
+        margin: 18px 36px;
+        text-wrap: stable;
+        text-wrap-mode: wrap;
+        text-wrap-mode: wrap;
+    }
+
+    hr {     
+        height: 0.5px;
+        border: none;
+        background-color: gray;
+    }
+    
+    .header {
+        
+        font: var(--h3-s-text-font);
+        color: var(--chosen-science);
+        padding-top: 5px;
+        padding-bottom: 5px;
+        text-wrap: auto;
+    }
+
+    p {
+        padding: 2px 10px 2px 20px;
+        font: var(--side-text-font);
+        line-height: 15px;
+        color: white;
+        line-height: 10px;
+        display: flow-root;
+        margin: 0px 0  !important;
+        word-wrap: break-word;
+        word-break: break-word;
+
+    }
+
+    a {
+        color: black !important;
+    }
+
+    .toc-h4 {
+        padding: 0px 0 0 20px;
+        font: normal 12px/15px "Source Sans Pro", sans-serif;
+        line-height: 15px;
+        line-height: 20px;
+        display: flow-root;
+        
+    }
+
+    .toc-h5 {
+        padding-left: 30px !important;
+        padding-right:10px;
+        line-height: var(--title-linewidth);
+    }
+
+
+    .generic-header{
+        padding: 0px 0 0 20px;
+        font: normal 12px/15px "Source Sans Pro", sans-serif;
+        line-height: 15px;
+        line-height: 20px;
+        display: flow-root;
+        
+    }
+
+    .toc-contents {
+
+        padding-top: 40px;
+    }
+
+}
+
+.footnote-block,
+.cite-block,
+.acronym-block {
+    
+    margin-top    : 20px;
+    margin-bottom : 20px;
+    font-size     : small ;
+
+    .acr-list {
+        display : block;
+
+    .acr-bottom {       
+
+        .acr-short {
+
+            text-decoration         : underline;
+            text-underline-position : under;
+            font-weight             : bold;
+        }
+
+        .acr-long {
+            
+            padding-left            : 10px;
+            
+        }
+        
+
+    }
+    }
+}
+
+.current-header {
+
+    float: left;
+    height: 40px;
+    align-content: center;
+    padding-left: 20px;
+    font: var(--supp-text-font);
+    
+    .header-pretext {
+
+        font-weight: bolder;
+        color: white;
+
+    }
+
+    .header-text {
+
+        color: white;
+
+    }
+
+}
+
+.eqref-block
+{
+    position: fixed;
+    top: 60px;
+    right: 50px;
+    background: var(--comment-color);
+    border: 1px solid black;
+    box-shadow: var(--box-shadow-config);
+    padding: 15px;
+
+    figure
+    {
+        width: 300px;
+    }
+}
+    
+
+pre
+{
+    .verbatim {
+        /* Control the way output code is displayed. */
+        color:      var(--code-block);
+        background: var(--output-code);
+
+        margin-top: 1em;
+        display:    block;
+        overflow-x: auto;
+        padding:    1em;
+    }
+}
+
+.code-block {
+    /* Control how `.corg' blocks behacve */
+
+    a {
+
+        padding-top: 5px;
+        padding-bottom: 5px;
+        left:-50px;
+
+        
+    }
+}
+
+pre
+{
+    .fancyvrb {
+        /* Control the way output code is displayed. */
+
+        padding-top: 1em;
+        background: #fae8b6;
+        border: unset;
+        margin-top: 1em;
+        display: block;
+        overflow-x: auto;
+        padding-top: 1em;
+        margin-bottom: 0;
+    }
+}
+
+.mode-line {
+
+    position: fixed;
+    z-index: 10000;
+    top: 0;
+    height: 70px;
+    right: 0px;
+
+    .core-line {
+
+        position: fixed;
+        height: 40px;
+        right: 0px;
+        width: 100%;
+        top: 10px;
+        border-bottom: var(--nav-thin-line);
+        background: var(--modeline-color);
+
+        .core-line-image
+        {
+            float: left;
+            padding-left: 20px;
+            height:  40px;
+
+            img
+            {
+                  height: 40px;
+            }
+        }
+
+    }
+
+    .supp-line {
+        right: 0px;
+        background: gray;
+        width: calc(100vw);
+        height: 10px;
+        position: fixed;
+        top: 0px;
+        font: var(--mode-text-font);
+        color: black;        
+        margin-left: 20px;
+
+        p{
+            padding-top: 3px;
+            margin-left: 20px;
+        }
+    }
+}
+
+
+.search-box { 
+    box-shadow: var(--box-shadow-config);
+    position: fixed;
+    padding: 10px;
+    top: 10%;
+    left: 10%;
+    right: 10%;
+    bottom: 10%;
+    background: var(--chosen-science);
+    border-left: 0px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    z-index: 100;
+    line-height: var(--text-lineheight);
+}
+
+/* A parent div to control how the iframe behaves within the page */
+.reference-page {
+
+    display: none;
+    overflow: hidden;
+    box-shadow: var(--box-shadow-config);
+    position: fixed;
+    padding: 10px;
+    top: 50px;
+    right: 100px;
+    width: 700px;
+    bottom: 50px;
+    background: var(--comment-color);
+    border: 1px solid black;
+    z-index: 1000;
+    overflow-y: scroll;
+
+
+    iframe {
+        position: relative;
+        height: 100%;
+        width: 100%;
+    }
+
+    /* Now here we sort out the settings for the detailed TOC presentation */
+
+    .detail-toc:before
+    {    
+        content: "Verbose Table of Contents \A\A";
+        white-space: pre;
+        font: var(--h1-s-text-font);
+    }
+    
+    .detail-toc {
+        padding-top: 100px;
+        padding-bottom: 100px;
+        padding-left: 50px;
+        padding-right: 50px;
+
+        a{
+            color: black !important;
+        }
+
+        a:hover
+        {
+            color: var(--chosen-science); !important;
+            border-bottom: solid 1px darkgray; !important;
+        }
+        
+        .block,
+        .chapterToc,
+        .sectionToc,
+        .subsectionToc,
+        .subsubsectionToc
+        {
+            display        : flow-root;
+            color          : black;
+            line-height    : var(--text-lineheight) !important;
+
+            .title
+            {
+                white-space   : normal;
+                float         : left;
+            }
+            
+            .number
+            {
+                float         : right;
+            }                     
+        }
+        
+        .sectionToc
+        {
+            margin-left    : 10px;
+            padding-bottom : 10px;                        
+            font           : var(--toc-s-----font);
+            margin-top     : 20px;                       
+        }
+
+    
+        .sectionToc
+        {
+            padding-left   : 10px;
+            padding-bottom : 10px;                        
+            font           : var(--toc-s-----font);
+            margin-top     : 20px;                     
+        }
+
+        .subsectionToc
+        {
+            padding-top    : 0px;
+            padding-left   : 20px;
+            padding-bottom : 0px;             
+            font           : var(--toc-ss----font);             
+            
+            
+        }
+
+        .subsubsectionToc
+        {
+            padding-top    : 0px;
+            padding-left   : 60px;
+            padding-bottom : 0px;             
+            font           : var(--toc-ss----font);                                  
+        }
+
+        .block
+        {
+            padding-top    : 0px;
+            padding-left   : 40px;
+            padding-bottom : 0px;
+            
+            font           : var(--toc-ss----font);
+                                  
+        }        
+    }
+}
+
+.documentation {
+
+    box-shadow: var(--box-shadow-config);
+    position: fixed;
+    padding-left:  80px;
+    padding-right: 80px;
+    top: 70px;
+    right: 15%;
+    left: 15%;
+    bottom: 70px;
+    background: var(--docs-block);
+    border: 1px solid black;
+    z-index: 100;
+    overflow: auto;
+    line-height: var(--text-lineheight);
+
+    
+    .title {
+        max-width: 100%;
+    }
+
+    h1 {    
+        padding-top: 0px;
+        padding-bottom: 10px;
+        border-bottom:  none;
+        
+        font: var(--h1---text-font);
+        color: color-mix(color-mix(var(--header-color), brown 40%), black 50%);
+
+        line-height: 1.4;
+
+    }
+
+    h2 {
+
+        border-bottom: 1px solid var(--header-color);
+        margin: 71px 0 0 0;
+        padding-bottom: 1px;
+        font: var(--h2---text-font);
+        color: var(--chosen-science);
+        line-height:     var(--title-lineheight);
+        
+    }
+
+    dl {
+        display: block;
+    }
+
+    table {
+        width:           100%;
+        border-collapse: collapse;
+    }
+    
+    th, td {       
+        padding:       8px;
+        border-left:   0.5px solid color-mix(var(--table-row-color), black 20%);
+        border-right:  0.5px solid color-mix(var(--table-row-color), black 20%);
+    }
+
+    tr {
+        border-bottom: 0.5px solid color-mix(var(--table-row-color), black 20%); 
+    }
+
+    
+    /* Define the header of the table */
+    thead tr {
+        background:
+            linear-gradient(
+                to bottom,
+                color-mix(var(--chosen-science), white 5%) 0%,
+                color-mix(var(--chosen-science), white 2%) 50%,
+                color-mix(var(--chosen-science), black 5%)  100%
+            );
+        color:       white;
+        font-weight: bold;
+        border:      none;
+    }
+
+    th {
+        border:     none;
+    }
+
+    tr:nth-child(odd) {
+        /* Add alternating row color to make it more visible */
+        background-color: var(--table-row-color);
+    }
+    
+    tr:not(:first-child):hover {
+        /* Finally add some hover effect to the rows */
+        transition:       all .8s ease;
+        background-color: color-mix(var(--chosen-science), white 90%);
+    }
+
+    
+}
+
+#hidden {
+    display: none;
+}
+
+.index-search
+{
+    position: fixed;
+    max-width: 700px;
+    height: calc(100vh - 200px);
+    background: var(--comment-color);
+    border: 2px solid black;
+    top: 70px;
+    bottom: 120px;
+    overflow-y: auto;
+    z-index: 99999;
+    padding: 20px;
+    box-shadow: var(--box-shadow-config);
+
+    .sidenote
+    {
+        position: initial;
+  float: right;
+  width: 200px;
+  margin: 15px;
+  border: 1px solid lightgray;
+  padding: 15px;
+  background: white;
+  box-shadow: var(--box-shadow-config);
+  clear: both;
+
+  img
+  {
+      width: 200px;
+  }
+  
+    }
+
+    .figure
+    {
+
+        figcaption
+        {
+            float: right ;
+        }
+        img
+        {
+            width: 300px;
+            float: left;
+        }
+
+        
+
+    }
+
+    .chapter-materials
+    {
+        display: grid;
+
+    }
+}
+
+.lecture-structure {
+
+    box-shadow    : var(--box-shadow-config);
+    position      : fixed;
+    padding-left  : 80px;
+    padding-right : 80px;
+    
+    top           : 50px;
+    right         : 0px;
+    bottom        : 0px;
+    width         : calc(100vw);
+    max-width     : 500px;
+    background    : white;
+    border-left   : 1px solid black;
+    z-index       : 100;
+    overflow      : auto;
+    line-height   : var(--text-lineheight);
+
+    .content {
+        padding-top   : 50px;
+    }
+    
+    .title {
+        max-width: 100%;
+    }
+
+    h1 {    
+        padding-top: 0px;
+        padding-bottom: 10px;
+        border-bottom:  none;
+        
+        font: var(--h1---text-font);
+        color: color-mix(color-mix(var(--header-color), brown 40%), black 50%);
+
+        line-height: 1.4;
+
+    }
+
+    h3 {
+
+        border-bottom: 1px solid gray;
+        padding-bottom: 1px;
+        font-size: large;
+        color: var(--chosen-science);
+        
+        
+    }
+
+    .lecture-structure-header {
+
+        h3 {
+            transform: rotate(90deg);
+            position: fixed;
+            right: 515px;
+            top: 150px;
+            color: var(--chosen-science);
+            font-size: x-large;
+            font-weight: bolder;
+            border-bottom: unset;
+        }
+    }
+
+    dl {
+        display: block;
+    }
+
+    table {
+        margin-top: 30px;
+        margin-bottom: 30px;
+        width:           100%;
+        border-collapse: collapse;
+    }
+
+    
+    th, td {       
+        padding:       8px;
+        border-left:   0.5px solid color-mix(var(--table-row-color), black 20%);
+        border-right:  0.5px solid color-mix(var(--table-row-color), black 20%);
+    }
+
+    tr {
+        border-bottom: 0.5px solid color-mix(var(--table-row-color), black 20%); 
+    }
+
+    
+    /* Define the header of the table */
+    thead tr {
+        background:
+            linear-gradient(
+                to bottom,
+                color-mix(var(--chosen-science), white 5%) 0%,
+                color-mix(var(--chosen-science), white 2%) 50%,
+                color-mix(var(--chosen-science), black 5%)  100%
+            );
+        color:       white;
+        font-weight: bold;
+        border:      0.5px solid color-mix(var(--table-row-color), black 20%);
+    }
+
+    th {
+        border:     none;
+    }
+
+    tr:nth-child(odd) {
+        /* Add alternating row color to make it more visible */
+        background-color: var(--table-row-color);
+    }
+    
+    tr:not(:first-child):hover {
+        /* Finally add some hover effect to the rows */
+        transition:       all .8s ease;
+        background-color: color-mix(var(--chosen-science), white 90%);
+    }
+
+    
+}
+
+
+
+
+/* Here we control how the pagefind is displayed by modifying defaults */
+.pf-trigger-btn {
+
+    border-radius: 0px;
+    border:        1px solid var(--chosen-science);
+
+}
+
+.button-group {
+
+    float: right;
+}
+
+
+/* Global Font Settings  ---------------------------------------------------- */
+
+/* Control how the alignment of the blocks look */
+.copiable-link
+{
+    position      : absolute;
+    padding-left  : 5px;
+    padding-right : 5px;
+    left          : -25px;
+    background    : #ffa602;
+    color         : white;
+    font          : caption;
+    margin-top    : 6px;
+}
+
+/* Control how a code snippet looks in text. (i.e, Use the man command) */    
+.verb {
+    color            : var(--code-color);
+    font             : var(--code-text-font);
+    word-break       : break-all;
+}
+
+/* Define the keyboard notation on the webpage */
+kbd {
+        
+    color            : #333;
+    background-color : #eee;
+    border           : 1px solid #b4b4b4;
+    border-radius    : 3px;
+    
+    display          : inline-block;
+    font-size        : 0.85em;
+    font-weight      : normal;
+    line-height      : 1;
+    padding          : 2px 4px;
+    white-space      : nowrap;
+    top              : -1px;
+    
+    &:hover {
+        box-shadow:
+            0 1px 1px rgba(0, 0, 0, 0.2),
+            0 2px 0 0 rgba(255, 255, 255, 0.7) inset;
+        top: 1px;
+    }
+}
+
+/* Make sure figure takes as much space as possible */
+
+figure {
+    margin:       auto;
+}
+
+/* Make sure the captions of `figure' and `table' are field
+   in the right-hand side */
+
+
+figcaption.caption {
+
+    padding     : 20px 20px 10px 20px;
+    text-align  : left;
+    text-indent : 0px;
+    color       : var(--chosen-science);
+    font        : var(--box--text-font);
+    line-height : var(--text-lineheight);
+
+    .content{
+        color   : gray;
+    }
+    
+}
+
+.author-notes {
+    /* Control how the author's notes at the end of the page is presented */
+    
+    padding-top     : 20px;
+    text-align      : left;
+    padding-bottom  : 30px;
+    font            : italic var(--box--text-font);
+    
+    .note {
+        font-weight : bold;
+    }
+
+    .text {
+        line-height : var(--text-lineheight);
+    }   
+}
+
+/* Control how lists behave. Original settings were too `clumped' which now
+   looks much better */
+ul {
+
+    list-style-type: "■ ";
+    line-height: 2;
+    
+    p {
+        padding: 0px;
+    }
+}
+
+/* Define the marker for the itemized list */
+::marker {
+    color: var(--chosen-science);
+    font-size: 1.2em;
+}
+
+
+/* Change the behaviour of `description' lists */
+.description {
+    display: block;
+
+    /* Control the item behaviour */
+    dd {
+        margin-left: 20px;
+    }
+
+    p {
+        margin-top: 10px;
+        margin-bottom: 15px;
+    }
+}
+
+
+
+/* Time to define all the side images should look like */
+.sidenote {
+    position:   absolute;
+    text-align: left;
+    right:      -270px;
+    width:      220px;
+    color      : var(--sidenote-color);
+    border-top: solid 1px var(--header-color);
+    font:       var(--side-text-font);
+    line-height: 1.8;
+    
+    figcaption {
+
+        position: initial;
+        line-height: 1;
+        padding: 0;
+        .id {
+            color: var(--chosen-science);
+            font: bold 12px/20px "Source Sans Pro", sans-serif;
+        }
+
+        .content {
+            color: var(--chosen-science);
+            font: normal 12px/20px "Source Sans Pro", sans-serif;
+        }
+    }
+
+    .ellipsis {
+        text-decoration: none;
+        font-size: x-small;
+        vertical-align: super;
+        font-weight: bold;
+        color: black;
+    }
+}
+
+/* All images should have a gentle curve around the image for easy visibility
+   and slight aestetics */
+img {
+    outline: none;
+    border-radius: .25rem;
+}
+
+mjx-container {
+    overflow-x: auto;
+  overflow-y: clip;
+}
+
+table {
+    overflow-x: auto;
+    margin-bottom: 15px;
+}
+
+/* Define how equations `equation' and `equation*' looks */
+table.equation-star,
+table.equation {
+    width: auto;
+    margin: auto;
+
+    tbody {
+        overflow-x: auto;
+    }
+
+    td {
+        width: 100%;
+    }
+
+    td:last-child {
+        text-align: right;
+        font-size: larger;
+        font-family: 'Latin Modern Roman';
+    }
+}
+
+/*
+   Here we have to reverse the `display: grid' as equation* does not have a
+   number
+*/
+table.equation
+{
+    display: grid;
+}
+
+
+/* Table Settings ----------------------------------------------------------- */
+
+.tabular{
+
+    overflow-x: auto;
+    
+    table {
+        width:           100%;
+        border-collapse: collapse;
+        border: 1px solid black;
+    }
+    
+    th, td {       
+        padding:       8px;
+        border-left:   var(--tblr-inner-brdr);
+        border-right:  var(--tblr-inner-brdr);
+    }
+
+    tr {
+        border-bottom: var(--tblr-inner-brdr);
+    }
+
+    /* We unset this one as it is adding a line to the bottom row which is already set as black */
+    tr:last-child {
+        border-bottom: unset; 
+    }
+
+    tr:nth-child(odd) {
+        /* Add alternating row color to make it more visible */
+        background-color: var(--table-row-color);
+    }
+    
+    /* Define the header of the table */
+    tr:first-child {
+        background: var(--chosen-science);
+        color:       white;
+        font-weight: bold;
+        border:      none;
+    }
+
+    th {
+        border:     none;
+    }
+
+    
+    tr:not(:first-child):hover {
+        /* Finally add some hover effect to the rows */
+        transition:       all .8s ease;
+        background-color: color-mix(var(--chosen-science), white 90%);
+    }
+
+}
+
+.tblr
+{
+    /*
+      Here we we edit the `tabulararry' style tables, and here we need to use
+      some code we've used for tabular class. Some adjustments were needed to
+      be made for the adjustement of the table but it seems to be working at
+      the moment.
+   */
+    width:           100%;
+    border-collapse: collapse;
+
+    tbody
+    {
+        tr
+        {
+            font-weight: bold;
+        }
+    }
+    
+    th, td {
+        font:          var(--tblr-text-font);
+        line-height:   var(--tblr-lineheight);
+        padding:       8px;
+        border-left:   0.5px solid gray;
+        border-right:  0.5px solid gray;
+    }
+
+    tr {
+        border-bottom: 0.5px solid gray; 
+    }
+
+    tr:first-child {
+        /* Define the header of the table. This command needs to be rerun again
+           to be correctly run */
+        background: var(--chosen-science) !important;
+        td {
+            background-color: var(--chosen-science) !important;
+        }
+
+        td:nth-child(1) {  
+            background-color: none;
+        }
+        color:       white;
+        font-weight: bold;
+        border:      none;
+    }
+
+    th {
+        border:     none;
+    }
+
+    tr:nth-child(odd) {
+        /* Add alternating row color to make it more visible */
+        background-color: var(--table-row-color);
+    }
+    
+    tr:not(:first-child):hover {
+        /* Finally add some hover effect to the rows */
+        transition:       all .8s ease;
+        background-color: color-mix(var(--chosen-science), white 90%);
+    }
+
+    td:first-child {
+        text-align: right !important;
+    }
+
+    td:last-child {
+        text-align: left !important;
+    }
+}
+
+.tablenotes {
+    color: gray;
+    p {
+        margin: 10px;
+        font: var(--box--text-font);
+
+        .textsuperscript {
+            color: black;
+        }
+    }
+}
+
+/* Navigation Settings ------------------------------------------------------ */
+
+
+
+nav.wide {
+
+    background      : var(--chosen-science);
+    font            : var(--toc--text-font);
+    line-height     : var(--text-lineheight);
+    color           : var(--nav-font-color);
+    
+    overflow        : auto;
+    overflow-x      : hidden;
+    
+    white-space     : pre;
+    scrollbar-width : thin;
+    position        : fixed;
+    width           : var(--nav-width);
+    top             : 50px;
+
+    z-index         : 150;
+    height          : calc(100vh - 50px);
+    border-right    : var(--nav-thin-line);
+    max-height      : calc(100vh) !important;
+    
+    scrollbar-color : var(--chosen-science);
+
+    
+    hr {
+        color: white;
+    }    
+
+    .toc-links {
+        font            : var(--toc--text-font);
+        color           : black;
+        overflow        : auto;
+        white-space     : pre;
+        display         : flex;
+        justify-content : space-between;
+        padding-top     : 0px;
+        padding-bottom  : 20px;
+
+        a {
+            color: white;
+        }
+    }
+
+
+    .nav-footer,
+    .nav-comments
+    {
+        font          :  var(--comm-text-font);
+        color         : var(--nav-font-color);
+    }
+    
+    .nav-footer
+    {        
+        margin-bottom : 20px;
+        margin-top    : 20px;
+    }
+
+    .nav-comments
+    {       
+        white-space   : normal;
+        font-style    : italic;
+    }
+
+    img {
+        margin: 16px !important;
+        padding-right: 36px;
+        padding-top: 40px;
+        float: right;
+        width: 10%;
+    }
+
+
+    
+    
+    .toc
+    {    
+        columns     : 1;
+        position    : relative;
+        width       : 240px;
+        padding     : 0px;
+        white-space : pre;
+
+        margin      : 18px 36px;
+        text-wrap   : stable;
+     
+        .chapterToc,
+        .appendixToc
+        {
+            margin-top: 40px;
+            font: bold 16px/24px "Source Sans Pro", sans-serif;
+            color: white ;
+            
+            border-bottom: 0.1px solid  rgba(255, 255, 255, .5);
+            display: flow-root;
+
+            
+            .number
+            {
+                font: bold 16px/24px "Source Sans Pro", sans-serif;
+                float: right;
+            }
+            
+            .title
+            {
+                white-space: initial;             
+                max-width     : 200px;
+                float         : left;
+                width: 200px;
+
+                a
+                {
+                    color: white !important;
+                }
+            }
+        }
+        
+        .sectionToc
+        {
+            padding-bottom : 10px;
+            color          : white ;
+            display        : flow-root;
+            font           : var(--toc-s-----font);
+            line-height    : var(--text-lineheight) !important;
+
+            margin-top     : 30px;
+            
+            .number
+            {
+                float         : right;
+            }
+            
+            .title {
+                white-space   : normal;
+                max-width     : 200px;
+                float         : left;
+                padding-right : 5px;
+                
+                a{
+                    color: white !important;
+                }
+            }
+        }
+
+        .subsectionToc
+        {
+            padding-top    : 0px;
+            padding-left   : 20px;
+            padding-right  : 0px;;
+            padding-bottom : 0px;
+            
+            font           : var(--toc-ss----font);
+            
+            line-height    : var(--text-lineheight) !important;
+            display        : flow-root;
+
+            .number {
+                float: right;
+                color: color-mix(white, var(--chosen-science) 30%);
+            } 
+            
+            .title {
+                white-space: normal;
+                float: inherit;
+                padding-right: 10px;
+                a{
+                    color: color-mix(white, var(--chosen-science) 30%);
+                }
+            }
+            
+        }
+
+        .addchapToc { 
+            padding: 12px 0 0 36px;
+            font:
+                normal 16px/24px "Source Sans Pro",
+                sans-serif;
+            color: #7aa0b8;
+            list-style-type: none;
+            line-height: 30px;
+            font-weight: bold;
+        }
+    }
+    
+}
+
+/* Navigation Settings ------------------------------------------------------ */
+
+.crosslinks-top {
+    display: grid;
+    font-size: normal;
+
+    .nav-button-inactive,
+    .nav-button
+    {
+        color: var(--chosen-science);
+        padding: 10px;
+        margin-top: 10px;
+
+        .nav-link
+        {
+            padding-left: 10px;
+        }
+
+        a
+        {
+            color: var(--chosen-science);
+        }
+    }
+
+    .nav-button-inactive
+    {
+        i
+        {
+            color: lightgray !important;
+        }
+    }
+
+    i{
+        font-size: large;
+        color: var(--chosen-science);
+        
+    }
+
+    span:nth-last-child(2) {
+        position: absolute;
+        left: -20px;
+    }
+
+    .nav-button:nth-last-child(1) {
+        position: absolute;
+        left: -20px;
+        top: 122px;
+    }
+}
+
+.crosslinks-bottom {
+    
+    font            : var(--main-text-font);
+    color           : black;
+    position        : fixed;
+    bottom          : 0px;
+    background      : var(--modeline-color);
+    right           : 0px;
+    height          : 40px;
+    width           : 100%;
+    border-top      : var(--nav-thin-line);
+    border-left     : unset;
+    box-shadow      : 0 2px 10px 2px rgba(0,0,0,.2);
+    
+    
+    display         : flex; 
+    justify-content : center; 
+    align-items     : center;
+    z-index         : 100;
+
+    .display-state {
+
+
+        /* This is kept as a debug menu */
+        position    : absolute;
+        display     : none;
+        right       : 20px;
+        color       : gray;
+        font        : var(--mode-text-font);
+        font-weight : bold;
+
+    }
+
+    a {
+        
+        margin      : 30px;
+        font-weight : bold;
+        color       : white;
+        
+    }
+    
+    .nav-inactive {
+        
+        color       : black;
+        margin      : 30px;
+        font-weight : bold;
+        
+    }
+
+    p {
+        
+        margin      : 0px;        
+        font        : var(--box--text-font);
+        font-weight : normal;
+    }
+}
+
+
+
+
+.footer {
+
+    border-top: 1px solid #DCDCDC;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 800 px;
+    line-height: 2;
+    font: 12px/18px "Source Sans Pro", sans-serif;
+    .footer-left {
+        white-space: pre;
+    }
+
+
+    
+}
+
+.footnotes {
+    position: relative;
+    width: 700px;
+    margin: 0 auto 0 384px;
+    padding-top: 90px;
+    line-height: var(--text-lineheight);
+}
+
+
+.header {
+    
+    
+    width: 100%;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    z-index: 100;
+    /* box-shadow: 10px 0 10px -2px #888; */
+
+    .header-left {
+        text-wrap: auto;
+        float: left;
+        margin: 18px 36px;
+
+        .header-webBook {
+            font-weight: initial;
+        }
+        
+    }
+    
+    .header-lecture-lecture {
+        font: bold 24px/20px "Source Sans Pro", sans-serif;
+    }
+
+    .header-right {
+        white-space: pre-line;
+        float: left;
+        margin: 18px 36px;
+
+        .header-chapter {
+            color: color-mix(var(--chosen-science), white 50%);
+            font-style: unset;
+        }
+
+        .header-version {
+            color: color-mix(var(--chosen-science), white 50%);
+            font-style: unset;
+        }
+        
+    }
+
+    
+}
+
+/* .title { */
+/*     max-width: 70%; */
+/*     float: left; */
+/* } */
+
+/* BLOCK SETTINGS ----------------------------------------------------------- */
+
+.doc-block {
+    /* Control how the documentation is presented on the webpage */
+    
+    padding    : 15px;
+    background : var(--docs-block);
+
+    /* Formatting of the command line */
+    .command-header {
+        padding-bottom: 10px;
+        border-bottom: solid 1px color-mix(var(--docs-block), black 10%);
+    }
+
+    /* Formatting of the string `function' , `command' etc. */
+    .command-type {
+        font: normal 13px/20px "Source Sans Pro", sans-serif;
+    }
+
+    /* Add some spacing after command-type */
+    .command-type:after {
+        content: "\A\A";
+    }
+
+    /* Formatting of the string `function' , `command' etc. */
+    .command-doc {
+        float: right;
+        font: normal 13px/20px "Source Sans Pro", sans-serif;
+
+        /* Manual Comes in two formats, there is either a hyperlink
+           reference of not */
+        .inactive-manual {
+            color: color-mix(var(--docs-block), black 10%);
+        }
+    }
+    
+    /* Formatting of how a code string looks like */
+    code {
+        background: var(--docs-block);
+        border: 0px;
+        font: var(--code-text-font);
+    }
+
+    /* Finally control the paragraph space as to not
+       take too much space */
+    p {
+        font:          normal 13px/20px "Source Sans Pro", sans-serif;
+        margin-top:    10px;
+        margin-bottom: 10px;
+        line-height:   var(--text-lineheight);
+    }    
+}
+
+.block-minor
+{
+    margin-bottom : 10px;
+    margin-top    : 10px;
+
+    font          : var(--box--text-font);
+    color         : var(--block-text-color);
+
+    border-style  : solid;
+    border-width  : 1px;
+    box-shadow    : var(--box-shadow-config);
+
+    .body
+    {
+        padding-top   : 5px;
+        padding-left  : 15px;
+        padding-right : 15px;
+        margin        : 0px !important;
+
+        p
+        {
+            margin    : 8px 0;           
+        }
+    }
+
+    .alert
+    {
+        font-weight   : bold;
+    }
+}
+
+.knowledge
+{
+    border-color      : var(--knowledge-block);
+    background        : var(--knowledge-body);
+}
+
+.warning
+{   
+    border-color      : var(--alert-block);
+    background        : var(--alert-body);
+}
+
+/* MAJOR BLOCK CONFIGURATION ------------------------------------------------ */
+
+.block-major {
+
+    border-width  : 1px;
+    border-style  : solid;
+    margin-top    : 10px;
+    margin-bottom : 10px;
+    box-shadow    : var(--box-shadow-config);
+
+    hr
+    {
+        border-width  : 1px;
+        border-style  : dashed;
+    }
+    
+    .upper {
+
+        width          : 100%;
+        display        : inline-block;
+        padding-top    : 5px;
+        padding-bottom : 5px;
+        line-height    : var(--text-lineheight);
+        
+        .title,
+        .header
+        {           
+            color      :  white;          
+        }
+
+        .header
+        {
+            padding-left: 10px;
+        }      
+    }
+    
+    .body {
+        padding-top    : 5px;
+        padding-left   : 15px;
+        padding-bottom : 10px;
+        padding-right  : 15px;
+        margin         : 0px !important;
+    }
+
+    p
+    {
+        margin         : 8px 0;
+        font           : var(--box--text-font); 
+        line-height    : var(--text-lineheight);
+    }
+    
+}
+
+
+.info-block
+{
+    border-color    : var(--info-block);
+    
+    hr
+    {
+       border-color : var(--info-block);
+    }
+
+    .upper
+    {
+        background  : var(--info-block);
+    }
+          
+    .body
+    {
+        background  : var(--info-body);         
+    }   
+}
+
+
+.exer-block
+{
+    border-color    : var(--exer-block);
+    
+    hr
+    {
+       border-color : var(--exer-block);
+    }
+
+    .upper
+    {
+        background  : var(--exer-block);
+    }
+          
+    .body
+    {
+        background  : var(--exer-body);         
+    }   
+}
+
+
+.desc-block
+{
+    border-color    : var(--desc-block);
+    
+    hr
+    {
+       border-color : var(--desc-block);
+    }
+
+    .upper
+    {
+        background  : var(--desc-block);
+    }
+          
+    .body
+    {
+        background  : var(--desc-body);         
+    }   
+}
+
+
+
+.theo-block
+{
+    border-color    : var(--theo-block);
+    
+    hr
+    {
+       border-color : var(--theo-block);
+    }
+
+    .upper
+    {
+        background  : var(--theo-block);
+    }
+          
+    .body
+    {
+        background  : var(--theo-body);         
+    }   
+}
+
+
+
+/* Define the way `quotes' supposed to look */
+.quote
+{
+    margin       : 20px;
+    padding-left : 10px;
+    
+    color        : var(--quote-color);
+    
+    line-height  : var(--text-lineheight) !important;
+    font         : var(--quot-text-font);
+
+    .quote
+    {
+        border-left: unset;
+    }
+        
+}
+
+/* Control the code environment display */
+pre
+{    
+    border             : 1px solid lightgray;
+
+    .code-header
+    {
+        position: absolute;
+        width: 100%;
+        background: #fae8b6;
+        padding-top: 8px;
+        padding-bottom:13px;
+      
+        
+    
+    .code-language
+    {
+        
+        color                   : black;
+        font                    : var(--main-text-font);
+        font-weight: bold;
+        font-size               : small;
+        padding-left: 0.4em;
+
+        margin-right:10px;
+    }
+
+    .code-download
+    {
+       
+        font                    : var(--main-text-font);
+        font-size               : small;
+        border                  : 1px solid lightgray;
+        border-radius           : 2px;
+        padding                 : 4px;
+        color                   : black;
+        transition                  :
+            color 0.4s ease,
+            background 0.4s ease,
+            border-color 0.4s ease;
+          margin-right:10px;
+        
+    }
+
+    .code-download:hover
+    {
+        color                       : white;
+        border                      : solid 1px darkgray;
+        background                  : #b3860d;
+    }
+
+    }
+    
+    code
+    {        
+        font           : var(--code-text-font);        
+        padding-left   : 15px;
+        padding-right  : 15px;
+        padding-bottom : 15px;        
+        overflow-x     :  auto;
+    }
+
+    .hljs
+    {
+        white-space: pre;
+        overflow-x: auto;
+    }
+
+    .language-text
+    {
+        background     : var(--verb-color);
+    } 
+}
+
+/* Header & Footer Settings ------------------------------------------------- */
+
+.chapterHead
+{
+    text-align     : left;
+    position       : relative;
+    
+    padding-top    : 100px;
+    padding-bottom : 10px;
+    border-bottom  : 0.2px solid #DCDCDC;
+    
+    font           : bold 48px/48px "Source Sans Pro", sans-serif;
+    color          : var(--chosen-science);
+
+    line-height    : 1.4;
+}
+
+
+/* Title Settings ----------------------------------------------------------- */
+
+.chapter-header {
+    font  : var(--chap-head-font);
+    float : right;
+}
+
+.section-header {
+    display: flow-root;
+    border-bottom: 1px solid var(--header-color);
+    margin: 71px 0 0 0;
+    padding-bottom: 1px;
+    
+    
+
+    /* Configure the PDF icon */
+    a {
+        color: red;
+        position: absolute;
+        left: 20px;
+        text-align: left;        
+    }
+
+    .number {
+        float: right;
+        font: bold 24px/24px "Source Sans Pro", sans-serif;
+        color: var(--chosen-science);
+        line-height:     var(--title-lineheight);
+    }
+    
+    .title  {
+        float: left;
+        font: bold 24px/24px "Source Sans Pro", sans-serif;
+        color: var(--chosen-science);
+        line-height:     var(--title-lineheight);
+        line-height:     var(--title-lineheight);
+    }
+
+    
+}   
+
+.subsection-header {
+    display: flow-root;
+    border-bottom: 1px solid var(--header-color);
+
+    /* Configure the PDF icon */
+    a {
+        color: red;
+        position: absolute;
+        left: 0px;
+        text-align: left;        
+    }
+
+    .number {
+        float: right;
+        font: bold 20px/24px "Source Sans Pro", sans-serif;
+        color: var(--chosen-science);
+        text-align: right;
+        line-height:     var(--title-lineheight);
+    }
+    
+    .title  {
+        float: left;
+        font: bold 20px/24px "Source Sans Pro", sans-serif;
+        color: var(--chosen-science);
+        text-align: left;
+        line-height:     var(--title-lineheight);
+    }
+}
+
+
+@media only screen and (max-width: 1200px){
+
+    .subsection-header {
+
+        a {
+            display: none;
+        }
+    }
+
+    .section-header {
+
+        a {
+            display: none;
+        }
+    }
+
+    .crosslinks-bottom
+    {
+        width: 100%;
+    }
+
+   
+    
+}
+
+
+.subsubsectionHead {
+    color: var(--chosen-science);
+    padding-bottom: 2px;
+    border-bottom:  0.2px solid #DCDCDC;
+    font: bold 16px/24px "Source Sans Pro",
+          sans-serif;
+
+}
+
+.paragraphHead {
+    color: var(--chosen-science);
+    padding-bottom: 2px;
+    border-bottom:  0.2px solid #DCDCDC;
+    font: bold 16px/24px "Source Sans Pro",
+          sans-serif;
+    margin-right: 20px;
+
+
+}
+
+
+/* Define the visual look of the chapter TOC */
+.sectionTOCS:before {
+    
+    border-bottom: 1px solid var(--header-color);
+    content: "Chapter Table of Contents \A\A";
+    white-space: pre;
+    font: bold 20px/30px "Source Sans Pro", sans-serif;
+}
+
+.sectionTOCS {
+    /* Control how the section title is shown within the chapter page */
+    margin-top    : 40px;
+    outline-width : 2;
+    line-height   : var(--text-lineheight);
+    border        : 2px solid lightgray;
+    background    : var(--table-row-color);
+    padding       : 20px;
+
+    .subsectionToc {
+        margin-left: 50px;
+        padding-top: 10px;
+    }
+    
+    .likesubsubsectionToc {
+        margin: 70px;
+    }  
+}
+
+
+.paragraphTOCS {
+    /* We remove this TOC from main chapter page as it is unnecessary */
+    display: none;
+
+}
+
+
+.crosslinks-top {
+
+        .nav-info {
+            padding-left: 10px;
+        }
+
+    }
+
+
+@media only screen and (min-width: 1200px) {
+
+    
+    .crosslinks-top {
+
+        .nav-info {
+            display: none;
+        }
+
+    }
+
+     
+    article {
+        position: relative;
+        width: 700px;
+        margin: 0 auto 0 384px;
+    }
+
+    
+    .section-header {
+        a {
+            left: -25px;       
+        }
+    }
+
+    .subsection-header {
+        a {
+            left: -25px;       
+        }
+    }
+
+
+    /* Glossary Settings */
+
+    .acronym {
+
+        a {
+            color: green !important;
+        }
+
+        .acronym-short {
+            color: black;
+            text-decoration: none;
+            transition: color 0.2s ease, border-color 0.4s ease;
+        }
+
+        .acronym-short:hover {
+            color: black;
+        }
+
+        .acronym-long:before {
+            content: "Definition\A";
+            white-space: pre;
+            font: bold 12px/20px "Source Sans Pro", sans-serif;
+            
+        }
+
+        
+        .acronym-long:after {
+            content: "\A\A";
+            white-space: pre;
+            font: bold 12px/20px "Source Sans Pro", sans-serif;
+            
+        }
+        
+        .acronym-detail {
+            color: black !important;
+            position: absolute;
+            right: -300px;
+            text-align: left;
+            width: 250px;
+            font: normal 12px/20px "Source Sans Pro", sans-serif;
+            display: none;
+            background: var(--comment-color);
+            border: 1px solid black;
+            font: normal 12px/20px "Source Sans Pro", sans-serif;
+            padding: 10px;
+            z-index: 999;
+
+            .acronym-long {
+                a {
+                    font-weight: bolder;
+                }
+            }
+            
+            .acronym-desc {
+                a {
+                    color: black !important; 
+                }
+            }
+        }
+
+        .acronym-short:hover~.acronym-detail  {
+            color: black !important;
+            display: block;        
+        }
+    }
+
+
+    .cite {
+
+        .cite-show {
+            color: #1481b8;
+            /* Make sure it is superscript */
+            position: relative;
+            top: -0.5em;
+            font-size: 80%;
+            text-decoration: none;
+            border-bottom: solid 1px rgba(222, 233, 237, 0);
+            transition: color 0.2s ease, border-color 0.4s ease;
+        }
+
+        .cite-show:hover {
+            color: #1481b8;
+            border-bottom: solid 1px #dee9ed;
+        }
+        
+        .cite-detail {
+            position: absolute;
+            right: -300px;
+            text-align: left;
+            width: 250px;
+            display: none;
+            background: color-mix(var(--header-color), white 50%);
+            border: 1px solid color-mix(var(--header-color), black 20%);
+            font: normal 12px/20px "Source Sans Pro", sans-serif;
+            padding: 10px;
+            z-index: 999;
+        }
+
+
+        .cite-detail::before {
+            content:  "Reference:\A";
+            white-space: pre;
+            font: bold 12px/20px "Source Sans Pro", sans-serif;
+        }
+        
+        .cite-show:hover~.cite-detail  {
+            color: black;
+            display: block;        
+        }
+
+        .cite-show:checked~.cite-detail  {
+            color: black;
+            display: block;
+            font: italic 12px/20px "Source Sans Pro", sans-serif;
+        }
+    }
+
+    .footer {
+
+        border-top: 1px solid #DCDCDC;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        width: 800 px;
+        line-height: 2;
+        font: 12px/18px "Source Sans Pro", sans-serif;
+        .footer-left {
+            white-space: pre;
+        }
+        
+    }
+
+    .header-lecture-name,
+    .header-lecture-grade
+    {
+        font: var(--toc-title-font);
+        text-wrap: auto;
+    }    
+    
+    .header {
+        
+        /* position: fixed; */
+        width: 100%;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        /* border-bottom: 1px solid black; */
+        /* background: */
+        /*     linear-gradient( */
+        /*         to bottom, */
+        /*         var(--header-color) 0%, */
+        /*         var(--header-color-05) 60%, */
+        /*         var(--header-color-10) 100% */
+        /*     ); */
+        z-index: 100;
+        /* box-shadow: 10px 0 10px -2px #888; */
+
+        .header-left {
+            white-space: pre;
+            float: left;
+            margin: 18px 36px;
+        }
+        
+        .header-lecture-lecture {
+            font: bold 24px/20px "Source Sans Pro", sans-serif;
+        }
+
+        .header-right {
+            white-space: pre-line;
+            float: left;
+            margin: 18px 36px;
+
+        }
+
+        
+    }
+
+    
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+img {
+    outline: none;
+}
+
+
+
+
+a {
+    color: #1481b8;
+    text-decoration: none;
+    border-bottom: solid 1px rgba(222, 233, 237, 0);
+    transition:
+        color 0.2s ease,
+        border-color 0.4s ease;
+}
+
+a:hover {
+    color: #1481b8;
+    border-bottom: solid 1px #dee9ed;
+}
+
+
+
+.mathjax-env {
+    overflow-x: auto;
+    display: block;
+}
+
+
+
+
+.math {
+    display: inline;
+    display: inline;
+    margin-right: 5px;
+    vertical-align: middle;
+    margin-left: 5px;
+}
+
+.math-display {
+    text-align: center;
+}
+
+
+
+
+pre {
+    font: var(--code-text-font);
+    margin: 0;
+    padding: 0;
+    
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    margin-bottom: 10px;
+}
+
+
+
+article h2 {
+    position: relative;
+    font: 48px/48px "Source Sans Pro", sans-serif;
+    padding: 109px 0 19px 0;
+    z-index: 2;
+}
+
+article h4 {
+    font: bold 24px/40px "Source Sans Pro", sans-serif;
+    margin: 50px 0 0 0;
+    padding-bottom: 1px;
+}
+
+article h1.part {
+    font: 600 36px/48px "Source Sans Pro", sans-serif;
+    padding: 108px 0 20px 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+
+article ol,
+article ul {
+    margin: 24px 0;
+    padding: 0 0 0 24px;
+}
+
+article img {
+    max-width: 100%;
+}
+
+article img.wide {
+    max-width: none;
+    width: 912px;
+}
+
+
+
+/* LIST AND DESCRIPTION SETTINGS -------------------------------------------- */
+
+li
+{
+    /*
+      Control how the lists behave, we also need to overwrite some settings in
+      regards to the paragraph settings.
+   */
+    padding         : 0;
+
+    p {
+        line-height : 2 !important;
+        margin      : 10px !important;
+        text-align  : left !important;
+    }
+}
+
+
+li                  ::marker
+{
+    font-weight     : bold;
+    font-size       : 1em;
+}
+
+dl
+{
+    display                     : grid;
+    grid-template-columns       : max-content auto;
+    line-height                 : var(--text-lineheight);
+
+    dt
+    {
+        font-weight             : bold;
+        padding                 : 0 10px 0 0;
+        color                   : var(--chosen-science);
+    }
+
+    dt.description
+    {    
+        text-decoration         : underline;
+        text-underline-position : under;
+    }
+
+    dd
+    {
+        margin                  : 0px;
+    }
+}
+
+/* -------------------------------------------------------------------------- */
+
+.keyboard-help-menu {
+    visibility: hidden;
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    position: fixed;
+    top: 20px;
+    left: 30px;
+    padding: 40px;
+    scrollbar-width: none;
+    z-index: 999;
+    border-radius: var(--button-radius);
+    background: color-mix(var(--header-color), white 50%);
+    border: 0.5px solid color-mix(var(--header-color), black 20%);
+
+    kbd {
+        float: left;
+    }
+
+    .description {
+        float: right;
+    }
+}
+
+
+.caption {
+
+    font-size: 12px;
+    color: #333333;
+
+    span.id {
+        font-weight: bold;
+    }
+}
+
+
+/* Margin Items Settings ---------------------------------------------------- */
+
+.margin {
+    .ellipsis {
+        color           : var(--link-color);
+        text-decoration : none;
+        transition      : color 0.2s ease, border-color 0.4s ease;
+        font-size       : x-small;
+        vertical-align  : super;
+        font-weight     : bold;
+        
+    }
+}
+
+
+/* Make sure margins are placed on the right edge of the page */
+.margin-comment {
+
+    .ellipsis {
+        color           : var(--link-color);
+        text-decoration : none;
+        transition      : color 0.2s ease, border-color 0.4s ease;
+        font-size       : x-small;
+        vertical-align  : super;
+        font-weight     : bold;
+    }
+
+    .ellipsis:hover {
+        border-bottom : solid 1px #dee9ed;
+        color: var(--chosen-science);
+    }
+    
+    .sidenote {
+        position   : fixed;
+        left       : calc(700px + 330px + 120px);
+        top        : 70px;
+        width      : calc(100vw - 700px - 336px);
+        max-width  : 250px;
+        padding    : 10px;
+        font       : var(--side-text-font);
+        line-height: 1.5;
+        text-align : left;
+        
+        display    : none;
+        background : var(--comment-color);
+        border     : 1px solid black;
+        z-index    : 999;
+        box-shadow : var(--box-shadow-config);
+
+        .ellipsis {
+
+            text-decoration : none;
+            transition      : color 0.2s ease, border-color 0.4s ease;
+            color           : black;
+            font-weight     : bold;
+            margin-right    : 2px;
+        }
+    }
+
+    .sidenote::before {
+        content:  "Anectode\A";
+        white-space: pre;
+        font: bold 12px/20px "Source Sans Pro", sans-serif;
+    }
+    
+    .ellipsis:hover~.sidenote  {
+        color: black;
+        display: block;        
+    }
+}
+
+/* Glossary Settings */
+
+.acronym {
+
+    .acronym-short {
+        color: black;
+        text-decoration: none;
+        transition: color 0.2s ease, border-color 0.4s ease;
+    }
+
+    .acronym-short:hover {
+        color: black !important;
+    }
+
+    .acronym-long:before {
+        content: "Definition\A";
+        white-space: pre;
+        font: bold 12px/20px "Source Sans Pro", sans-serif;
+        
+    }
+
+    
+    .acronym-long:after {
+        content: "\A\A";
+        white-space: pre;
+        font: bold 12px/20px "Source Sans Pro", sans-serif;
+        
+    }
+    
+    .acronym-detail {                
+        position   : fixed;
+        left       : calc(700px + 330px + 120px);
+        top        : 70px;
+        width      : calc(100vw - 700px - 336px);
+        max-width  : 250px;
+
+        display    : none;
+        
+        color      : black !important;        
+        background : var(--comment-color);
+        border     : 1px solid black;
+        font       : var(--comm-text-font);
+        box-shadow : var(--box-shadow-config);
+        
+        padding    : 15px;
+        
+        z-index    : 999;                        
+    }
+
+    .acronym-short:hover~.acronym-detail  {
+        color: black;
+        display: block;        
+    }
+}
+
+
+.cite {
+
+    .cite-show {
+        color: #1481b8;
+        /* Make sure it is superscript */
+        position: relative;
+        top: -0.5em;
+        font-size: 80%;
+        text-decoration: none;
+        border-bottom: solid 1px rgba(222, 233, 237, 0);
+        transition: color 0.2s ease, border-color 0.4s ease;
+    }
+
+    .cite-show:hover {
+        color: #1481b8;
+        border-bottom: solid 1px #dee9ed;
+    }
+    
+    .cite-detail {
+        position   : fixed;
+        left       : calc(700px + 330px + 120px);
+        top        : 70px;
+        width      : calc(100vw - 700px - 336px);
+        max-width  : 250px;
+        display    : none;
+        background : color-mix(var(--header-color), white 50%);
+        border     : 1px solid color-mix(var(--header-color), black 20%);
+        font       : normal 12px/20px "Source Sans Pro", sans-serif;
+        padding    : 10px;
+        z-index    : 999;
+        box-shadow : var(--box-shadow-config);
+    }
+
+
+    .cite-detail::before {
+        content:  "Reference:\A";
+        white-space: pre;
+        font: bold 12px/20px "Source Sans Pro", sans-serif;
+    }
+    
+    .cite-show:hover~.cite-detail  {
+        color: black;
+        display: block;        
+    }
+
+    .cite-show:checked~.cite-detail  {
+        color: black;
+        display: block;
+        font: italic 12px/20px "Source Sans Pro", sans-serif;
+    }
+}
+
+@media only screen and (max-width: 1420px)
+{
+
+    .margin
+    {
+        .sidenote
+        {
+            .copiable-link
+            {
+                display: none;
+            }
+        }
+    }
+}
+
+
+@media only screen and (min-width: 1420px)
+{
+   .chapter-contents
+{
+
+    position              : fixed;
+    display               : none;
+    
+    text-align            : left;
+    z-index               : -10;
+    top:      40.5px;
+    
+    width                 : 336px;
+    overflow-y            : scroll;
+    line-height           : 1.5;
+    bottom                : 31px;
+    overscroll-behavior-y : none;
+    box-sizing            : content-box; /* So the width will be 100% + 17px */
+    padding-bottom        : 10px;
+    right                 : 0px;
+
+    background            : var(--comment-color);
+    
+    border-left          : 1px solid black;
+    border-bottom        : 1px solid var(--comment-color);
+    border-top           : 1px solid var(--comment-color);
+    scrollbar-width      : none;
+
+    .section-header
+    {
+        margin: unset;
+        margin-bottom: 10px;
+
+        h3
+        {
+            padding-bottom:  0px;
+            
+        }
+    }
+    
+    .chapterToc,
+    .appendixToc
+    {
+        margin-top: 40px;
+        font: bold 16px/24px "Source Sans Pro", sans-serif;
+        color: black ;
+        
+        border-bottom: 0.1px solid  rgba(255, 255, 255, .5);
+        display: flow-root;
+
+        
+        .number
+        {
+            font: bold 16px/24px "Source Sans Pro", sans-serif;
+            float: right;
+        }
+        
+        .title
+        {
+            white-space: initial;
+            float: inherit;
+            width: 200px;
+
+            a
+            {
+                color: white !important;
+            }
+        }
+    }
+
+    
+    .sectionToc
+    {
+        padding-bottom : 10px;
+        color          : black ;
+        display        : flow-root;
+        font           : var(--toc-s-----font);
+        line-height    : var(--text-lineheight) !important;
+
+        margin-top     : 30px;
+        
+        .number
+        {
+            float         : right;
+        }
+        
+        .title {
+            white-space   : normal;
+            float         : inherit;
+            padding-right : 5px;
+            
+            a{
+                color: black !important;
+            }
+        }
+    }
+
+    .generic-info-header,
+    .generic-command-header,
+    .subsectionToc
+    {
+        padding-top    : 0px;
+        padding-left   : 20px;
+        padding-right  : 0px;;
+        padding-bottom : 0px;
+        
+        font           : var(--toc-ss----font);
+        
+        line-height    : var(--text-lineheight) !important;
+        display        : flow-root;
+
+        .number {
+            float: right;
+            color: black;
+        } 
+        
+        .title {
+            white-space: normal;
+            float: inherit;
+            padding-right: 10px;
+            a{
+                color: black;
+            }
+        }
+
+        
+        
+    }
+
+     .subsubsectionToc
+    {
+        padding-top    : 0px;
+        padding-left   : 40px;
+        padding-right  : 0px;;
+        padding-bottom : 0px;
+        
+        font           : var(--toc-ss----font);
+        
+        line-height    : var(--text-lineheight) !important;
+        display        : flow-root;
+
+        .number {
+            float: right;
+            color: black;
+        } 
+        
+        .title {
+            white-space: normal;
+            float: inherit;
+            padding-right: 10px;
+            a{
+                color: black;
+            }
+        }
+
+        
+        
+    }
+
+    
+
+    .addchapToc { 
+        padding: 12px 0 0 36px;
+        font:
+            normal 16px/24px "Source Sans Pro",
+            sans-serif;
+        color: #7aa0b8;
+        list-style-type: none;
+        line-height: 30px;
+        font-weight: bold;
+    }
+    
+
+    .content {
+        columns: 1;
+        position: relative;
+        width: 240px;
+        padding: 20px 0 0px 0;
+        white-space: pre;
+        text-wrap-mode: nowrap;
+        margin: 18px 36px;
+        text-wrap: stable;
+        text-wrap-mode: wrap;
+        text-wrap-mode: wrap;
+    }
+
+    hr {     
+        height: 0.5px;
+        border: none;
+        background-color: gray;
+    }
+    
+    .header {
+        
+        font: bold 20px/16px "Source Sans Pro", sans-serif;
+        text-wrap: auto;
+    }
+
+    p {
+        padding: 2px 10px 2px 20px;
+        font: var(--side-text-font);
+        line-height: 15px;
+        color: white;
+        line-height: 10px;
+        display: flow-root;
+        margin: 0px 0  !important;
+        word-wrap: break-word;
+        word-break: break-word;
+
+    }
+
+    a {
+        color: black !important;
+    }
+
+    .toc-h4 {
+        padding: 0px 0 0 20px;
+        font: normal 12px/15px "Source Sans Pro", sans-serif;
+        line-height: 15px;
+        line-height: 20px;
+        display: flow-root;
+        
+    }
+
+    .toc-h5 {
+        padding-left: 30px !important;
+        padding-right:10px;
+        line-height: var(--title-linewidth);
+    }
+
+
+    .generic-header{
+        padding: 0px 0 0 20px;
+        font: normal 12px/15px "Source Sans Pro", sans-serif;
+        line-height: 15px;
+        line-height: 20px;
+        display: flow-root;
+        
+    }
+
+    .toc-contents {
+
+        padding-top: 40px;
+    }
+
+}
+
+
+    .margin
+    {
+        .sidenote
+        {
+           
+            .sidenote-text
+            {
+                .ellipsis
+                {
+                    position: absolute;
+                    right: 230px;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+
+
+    /* Control how the page is displayed on the current page */
+    .chapter {
+        top:50px;
+        padding-top: 70px;
+        /*    text-justify: inter-word;*/
+        border-right: 1px solid #DCDCDC;
+        padding-right: 30px;
+        padding-left: 15px;
+
+        h3, h4, h5 {
+            text-align: left;
+            line-height: var(--title-linewidth);
+        }
+        
+    }
+
+    
+
+    .footer {
+
+        border-top: 1px solid #DCDCDC;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        width: 800 px;
+        line-height: 2;
+        font: 12px/18px "Source Sans Pro", sans-serif;
+        .footer-left {
+            white-space: pre;
+        }
+        
+    }
+
+    
+
+    .section-header {
+        a {
+            left: -20px;
+        }
+    }
+    
+    .header {
+        
+        /* position: fixed; */
+        width: 100%;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        /* border-bottom: 1px solid black; */
+        /* background: */
+        /*     linear-gradient( */
+        /*         to bottom, */
+        /*         var(--header-color) 0%, */
+        /*         var(--header-color-05) 60%, */
+        /*         var(--header-color-10) 100% */
+        /*     ); */
+        z-index: 100;
+        /* box-shadow: 10px 0 10px -2px #888; */
+
+        .header-left {
+            white-space: pre;
+            float: left;
+            margin: 18px 36px;
+        }
+        
+        .header-lecture-lecture {
+            font: bold 24px/20px "Source Sans Pro", sans-serif;
+        }
+
+        .header-right {
+            white-space: pre-line;
+            float: left;
+            margin: 18px 36px;
+
+            
+        }
+
+        
+    }
+
+}
+
+
+/* Small PC Only Settings --------------------------------------------------- */
+
+@media (min-width: 580px) and (max-width: 1420px) {
+
+    details {
+        visibility: hidden;
+    }
+
+    
+    .info-block
+    {
+        display: block;
+        background: var(--info-body);
+
+        .info-upper
+        {
+            display: block;
+        }
+        
+    }
+
+     .theo-block
+    {
+        display: block;
+        background: var(--theo-body);
+
+        .theo-upper
+        {
+            display: block;
+        }
+        
+    }
+
+     .desc-block
+     {
+         display: block;
+         background: var(--desc-body);
+
+         .desc-upper
+         {
+             display: block;
+         }
+         
+     }
+
+       .exer-block
+     {
+         display: block;
+         background: var(--exer-body);
+
+         .exer-upper
+         {
+             display: block;
+         }
+         
+     }
+
+    
+
+    
+    .sidenote {
+        position   : initial;
+        float      : right;
+        width      : 200px;
+        margin     : 15px;
+        border     : 1px solid lightgray;
+        padding    : 15px;
+        background : white;
+        box-shadow : var(--box-shadow-config);
+        clear      : both;
+    }
+
+    
+    .margin-comment {
+
+        .sidenote {
+            top: 60px;
+            right: 20px;
+            bottom: unset;
+            left: unset;
+            position: fixed;
+            width: 200px;
+            margin: 10px !important;
+        }
+    }
+
+    .acronym {
+
+        .acronym-detail {
+            top: 60px;
+            right: 20px;
+            bottom: unset;
+            left: unset;
+            position: fixed;
+            width: 200px;
+            margin: 10px !important;
+        }
+    }
+
+
+    .cite {
+
+        
+        .cite-detail {
+            top: 60px;
+            right: 20px;
+            bottom: unset;
+            left: unset;
+            position: fixed;
+            width: 200px;
+            margin: 10px !important;
+            
+        }
+
+    }
+    
+    
+
+}
+
+/* Tablet Only Settings ----------------------------------------------------- */
+
+@media only screen and (min-width: 580px) and (max-width: 1200px) {
+    
+    body {
+        margin       : 0;
+    }
+
+    chapter
+    {
+        margin : 0;
+    }
+
+    nav {
+        display      : none;
+    }
+
+    article {
+        padding-top  : 120px;
+        margin-left  : 10%;
+        margin-right : 10%;              
+    }
+    
+    .page {
+        margin       : 0px;
+        width        : inherit;
+    }
+    
+    
+
+    .crosslinks-bottom {
+        width        : 100% !important;
+    }
+
+
+    .crosslinks-top {
+
+         span:nth-last-child(2) {
+             position: unset;
+    }
+
+    .nav-button:nth-last-child(1) {
+        position: unset;
+    }
+        
+    }
+    
+    
+}
+
+
+.introduction
+{
+    padding: 10px;
+}
+
+
+
+
+.tableofcontents
+{
+    
+    columns     : 1;
+    position    : relative;
+    max-width   : 700px;
+    padding     : 0px;
+    white-space : pre;
+    border        : 2px solid lightgray;
+    padding       : 20px;
+    margin      : auto;
+    text-wrap   : stable;
+    background    : var(--table-row-color);
+    
+    .chapterToc,
+    .appendixToc
+    {
+        margin-top: 40px;
+        font: var(--toc--text-font);
+        color: black !important;
+        
+        border-bottom: 0.1px solid lightgray;
+        display: flow-root;
+        line-height: var(--title-linewidth);
+
+        
+        .number
+        {
+            font: var(--toc--text-font);
+            float: right;
+        }
+        
+        .title
+        {
+            white-space: initial;
+            float: inherit;
+            width: 200px;
+
+            a
+            {
+                color: black  !important;
+            }
+        }
+    }
+    
+    .sectionToc
+    {
+        padding-bottom : 10px;
+        color          : black ;
+        display        : flow-root;
+        font           : var(--toc-s-----font);
+        line-height    : var(--text-lineheight) !important;
+
+        margin-top     : 30px;
+        
+        .number
+        {
+            float         : right;
+        }
+        
+        .title {
+            white-space   : normal;
+            float         : inherit;
+            padding-right : 5px;
+            
+            a{
+                color: black !important;
+            }
+        }
+    }
+
+    .subsectionToc
+    {
+        padding-top    : 0px;
+        padding-left   : 20px;
+        padding-right  : 0px;;
+        padding-bottom : 0px;
+        
+        font           : var(--toc-ss----font);
+        
+        line-height    : var(--text-lineheight) !important;
+        display        : flow-root;
+
+        .number {
+            float: right;
+            color: black;
+        } 
+        
+        .title {
+            white-space: normal;
+            float: inherit;
+            padding-right: 10px;
+            a{
+                color: black;
+            }
+        }
+        
+    }
+
+     .subsubsectionToc
+    {
+        padding-top    : 0px;
+        padding-left   : 40px;
+        padding-right  : 0px;
+        padding-bottom : 0px;                       
+        display        : flow-root;
+
+        a {
+            font           : var(--toc-sss---font);
+            color: black !important;
+            line-height    : var(--text-lineheight) !important;
+            margin: 0px;
+        }
+        
+    }
+
+}
+
+/* Mobile Only Settings ----------------------------------------------------- */
+
+
+@media only screen and (max-width: 580px) {
+    /* Define it for small screen usage (i.e., Mobile Phones) */
+
+    body {
+        margin             : 0px;
+        font-size          : 15px;
+        line-height        : var(--text-lineheight);
+    }
+
+    .chapterHead {
+        font: var(--h1-s-text-font);
+        line-height        : 1.5;
+    }
+
+    .crosslinks-top {
+        position: sticky;
+        top: 0px;
+        background: white;
+        padding: 20px;
+        z-index: 100;
+        
+    }
+    
+    .chapter {
+        padding-top        : 40px; 
+        margin             : auto;
+        border-right       : 0px;
+        width              : 90%;
+        padding-left       : 0px;
+    }
+
+    .crosslinks-top,
+    nav.wide
+    {
+        
+        display: none !important;               
+    }
+
+    
+    figcaption.caption {
+        
+        text-align         : left;
+        text-indent        : 0px;
+        
+        font-size          : 15px;
+        
+    }
+
+    h2, h3, h4 {
+
+        line-height:  var(--title-linewidth) !important;
+        a {
+            svg {
+                visibility : hidden;
+            }
+        }
+    }
+
+    h3
+    {
+        .number,
+        .title
+        {
+            font: var(--h3-s-text-font) !important;
+        }
+    }
+
+    h4
+    {
+        .number,
+        .title
+        {
+            font: var(--h4-s-text-font) !important;
+        }
+    }
+
+
+    .code-lang {
+        visibility         : hidden;
+    }
+
+
+
+    .mode-line
+    {        
+        display            : block;
+
+        .supp-line
+        {
+            display : none;
+        }
+
+        .core-line
+        {
+            top:    0px;
+            height: 40px;
+            border-bottom: 3px solid gray;
+            box-shadow: 0px 7px 9px -10px black;
+        }
+
+        .button-group
+        {
+            display: none;
+        }
+
+        .current-header
+        {
+            overflow: auto;
+            width: calc(100vw - 100px);
+            padding-top: 0px;
+            padding-left: 10px;
+            white-space: nowrap;
+
+            .header-pretext
+            {
+                display: none;
+            }
+        }
+        
+    }
+
+    .crosslinks-top {
+        
+        display: none;
+        
+    }
+
+    .crosslinks-bottom {
+        background: var(--chosen-science) !important;
+        width : 100% !important;
+    }
+
+    
+
+    figcaption.caption {
+        font               : var(--mode-text-font) !important;
+        line-height        : 1.8 !important;
+        padding            : 0px;
+        word-break         : break-word;
+    }
+
+    
+    .acronym {
+
+        .acronym-detail {
+            display        : none;
+        }
+        
+        a {
+            color          : black !important;
+        }
+    }
+
+    .margin-comment
+    {
+        .ellipsis
+        {
+            display: none;
+        }
+        
+        .sidenote::before
+        {
+            content:  "(";
+            font: unset;
+        }
+
+        .sidenote::after
+        {
+            content:  ")";
+        }
+        
+        .glossary,
+        .sidenote
+        {
+            padding    : 0px !important;
+            position   : unset;
+            background : unset;
+            display    : inline;
+            border     : unset;
+            box-shadow : unset;
+            color      : gray !important;
+            font       : var(--main-text-font);
+
+            code
+            {
+                color: unset;
+                font-size: unset;
+            }
+        }
+    }
+    
+    .sidenote
+    {
+        width          : unset;
+        border         : unset;        
+        position       : unset;
+        padding-top    : 10px;
+        padding-bottom : 10px;
+
+        .sidenote-image
+        {
+            display: block;
+            width: 50% !important;
+            margin: auto;
+        }
+        
+        .sidenote-text
+        {
+            display: block;
+            border-bottom: 0px solid;
+            border-top: 0px solid;
+            color: gray;
+        }
+    }
+
+
+    dd
+    {
+        margin-left: 5px !important;
+    }
+
+}
+
+/* Upper Navigation Menu Settings  ------------------------------------------ */
+
+.dropdown {
+    
+    position           : relative;
+    float              : right;
+
+    button {
+        bottom         : 20px;
+        width          : 80px;
+        height         : 40px;
+        background     : none;
+        border-radius  : var(--button-radius);
+        color          : white;
+        border         : none;
+        margin-right   : 20px;
+        font-weight    : bold;
+    }
+}
+
+.dropdown-content {
+    display            : none;
+    position           : absolute;
+    min-width          : 130px;
+    width              : 280px;
+    box-shadow         : var(--box-shadow-config);
+    border-left        : 1px solid black;
+    border-bottom      : 1px solid black;
+    border-right       : 1px solid black;
+    padding            : 12px 16px;
+    background         : var(--header-color);
+    line-height        : 1.8;
+    right              : 10px;
+    z-index            : 100;
+
+    a {
+        color            : black !important;
+    }
+
+    kbd {
+        float            : right;
+        margin-left      : 20px;
+    }
+
+    hr {
+        height           : 0.5px;
+        border           : none;
+        background-color : gray;
+        
+    }
+    
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Utility Classes ---------------------------------------------------------- */
+
+.blur   {
+    /* Add blurring effect when the TOC is shown in Tablet mode */
+    filter             : blur(2px);
+    -webkit-filter     : blur(2px);
+    -moz-filter        : blur(2px);
+    -o-filter          : blur(2px);
+    -ms-filter         : blur(2px);
+}
+
+#blur-transition{
+    -webkit-transition : all 0.5s ease;
+    -moz-transition    : all 0.5s ease;
+    -o-transition      : all 0.5s ease;
+    transition         : all 0.5s ease;
+}
+
+.category-def {
+    color: black;
+}
+
+.def-var-arguments {
+    font-weight: normal !important;
+}
+
+
+.def-name {
+
+        color: var(--code-color) !important;
+        font: var(--code-text-font);
+    }
+
+.deftypefn,
+.deffn,
+.deffnx,
+.defvr{
+    text-decoration: underline;
+    text-underline-position: under;
+
+    code {
+        text-decoration: unset;
+    }
+    
+
+    
+}
+
+.def-name
+{
+    color: var(--code-color) !important;
+    font: var(--code-text-font);
+}
+
+
+
+.option,
+.options,
+.command {
+    font: var(--code-text-font); 
+    color: #57109D !important;
+}
+
+
+.env {
+    font: var(--code-text-font); 
+    color: #ff6362 !important;
+}
+
+pre {
+
+    code {
+        color : black !important;
+
+    }
+}
+
+dl.def-block
+{
+    border             : 1px solid lightgray;
+    grid: unset;
+    
+
+    dt.def-line
+    {
+        /* Control how function definition headers are displayed */
+        background     : var(--code-h-block);
+        padding-left   : 10px;
+        padding-top    : 5px;
+        padding-bottom : 5px;
+    }
+
+    dd
+    {
+        /* Control how the contents of the function definition are displayed */
+        background     : var(--output-code);
+        padding-top    : 10px;
+        padding-left   : 15px;
+        padding-right  : 15px;
+        margin         : 0px !important;        
+    }
+    
+    dt
+    {
+        
+        em
+        {
+            font-style: initial;
+        }
+        
+        code
+        {
+            text-decoration         : underline;
+            text-underline-position : under;
+            font-weight             : normal !important;
+            background-color        : transparent !important;
+            border                  : 0px !important;
+            color                   : var(--chosen-science) !important;
+            font                    : var(--code-text-font);
+        }
+    }
+}
+
+
+.active-manual
+{
+    float: right;
+ 
+}
+
+.verb,
+.samp {
+    font             : var(--code-text-font);
+    background-color : transparent !important;
+    font-weight      : normal !important;
+    border           : 0px !important;
+    color            : #336b8b !important;
+    padding-left     : 0px !important;
+    padding-right    : 0px !important;
+}
+
+
+var.def-var-arguments {
+
+
+        color: black;
+        font: var(--code-text-font);
+
+    
+}
+
+dd {
+    margin-left: 30px !important;
+
+    p {
+        margin-top: 5px !important;
+    }
+}
+
+
+/* INDEX PAGE SETTINGS ====================================================== */
+
+.theindex
+{
+    .index-group-letter
+    {
+        font-weight: bold;
+        background: var(--chosen-science);
+        display: grid;
+        padding: 5px;
+        margin-bottom: 10px;
+        margin-top: 30px;
+        color: white;
+    }
+
+    .index-subitem
+    {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        padding-left: 30px;
+        font-style: italic;
+        
+
+        a
+        {
+            float: right;
+        }
+
+
+        }
+        
+        
+
+    
+    .index-item
+    {
+        padding-left: 10px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+
+        a
+        {
+            float: right;
+        }
+
+    }
+
+    margin-bottom: 30px;
+}
+    
+
+
+
+/* -----------------------------------------------------------------------------
+/* flatweb.css ends here.
+/*
+/*
+
+

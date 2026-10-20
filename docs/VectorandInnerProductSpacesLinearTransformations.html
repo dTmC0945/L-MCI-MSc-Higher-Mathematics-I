@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><title>Vector, and Inner Product Spaces, Linear Transformations</title>
+<meta charset="utf-8"/>
+<meta content="lms-WebBook" name="generator"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js" type="text/javascript"></script>
+<link href="logo/lms.ico" rel="icon" type="image/x-icon"/>
+<link href="./pagefind/pagefind-component-ui.css" rel="stylesheet"/>
+<script src="./pagefind/pagefind-component-ui.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link href="https://cdn.jsdelivr.net/gh/sugina-dev/latin-modern-web@1.0.1/style/latinmodern-mono.css" rel="stylesheet"/>
+<link href="flatweb.css" rel="stylesheet" type="text/css"/>
+<script src="flatweb.js" type="text/javascript"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/base16/solarized-light.min.css" rel="stylesheet"/>
+<script src="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.js"></script>
+<link href="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/cpp.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/latex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/matlab.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/dockerfile.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/cmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/makefile.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/markdown.min.js"></script>
+ </head><body>
+<page>
+<nav class="wide"> <div class="header"><div class="header-left"><span class="header-lecture-grade">M.Sc</span>
+<span class="header-lecture-name">Higher Mathematics I</span>
+<span class="header-webBook">WebBook 2.1</span></div><div class="header-right"><span class="header-version">2026.WS</span>
+<span class="header-chapter">Linear Algebra I - Fundamentals</span></div></div><div class="toc"><pagefind-modal-trigger></pagefind-modal-trigger><pagefind-modal></pagefind-modal><div class="toc-links"><a href="https://github.com/dTmC0945" title="Lecturer GitHub Repo"><i class="fab fa-github" style="font-size:20px"></i></a><a href="https://scholar.google.com/citations?view_op=list_works\&amp;hl=en\&amp;user=lxQGADMAAAAJ" title="Lecturer Google Scholar Page"><i class="fa-brands fa-google-scholar" style="font-size:20px"></i></a><a href="https://www.researchgate.net/profile/Daniel-Mcguiness-2" title="Lecturer ResearchGate Account"><i class="fa-brands fa-researchgate" style="font-size:20px"></i></a><a href="https://dtmc0945.github.io/Th-MCI-Thesis-Topics/" title="Lecturer Thesis Ideas for B.Sc and M.Sc"><i class="fa-solid fa-book" style="font-size:20px"></i></a><a href="https://github.com/dTmC0945/C-MCI-LaTeX-Class-mcidoc/tree/main" title="mcidoc LaTeX Standard"><i class="fa-regular fa-file-lines" style="font-size:20px"></i></a></div><hr/><span class="chapterToc"><span class="number"></span><span class="title"><a href="index.html#x2-10000">Entry Point</a></span></span><span class="chapterToc"><span class="number">1</span><span class="title"><a href="LinearAlgebraIFundamentals.html#x3-20001">Linear Algebra I - Fundamentals</a></span></span><span class="sectionToc"><span class="number">1.1</span><span class="title"><a href="MatricesVectorsAdditionandScalarMultiplication.html#x4-30001.1">Matrices, Vectors: Addition and Scalar
+Multiplication</a></span></span><span class="subsectionToc"><span class="number">1.1.1</span><span class="title"><a href="MatricesVectorsAdditionandScalarMultiplication.html#x4-40001.1.1">General Concepts and Notations</a></span></span><span class="subsectionToc"><span class="number">1.1.2</span><span class="title"><a href="MatricesVectorsAdditionandScalarMultiplication.html#x4-50001.1.2">Vectors</a></span></span><span class="subsectionToc"><span class="number">1.1.3</span><span class="title"><a href="MatricesVectorsAdditionandScalarMultiplication.html#x4-60001.1.3">Addition and
+Scalar Multiplication of Matrices and Vectors</a></span></span><span class="subsectionToc"><span class="number">1.1.4</span><span class="title"><a href="MatricesVectorsAdditionandScalarMultiplication.html#x4-80001.1.4">Matrix Multiplication</a></span></span><span class="subsectionToc"><span class="number">1.1.5</span><span class="title"><a href="MatricesVectorsAdditionandScalarMultiplication.html#x4-90001.1.5">The use
+of Linear Transformations in Multiplication of Matrices</a></span></span><span class="sectionToc"><span class="number">1.2</span><span class="title"><a href="LinearSystemsofEquationsGaussElimination.html#x5-150001.2">Linear Systems of Equations
+Gauss Elimination</a></span></span><span class="subsectionToc"><span class="number">1.2.1</span><span class="title"><a href="LinearSystemsofEquationsGaussElimination.html#x5-160001.2.1">Linear System, Coefficient Matrix, Augmented Matrix</a></span></span><span class="subsectionToc"><span class="number">1.2.2</span><span class="title"><a href="LinearSystemsofEquationsGaussElimination.html#x5-180001.2.2">Gauss
+Elimination and Back Substitution</a></span></span><span class="subsectionToc"><span class="number">1.2.3</span><span class="title"><a href="LinearSystemsofEquationsGaussElimination.html#x5-190001.2.3">Elementary Row Operations. Row-Equivalent
+Systems</a></span></span><span class="sectionToc"><span class="number">1.3</span><span class="title"><a href="LinearIndependenceandRankofaMatrixVectorSpace.html#x6-220001.3">Linear Independence and Rank of a Matrix Vector Space</a></span></span><span class="subsectionToc"><span class="number">1.3.1</span><span class="title"><a href="LinearIndependenceandRankofaMatrixVectorSpace.html#x6-230001.3.1">Linear
+Independence and Dependence of Vectors</a></span></span><span class="subsectionToc"><span class="number">1.3.2</span><span class="title"><a href="LinearIndependenceandRankofaMatrixVectorSpace.html#x6-240001.3.2">Rank of a Matrix</a></span></span><span class="subsectionToc"><span class="number">1.3.3</span><span class="title"><a href="LinearIndependenceandRankofaMatrixVectorSpace.html#x6-250001.3.3">Vector
+Space</a></span></span><span class="subsectionToc"><span class="number">1.3.4</span><span class="title"><a href="LinearIndependenceandRankofaMatrixVectorSpace.html#x6-260001.3.4">Solutions of Linear Systems: Existence, Uniqueness</a></span></span><span class="sectionToc"><span class="number">1.4</span><span class="title"><a href="DeterminantsandCramersRule.html#x7-290001.4">Determinants
+and Cramer’s Rule</a></span></span><span class="subsectionToc"><span class="number">1.4.1</span><span class="title"><a href="DeterminantsandCramersRule.html#x7-300001.4.1">A Quick Refreshment on Determinants</a></span></span><span class="subsectionToc"><span class="number">1.4.2</span><span class="title"><a href="DeterminantsandCramersRule.html#x7-320001.4.2">Third-Order
+Determinants</a></span></span><span class="subsectionToc"><span class="number">1.4.3</span><span class="title"><a href="DeterminantsandCramersRule.html#x7-340001.4.3">General Properties of Determinants</a></span></span><span class="subsectionToc"><span class="number">1.4.4</span><span class="title"><a href="DeterminantsandCramersRule.html#x7-350001.4.4">Cramer’s Rule</a></span></span><span class="sectionToc"><span class="number">1.5</span><span class="title"><a href="InverseofaMatrixusingGaussJordanElimination.html#x8-360001.5">Inverse
+of a Matrix using Gauss-Jordan Elimination</a></span></span><span class="subsectionToc"><span class="number">1.5.1</span><span class="title"><a href="InverseofaMatrixusingGaussJordanElimination.html#x8-370001.5.1">Determination of the Inverse by the
+Gauss-Jordan Method</a></span></span><span class="subsectionToc"><span class="number">1.5.2</span><span class="title"><a href="InverseofaMatrixusingGaussJordanElimination.html#x8-390001.5.2">Formulas for Inverses</a></span></span><span class="subsectionToc"><span class="number">1.5.3</span><span class="title"><a href="InverseofaMatrixusingGaussJordanElimination.html#x8-400001.5.3">Unusual Properties of Matrix
+Multiplication. Cancellation Laws</a></span></span><span class="subsectionToc"><span class="number">1.5.4</span><span class="title"><a href="InverseofaMatrixusingGaussJordanElimination.html#x8-410001.5.4">Determinants of Matrix Products</a></span></span><span class="sectionToc"><span class="number">1.6</span><span class="title"><a href="#x9-420001.6">Vector, and
+Inner Product Spaces, Linear Transformations</a></span></span><span class="subsectionToc"><span class="number">1.6.1</span><span class="title"><a href="#x9-430001.6.1">Inner Product Spaces</a></span></span><span class="subsectionToc"><span class="number">1.6.2</span><span class="title"><a href="#x9-440001.6.2">Linear
+Transformations</a></span></span><span class="subsectionToc"><span class="number">1.6.3</span><span class="title"><a href="#x9-460001.6.3">Composition of Linear Transformations</a></span></span><span class="chapterToc"><span class="number">2</span><span class="title"><a href="LinearAlgebraIIEigenvalueProblems.html#x10-470002">Linear Algebra II - Eigenvalue
+Problems</a></span></span><span class="sectionToc"><span class="number">2.1</span><span class="title"><a href="DeterminingEigenvaluesandEigenvectors.html#x11-500002.1">Determining Eigenvalues and Eigenvectors</a></span></span><span class="subsectionToc"><span class="number">2.1.1</span><span class="title"><a href="DeterminingEigenvaluesandEigenvectors.html#x11-510002.1.1">How to Find Eigenvalues and
+Eigenvectors</a></span></span><span class="subsectionToc"><span class="number">2.1.2</span><span class="title"><a href="DeterminingEigenvaluesandEigenvectors.html#x11-520002.1.2">Applications of Eigenvalue Problems</a></span></span><span class="sectionToc"><span class="number">2.2</span><span class="title"><a href="SymmetricSkewSymmetricandOrthogonalMatrices.html#x12-530002.2">Symmetric, Skew-Symmetric,
+and Orthogonal Matrices</a></span></span><span class="subsectionToc"><span class="number">2.2.1</span><span class="title"><a href="SymmetricSkewSymmetricandOrthogonalMatrices.html#x12-540002.2.1">Orthogonal Transformations and Orthogonal
+Matrices</a></span></span><span class="sectionToc"><span class="number">2.3</span><span class="title"><a href="EigenbasesDiagonalizationQuadraticForms.html#x13-550002.3">Eigenbases. Diagonalization. Quadratic Forms</a></span></span><span class="subsectionToc"><span class="number">2.3.1</span><span class="title"><a href="EigenbasesDiagonalizationQuadraticForms.html#x13-560002.3.1">Similarity of Matrices and
+Diagonalization</a></span></span><span class="subsectionToc"><span class="number">2.3.2</span><span class="title"><a href="EigenbasesDiagonalizationQuadraticForms.html#x13-570002.3.2">Quadratic Forms and Transformation to Principal Axes</a></span></span><span class="sectionToc"><span class="number">2.4</span><span class="title"><a href="ComplexMatricesandForms.html#x14-580002.4">Complex
+Matrices and Forms</a></span></span><span class="subsectionToc"><span class="number">2.4.1</span><span class="title"><a href="ComplexMatricesandForms.html#x14-590002.4.1">Eigenvalues</a></span></span><span class="subsectionToc"><span class="number">2.4.2</span><span class="title"><a href="ComplexMatricesandForms.html#x14-600002.4.2">Hermitian and Skew-Hermitian Forms</a></span></span>
+<div class="nav-footer"><div class="nav-footer-left"><span class="nav-footer-lecture">D. T. McGuiness, PhD</span>
+<span class="nav-footer-webBook"><b>Last Updated:</b> 20.10.2026, at 10:2.</span></div></div><p class="nav-comments">The website you are viewing is auto-generated using lms-WebBook and therefore subject to slight errors in typography and formatting. When in doubt, please consult the LectureBook. </p></div></nav>
+<article class="chapter">
+<nav class="crosslinks-top"> <span class="nav-button"><i class="fa-solid fa-caret-right"></i><a class="nav-link" href="LinearAlgebraIIEigenvalueProblems.html">Chapter: Linear Algebra II
+- Eigenvalue Problems</a></span><span class="nav-button"><i class="fa-solid fa-caret-left"></i><a class="nav-link" href="InverseofaMatrixusingGaussJordanElimination.html">Inverse of a Matrix using Gauss-Jordan Elimination</a></span><span class="nav-button"><i class="fa-solid fa-caret-up"></i><a class="nav-link" href="LinearAlgebraIFundamentals.html#VectorandInnerProductSpacesLinearTransformations.html">Chapter: Linear Algebra I -
+Fundamentals</a></span><span class="nav-button">
+<a href="index.html" rel="index" title="Visit Entry Point">
+<i class="fa-solid fa-table-list">
+</i>
+<span class="nav-info">Visit Index Page</span>
+</a></span><span class="nav-button">
+<a href="Index.html" rel="index" title="Visit Material GitHub Repo">
+<i class="fa-brands fa-git-alt"></i>
+<span class="nav-info">Visit Material GitHub Repo</span>
+</a></span></nav>
+<div class="section-header"> <h3 id="header-section-1.6"> <a class="pdf-icon" href="HigherMathematicsILectureBook.pdf#section.1.6"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a> <span class="number">1.6</span> <span class="title"> <a id="x9-420001.6"></a>Vector, and Inner Product
+Spaces, Linear Transformations</span></h3></div>
+<p class="noindent">We have captured the essence of vector spaces in Sec. 7.4.
+</p><p class="noindent">There, we dealt with special vector spaces that arose naturally in the context of matrices and linear
+systems. The elements of these vector spaces, called <b>vectors</b>, satisfied rules (3) and (4) of Sec. 7.1<span class="margin-block">.
+<span class="margin-comment"><a class="ellipsis" href="#m-ref-28">[28]</a>
+<span class="sidenote">which were similar to those for numbers.</span></span></span> These special vector spaces were generated by spans, that is,
+linear combination of finitely many vectors. Furthermore, each such vector had n real numbers as <span class="alert">components</span>.
+Review this material before going on.
+</p><p class="noindent">We can generalize this idea by taking all vectors with
+<math display="inline"><mi>n</mi></math>
+real numbers as components and obtain the very important real
+<math display="inline"><mi>n</mi></math>-dimensional
+vector space <math display="inline"><msup><mrow><mi>ℝ</mi></mrow><mrow><mi>n</mi></mrow></msup></math>.
+The vectors are known as <b>real vectors</b>. Therefore, each vector in
+<math display="inline"><msup><mrow><mi>ℝ</mi></mrow><mrow><mi>n</mi></mrow></msup></math> is an ordered
+<math display="inline"><mi>n</mi></math>-tuple of real numbers. Now we
+can consider special values for <math display="inline"><mi>n</mi></math>.
+For <math display="inline"><mi>n</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>2</mn></math>, we
+obtain <math display="inline"><msup><mrow><mi>ℝ</mi></mrow><mrow><mn>2</mn></mrow></msup></math>,
+the vector space of all ordered pairs, which correspond to the vectors in the plane. For
+<math display="inline"><mi>n</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>3</mn></math>, we
+obtain <math display="inline"><msup><mrow><mi>R</mi></mrow><mrow><mn>3</mn></mrow></msup></math>,
+the vector space of all ordered triples, which are the vectors in <span class="margin-block">3-space. <span class="margin-comment"><a class="ellipsis" href="#m-ref-29">[29]</a>
+<span class="sidenote">These vectors have
+wide applications in mechanics, geometry, and calculus and are basic to the engineer and
+physicist.</span></span></span>
+</p><p class="noindent">Similarly, if we take all ordered <math display="inline"><mi>n</mi></math>-tuples
+of <span class="alert">complex numbers</span> as vectors and complex numbers as scalars, we obtain the <b>complex vector space</b>
+<math display="inline"><msup><mrow><mi>C</mi></mrow><mrow><mi>n</mi></mrow></msup></math>, which
+we shall consider in Sec. 8.5.
+</p><p class="noindent">Furthermore, there are other sets of practical interest consisting of matrices, functions, transformations,
+or others for which addition and scalar multiplication can be defined in an almost natural way so that
+they too form vector spaces.
+</p><p class="noindent">It is perhaps not too great an intellectual jump to create, from the <b>concrete model</b>
+<math display="inline"><msup><mrow><mi>R</mi></mrow><mrow><mi>n</mi></mrow></msup></math>, the abstract concept
+of a real vector space <math display="inline"><mi>V</mi> </math>
+by taking the basic properties (3) and (4) in Sec. 7.1 as axioms. In this way, the definition of a real
+vector space arises.
+</p>
+<div class="block-major desc-block" id="desc-block-1.7"> <a class="copiable-link" href="#desc-block-1.7"> ¶</a> <span class="upper"> <span class="header"> <b>Description: 1.<a id="x9-42001r7"></a>7: </b> </span> <span class="title"> Real Vector Space </span> </span> <div class="body">
+<p class="noindent">A nonempty set <math display="inline"><mi>V</mi> </math>
+of elements <math display="inline"><mi>a</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>b</mi><mo class="MathClass-punc" stretchy="false">,</mo><mo class="MathClass-rel" stretchy="false">⋯</mo><mspace class="thinspace" width="0.17em"></mspace></math>
+is called a <b>real vector space</b><span class="margin-block">, <span class="margin-comment"><a class="ellipsis" href="#m-ref-30">[30]</a>
+<span class="sidenote">Sometimes called real linear space.</span></span></span> and these elements are called <span class="margin-block">vectors
+<span class="margin-comment"><a class="ellipsis" href="#m-ref-31">[31]</a>
+<span class="sidenote">Regardless of their nature, which will come out from the context or will be left arbitrary.</span></span></span> if, in
+<math display="inline"><mi>V</mi> </math>, there
+are defined two (<span class="alert">2</span>) algebraic <span class="margin-block">operations <span class="margin-comment"><a class="ellipsis" href="#m-ref-32">[32]</a>
+<span class="sidenote">called vector addition and scalar multiplication.</span></span></span> as follows:
+</p>
+<dl class="description"><dt class="description"><a id="x9-42002x1.6"></a>
+<span style="color:#42395F;">Vector Addition</span>
+</dt><dd class="description">
+<p class="noindent"> associates with every pair of vectors <b>a</b> and <b>b</b> of
+<math display="inline"><mi>V</mi> </math>
+a unique vector of V, called the sum of <b>a</b> and <b>b</b> and denoted by
+<math display="inline"><mstyle mathvariant="bold"><mi>a</mi></mstyle> <mo class="MathClass-bin" stretchy="false">+</mo> <mstyle mathvariant="bold"><mi>b</mi></mstyle></math>,
+such that the following axioms are satisfied. </p>
+<dl class="description"><dt class="description"><a id="x9-42003x1.6"></a>
+<span style="color:#42395F;">Commutatitivity</span>
+</dt><dd class="description">
+<p class="noindent"> For any two vectors <b>a</b> and <b>b</b> of <math display="inline"><mi>V</mi> </math>,
+</p>
+<table class="equation-star"><tr><td>
+<math class="equation" display="block">
+<mstyle mathvariant="bold">
+<mi>a</mi></mstyle>
+<mo class="MathClass-bin" stretchy="false">+</mo> <mstyle mathvariant="bold"><mi>b</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="bold"><mi>b</mi></mstyle> <mo class="MathClass-bin" stretchy="false">+</mo> <mstyle mathvariant="bold"><mi>a</mi></mstyle>
+</math></td></tr></table>
+</dd>
+<dt class="description"><a id="x9-42004x1.6"></a>
+<span style="color:#42395F;">Associativity</span>
+</dt><dd class="description">
+<p class="noindent"> For any three vectors <b>a</b>, <b>b</b>, <b>c</b> of <math display="inline"><mi>V</mi> </math>,
+</p>
+<table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x9-42005r77"></mstyle>
+<mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>a</mi></mstyle> <mo class="MathClass-bin" stretchy="false">+</mo> <mstyle mathvariant="bold"><mi>b</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-bin" stretchy="false">+</mo> <mstyle mathvariant="bold"><mi>c</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="bold"><mi>a</mi></mstyle> <mo class="MathClass-bin" stretchy="false">+</mo> <mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>b</mi></mstyle> <mo class="MathClass-bin" stretchy="false">+</mo> <mstyle mathvariant="bold"><mi>c</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo><mspace class="qquad" width="2em"></mspace><mstyle class="text"><mtext>written </mtext><mstyle class="math"><mstyle mathvariant="bold"><mi>a</mi></mstyle> <mo class="MathClass-bin" stretchy="false">+</mo> <mstyle mathvariant="bold"><mi>b</mi></mstyle> <mo class="MathClass-bin" stretchy="false">+</mo> <mstyle mathvariant="bold"><mi>c</mi></mstyle></mstyle><mtext>.</mtext></mstyle>
+</math></td><td class="eq-no">(1.77)</td></tr></table>
+<p class="noindent"></p>
+</dd></dl>
+</dd></dl>
+<p class="noindent"><b>I.2</b> .
+</p><p class="noindent"><b>I.3</b> There is a unique vector in V, called the zero vector and denoted by 0, such that for every
+<math display="inline"><mstyle mathvariant="bold"><mi>a</mi></mstyle></math> in
+<math display="inline"><mi>V</mi> </math>,
+<math display="inline"><mstyle mathvariant="bold"><mi>a</mi></mstyle> <mo class="MathClass-bin" stretchy="false">+</mo> <mstyle mathvariant="bold"><mn>0</mn></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="bold"><mi>a</mi></mstyle></math>.
+<b>I.4</b> For every <b>a</b> in V there is a unique vector in V that is denoted by
+<math display="inline"> <mo class="MathClass-bin" stretchy="false">−</mo> <mstyle mathvariant="bold"><mi>a</mi></mstyle></math> and is
+such that </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x9-42006r78"></mstyle>
+<mstyle mathvariant="bold">
+<mi>a</mi></mstyle>
+<mo class="MathClass-bin" stretchy="false">+</mo> <mo class="MathClass-open" stretchy="false">(</mo><mo class="MathClass-bin" stretchy="false">−</mo><mstyle mathvariant="bold"><mi>a</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="bold"><mn>0</mn></mstyle><mo class="MathClass-punc" stretchy="false">.</mo>
+</math></td><td class="eq-no">(1.78)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">II. Scalar multiplication. The real numbers are called scalars. Scalar multiplication associates with every
+<math display="inline"><mstyle mathvariant="bold"><mi>a</mi></mstyle></math> in
+<math display="inline"><mi>V</mi> </math> and every scalar
+<math display="inline"><mi>c</mi></math> a unique vector
+of <math display="inline"><mi>V</mi> </math>, called the
+&lt;i&gt;product&lt;/i&gt; of c and a and denoted by ca (or ac) such that the following axioms are satisfied. <b>II.1</b> Distributivity.
+For every scalar <math display="inline"><mi>c</mi></math>
+and vectors <math display="inline"><mstyle mathvariant="bold"><mi>a</mi></mstyle></math>
+and <math display="inline"><mstyle mathvariant="bold"><mi>b</mi></mstyle></math> in
+<math display="inline"><mi>V</mi> </math>,
+<math display="inline"><mi>c</mi><mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>a</mi></mstyle> <mo class="MathClass-bin" stretchy="false">+</mo> <mstyle mathvariant="bold"><mi>b</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>c</mi><mstyle mathvariant="bold"><mi>a</mi></mstyle> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>c</mi><mstyle mathvariant="bold"><mi>b</mi></mstyle><mo class="MathClass-punc" stretchy="false">.</mo></math> <b>II.2</b> Distributivity.
+For all scalars <math display="inline"><mi>c</mi></math>
+and <math display="inline"><mi>k</mi></math> and
+every <math display="inline"><mstyle mathvariant="bold"><mi>a</mi></mstyle></math>
+in <math display="inline"><mi>V</mi> </math>,
+<math display="inline"><mo class="MathClass-open" stretchy="false">(</mo><mi>c</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>k</mi><mo class="MathClass-close" stretchy="false">)</mo><mstyle mathvariant="bold"><mi>a</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>c</mi><mstyle mathvariant="bold"><mi>a</mi></mstyle> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>k</mi><mstyle mathvariant="bold"><mi>a</mi></mstyle></math>. <b>II.3</b> Associativity.
+For all scalars <math display="inline"><mi>c</mi></math>
+and <math display="inline"><mi>k</mi></math> and
+every <math display="inline"><mstyle mathvariant="bold"><mi>a</mi></mstyle></math>
+in <math display="inline"><mi>V</mi> </math>,
+</p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x9-42007r79"></mstyle>
+<mi>c</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>k</mi><mstyle mathvariant="bold"><mi>a</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-open" stretchy="false">(</mo><mi>c</mi><mi>k</mi><mo class="MathClass-close" stretchy="false">)</mo><mstyle mathvariant="bold"><mi>a</mi></mstyle>
+</math></td><td class="eq-no">(1.79)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent"><b>II.4</b> For every <b>a</b> in &lt;i&gt;V&lt;/i&gt;, <math display="inline"><mn>1</mn><mstyle mathvariant="bold"><mi>a</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="bold"><mi>a</mi></mstyle></math>.
+</p>
+<hr/>
+<p class="noindent"> 
+If, in the above definition, we take complex numbers as scalars instead of real numbers, we obtain the
+axiomatic definition of a <b>complex vector space</b>.
+</p>
+</div> </div>
+<p class="noindent">Take a look at the axioms in the above definition. Each axiom stands on its own: </p><div class="quote">  It is concise, useful, and it expresses
+a simple property of <math display="inline"><mi>V</mi> </math>.
+</div>
+<p class="noindent">There are as few axioms as possible and together they express all the desired properties of
+<math display="inline"><mi>V</mi> </math><span class="margin-block">.
+<span class="margin-comment"><a class="ellipsis" href="#m-ref-33">[33]</a>
+<span class="sidenote">Selecting good axioms is a process of trial and error which often extends over a long period of time. But
+once agreed upon, axioms become standard such as the ones in the definition of a real vector
+space.</span></span></span>
+</p><p class="noindent">The following concepts related to a vector space are exactly defined as
+those given in Sec. 7.4. For example, a <b>linear combination</b> of vectors
+<math display="inline"><msub><mrow><mi>a</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><mi>…</mi><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>a</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>m</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub></math> in a vector
+space <math display="inline"><mi>V</mi> </math>
+is an expression </p><table class="equation-star"><tr><td>
+<math class="equation" display="block">
+<msub><mrow><mi>c</mi></mrow><mrow><mn>1</mn></mrow></msub><msub><mrow><mstyle mathvariant="bold"><mi>a</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <mo class="MathClass-rel" stretchy="false">⋯</mo> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>c</mi></mrow><mrow><mi>m</mi></mrow></msub><msub><mrow><mstyle mathvariant="bold"><mi>a</mi></mstyle></mrow><mrow><mi>m</mi></mrow></msub><mspace class="qquad" width="2em"></mspace><mstyle class="text"><mtext>(</mtext><mstyle class="math"><msub><mrow><mi>c</mi></mrow><mrow><mn>1</mn></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><mo class="MathClass-rel" stretchy="false">⋯</mo><mspace class="thinspace" width="0.17em"></mspace><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>c</mi></mrow><mrow><mi>m</mi></mrow></msub></mstyle><mtext> any scalars).</mtext></mstyle>
+</math></td></tr></table>
+<p class="noindent">These vectors form a <b>linearly independent</b> set if </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x9-42008r80"></mstyle>
+<msub><mrow><mi>c</mi></mrow><mrow><mn>1</mn></mrow></msub><msub><mrow><mstyle mathvariant="bold"><mi>a</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <mo class="MathClass-rel" stretchy="false">⋯</mo> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>c</mi></mrow><mrow><mi>m</mi></mrow></msub><msub><mrow><mstyle mathvariant="bold"><mi>a</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>m</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="bold"><mn>0</mn></mstyle>
+</math></td><td class="eq-no">(1.80)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">implies that <math display="inline"><msub><mrow><mi>c</mi></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn><mo class="MathClass-punc" stretchy="false">,</mo><mi>…</mi><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>c</mi></mrow><mrow><mi>m</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></math>.
+Otherwise, if Eq. (<a href="#x9-42008r80">1.80</a>) also holds with scalars not all zero, the vectors are called <span class="alert">linearly dependent</span>.
+</p><p class="noindent">Note that Eq. (<a href="#x9-42008r80">1.80</a>) with <math display="inline"><mi>m</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn></math>
+is <math display="inline"><mi>c</mi><mstyle mathvariant="bold"><mi>a</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="bold"><mn>0</mn></mstyle></math> and shows that a
+single vector <math display="inline"><mstyle mathvariant="bold"><mi>a</mi></mstyle></math> is linearly
+independent if and only if <math display="inline"><mstyle mathvariant="bold"><mi>a</mi></mstyle> <mi>≠</mi> <mstyle mathvariant="bold"><mn>0</mn></mstyle></math>.
+</p><p class="noindent"><math display="inline"><mi>V</mi> </math> has <b>dimension</b>
+<math display="inline"><mi>n</mi></math>, or is
+<math display="inline"><mi>n</mi></math>-dimensional, if it contains a
+linearly independent set of <math display="inline"><mi>n</mi></math> vectors,
+whereas any set of more than <math display="inline"><mi>n</mi></math>
+vectors in <math display="inline"><mi>V</mi> </math> is linearly dependent.
+That set of <math display="inline"><mi>n</mi></math> linearly independent
+vectors is called a <b>basis</b> for <math display="inline"><mi>V</mi> </math>.
+Then every vector in <math display="inline"><mi>V</mi> </math>
+can be written as a linear combination of the basis vectors. Furthermore, for a given basis, this
+representation is unique.
+</p>
+<div class="block-major exer-block" id="exer-block-1.26"> <a class="copiable-link" href="#exer-block-1.26"> ¶</a> <span class="upper"> <span class="header"> <b>Example 1.<a id="x9-42009r26"></a>26: </b> </span> <span class="title"> Vector Space of Matrices </span> </span> <div class="body">
+<p class="noindent">The real <math display="inline"><mn>2</mn> <mi>×</mi> <mn>2</mn></math>
+matrices form a four-dimensional real vector space. A basis is </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x9-42010r81"></mstyle><msub><mrow><mstyle mathvariant="bold"><mi>B</mi></mstyle>
+</mrow><mrow><mn>1</mn><mn>1</mn></mrow></msub>
+<mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>0</mn></mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow><mo class="MathClass-punc" stretchy="false">,</mo><mspace class="quad" width="1em"></mspace><msub><mrow><mstyle mathvariant="bold"><mi>B</mi></mstyle></mrow><mrow><mn>1</mn><mn>2</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>0</mn></mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow><mo class="MathClass-punc" stretchy="false">,</mo><mspace class="quad" width="1em"></mspace><msub><mrow><mstyle mathvariant="bold"><mi>B</mi></mstyle></mrow><mrow><mn>2</mn><mn>1</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>0</mn></mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow><mo class="MathClass-punc" stretchy="false">,</mo><mspace class="quad" width="1em"></mspace><msub><mrow><mstyle mathvariant="bold"><mi>B</mi></mstyle></mrow><mrow><mn>2</mn><mn>2</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>1</mn></mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow>
+</math></td><td class="eq-no">(1.81)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">because any <math display="inline"><mn>2</mn> <mi>×</mi> <mn>2</mn></math>
+matrix <math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-open" stretchy="false">[</mo><msub><mrow><mi>a</mi></mrow><mrow><mi>j</mi><mi>k</mi></mrow></msub><mo class="MathClass-close" stretchy="false">]</mo></math>
+has a unique representation: </p><table class="equation-star"><tr><td>
+<math class="equation" display="block">
+<mstyle mathvariant="bold">
+<mi>A</mi></mstyle>
+<mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>1</mn></mrow></msub><msub><mrow><mstyle mathvariant="bold"><mi>B</mi></mstyle></mrow><mrow><mn>1</mn><mn>1</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>2</mn></mrow></msub><msub><mrow><mstyle mathvariant="bold"><mi>B</mi></mstyle></mrow><mrow><mn>1</mn><mn>2</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mn>1</mn></mrow></msub><msub><mrow><mstyle mathvariant="bold"><mi>B</mi></mstyle></mrow><mrow><mn>2</mn><mn>1</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mn>2</mn></mrow></msub><msub><mrow><mstyle mathvariant="bold"><mi>B</mi></mstyle></mrow><mrow><mn>2</mn><mn>2</mn></mrow></msub><mspace class="quad" width="1em"></mspace><mo class="MathClass-ord">■</mo>
+</math></td></tr></table>
+<p class="noindent"></p>
+<hr/>
+<p class="noindent"> 
+Similarly, the real <math display="inline"><mi>m</mi> <mi>×</mi> <mi>n</mi></math>
+matrices with fixed <math display="inline"><mi>m</mi></math>
+and <math display="inline"><mi>n</mi></math>
+form an mn-dimensional vector space.
+</p>
+</div> </div>
+<div class="block-major info-block" id="info-block-1.3"> <a class="copiable-link" href="#info-block-1.3"> ¶</a> <span class="upper"> <span class="header"> <b>Information 1.<a id="x9-42011r3"></a>3: </b> </span> <span class="title"> Vector Space of Polynomials </span> </span> <div class="body">
+<p class="noindent">The set of all constant, linear, and quadratic polynomials in
+<math display="inline"><mi>x</mi></math> together is a vector space
+of dimension 3 with basis <math display="inline"><mi>{</mi><mn>1</mn><mo class="MathClass-punc" stretchy="false">,</mo><mi>x</mi><mo class="MathClass-punc" stretchy="false">,</mo><msup><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msup><mi>}</mi></math>
+under the usual addition and multiplication by real numbers because these two operations give
+polynomials <b>NOT</b> exceeding degree 2.
+</p>
+</div></div>
+<p class="noindent">If a vector space <math display="inline"><mi>V</mi> </math> contains a
+linearly independent set of <math display="inline"><mi>n</mi></math>
+vectors for every <math display="inline"><mi>n</mi></math>, no
+matter how large, then <math display="inline"><mi>V</mi> </math>
+is called <b>infinite dimensional</b>, as opposed to a <b>finite dimensional</b>
+(<math display="inline"><mi>n</mi></math>-dimensional)
+vector space just defined. </p><div class="quote">  An example of an infinite dimensional vector space is the space of all continuous functions
+on some interval <math display="inline"><mo class="MathClass-open" stretchy="false">[</mo><mi>a</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>b</mi><mo class="MathClass-close" stretchy="false">]</mo></math>
+of the <math display="inline"><mi>x</mi></math>-axis.
+</div>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-1.6.1"> <a class="pdf-icon" href="HigherMathematicsILectureBook.pdf#subsection.1.6.1"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">1.6.1</span> <span class="title"> <a id="x9-430001.6.1"></a>Inner Product Spaces</span></h4></div>
+</p><p class="noindent">If <math display="inline"><mstyle mathvariant="bold"><mi>a</mi></mstyle></math> and
+<math display="inline"><mstyle mathvariant="bold"><mi>b</mi></mstyle></math> are vectors in
+<math display="inline"><msup><mrow><mi>ℝ</mi></mrow><mrow><mi>n</mi></mrow></msup></math>, regarded as column vectors,
+we can form the product <math display="inline"><msup><mrow><mstyle mathvariant="bold"><mi>a</mi></mstyle></mrow><mrow><mi>T</mi></mrow></msup><mstyle mathvariant="bold"><mi>b</mi></mstyle></math>.
+</p>
+<div class="block-minor knowledge"><div class="body">
+<p class="noindent">This is a <math display="inline"><mn>1</mn> <mi>×</mi> <mn>1</mn></math>
+matrix, which we can identify with its single entry, that is, with a number. </p></div></div>
+<p class="noindent">This product is called the <b>inner product</b> or <b>dot product</b> of
+<math display="inline"><mstyle mathvariant="bold"><mi>a</mi></mstyle></math> and <b>b</b>. Other
+notations for it are <math display="inline"><mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>a</mi></mstyle><mo class="MathClass-punc" stretchy="false">,</mo><mstyle mathvariant="bold"><mi>b</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo></math>
+and <math display="inline"><mstyle mathvariant="bold"><mi>a</mi></mstyle> <mi>·</mi> <mstyle mathvariant="bold"><mi>b</mi></mstyle></math>.
+Thus </p><table class="equation-star"><tr><td>
+<math class="equation" display="block"><msup><mrow>
+<mstyle mathvariant="bold"><mi>a</mi></mstyle>
+</mrow><mrow><mi>T</mi></mrow></msup>
+<mstyle mathvariant="bold">
+<mi>b</mi></mstyle>
+<mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>a</mi></mstyle><mo class="MathClass-punc" stretchy="false">,</mo><mstyle mathvariant="bold"><mi>b</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="bold"><mi>a</mi></mstyle><mi>·</mi><mstyle mathvariant="bold"><mi>b</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn></mrow></msub><mo class="MathClass-rel" stretchy="false">⋯</mo><msub><mrow><mi>a</mi></mrow><mrow><mi>n</mi></mrow></msub> </mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>b</mi></mrow><mrow><mn>1</mn></mrow></msub> </mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mi>⋮</mi> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>b</mi></mrow><mrow>
+<mi>n</mi></mrow></msub> </mtd>
+</mtr>
+</mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow> <mo class="MathClass-rel" stretchy="false">=</mo><munderover accent="false" accentunder="false"><mrow><mo> ∑</mo>
+</mrow><mrow><mi>i</mi><mo class="MathClass-rel" stretchy="false">=</mo><mn>1</mn></mrow><mrow><mi>n</mi></mrow></munderover><msub><mrow><mi>a</mi></mrow><mrow>
+<mi>i</mi></mrow></msub><msub><mrow><mi>b</mi></mrow><mrow><mi>i</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn></mrow></msub><msub><mrow><mi>b</mi></mrow><mrow><mn>1</mn></mrow></msub><mo class="MathClass-bin" stretchy="false">+</mo><mo class="MathClass-rel" stretchy="false">⋯</mo><mo class="MathClass-bin" stretchy="false">+</mo><msub><mrow><mi>a</mi></mrow><mrow><mi>n</mi></mrow></msub><msub><mrow><mi>b</mi></mrow><mrow><mi>n</mi></mrow></msub><mo class="MathClass-punc" stretchy="false">.</mo>
+</math></td></tr></table>
+<p class="noindent">We now extend this concept to general real vector spaces by taking basic properties of
+<math display="inline"><mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>a</mi></mstyle><mo class="MathClass-punc" stretchy="false">,</mo><mstyle mathvariant="bold"><mi>b</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo></math> as axioms
+for an <span class="alert">abstract inner product</span> <math display="inline"><mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>a</mi></mstyle><mo class="MathClass-punc" stretchy="false">,</mo><mstyle mathvariant="bold"><mi>b</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo></math>
+as follows.
+</p>
+<div class="block-major desc-block" id="desc-block-1.8"> <a class="copiable-link" href="#desc-block-1.8"> ¶</a> <span class="upper"> <span class="header"> <b>Description: 1.<a id="x9-43001r8"></a>8: </b> </span> <span class="title"> Real Inner Product Space </span> </span> <div class="body">
+<p class="noindent">If V is finite dimensional, it is actually a so-called Hilbert space; A real vector space
+V is called a <b>real inner product space</b>,or real pre-<span class="margin-block"><span class="margin"><span>Hilbert <a class="ellipsis" href="#m-ref-34">[34]</a></span><span class="sidenote"><a class="copiable-link" href="#m-ref-34" id="m-ref-34"> ¶</a><span class="sidenote-image"><img alt="PIC" src="figures/Linear-Algebra-I---Fundamentals/raster/portrait-hilbert.jpg" style=""/></span><span class="sidenote-text"><span class="ellipsis">[34]</span><b>David Hilbert</b>
+<i>(1862  - 1943)</i>
+and philosopher of mathematics and one of the most influential mathematicians of all time.
+Hilbert discovered and developed a broad range of fundamental ideas including invariant theory, the
+calculus of variations, commutative algebra, algebraic number theory, the foundations of
+geometry, spectral theory of operators and its application to integral equations, mathematical
+physics, and the foundations of mathematics (particularly proof theory). He adopted and
+defended Georg Cantor’s set theory and transfinite numbers. In 1900, he presented
+a collection of problems that set a course for mathematical research of the 20th century.
+Hilbert and his students contributed to establishing rigor and developed important
+tools used in modern mathematical physics. He was a co-founder of proof theory and
+mathematical logic.</span></span></span></span> space, if it has the following property. With every pair of vectors
+<math display="inline"><mstyle mathvariant="bold"><mi>a</mi></mstyle></math> and <b>b</b>
+in V there is associated a real number, which is denoted by (a, b) and is called the inner <b>product</b> of
+<math display="inline"><mstyle mathvariant="bold"><mi>a</mi></mstyle></math>
+and <b>b</b>, such that the following axioms are satisfied. <b>I.</b> For all scalars
+<math display="inline"><msub><mrow><mi>q</mi></mrow><mrow><mn>1</mn></mrow></msub></math> and
+<math display="inline"><msub><mrow><mi>q</mi></mrow><mrow><mn>2</mn></mrow></msub></math> and all
+vectors <math display="inline"><mstyle mathvariant="bold"><mi>a</mi></mstyle></math>, <b>b</b>,
+<b>c</b> in <math display="inline"><mi>V</mi> </math>,
+</p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x9-43002r82"></mstyle>
+<mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>q</mi></mrow><mrow><mn>1</mn></mrow></msub><mstyle mathvariant="bold"><mi>a</mi></mstyle> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>q</mi></mrow><mrow><mn>2</mn></mrow></msub><mstyle mathvariant="bold"><mi>b</mi></mstyle><mo class="MathClass-punc" stretchy="false">,</mo><mstyle mathvariant="bold"><mi>c</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>q</mi></mrow><mrow><mn>1</mn></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>a</mi></mstyle><mo class="MathClass-punc" stretchy="false">,</mo><mstyle mathvariant="bold"><mi>c</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>q</mi></mrow><mrow><mn>2</mn></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>b</mi></mstyle><mo class="MathClass-punc" stretchy="false">,</mo><mstyle mathvariant="bold"><mi>c</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo>
+</math></td><td class="eq-no">(1.82)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent"><b>II.</b> For all vectors <math display="inline"><mstyle mathvariant="bold"><mi>a</mi></mstyle></math>
+and <math display="inline"><mstyle mathvariant="bold"><mi>b</mi></mstyle></math> in
+<math display="inline"><mi>V</mi> </math>,
+</p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x9-43003r83"></mstyle>
+<mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>a</mi></mstyle><mo class="MathClass-punc" stretchy="false">,</mo><mstyle mathvariant="bold"><mi>b</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>b</mi></mstyle><mo class="MathClass-punc" stretchy="false">,</mo><mstyle mathvariant="bold"><mi>a</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo>
+</math></td><td class="eq-no">(1.83)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">III. For every <math display="inline"><mstyle mathvariant="bold"><mi>a</mi></mstyle></math>
+in <math display="inline"><mi>V</mi> </math>,
+<math display="inline"><mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>a</mi></mstyle><mo class="MathClass-punc" stretchy="false">,</mo><mstyle mathvariant="bold"><mi>a</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">⩾</mo> <mn>0</mn><mo class="MathClass-punc" stretchy="false">,</mo></math>
+<math display="inline"><mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>a</mi></mstyle><mo class="MathClass-punc" stretchy="false">,</mo><mstyle mathvariant="bold"><mi>a</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></math> if and
+only if <math display="inline"><mstyle mathvariant="bold"><mi>a</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="bold"><mn>0</mn></mstyle></math>
+(Positive-definiteness).
+</p>
+</div> </div>
+<p class="noindent">Vectors whose inner product is zero are called <b>orthogonal</b>. The <b>length</b> or <b>norm</b> of a vector in
+<math display="inline"><mi>V</mi> </math> is
+defined by </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x9-43004r84"></mstyle>
+<mi>‖</mi><mstyle mathvariant="bold"><mi>a</mi></mstyle><mi>‖</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <msqrt><mrow>
+<mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>a</mi></mstyle><mo class="MathClass-punc" stretchy="false">,</mo><mstyle mathvariant="bold"><mi>a</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo></mrow></msqrt><mspace class="quad" width="1em"></mspace><mo class="MathClass-open" stretchy="false">(</mo><mo class="MathClass-rel" stretchy="false">⩾</mo> <mn>0</mn><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-punc" stretchy="false">.</mo>
+</math></td><td class="eq-no">(1.84)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">A vector of norm 1 is called a <b>unit vector</b>.
+</p><p class="noindent">From these axioms and from Eq. (<a href="#x9-43004r84">1.84</a>) one can derive the following relations:
+</p><math display="block"><mtable class="align" columnalign="left" displaystyle="true">
+<mtr><mtd class="align-odd" columnalign="right"><mrow class="mathinner"><mspace class="negthinspace" width="-0.17em"></mspace> <mrow><mo fence="true" form="prefix">|</mo><mrow><mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>a</mi></mstyle><mo class="MathClass-punc" stretchy="false">,</mo><mstyle mathvariant="bold"><mi>b</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo></mrow><mo fence="true" form="postfix">|</mo></mrow> </mrow></mtd>
+<mtd class="align-even"> <mo class="MathClass-rel" stretchy="false">⩽</mo> <mi>|</mi><mi>|</mi><mstyle mathvariant="bold"><mi>a</mi></mstyle><mi>|</mi><mi>|</mi><mi>|</mi><mi>|</mi><mstyle mathvariant="bold"><mi>b</mi></mstyle><mi>|</mi><mi>|</mi><mspace class="qquad" width="2em"></mspace><mstyle class="text"><mtext>(Cauchy-Schwarz Inequality)</mtext></mstyle><mspace width="2em"></mspace></mtd>
+<mtd class="align-label" columnalign="right"><mstyle class="label" id="x9-43005r85"></mstyle><mstyle class="maketag"><mtext>(1.85)</mtext></mstyle><mspace class="nbsp" width="0.33em"></mspace>
+</mtd></mtr><mtr><mtd class="align-odd" columnalign="right"><mi>‖</mi><mstyle mathvariant="bold"><mi>a</mi></mstyle> <mo class="MathClass-bin" stretchy="false">+</mo> <mstyle mathvariant="bold"><mi>b</mi></mstyle><mi>‖</mi></mtd>
+<mtd class="align-even"> <mo class="MathClass-rel" stretchy="false">⩽</mo> <mi>‖</mi><mstyle mathvariant="bold"><mi>a</mi></mstyle><mi>‖</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>‖</mi><mstyle mathvariant="bold"><mi>b</mi></mstyle><mi>‖</mi><mspace class="qquad" width="2em"></mspace><mstyle class="text"><mtext>(Triangle inequality)</mtext></mstyle><mspace width="2em"></mspace></mtd>
+<mtd class="align-label" columnalign="right"><mstyle class="label" id="x9-43006r86"></mstyle><mstyle class="maketag"><mtext>(1.86)</mtext></mstyle><mspace class="nbsp" width="0.33em"></mspace>
+</mtd></mtr><mtr><mtd class="align-odd" columnalign="right"><mi>‖</mi><mstyle mathvariant="bold"><mi>a</mi></mstyle> <mo class="MathClass-bin" stretchy="false">+</mo> <mstyle mathvariant="bold"><mi>b</mi></mstyle><msup><mrow><mi>‖</mi></mrow><mrow><mn>2</mn></mrow></msup> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>‖</mi><mstyle mathvariant="bold"><mi>a</mi></mstyle> <mo class="MathClass-bin" stretchy="false">−</mo> <mstyle mathvariant="bold"><mi>b</mi></mstyle><msup><mrow><mi>‖</mi></mrow><mrow><mn>2</mn></mrow></msup></mtd>
+<mtd class="align-even"> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>2</mn><mo class="MathClass-open" stretchy="false">(</mo><mi>‖</mi><mstyle mathvariant="bold"><mi>a</mi></mstyle><msup><mrow><mi>‖</mi></mrow><mrow><mn>2</mn></mrow></msup> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>‖</mi><mstyle mathvariant="bold"><mi>b</mi></mstyle><msup><mrow><mi>‖</mi></mrow><mrow><mn>2</mn></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo><mstyle class="text"><mtext>(Parallelogram equality)</mtext></mstyle><mspace width="2em"></mspace></mtd>
+<mtd class="align-label" columnalign="right"><mstyle class="label" id="x9-43007r87"></mstyle><mstyle class="maketag"><mtext>(1.87)</mtext></mstyle><mspace class="nbsp" width="0.33em"></mspace>
+</mtd></mtr></mtable></math>
+<div class="block-major exer-block" id="exer-block-1.27"> <a class="copiable-link" href="#exer-block-1.27"> ¶</a> <span class="upper"> <span class="header"> <b>Example 1.<a id="x9-43008r27"></a>27: </b> </span> <span class="title"> n-Dimensional Euclidean Space </span> </span> <div class="body">
+<p class="noindent"><math display="inline"><msup><mrow><mi>R</mi></mrow><mrow><mi>n</mi></mrow></msup></math> with
+the inner product </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x9-43009r88"></mstyle>
+<mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>a</mi></mstyle><mo class="MathClass-punc" stretchy="false">,</mo><mstyle mathvariant="bold"><mi>b</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo><msup><mrow> <mstyle mathvariant="bold"><mi>a</mi></mstyle></mrow><mrow><mi>T</mi></mrow></msup><mstyle mathvariant="bold"><mi>b</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>a</mi></mrow><mrow>
+<mn>1</mn></mrow></msub><msub><mrow><mi>b</mi></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <mo class="MathClass-rel" stretchy="false">⋯</mo> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>a</mi></mrow><mrow><mi>n</mi></mrow></msub><msub><mrow><mi>b</mi></mrow><mrow><mi>n</mi></mrow></msub>
+</math></td><td class="eq-no">(1.88)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">where both <math display="inline"><mstyle mathvariant="bold"><mi>a</mi></mstyle></math> and <b>b</b> are column
+vectors is called the <math display="inline"><mi>n</mi></math>-dimensional
+Euclidean space and is denoted by <math display="inline"><msup><mrow><mi>E</mi></mrow><mrow><mi>n</mi></mrow></msup></math>
+or again simply by <math display="inline"><msup><mrow><mi>R</mi></mrow><mrow><mi>n</mi></mrow></msup></math>.
+Axioms IIII hold, as direct calculation shows. Eq. (<a href="#x9-43004r84">1.84</a>) gives the <b>Euclidean norm</b>: </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x9-43010r89"></mstyle>
+<mi>‖</mi><mstyle mathvariant="bold"><mi>a</mi></mstyle><mi>‖</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <msqrt><mrow>
+<mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>a</mi></mstyle><mo class="MathClass-punc" stretchy="false">,</mo><mstyle mathvariant="bold"><mi>a</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo></mrow></msqrt> <mo class="MathClass-rel" stretchy="false">=</mo> <msqrt><mrow><msup><mrow>
+<mstyle mathvariant="bold">
+<mi>a</mi></mstyle>
+</mrow><mrow><mi>T</mi></mrow></msup>
+<mstyle mathvariant="bold">
+<mi>a</mi></mstyle></mrow></msqrt> <mo class="MathClass-rel" stretchy="false">=</mo> <msqrt><mrow><msubsup><mrow>
+<mi>a</mi></mrow><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></msubsup> <mo class="MathClass-bin" stretchy="false">+</mo> <mo class="MathClass-rel" stretchy="false">⋯</mo> <mo class="MathClass-bin" stretchy="false">+</mo> <msubsup><mrow><mi>a</mi></mrow><mrow><mi>n</mi></mrow><mrow><mn>2</mn></mrow></msubsup></mrow></msqrt>
+</math></td><td class="eq-no">(1.89)</td></tr></table>
+<p class="noindent"></p>
+</div> </div>
+<div class="block-major exer-block" id="exer-block-1.28"> <a class="copiable-link" href="#exer-block-1.28"> ¶</a> <span class="upper"> <span class="header"> <b>Example 1.<a id="x9-43011r28"></a>28: </b> </span> <span class="title"> An Inner Product for Functions. Function Space </span> </span> <div class="body">
+<p class="noindent">The set of all real-valued continuous functions <math display="inline"><mi>f</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>x</mi><mo class="MathClass-close" stretchy="false">)</mo></math>,
+<math display="inline"><mi>g</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>x</mi><mo class="MathClass-close" stretchy="false">)</mo></math>,
+<math display="inline"><mo class="MathClass-rel" stretchy="false">⋯</mo><mspace class="thinspace" width="0.17em"></mspace></math> on a given
+interval <math display="inline"><mi>α</mi> <mo class="MathClass-rel" stretchy="false">⩽</mo> <mi>x</mi> <mo class="MathClass-rel" stretchy="false">⩽</mo> <mi>β</mi></math>
+is a real vector space under the usual addition of functions and multiplication by scalars
+(real numbers). On this "function space" we can define an inner product by the integral
+</p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x9-43012r90"></mstyle>
+<mo class="MathClass-open" stretchy="false">(</mo><mi>f</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>g</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo><msubsup><mrow><mo> ∫
+ </mo></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mi>β</mi></mrow><mrow><mi>β</mi></mrow></msubsup><mi>f</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>x</mi><mo class="MathClass-close" stretchy="false">)</mo><mi>g</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>x</mi><mo class="MathClass-close" stretchy="false">)</mo><mi>d</mi><mi>x</mi><mo class="MathClass-punc" stretchy="false">.</mo>
+</math></td><td class="eq-no">(1.90)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">Axioms I-III can be verified by direct calculation. Equation (2) gives the norm </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x9-43013r91"></mstyle>
+<mi>|</mi><mi>|</mi><mi>f</mi><mi>|</mi><mi>|</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <msqrt><mrow>
+<mo class="MathClass-open" stretchy="false">(</mo><mi>f</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>f</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></msqrt> <mo class="MathClass-rel" stretchy="false">=</mo> <msqrt><mrow>
+<msubsup><mrow><mo>∫
+ </mo></mrow><mrow><mn>0</mn></mrow><mrow><mi>β</mi></mrow></msubsup><mi>f</mi><msup><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>x</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mn>2</mn></mrow></msup><mi>d</mi><mi>x</mi></mrow></msqrt><mo class="MathClass-punc" stretchy="false">.</mo>
+</math></td><td class="eq-no">(1.91)</td></tr></table>
+<p class="noindent"></p>
+</div> </div>
+<p class="noindent">Our examples give a first impression of the great generality of the abstract concepts of vector spaces
+and inner product spaces. Further details belong to more advanced courses (on functional
+analysis, meaning abstract modern analysis; see [GenRef7] listed in App. 1) and cannot
+be discussed here. Instead we now take up a related topic where matrices play a central
+role.
+</p>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-1.6.2"> <a class="pdf-icon" href="HigherMathematicsILectureBook.pdf#subsection.1.6.2"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">1.6.2</span> <span class="title"> <a id="x9-440001.6.2"></a>Linear Transformations</span></h4></div>
+</p><p class="noindent">Let <math display="inline"><mi>X</mi></math> and
+<math display="inline"><mi>Y</mi> </math> be any vector spaces.
+To each vector <math display="inline"><mstyle mathvariant="bold"><mi>x</mi></mstyle></math>
+in <math display="inline"><mi>X</mi></math> we assign a
+unique vector <math display="inline"><mstyle mathvariant="bold"><mi>y</mi></mstyle></math>
+in <math display="inline"><mi>Y</mi> </math>.
+Then we say that a <b>mapping</b><span class="margin-block"> <span class="margin-comment"><a class="ellipsis" href="#m-ref-35">[35]</a>
+<span class="sidenote">or <b>transformation</b> or <b>operator</b></span></span></span> of
+<math display="inline"><mi>X</mi></math> into
+<math display="inline"><mi>Y</mi> </math> is
+given.
+</p>
+<div class="block-minor warning"><div class="body">
+<p class="noindent">Such a mapping is denoted by a capital letter, say
+<math display="inline"><mi>F</mi></math>.
+</p></div></div>
+<p class="noindent">The vector <math display="inline"><mstyle mathvariant="bold"><mi>y</mi></mstyle></math> in
+<math display="inline"><mi>Y</mi> </math> assigned to a vector <b>x</b> in
+<math display="inline"><mi>X</mi></math> is called the <b>image</b> of <b>x</b>
+under F and is denoted by <math display="inline"><mi>F</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>x</mi><mo class="MathClass-close" stretchy="false">)</mo></math>.
+<math display="inline"><mi>F</mi></math>
+is called a <b>linear mapping</b> or <b>linear transformation</b> if, for all vectors
+<math display="inline"><mstyle mathvariant="bold"><mi>v</mi></mstyle></math> and
+<math display="inline"><mstyle mathvariant="bold"><mi>x</mi></mstyle></math> in
+<math display="inline"><mi>X</mi></math> and
+scalars <math display="inline"><mi>c</mi></math>,
+</p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x9-44001r92"></mstyle><mtable class="aligned" displaystyle="true"><mtr><mtd columnalign="right"><mi>F</mi><mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>v</mi></mstyle> <mo class="MathClass-bin" stretchy="false">+</mo> <mstyle mathvariant="bold"><mi>x</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo></mtd>
+<mtd columnalign="left"> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>F</mi><mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>v</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>F</mi><mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>x</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo></mtd>
+<mtd columnalign="right"></mtd>
+</mtr><mtr><mtd columnalign="right"><mi>F</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>c</mi><mstyle mathvariant="bold"><mi>x</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo></mtd> <mtd columnalign="left"> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>c</mi><mi>F</mi><mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>x</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-punc" stretchy="false">.</mo></mtd>
+</mtr> </mtable>
+</math></td><td class="eq-no">(1.92)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent"><span class="paragraphHead"> <a id="x9-45000"></a>Linear Transformation of Space <math display="inline"><msup><mrow><mi>R</mi></mrow><mrow><mi>n</mi></mrow></msup></math>
+into Space <math display="inline"><msup><mrow><mi>R</mi></mrow><mrow><mi>m</mi></mrow></msup></math></span>
+From now on we let <math display="inline"><mi>X</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <msup><mrow><mi>R</mi></mrow><mrow><mi>n</mi></mrow></msup></math>
+and <math display="inline"><mi>Y</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <msup><mrow><mi>R</mi></mrow><mrow><mi>m</mi></mrow></msup></math>. Then any
+real <math display="inline"><mi>m</mi> <mi>×</mi> <mi>n</mi></math> matrix
+<math display="inline"><mover accent="true"><mrow><mi>A</mi></mrow><mo accent="true">→</mo></mover> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-open" stretchy="false">[</mo><msub><mrow><mi>a</mi></mrow><mrow><mi>i</mi><mi>k</mi></mrow></msub><mo class="MathClass-close" stretchy="false">]</mo></math> gives a
+transformation of <math display="inline"><msup><mrow><mi>ℝ</mi></mrow><mrow><mi>n</mi></mrow></msup></math>
+into <math display="inline"><msup><mrow><mi>ℝ</mi></mrow><mrow><mi>m</mi></mrow></msup></math>,
+</p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x9-45001r93"></mstyle>
+<mstyle mathvariant="bold">
+<mi>y</mi></mstyle>
+<mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="bold"><mi>A</mi></mstyle><mstyle mathvariant="bold"><mi>x</mi></mstyle>
+</math></td><td class="eq-no">(1.93)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">Since <math display="inline"><mi>A</mi><mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>u</mi></mstyle> <mo class="MathClass-bin" stretchy="false">+</mo> <mstyle mathvariant="bold"><mi>x</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>A</mi><mstyle mathvariant="bold"><mi>u</mi></mstyle> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>A</mi><mstyle mathvariant="bold"><mi>x</mi></mstyle></math>
+and <math display="inline"><mi>A</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>c</mi><mstyle mathvariant="bold"><mi>x</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>c</mi><mi>A</mi><mstyle mathvariant="bold"><mi>x</mi></mstyle></math>,
+this transformation is <b>linear</b>.
+</p><p class="noindent">We show that, conversely, every linear transformation
+<math display="inline"><mi>F</mi></math> of
+<math display="inline"><msup><mrow><mi>ℝ</mi></mrow><mrow><mi>n</mi></mrow></msup></math> into
+<math display="inline"><msup><mrow><mi>ℝ</mi></mrow><mrow><mi>m</mi></mrow></msup></math> can be given in
+terms of an <math display="inline"><mi>m</mi> <mi>×</mi> <mi>n</mi></math>
+matrix <math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math>, after a
+basis for <math display="inline"><msup><mrow><mi>R</mi></mrow><mrow><mi>n</mi></mrow></msup></math> and
+a basis for <math display="inline"><msup><mrow><mi>R</mi></mrow><mrow><mi>m</mi></mrow></msup></math>
+have been chosen.
+</p><p class="noindent">Let <math display="inline"><msub><mrow><mstyle mathvariant="bold"><mi>e</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><mi>…</mi><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mstyle mathvariant="bold"><mi>e</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub></math> be any
+basis for <math display="inline"><msup><mrow><mi>ℝ</mi></mrow><mrow><mi>n</mi></mrow></msup></math>.
+Then every <math display="inline"><mstyle mathvariant="bold"><mi>x</mi></mstyle></math>
+in <math display="inline"><msup><mrow><mi>ℝ</mi></mrow><mrow><mi>n</mi></mrow></msup></math> has
+a unique representation </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x9-45002r94"></mstyle>
+<mstyle mathvariant="bold">
+<mi>x</mi></mstyle>
+<mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub><msub><mrow><mstyle mathvariant="bold"><mi>e</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <mo class="MathClass-rel" stretchy="false">⋯</mo> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>x</mi></mrow><mrow><mi>n</mi></mrow></msub><msub><mrow><mstyle mathvariant="bold"><mi>e</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub><mo class="MathClass-punc" stretchy="false">.</mo>
+</math></td><td class="eq-no">(1.94)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">Since <math display="inline"><mi>F</mi></math> is linear, this representation
+implies for the image <math display="inline"><mi>F</mi><mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>x</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo></math>:
+</p><table class="equation-star"><tr><td>
+<math class="equation" display="block">
+<mi>F</mi><mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>x</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>F</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub><msub><mrow><mstyle mathvariant="bold"><mi>e</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <mo class="MathClass-rel" stretchy="false">⋯</mo> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>x</mi></mrow><mrow><mi>n</mi></mrow></msub><msub><mrow><mstyle mathvariant="bold"><mi>e</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub><mi>F</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mstyle mathvariant="bold"><mi>e</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-bin" stretchy="false">+</mo> <mo class="MathClass-rel" stretchy="false">⋯</mo> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>x</mi></mrow><mrow><mi>n</mi></mrow></msub><mi>F</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mstyle mathvariant="bold"><mi>e</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-punc" stretchy="false">.</mo>
+</math></td></tr></table>
+<p class="noindent">Hence <math display="inline"><mi>F</mi></math>
+is uniquely determined by the images of the vectors of a basis for
+<math display="inline"><msup><mrow><mi>ℝ</mi></mrow><mrow><mi>n</mi></mrow></msup></math>. We now
+choose for <math display="inline"><msup><mrow><mi>R</mi></mrow><mrow><mi>n</mi></mrow></msup></math>
+the <b>standard basis</b>: </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x9-45003r95"></mstyle><msub><mrow><mstyle mathvariant="bold"><mi>e</mi></mstyle>
+</mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub>
+<mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd>
+</mtr><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn></mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mi>⋮</mi></mtd>
+</mtr>
+<mtr class="array-row"><mtd class="array-td" columnalign="center"> <mi>⋮</mi> </mtd>
+</mtr>
+</mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow><mo class="MathClass-punc" stretchy="false">,</mo><mspace class="quad" width="1em"></mspace><msub><mrow><mstyle mathvariant="bold"><mi>e</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd>
+</mtr><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn></mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mi>⋮</mi></mtd>
+</mtr>
+<mtr class="array-row"><mtd class="array-td" columnalign="center"> <mi>⋮</mi> </mtd>
+</mtr>
+</mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow><mo class="MathClass-punc" stretchy="false">,</mo><mspace class="quad" width="1em"></mspace><mo class="MathClass-rel" stretchy="false">⋯</mo><mspace class="thinspace" width="0.17em"></mspace><mo class="MathClass-punc" stretchy="false">,</mo><mspace class="quad" width="1em"></mspace><msub><mrow><mstyle mathvariant="bold"><mi>e</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn></mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mi>⋮</mi> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mi>⋮</mi></mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow>
+</math></td><td class="eq-no">(1.95)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">where <math display="inline"><msub><mrow><mstyle mathvariant="bold"><mi>e</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>j</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub></math>
+has its <math display="inline"><msup><mrow><mstyle class="text"><mtext>j</mtext></mstyle></mrow><mrow><mstyle class="text"><mtext>th</mtext></mstyle></mrow></msup></math>
+component equal to 1 and all others 0. We show that we can now determine an
+<math display="inline"><mi>m</mi> <mi>×</mi> <mi>n</mi></math> matrix
+<math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-open" stretchy="false">[</mo><msub><mrow><mi>a</mi></mrow><mrow><mi>j</mi><mi>k</mi></mrow></msub><mo class="MathClass-close" stretchy="false">]</mo></math> such that
+for every <math display="inline"><mstyle mathvariant="bold"><mi>x</mi></mstyle></math>
+in <math display="inline"><msup><mrow><mi>ℝ</mi></mrow><mrow><mi>n</mi></mrow></msup></math> and
+image <math display="inline"><mstyle mathvariant="bold"><mi>y</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>F</mi><mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>x</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo></math>
+in <math display="inline"><msup><mrow><mi>R</mi></mrow><mrow><mi>m</mi></mrow></msup></math>,
+</p><table class="equation-star"><tr><td>
+<math class="equation" display="block">
+<mstyle mathvariant="bold">
+<mi>y</mi></mstyle>
+<mo class="MathClass-rel" stretchy="false">=</mo> <mi>F</mi><mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>x</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="bold"><mi>A</mi></mstyle><mstyle mathvariant="bold"><mi>x</mi></mstyle><mo class="MathClass-punc" stretchy="false">.</mo>
+</math></td></tr></table>
+<p class="noindent">Indeed, from the image <math display="inline"><msup><mrow><mstyle mathvariant="bold"><mi>y</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msup> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>F</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mstyle mathvariant="bold"><mi>e</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo></math>
+of <math display="inline"><msub><mrow><mstyle mathvariant="bold"><mi>e</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub></math> we
+get the condition </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x9-45004r96"></mstyle><msup><mrow><mstyle mathvariant="bold"><mi>y</mi></mstyle>
+</mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msup>
+<mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msubsup><mrow><mi>y</mi></mrow><mrow><mn>1</mn></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msubsup> </mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msubsup><mrow><mi>y</mi></mrow><mrow><mn>2</mn></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msubsup> </mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mi>⋮</mi> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mi>⋮</mi></mtd>
+</mtr>
+<mtr class="array-row"><mtd class="array-td" columnalign="center"> <msubsup><mrow><mi>y</mi></mrow><mrow><mi>n</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msubsup> </mtd>
+</mtr>
+</mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>1</mn></mrow></msub> </mtd>
+<mtd class="array-td" columnalign="center"> <mo class="MathClass-rel" stretchy="false">⋯</mo> </mtd>
+<mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mi>n</mi></mrow></msub> </mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mn>1</mn></mrow></msub> </mtd><mtd class="array-td" columnalign="center"> <mo class="MathClass-rel" stretchy="false">⋯</mo> </mtd><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mi>n</mi></mrow></msub> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mi>⋮</mi> </mtd> <mtd class="array-td" columnalign="center"> </mtd> <mtd class="array-td" columnalign="center"> <mi>⋮</mi></mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow>
+<mi>m</mi><mn>1</mn></mrow></msub> </mtd>
+<mtd class="array-td" columnalign="center"> <mo class="MathClass-rel" stretchy="false">⋯</mo> </mtd><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow>
+<mi>m</mi><mi>m</mi></mrow></msub> </mtd>
+</mtr>
+</mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd>
+</mtr><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mi>⋮</mi></mtd>
+</mtr>
+<mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd>
+</mtr>
+</mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow>
+</math></td><td class="eq-no">(1.96)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">from which we can determine the first column of
+<math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math>, namely
+<math display="inline"><msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>1</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <msubsup><mrow><mi>y</mi></mrow><mrow><mn>1</mn></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msubsup></math>,
+<math display="inline"><msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mn>1</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <msubsup><mrow><mi>y</mi></mrow><mrow><mn>2</mn></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msubsup></math>,
+<math display="inline"><mo class="MathClass-rel" stretchy="false">⋯</mo><mspace class="thinspace" width="0.17em"></mspace></math>,
+<math display="inline"><msub><mrow><mi>a</mi></mrow><mrow><mi>m</mi><mn>1</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <msubsup><mrow><mi>y</mi></mrow><mrow><mi>m</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msubsup></math>. Similarly, from the
+image of <math display="inline"><msub><mrow><mstyle mathvariant="bold"><mi>e</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub></math> we get the
+second column of <math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math>,
+and so on <math display="inline"><mspace class="quad" width="1em"></mspace><mo class="MathClass-ord">■</mo></math>
+</p><p class="noindent">We say that <math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math>
+<b>represents</b> <math display="inline"><mi>F</mi></math>, or is a
+representation of <math display="inline"><mi>F</mi></math>, with
+respect to the bases for <math display="inline"><msup><mrow><mi>R</mi></mrow><mrow><mi>n</mi></mrow></msup></math>
+and <math display="inline"><msup><mrow><mi>R</mi></mrow><mrow><mi>m</mi></mrow></msup></math>.
+Quite generally, the purpose of a <b>representation</b> is the replacement of one object of study by another
+object whose properties are more readily apparent.
+</p><p class="noindent">In three-dimensional Euclidean space <math display="inline"><msup><mrow><mi>E</mi></mrow><mrow><mn>3</mn></mrow></msup></math>
+the standard basis is usually written <math display="inline"><msub><mrow><mstyle mathvariant="bold"><mi>e</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="bold"><mi>i</mi></mstyle></math>,
+<math display="inline"><msub><mrow><mstyle mathvariant="bold"><mi>e</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="bold"><mi>j</mi></mstyle></math>,
+<math display="inline"><msub><mrow><mstyle mathvariant="bold"><mi>e</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>3</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="bold"><mi>k</mi></mstyle><mo class="MathClass-punc" stretchy="false">.</mo></math> Thus,
+</p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x9-45005r97"></mstyle><mstyle mathvariant="bold"><mi>i</mi></mstyle>
+<mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn></mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow><mo class="MathClass-punc" stretchy="false">,</mo><mspace class="quad" width="1em"></mspace><mstyle mathvariant="bold"><mi>j</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>1</mn></mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow><mo class="MathClass-punc" stretchy="false">,</mo><mspace class="quad" width="1em"></mspace><mstyle mathvariant="bold"><mi>k</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn></mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow><mo class="MathClass-punc" stretchy="false">.</mo>
+</math></td><td class="eq-no">(1.97)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">These are the three unit vectors in the positive directions of the axes of the Cartesian <b>coordinate
+system in space</b>, that is, the usual coordinate system with the same scale of measurement on the
+three mutually perpendicular coordinate axes.
+</p>
+<div class="block-major exer-block" id="exer-block-1.29"> <a class="copiable-link" href="#exer-block-1.29"> ¶</a> <span class="upper"> <span class="header"> <b>Example 1.<a id="x9-45006r29"></a>29: </b> </span> <span class="title"> Linear Transformations </span> </span> <div class="body">
+<p class="noindent">Interpreted as transformations of Cartesian coordinates in the plane, the matrices </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x9-45007r98"></mstyle>
+<mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>0</mn></mtd></mtr></mtable>
+</mrow><mo fence="true" form="postfix">]</mo></mrow><mo class="MathClass-punc" stretchy="false">,</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd> <mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow><mo class="MathClass-punc" stretchy="false">,</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd> <mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow><mo class="MathClass-punc" stretchy="false">,</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mi>a</mi> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>1</mn></mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow>
+</math></td><td class="eq-no">(1.98)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">represent a reflection in the line <math display="inline"><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub></math>, a
+reflection in the <math display="inline"><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub></math>-axis, a reflection
+in the origin, and a stretch (when <math display="inline"><mi>a</mi> <mo class="MathClass-rel" stretchy="false">&gt;</mo> <mn>1</mn></math>,
+or a contraction when <math display="inline"><mn>0</mn> <mo class="MathClass-rel" stretchy="false">&lt;</mo> <mi>a</mi> <mo class="MathClass-rel" stretchy="false">&lt;</mo> <mn>1</mn></math>)
+in the <math display="inline"><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub></math>-direction,
+respectively. </p>
+<hr/>
+<p class="noindent"> 
+Our discussion preceding Example 5 is simpler than it may look at
+first sight. To see this, find A representing the linear transformation that maps
+<math display="inline"><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo></math> onto
+<math display="inline"><mo class="MathClass-open" stretchy="false">(</mo><mn>2</mn><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>5</mn><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><mn>3</mn><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>4</mn><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo></math>. <b>Solution.</b> Obviously,
+the transformation is <math display="inline"><msub><mrow><mi>y</mi></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>2</mn><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>5</mn><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub></math>
+<math display="inline"><msub><mrow><mi>y</mi></mrow><mrow><mn>2</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>3</mn><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>4</mn><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub></math> From
+this we can directly see that the matrix is </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x9-45008r99"></mstyle><mstyle mathvariant="bold"><mi>A</mi></mstyle>
+<mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>2</mn> </mtd><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>5</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>3</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>4</mn></mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow><mo class="MathClass-punc" stretchy="false">.</mo><mspace class="qquad" width="2em"></mspace><mstyle class="text"><mtext>Check:</mtext></mstyle><mspace class="qquad" width="2em"></mspace> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>y</mi></mrow><mrow><mn>1</mn></mrow></msub> </mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>y</mi></mrow><mrow><mn>2</mn></mrow></msub> </mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>2</mn> </mtd><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>5</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>3</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>4</mn></mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub> </mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub> </mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>2</mn><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>5</mn><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub> </mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>3</mn><msub><mrow><mi>x</mi></mrow><mrow>
+<mn>1</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>4</mn><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub> </mtd>
+</mtr>
+</mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow> <mo class="MathClass-punc" stretchy="false">.</mo>
+</math></td><td class="eq-no">(1.99)</td></tr></table>
+<p class="noindent"></p>
+</div> </div>
+<p class="noindent">If <math display="inline"><mstyle mathvariant="bold"><mi>a</mi></mstyle></math> in Eq. (<a href="#x9-45001r93">1.93</a>)
+is square, <math display="inline"><mi>n</mi> <mi>×</mi> <mi>n</mi></math>, then
+Eq. 
+(<a href="#x9-45001r93">1.93</a>) 
+maps <math display="inline"><msup><mrow><mi>R</mi></mrow><mrow><mi>n</mi></mrow></msup></math>
+into <math display="inline"><msup><mrow><mi>R</mi></mrow><mrow><mi>n</mi></mrow></msup></math>. If this
+<math display="inline"><mstyle mathvariant="bold"><mi>a</mi></mstyle></math> is nonsingular, so that
+<math display="inline"><msup><mrow><mi>A</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msup></math> exists (see Sec. 7.8), then
+multiplication of Eq. (<a href="#x9-45001r93">1.93</a>) by <math display="inline"><msup><mrow><mi>A</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msup></math>
+from the left and use of <math display="inline"><msup><mrow><mi>A</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msup><mi>A</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>I</mi></math>
+gives the inverse transformation </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x9-45009r100"></mstyle>
+<mstyle mathvariant="bold">
+<mi>x</mi></mstyle>
+<mo class="MathClass-rel" stretchy="false">=</mo><msup><mrow> <mstyle mathvariant="bold"><mi>A</mi></mstyle></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msup><mstyle mathvariant="bold"><mi>v</mi></mstyle><mo class="MathClass-punc" stretchy="false">.</mo>
+</math></td><td class="eq-no">(1.100)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">It maps every <math display="inline"><mstyle mathvariant="bold"><mi>y</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo><msub><mrow> <mstyle mathvariant="bold"><mi>y</mi></mstyle></mrow><mrow><mn>0</mn></mrow></msub></math> onto that x, which
+by Eq. (<a href="#x9-45001r93">1.93</a>) is mapped onto <math display="inline"><msub><mrow><mi>y</mi></mrow><mrow><mn>0</mn></mrow></msub></math>.
+The inverse of a linear transformation is itself linear, because it is given by a matrix, as Eq. (<a href="#x9-45009r100">1.100</a>)
+shows.
+</p>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-1.6.3"> <a class="pdf-icon" href="HigherMathematicsILectureBook.pdf#subsection.1.6.3"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">1.6.3</span> <span class="title"> <a id="x9-460001.6.3"></a>Composition of Linear Transformations</span></h4></div>
+</p><p class="noindent">We want to give you a flavor of how linear transformations in general vector spaces work. You will
+notice, if you read carefully, that definitions and verifications, as shown in <a class="block-ref" href="#x9-46002r30">Example 1.30</a>, strictly follow
+the given rules and you can think your way through the material by going in a slow systematic
+fashion.
+</p><p class="noindent">The last operation we want to discuss is composition of linear transformations. Let
+<math display="inline"><mi>X</mi></math>,
+<math display="inline"><mi>Y</mi> </math>,
+<math display="inline"><mi>W</mi></math> be general vector spaces.
+As before, let <math display="inline"><mi>F</mi></math> be a linear
+transformation from <math display="inline"><mi>X</mi></math>
+to <math display="inline"><mi>Y</mi> </math>. Let
+<math display="inline"><mi>G</mi></math> be a linear
+transformation from <math display="inline"><mi>W</mi></math>
+to <math display="inline"><mi>X</mi></math>. Then we
+denote, by <math display="inline"><mi>H</mi></math>, the
+<b>composition</b> of <math display="inline"><mi>F</mi></math>
+and <math display="inline"><mi>G</mi></math>,
+that is, </p><table class="equation-star"><tr><td>
+<math class="equation" display="block">
+<mi>H</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>F</mi> <mi>◦</mi> <mi>G</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>F</mi><mi>G</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>F</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>G</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-punc" stretchy="false">,</mo>
+</math></td></tr></table>
+<p class="noindent">which means we take transformation <math display="inline"><mi>G</mi></math>
+and then apply transformation <math display="inline"><mi>F</mi></math>
+to <span class="margin-block">it. <span class="margin-comment"><a class="ellipsis" href="#m-ref-36">[36]</a>
+<span class="sidenote">in that order, meaning, we go from left to right.</span></span></span> Now, to give this a more concrete meaning, if we
+let <math display="inline"><mstyle mathvariant="bold"><mi>w</mi></mstyle></math> be a
+vector in <math display="inline"><mi>W</mi></math>,
+then <math display="inline"><mi>G</mi><mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>w</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo></math> is
+a vector in <math display="inline"><mi>X</mi></math>
+and <math display="inline"><mi>F</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>G</mi><mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>w</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-close" stretchy="false">)</mo></math> is
+a vector in <math display="inline"><mi>Y</mi> </math>.
+Thus, <math display="inline"><mi>H</mi></math>
+maps <math display="inline"><mi>W</mi></math>
+to <math display="inline"><mi>Y</mi> </math>, and
+we can write </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x9-46001r101"></mstyle>
+<mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>w</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-open" stretchy="false">(</mo><mi>F</mi> <mi>◦</mi> <mi>G</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>w</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-open" stretchy="false">(</mo><mi>F</mi><mi>G</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>w</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>F</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>G</mi><mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>w</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-punc" stretchy="false">,</mo>
+</math></td><td class="eq-no">(1.101)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">which completes the definition of composition in a general vector space setting. </p><div class="quote">  But is composition
+really linear? </div>
+<p class="noindent">To check this we have to verify that H, as defined in Eq. (<a href="#x9-46001r101">1.101</a>), obeys the two equations of Eq.
+(<a href="#x9-44001r92">1.92</a>)
+.
+</p>
+<div class="block-major exer-block" id="exer-block-1.30"> <a class="copiable-link" href="#exer-block-1.30"> ¶</a> <span class="upper"> <span class="header"> <b>Example 1.<a id="x9-46002r30"></a>30: </b> </span> <span class="title"> The Composition of Linear Transformations Is Linear </span> </span> <div class="body">
+<p class="noindent">To show that <math display="inline"><mi>H</mi></math>
+is indeed linear we must show that Eq. (<a href="#x9-44001r92">1.92</a>) holds. We have, for two (<span class="alert">2</span>) vectors, namely
+<math display="inline"><msub><mrow><mstyle mathvariant="bold"><mi>w</mi></mstyle></mrow><mrow><mn>1</mn></mrow></msub></math>,
+<math display="inline"><msub><mrow><mstyle mathvariant="bold"><mi>w</mi></mstyle></mrow><mrow><mn>2</mn></mrow></msub></math> in
+<math display="inline"><mi>W</mi></math>:
+</p><table class="equation-star"><tr><td>
+<math class="equation" display="block">
+<mtable class="aligned" displaystyle="true"><mtr><mtd columnalign="right"><mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mstyle mathvariant="bold"><mi>w</mi></mstyle></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo><msub><mrow> <mstyle mathvariant="bold"><mi>w</mi></mstyle></mrow><mrow><mn>2</mn></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo></mtd>
+<mtd columnalign="left"><mo class="MathClass-open" stretchy="false">(</mo><mi>F</mi> <mi>◦</mi> <mi>G</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mstyle mathvariant="bold"><mi>w</mi></mstyle></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo><msub><mrow> <mstyle mathvariant="bold"><mi>w</mi></mstyle></mrow><mrow><mn>2</mn></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo></mtd>
+<mtd columnalign="right"></mtd>
+</mtr><mtr><mtd columnalign="right"> <mo class="MathClass-rel" stretchy="false">=</mo></mtd>
+<mtd columnalign="left"><mi>F</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>G</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mstyle mathvariant="bold"><mi>w</mi></mstyle></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo><msub><mrow> <mstyle mathvariant="bold"><mi>w</mi></mstyle></mrow><mrow><mn>2</mn></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-close" stretchy="false">)</mo></mtd>
+</mtr><mtr><mtd columnalign="right"> <mo class="MathClass-rel" stretchy="false">=</mo></mtd>
+<mtd columnalign="left"><mi>F</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>G</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mstyle mathvariant="bold"><mi>w</mi></mstyle></mrow><mrow><mn>1</mn></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>G</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mstyle mathvariant="bold"><mi>w</mi></mstyle></mrow><mrow><mn>2</mn></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-close" stretchy="false">)</mo><mspace class="qquad" width="2em"></mspace><mstyle class="text"><mtext>by linearity of G</mtext></mstyle></mtd>
+</mtr><mtr><mtd columnalign="right"> <mo class="MathClass-rel" stretchy="false">=</mo></mtd> <mtd columnalign="left"><mi>F</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>G</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mstyle mathvariant="bold"><mi>w</mi></mstyle></mrow><mrow><mn>1</mn></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>F</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>G</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mstyle mathvariant="bold"><mi>w</mi></mstyle></mrow><mrow><mn>2</mn></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-close" stretchy="false">)</mo><mspace class="qquad" width="2em"></mspace><mstyle class="text"><mtext>by linearity of F</mtext></mstyle></mtd>
+</mtr><mtr><mtd columnalign="right"> <mo class="MathClass-rel" stretchy="false">=</mo></mtd>
+<mtd columnalign="left"><mo class="MathClass-open" stretchy="false">(</mo><mi>F</mi> <mi>◦</mi> <mi>G</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mstyle mathvariant="bold"><mi>w</mi></mstyle></mrow><mrow><mn>1</mn></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-bin" stretchy="false">+</mo> <mo class="MathClass-open" stretchy="false">(</mo><mi>F</mi> <mi>◦</mi> <mi>G</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mstyle mathvariant="bold"><mi>w</mi></mstyle></mrow><mrow><mn>2</mn></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo><mspace class="qquad" width="2em"></mspace><mstyle class="text"><mtext>by Eq. (</mtext><mtext class="label" xlink:href="#x9-46001r101" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink">1.101</mtext><mtext class="endlabel">)</mtext></mstyle></mtd>
+</mtr><mtr><mtd columnalign="right"> <mo class="MathClass-rel" stretchy="false">=</mo></mtd>
+<mtd columnalign="left"><mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mstyle mathvariant="bold"><mi>w</mi></mstyle></mrow><mrow><mn>1</mn></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mstyle mathvariant="bold"><mi>w</mi></mstyle></mrow><mrow><mn>2</mn></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo><mspace class="qquad" width="2em"></mspace><mstyle class="text"><mtext>by definition of </mtext><mstyle class="math"><mi>H</mi></mstyle><mtext></mtext></mstyle></mtd>
+</mtr> </mtable>
+</math></td></tr></table>
+<p class="noindent">Similarly, <math display="inline"><mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>c</mi><msub><mrow><mstyle mathvariant="bold"><mi>w</mi></mstyle></mrow><mrow><mn>2</mn></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-open" stretchy="false">(</mo><mi>F</mi> <mi>◦</mi> <mi>G</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-open" stretchy="false">(</mo><mi>c</mi><msub><mrow><mstyle mathvariant="bold"><mi>w</mi></mstyle></mrow><mrow><mn>2</mn></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>F</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>G</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>c</mi><msub><mrow><mstyle mathvariant="bold"><mi>w</mi></mstyle></mrow><mrow><mn>2</mn></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>F</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>c</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>G</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mstyle mathvariant="bold"><mi>w</mi></mstyle></mrow><mrow><mn>2</mn></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-close" stretchy="false">)</mo></math>
+</p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x9-46003r102"></mstyle>
+<mo class="MathClass-rel" stretchy="false">=</mo> <mi>c</mi><mi>F</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>G</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mstyle mathvariant="bold"><mi>w</mi></mstyle></mrow><mrow><mn>2</mn></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>c</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>F</mi> <mi>◦</mi> <mi>G</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mstyle mathvariant="bold"><mi>w</mi></mstyle></mrow><mrow><mn>2</mn></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>c</mi><mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mstyle mathvariant="bold"><mi>w</mi></mstyle></mrow><mrow><mn>2</mn></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-punc" stretchy="false">.</mo>
+</math></td><td class="eq-no">(1.102)</td></tr></table>
+<p class="noindent"></p>
+</div> </div>
+<p class="noindent">We defined composition as a linear transformation in a general vector space setting and showed that
+the composition of linear transformations is indeed linear.
+</p><p class="noindent">Next we want to relate composition of linear transformations to matrix multiplication.
+</p><p class="noindent">To do so we let <math display="inline"><mi>X</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <msup><mrow><mi>ℝ</mi></mrow><mrow><mi>n</mi></mrow></msup></math>,
+<math display="inline"><mi>Y</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <msup><mrow><mi>ℝ</mi></mrow><mrow><mi>m</mi></mrow></msup></math>, and
+<math display="inline"><mi>W</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <msup><mrow><mi>ℝ</mi></mrow><mrow><mi>p</mi></mrow></msup></math>.
+This choice of particular vector spaces allows us to represent the linear transformations
+as matrices and form matrix equations, as was done in Eq. (<a href="#x9-45001r93">1.93</a>). Thus
+<math display="inline"><mi>F</mi></math> can be represented
+by a general real <math display="inline"><mi>m</mi> <mi>×</mi> <mi>n</mi></math>
+matrix <math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-open" stretchy="false">[</mo><msub><mrow><mi>a</mi></mrow><mrow><mi>i</mi><mi>k</mi></mrow></msub><mo class="MathClass-close" stretchy="false">]</mo></math> and
+<math display="inline"><mi>G</mi></math> by an
+<math display="inline"><mi>n</mi> <mi>×</mi> <mi>p</mi></math> matrix
+<math display="inline"><mstyle mathvariant="bold"><mi>B</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-open" stretchy="false">[</mo><msub><mrow><mi>b</mi></mrow><mrow><mi>i</mi><mi>k</mi></mrow></msub><mo class="MathClass-close" stretchy="false">]</mo></math>. Then we can write for
+F, with column vectors <math display="inline"><mstyle mathvariant="bold"><mi>x</mi></mstyle></math>
+with <math display="inline"><mi>n</mi></math> entries, and
+resulting vector <math display="inline"><mstyle mathvariant="bold"><mi>y</mi></mstyle></math>,
+with <math display="inline"><mi>m</mi></math>
+entries </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x9-46004r103"></mstyle>
+<mstyle mathvariant="bold">
+<mi>y</mi></mstyle>
+<mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="bold"><mi>A</mi></mstyle><mstyle mathvariant="bold"><mi>x</mi></mstyle>
+</math></td><td class="eq-no">(1.103)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">and similarly for <math display="inline"><mi>G</mi></math>,
+with column vector <math display="inline"><mstyle mathvariant="bold"><mi>w</mi></mstyle></math>
+with <math display="inline"><mi>p</mi></math>
+entries, </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x9-46005r104"></mstyle>
+<mstyle mathvariant="bold">
+<mi>x</mi></mstyle>
+<mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="bold"><mi>B</mi></mstyle><mstyle mathvariant="bold"><mi>w</mi></mstyle>
+</math></td><td class="eq-no">(1.104)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">Substituting Eq. (??) into Eq. (<a href="#x9-46005r104">1.104</a>) gives: </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x9-46006r105"></mstyle>
+<mstyle mathvariant="bold">
+<mi>v</mi></mstyle>
+<mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="bold"><mi>A</mi></mstyle><mstyle mathvariant="bold"><mi>x</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="bold"><mi>A</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>B</mi></mstyle><mstyle mathvariant="bold"><mi>w</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>A</mi></mstyle><mstyle mathvariant="bold"><mi>B</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo><mstyle mathvariant="bold"><mi>w</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="bold"><mi>A</mi></mstyle><mstyle mathvariant="bold"><mi>B</mi></mstyle><mstyle mathvariant="bold"><mi>w</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="bold"><mi>C</mi></mstyle><mstyle mathvariant="bold"><mi>w</mi></mstyle><mspace class="qquad" width="2em"></mspace><mstyle class="text"><mtext>where </mtext><mstyle class="math"><mi>C</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>A</mi><mi>B</mi></mstyle><mtext>.</mtext></mstyle>
+</math></td><td class="eq-no">(1.105)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">This is Eq. (<a href="#x9-46001r101">1.101</a>) in a matrix setting, this is, we can define the composition of linear
+transformations in the Euclidean spaces as multiplication by matrices. Hence, the real
+<math display="inline"><mi>m</mi> <mi>×</mi> <mi>p</mi></math> matrix
+<math display="inline"><mstyle mathvariant="bold"><mi>C</mi></mstyle></math> represents a linear
+transformation H which maps <math display="inline"><msup><mrow><mi>R</mi></mrow><mrow><mi>p</mi></mrow></msup></math>
+to <math display="inline"><msup><mrow><mi>R</mi></mrow><mrow><mi>n</mi></mrow></msup></math> with
+vector w, a column vector with p entries.
+</p><p class="noindent">Our discussion is similar to the one in Sec. 7.2, where we motivated the "unnatural" matrix multiplication
+of matrices. Look back and see that our current, more general, discussion is written out there for the case of
+dimension <math display="inline"><mi>m</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>2</mn></math>,
+<math display="inline"><mi>n</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>2</mn></math>, and
+<math display="inline"><mi>p</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>2</mn></math>.
+(You may want to write out our development by picking small distinct dimensions, such as
+<math display="inline"><mi>m</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>2</mn></math>,
+<math display="inline"><mi>n</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>3</mn></math>, and
+<math display="inline"><mi>p</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>4</mn></math>, and
+writing down the matrices and vectors. This is a trick of the trade of mathematicians in that we like to
+develop and test theories on smaller examples to see that they work.)
+</p>
+<div class="block-major exer-block" id="exer-block-1.31"> <a class="copiable-link" href="#exer-block-1.31"> ¶</a> <span class="upper"> <span class="header"> <b>Example 1.<a id="x9-46007r31"></a>31: </b> </span> <span class="title"> Linear Transformations. Composition </span> </span> <div class="body">
+<p class="noindent">In Example 5 of Sec. 7.9, let <math display="inline"><mstyle mathvariant="bold"><mi>a</mi></mstyle></math>
+be the first matrix and <b>B</b> be the fourth matrix with
+<math display="inline"><mi>a</mi> <mo class="MathClass-rel" stretchy="false">&gt;</mo> <mn>1</mn></math>. Then, applying
+<b>B</b> to a vector <math display="inline"><mstyle mathvariant="bold"><mi>w</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <msup><mrow><mo class="MathClass-open" stretchy="false">[</mo><msub><mrow><mi>w</mi></mrow><mrow><mn>1</mn></mrow></msub><mspace class="thinspace" width="0.17em"></mspace><msub><mrow><mi>w</mi></mrow><mrow><mn>2</mn></mrow></msub><mo class="MathClass-close" stretchy="false">]</mo></mrow><mrow><mi>T</mi></mrow></msup></math>,
+stretches the element <math display="inline"><msub><mrow><mi>w</mi></mrow><mrow><mn>1</mn></mrow></msub></math>
+by <math display="inline"><mi>a</mi></math> in the
+<math display="inline"><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub></math> direction. Next,
+when we apply <math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math>
+to the "stretched" vector, we reflect the vector along the line
+<math display="inline"><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub></math>, resulting
+in a vector <math display="inline"><mstyle mathvariant="bold"><mi>y</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo><msup><mrow> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>w</mi></mrow><mrow><mn>2</mn></mrow></msub> </mtd><mtd class="array-td" columnalign="center"> <mi>a</mi><msub><mrow><mi>w</mi></mrow><mrow><mn>1</mn></mrow></msub> </mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow> </mrow><mrow><mi>T</mi></mrow></msup></math>.
+But this represents, precisely, a geometric description for the composition
+<math display="inline"><mi>H</mi></math> of two linear
+transformations <math display="inline"><mi>F</mi></math>
+and <math display="inline"><mi>G</mi></math>
+represented by matrices A and B. We now show that, for this example, our result can be obtained by
+straightforward matrix multiplication, that is, which is the same as before. This shows that indeed
+<math display="inline"><mi>A</mi><mi>B</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>C</mi></math>, and
+we see the composition of linear transformations can be represented by a linear transformation. It also
+shows that the order of matrix multiplication is important (!). You may want to try applying A first
+and then B, resulting in BA. What do you see? Does it make geometric sense? Is it the same result as
+AB?
+</p>
+</div> </div>
+<p class="noindent">We have learned several abstract concepts such as vector space, inner product space, and
+linear transformation. The introduction of such concepts allows engineers and scientists to
+communicate in a concise and common language. For example, the concept of a vector space
+encapsulated a lot of ideas in a very concise manner. For the student, learning such concepts
+provides a foundation for more advanced studies in engineering. This concludes Chapter 7.
+The central theme was the Gaussian elimination of Sec. 7.3 from which most of the other
+concepts and theory flowed. The next chapter again has a central theme, that is, eigenvalue
+problems, an area very rich in applications such as in engineering, modern physics, and other
+areas.
+<div class="section-header">
+<h3 id="header-section-references">
+<span class="number">
+<i class="fa-regular fa-note-sticky"></i>
+</span>
+<span class="title">
+<a id="page-glossary"></a>
+                    Page Footnotes</span>
+</h3>
+</div>
+<div class="footnote-block">
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-28"><span class="acr-short">[28].</span></dt>
+<dd class="enumerate-enumitem"><span class="">which were similar to those for numbers.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-29"><span class="acr-short">[29].</span></dt>
+<dd class="enumerate-enumitem"><span class="">These vectors have
+wide applications in mechanics, geometry, and calculus and are basic to the engineer and
+physicist.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-30"><span class="acr-short">[30].</span></dt>
+<dd class="enumerate-enumitem"><span class="">Sometimes called real linear space.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-31"><span class="acr-short">[31].</span></dt>
+<dd class="enumerate-enumitem"><span class="">Regardless of their nature, which will come out from the context or will be left arbitrary.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-32"><span class="acr-short">[32].</span></dt>
+<dd class="enumerate-enumitem"><span class="">called vector addition and scalar multiplication.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-33"><span class="acr-short">[33].</span></dt>
+<dd class="enumerate-enumitem"><span class="">Selecting good axioms is a process of trial and error which often extends over a long period of time. But
+once agreed upon, axioms become standard such as the ones in the definition of a real vector
+space.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-35"><span class="acr-short">[35].</span></dt>
+<dd class="enumerate-enumitem"><span class="">or <b>transformation</b> or <b>operator</b></span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-36"><span class="acr-short">[36].</span></dt>
+<dd class="enumerate-enumitem"><span class="">in that order, meaning, we go from left to right.</span></dd>
+</dl></div><nav class="crosslinks-bottom"><div class="navigation"><span class="nav-button"><a href="LinearAlgebraIIEigenvalueProblems.html"><i class="fa-solid fa-caret-right"></i></a></span><span class="nav-button"><a href="InverseofaMatrixusingGaussJordanElimination.html"><i class="fa-solid fa-caret-left"></i></a></span><span class="nav-button"><a href="LinearAlgebraIFundamentals.html#VectorandInnerProductSpacesLinearTransformations.html"><i class="fa-solid fa-caret-up"></i></a></span><span class="nav-button">
+<a href="index.html" rel="index" title="Index">
+<i class="fa-solid fa-table-list">
+</i>
+</a></span><span class="nav-button">
+<a href="Index.html" rel="index" title="Index">
+<i class="fa-brands fa-git-alt"></i>
+</a></span></div></nav> </p><div class="footer"> <div class="footer-left"><span class="footer-lecture">D. T. McGuiness, PhD</span>
+<span class="footer-webBook"><b>Last Updated:</b> 20.10.2026, at 10:2.</span></div></div><div class="author-notes">
+<span class="note">Authors Note </span>
+<span class="text">The website you are viewing is auto-generated using lms-WebBook and therefore subject to slight errors in typography and formatting. When in doubt, please consult the LectureBook. </span>
+</div>
+</article>
+<div class="mode-line">
+<div class="core-line"><div class="core-line-image"><img class="webbook-logo" src="logo/webbook-logo.svg"/></div>
+<div class="current-header">
+<span class="header-pretext">Viewing | </span>
+<span class="header-text">Section 1.6: Vector, and Inner Product Spaces, Linear Transformations</span>
+</div>
+<div class="button-group">
+</div>
+</div>
+<div class="supp-line"></div>
+</div>
+</page>
+</body>
+</html>

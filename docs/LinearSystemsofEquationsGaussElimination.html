@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><title>Linear Systems of Equations Gauss Elimination</title>
+<meta charset="utf-8"/>
+<meta content="lms-WebBook" name="generator"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js" type="text/javascript"></script>
+<link href="logo/lms.ico" rel="icon" type="image/x-icon"/>
+<link href="./pagefind/pagefind-component-ui.css" rel="stylesheet"/>
+<script src="./pagefind/pagefind-component-ui.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link href="https://cdn.jsdelivr.net/gh/sugina-dev/latin-modern-web@1.0.1/style/latinmodern-mono.css" rel="stylesheet"/>
+<link href="flatweb.css" rel="stylesheet" type="text/css"/>
+<script src="flatweb.js" type="text/javascript"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/base16/solarized-light.min.css" rel="stylesheet"/>
+<script src="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.js"></script>
+<link href="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/cpp.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/latex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/matlab.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/dockerfile.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/cmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/makefile.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/markdown.min.js"></script>
+ </head><body>
+<page>
+<nav class="wide"> <div class="header"><div class="header-left"><span class="header-lecture-grade">M.Sc</span>
+<span class="header-lecture-name">Higher Mathematics I</span>
+<span class="header-webBook">WebBook 2.1</span></div><div class="header-right"><span class="header-version">2026.WS</span>
+<span class="header-chapter">Linear Algebra I - Fundamentals</span></div></div><div class="toc"><pagefind-modal-trigger></pagefind-modal-trigger><pagefind-modal></pagefind-modal><div class="toc-links"><a href="https://github.com/dTmC0945" title="Lecturer GitHub Repo"><i class="fab fa-github" style="font-size:20px"></i></a><a href="https://scholar.google.com/citations?view_op=list_works\&amp;hl=en\&amp;user=lxQGADMAAAAJ" title="Lecturer Google Scholar Page"><i class="fa-brands fa-google-scholar" style="font-size:20px"></i></a><a href="https://www.researchgate.net/profile/Daniel-Mcguiness-2" title="Lecturer ResearchGate Account"><i class="fa-brands fa-researchgate" style="font-size:20px"></i></a><a href="https://dtmc0945.github.io/Th-MCI-Thesis-Topics/" title="Lecturer Thesis Ideas for B.Sc and M.Sc"><i class="fa-solid fa-book" style="font-size:20px"></i></a><a href="https://github.com/dTmC0945/C-MCI-LaTeX-Class-mcidoc/tree/main" title="mcidoc LaTeX Standard"><i class="fa-regular fa-file-lines" style="font-size:20px"></i></a></div><hr/><span class="chapterToc"><span class="number"></span><span class="title"><a href="index.html#x2-10000">Entry Point</a></span></span><span class="chapterToc"><span class="number">1</span><span class="title"><a href="LinearAlgebraIFundamentals.html#x3-20001">Linear Algebra I - Fundamentals</a></span></span><span class="sectionToc"><span class="number">1.1</span><span class="title"><a href="MatricesVectorsAdditionandScalarMultiplication.html#x4-30001.1">Matrices, Vectors: Addition and Scalar
+Multiplication</a></span></span><span class="subsectionToc"><span class="number">1.1.1</span><span class="title"><a href="MatricesVectorsAdditionandScalarMultiplication.html#x4-40001.1.1">General Concepts and Notations</a></span></span><span class="subsectionToc"><span class="number">1.1.2</span><span class="title"><a href="MatricesVectorsAdditionandScalarMultiplication.html#x4-50001.1.2">Vectors</a></span></span><span class="subsectionToc"><span class="number">1.1.3</span><span class="title"><a href="MatricesVectorsAdditionandScalarMultiplication.html#x4-60001.1.3">Addition and
+Scalar Multiplication of Matrices and Vectors</a></span></span><span class="subsectionToc"><span class="number">1.1.4</span><span class="title"><a href="MatricesVectorsAdditionandScalarMultiplication.html#x4-80001.1.4">Matrix Multiplication</a></span></span><span class="subsectionToc"><span class="number">1.1.5</span><span class="title"><a href="MatricesVectorsAdditionandScalarMultiplication.html#x4-90001.1.5">The use
+of Linear Transformations in Multiplication of Matrices</a></span></span><span class="sectionToc"><span class="number">1.2</span><span class="title"><a href="#x5-150001.2">Linear Systems of Equations
+Gauss Elimination</a></span></span><span class="subsectionToc"><span class="number">1.2.1</span><span class="title"><a href="#x5-160001.2.1">Linear System, Coefficient Matrix, Augmented Matrix</a></span></span><span class="subsectionToc"><span class="number">1.2.2</span><span class="title"><a href="#x5-180001.2.2">Gauss
+Elimination and Back Substitution</a></span></span><span class="subsectionToc"><span class="number">1.2.3</span><span class="title"><a href="#x5-190001.2.3">Elementary Row Operations. Row-Equivalent
+Systems</a></span></span><span class="sectionToc"><span class="number">1.3</span><span class="title"><a href="LinearIndependenceandRankofaMatrixVectorSpace.html#x6-220001.3">Linear Independence and Rank of a Matrix Vector Space</a></span></span><span class="subsectionToc"><span class="number">1.3.1</span><span class="title"><a href="LinearIndependenceandRankofaMatrixVectorSpace.html#x6-230001.3.1">Linear
+Independence and Dependence of Vectors</a></span></span><span class="subsectionToc"><span class="number">1.3.2</span><span class="title"><a href="LinearIndependenceandRankofaMatrixVectorSpace.html#x6-240001.3.2">Rank of a Matrix</a></span></span><span class="subsectionToc"><span class="number">1.3.3</span><span class="title"><a href="LinearIndependenceandRankofaMatrixVectorSpace.html#x6-250001.3.3">Vector
+Space</a></span></span><span class="subsectionToc"><span class="number">1.3.4</span><span class="title"><a href="LinearIndependenceandRankofaMatrixVectorSpace.html#x6-260001.3.4">Solutions of Linear Systems: Existence, Uniqueness</a></span></span><span class="sectionToc"><span class="number">1.4</span><span class="title"><a href="DeterminantsandCramersRule.html#x7-290001.4">Determinants
+and Cramer’s Rule</a></span></span><span class="subsectionToc"><span class="number">1.4.1</span><span class="title"><a href="DeterminantsandCramersRule.html#x7-300001.4.1">A Quick Refreshment on Determinants</a></span></span><span class="subsectionToc"><span class="number">1.4.2</span><span class="title"><a href="DeterminantsandCramersRule.html#x7-320001.4.2">Third-Order
+Determinants</a></span></span><span class="subsectionToc"><span class="number">1.4.3</span><span class="title"><a href="DeterminantsandCramersRule.html#x7-340001.4.3">General Properties of Determinants</a></span></span><span class="subsectionToc"><span class="number">1.4.4</span><span class="title"><a href="DeterminantsandCramersRule.html#x7-350001.4.4">Cramer’s Rule</a></span></span><span class="sectionToc"><span class="number">1.5</span><span class="title"><a href="InverseofaMatrixusingGaussJordanElimination.html#x8-360001.5">Inverse
+of a Matrix using Gauss-Jordan Elimination</a></span></span><span class="subsectionToc"><span class="number">1.5.1</span><span class="title"><a href="InverseofaMatrixusingGaussJordanElimination.html#x8-370001.5.1">Determination of the Inverse by the
+Gauss-Jordan Method</a></span></span><span class="subsectionToc"><span class="number">1.5.2</span><span class="title"><a href="InverseofaMatrixusingGaussJordanElimination.html#x8-390001.5.2">Formulas for Inverses</a></span></span><span class="subsectionToc"><span class="number">1.5.3</span><span class="title"><a href="InverseofaMatrixusingGaussJordanElimination.html#x8-400001.5.3">Unusual Properties of Matrix
+Multiplication. Cancellation Laws</a></span></span><span class="subsectionToc"><span class="number">1.5.4</span><span class="title"><a href="InverseofaMatrixusingGaussJordanElimination.html#x8-410001.5.4">Determinants of Matrix Products</a></span></span><span class="sectionToc"><span class="number">1.6</span><span class="title"><a href="VectorandInnerProductSpacesLinearTransformations.html#x9-420001.6">Vector, and
+Inner Product Spaces, Linear Transformations</a></span></span><span class="subsectionToc"><span class="number">1.6.1</span><span class="title"><a href="VectorandInnerProductSpacesLinearTransformations.html#x9-430001.6.1">Inner Product Spaces</a></span></span><span class="subsectionToc"><span class="number">1.6.2</span><span class="title"><a href="VectorandInnerProductSpacesLinearTransformations.html#x9-440001.6.2">Linear
+Transformations</a></span></span><span class="subsectionToc"><span class="number">1.6.3</span><span class="title"><a href="VectorandInnerProductSpacesLinearTransformations.html#x9-460001.6.3">Composition of Linear Transformations</a></span></span><span class="chapterToc"><span class="number">2</span><span class="title"><a href="LinearAlgebraIIEigenvalueProblems.html#x10-470002">Linear Algebra II - Eigenvalue
+Problems</a></span></span><span class="sectionToc"><span class="number">2.1</span><span class="title"><a href="DeterminingEigenvaluesandEigenvectors.html#x11-500002.1">Determining Eigenvalues and Eigenvectors</a></span></span><span class="subsectionToc"><span class="number">2.1.1</span><span class="title"><a href="DeterminingEigenvaluesandEigenvectors.html#x11-510002.1.1">How to Find Eigenvalues and
+Eigenvectors</a></span></span><span class="subsectionToc"><span class="number">2.1.2</span><span class="title"><a href="DeterminingEigenvaluesandEigenvectors.html#x11-520002.1.2">Applications of Eigenvalue Problems</a></span></span><span class="sectionToc"><span class="number">2.2</span><span class="title"><a href="SymmetricSkewSymmetricandOrthogonalMatrices.html#x12-530002.2">Symmetric, Skew-Symmetric,
+and Orthogonal Matrices</a></span></span><span class="subsectionToc"><span class="number">2.2.1</span><span class="title"><a href="SymmetricSkewSymmetricandOrthogonalMatrices.html#x12-540002.2.1">Orthogonal Transformations and Orthogonal
+Matrices</a></span></span><span class="sectionToc"><span class="number">2.3</span><span class="title"><a href="EigenbasesDiagonalizationQuadraticForms.html#x13-550002.3">Eigenbases. Diagonalization. Quadratic Forms</a></span></span><span class="subsectionToc"><span class="number">2.3.1</span><span class="title"><a href="EigenbasesDiagonalizationQuadraticForms.html#x13-560002.3.1">Similarity of Matrices and
+Diagonalization</a></span></span><span class="subsectionToc"><span class="number">2.3.2</span><span class="title"><a href="EigenbasesDiagonalizationQuadraticForms.html#x13-570002.3.2">Quadratic Forms and Transformation to Principal Axes</a></span></span><span class="sectionToc"><span class="number">2.4</span><span class="title"><a href="ComplexMatricesandForms.html#x14-580002.4">Complex
+Matrices and Forms</a></span></span><span class="subsectionToc"><span class="number">2.4.1</span><span class="title"><a href="ComplexMatricesandForms.html#x14-590002.4.1">Eigenvalues</a></span></span><span class="subsectionToc"><span class="number">2.4.2</span><span class="title"><a href="ComplexMatricesandForms.html#x14-600002.4.2">Hermitian and Skew-Hermitian Forms</a></span></span>
+<div class="nav-footer"><div class="nav-footer-left"><span class="nav-footer-lecture">D. T. McGuiness, PhD</span>
+<span class="nav-footer-webBook"><b>Last Updated:</b> 20.10.2026, at 10:2.</span></div></div><p class="nav-comments">The website you are viewing is auto-generated using lms-WebBook and therefore subject to slight errors in typography and formatting. When in doubt, please consult the LectureBook. </p></div></nav>
+<article class="chapter">
+<nav class="crosslinks-top"> <span class="nav-button"><i class="fa-solid fa-caret-right"></i><a class="nav-link" href="LinearIndependenceandRankofaMatrixVectorSpace.html">Linear Independence and Rank of a Matrix Vector Space</a></span><span class="nav-button"><i class="fa-solid fa-caret-left"></i><a class="nav-link" href="MatricesVectorsAdditionandScalarMultiplication.html">Matrices, Vectors: Addition and Scalar Multiplication</a></span><span class="nav-button"><i class="fa-solid fa-caret-up"></i><a class="nav-link" href="LinearAlgebraIFundamentals.html#LinearSystemsofEquationsGaussElimination.html">Chapter: Linear Algebra I -
+Fundamentals</a></span><span class="nav-button">
+<a href="index.html" rel="index" title="Visit Entry Point">
+<i class="fa-solid fa-table-list">
+</i>
+<span class="nav-info">Visit Index Page</span>
+</a></span><span class="nav-button">
+<a href="Index.html" rel="index" title="Visit Material GitHub Repo">
+<i class="fa-brands fa-git-alt"></i>
+<span class="nav-info">Visit Material GitHub Repo</span>
+</a></span></nav>
+<div class="section-header"> <h3 id="header-section-1.2"> <a class="pdf-icon" href="HigherMathematicsILectureBook.pdf#section.1.2"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a> <span class="number">1.2</span> <span class="title"> <a id="x5-150001.2"></a>Linear Systems of
+Equations Gauss Elimination</span></h3></div>
+<p class="noindent">We now come to one of the most important use of matrices, that is, using matrices for <span class="alert">solving systems of linear equations</span>. We
+showed informally, in <a class="block-ref" href="MatricesVectorsAdditionandScalarMultiplication.html#x4-3004r1">Example 1.1</a> of <span class="refsection-ref"><a href="MatricesVectorsAdditionandScalarMultiplication.html#x4-30001.1">Matrices, Vectors: Addition and Scalar Multiplication</a></span>,
+how to represent the information contained in a system of linear equations by a matrix,
+called the <b>augmented matrix</b>. This matrix will then be used in solving the linear system
+of equations. Our approach to solving linear systems is called the <b>Gauss elimination
+method</b>.
+</p>
+<div class="block-minor warning"><div class="body">
+<p class="noindent">This method is fundamental to linear algebra, and therefore should be understood thoroughly.
+</p></div></div>
+<div class="block-minor knowledge"><div class="body">
+<p class="noindent">A shorter term for systems of linear equations is just linear systems. Linear systems model
+many applications in engineering, economics, statistics, and many other areas. Electrical
+networks, traffic flow, and commodity markets may serve as specific examples of applications.
+</p></div></div>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-1.2.1"> <a class="pdf-icon" href="HigherMathematicsILectureBook.pdf#subsection.1.2.1"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">1.2.1</span> <span class="title"> <a id="x5-160001.2.1"></a>Linear System, Coefficient Matrix, Augmented Matrix</span></h4></div>
+</p><p class="noindent">A linear system of <math display="inline"><mi>m</mi></math>
+equations in n unknowns <math display="inline"><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><mi>…</mi><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>x</mi></mrow><mrow><mi>n</mi></mrow></msub></math>
+is a set of equations of the form: </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x5-16001r36"></mstyle><mtable class="aligned" displaystyle="true"><mtr><mtd columnalign="right"><msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>1</mn></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <mo class="MathClass-rel" stretchy="false">⋯</mo> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mi>n</mi></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mi>n</mi></mrow></msub></mtd>
+<mtd columnalign="left"> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>b</mi></mrow><mrow><mn>1</mn></mrow></msub></mtd>
+<mtd columnalign="right"></mtd>
+</mtr><mtr><mtd columnalign="right"><msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mn>1</mn></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <mo class="MathClass-rel" stretchy="false">⋯</mo> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mi>n</mi></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mi>n</mi></mrow></msub></mtd>
+<mtd columnalign="left"> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>b</mi></mrow><mrow><mn>2</mn></mrow></msub></mtd>
+</mtr><mtr><mtd columnalign="right"><mo class="MathClass-rel" stretchy="false">⋯</mo></mtd> <mtd columnalign="left"><mi>⋮</mi></mtd>
+</mtr><mtr><mtd columnalign="right"><msub><mrow><mi>a</mi></mrow><mrow><mi>m</mi><mn>1</mn></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <mo class="MathClass-rel" stretchy="false">⋯</mo> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>a</mi></mrow><mrow><mi>m</mi><mi>n</mi></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mi>n</mi></mrow></msub></mtd>
+<mtd columnalign="left"> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>b</mi></mrow><mrow><mi>m</mi></mrow></msub><mo class="MathClass-punc" stretchy="false">.</mo></mtd>
+</mtr> </mtable>
+</math></td><td class="eq-no">(1.36)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">The system is called <b>linear</b> given each variable
+<math display="inline"><msub><mrow><mi>x</mi></mrow><mrow><mi>j</mi></mrow></msub></math>
+appears in the first power only, just as in the equation of a straight line.
+<math display="inline"><msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>1</mn></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><mi>…</mi><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>a</mi></mrow><mrow><mi>m</mi><mi>n</mi></mrow></msub></math>
+are given numbers, called the <b>coefficients</b> of the system.
+<math display="inline"><msub><mrow><mi>b</mi></mrow><mrow><mn>1</mn></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><mi>…</mi><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>b</mi></mrow><mrow><mi>m</mi></mrow></msub></math> on the right are also
+given numbers. If all the <math display="inline"><msub><mrow><mi>b</mi></mrow><mrow><mi>j</mi></mrow></msub></math>
+are zero, then Eq. (<a href="#x5-16001r36">1.36</a>) is called a <b>homogeneous system</b>. If at least one
+<math display="inline"><msub><mrow><mi>b</mi></mrow><mrow><mi>j</mi></mrow></msub></math> is not
+zero, then Eq. (<a href="#x5-16001r36">1.36</a>) is called a <b>nonhomogeneous</b> system.
+</p><p class="noindent">A <b>solution</b> of Eq. (<a href="#x5-16001r36">1.36</a>) is a set of numbers <math display="inline"><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><mi>…</mi><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>x</mi></mrow><mrow><mi>n</mi></mrow></msub></math>
+that satisfies all the <math display="inline"><mi>m</mi></math>
+equations. A solution vector of Eq. (<a href="#x5-16001r36">1.36</a>) is a vector
+<math display="inline"><mi>x</mi></math> whose
+components form a solution of Eq. (<a href="#x5-16001r36">1.36</a>). If the system Eq. (<a href="#x5-16001r36">1.36</a>) is homogeneous, it always has at least the
+<b>trivial solution</b> <math display="inline"><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn><mo class="MathClass-punc" stretchy="false">,</mo><mi>…</mi><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>x</mi></mrow><mrow><mi>n</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></math>.
+</p>
+<p class="noindent"><h5 class="subsubsectionHead" id="header-subsubsection-3"> <a id="x5-17000"></a>Matrix Form of Linear Systems</h5>
+</p><p class="noindent">From the definition of matrix multiplication we see that the
+<math display="inline"><mi>m</mi></math>
+equations of Eq. (<a href="#x5-16001r36">1.36</a>) may be written as a single vector equation: </p><div class="highlight-eq-block"><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x5-17001r37"></mstyle>
+<mstyle mathvariant="bold">
+<mi>A</mi></mstyle>
+<mstyle mathvariant="bold">
+<mi>x</mi></mstyle>
+<mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="bold"><mi>b</mi></mstyle>
+</math></td><td class="eq-no">(1.37)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent"></p></div>
+<p class="noindent">where the <b>coefficient matrix A</b> = <math display="inline"><mo class="MathClass-open" stretchy="false">[</mo><msub><mrow><mi>a</mi></mrow><mrow><mi>i</mi><mi>k</mi></mrow></msub><mo class="MathClass-close" stretchy="false">]</mo></math>
+is the <math display="inline"><mi>m</mi> <mi>×</mi> <mi>n</mi></math>
+matrix </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x5-17002r38"></mstyle><mstyle mathvariant="bold"><mi>A</mi></mstyle>
+<mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>1</mn></mrow></msub> </mtd>
+<mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>2</mn></mrow></msub> </mtd>
+<mtd class="array-td" columnalign="center"> <mo class="MathClass-rel" stretchy="false">⋯</mo> </mtd>
+<mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mi>n</mi></mrow></msub> </mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mn>1</mn></mrow></msub> </mtd><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mn>2</mn></mrow></msub> </mtd><mtd class="array-td" columnalign="center"> <mo class="MathClass-rel" stretchy="false">⋯</mo> </mtd><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mi>n</mi></mrow></msub> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mi>⋮</mi> </mtd> <mtd class="array-td" columnalign="center"> <mi>⋮</mi> </mtd> <mtd class="array-td" columnalign="center"> <mo class="MathClass-rel" stretchy="false">⋱</mo> </mtd> <mtd class="array-td" columnalign="center"> <mi>⋮</mi></mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow>
+<mi>m</mi><mn>1</mn></mrow></msub> </mtd>
+<mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mi>m</mi><mn>2</mn></mrow></msub> </mtd>
+<mtd class="array-td" columnalign="center"> <mo class="MathClass-rel" stretchy="false">⋯</mo> </mtd><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow>
+<mi>m</mi><mi>n</mi></mrow></msub> </mtd>
+</mtr>
+</mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow> <mo class="MathClass-punc" stretchy="false">,</mo><mspace class="qquad" width="2em"></mspace><mstyle class="text"><mtext>and</mtext></mstyle><mspace class="qquad" width="2em"></mspace><mstyle mathvariant="bold"><mi>x</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub> </mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mi>⋮</mi> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>x</mi></mrow><mrow>
+<mi>n</mi></mrow></msub> </mtd>
+</mtr>
+</mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow> <mspace class="qquad" width="2em"></mspace><mstyle class="text"><mtext>and</mtext></mstyle><mspace class="qquad" width="2em"></mspace><mstyle mathvariant="bold"><mi>b</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>b</mi></mrow><mrow><mn>1</mn></mrow></msub> </mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mi>⋮</mi> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>b</mi></mrow><mrow>
+<mi>m</mi></mrow></msub> </mtd>
+</mtr>
+</mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow>
+</math></td><td class="eq-no">(1.38)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">are column vectors. We assume that the coefficients
+<math display="inline"><msub><mrow><mi>a</mi></mrow><mrow><mi>i</mi><mi>k</mi></mrow></msub></math> are not all zero, so
+that <math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math> is not a zero
+matrix. Note that <math display="inline"><mstyle mathvariant="bold"><mi>x</mi></mstyle></math>
+has <math display="inline"><mi>n</mi></math> components,
+whereas <math display="inline"><mstyle mathvariant="bold"><mi>b</mi></mstyle></math>
+has <math display="inline"><mi>m</mi></math>
+components. The matrix </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x5-17003r39"></mstyle><mover accent="true"><mrow><mstyle mathvariant="bold"><mi>A</mi></mstyle></mrow><mo accent="true">~</mo></mover>
+<mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow> <mtable align="axis" class="array" columnlines="none none solid" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>1</mn></mrow></msub> </mtd>
+<mtd class="array-td" columnalign="center"> <mo class="MathClass-rel" stretchy="false">⋯</mo> </mtd>
+<mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mi>n</mi></mrow></msub> </mtd>
+<mtd class="array-td" columnalign="center"> <msub><mrow><mi>b</mi></mrow><mrow><mn>1</mn></mrow></msub> </mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mi>⋮</mi> </mtd><mtd class="array-td" columnalign="center"> <mo class="MathClass-rel" stretchy="false">⋯</mo> </mtd><mtd class="array-td" columnalign="center"> <mi>⋮</mi> </mtd><mtd class="array-td" columnalign="center"> <mi>⋮</mi> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mi>⋮</mi> </mtd> <mtd class="array-td" columnalign="center"> <mo class="MathClass-rel" stretchy="false">⋯</mo> </mtd> <mtd class="array-td" columnalign="center"> <mi>⋮</mi> </mtd> <mtd class="array-td" columnalign="center"> <mo class="MathClass-rel" stretchy="false">⋱</mo></mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> </mtd><mtd class="array-td" columnalign="center"> <mo class="MathClass-rel" stretchy="false">⋱</mo> </mtd><mtd class="array-td" columnalign="center"> <mo class="MathClass-rel" stretchy="false">⋱</mo> </mtd><mtd class="array-td" columnalign="center"> <mo class="MathClass-rel" stretchy="false">⋱</mo> </mtd>
+</mtr>
+<mtr class="array-row"><mtd class="array-td" columnalign="center"> </mtd>
+<mtd class="array-td" columnalign="center"> <mo class="MathClass-rel" stretchy="false">⋱</mo> </mtd>
+<mtd class="array-td" columnalign="center"> <mo class="MathClass-rel" stretchy="false">⋱</mo> </mtd>
+<mtd class="array-td" columnalign="center"> <mo class="MathClass-rel" stretchy="false">⋱</mo> </mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow>
+</math></td><td class="eq-no">(1.39)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">is called the <b>augmented matrix </b>of the system Eq. (<a href="#x5-16001r36">1.36</a>). The vertical line could be omitted, as we
+will do later.
+</p>
+<div class="block-minor knowledge"><div class="body">
+<p class="noindent">It is merely a reminder that the last column of <math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math>
+did not come from matrix <math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math>
+but came from vector <math display="inline"><mstyle mathvariant="bold"><mi>b</mi></mstyle></math>.
+</p></div></div>
+<p class="noindent">Therefore, we <span class="alert">augmented</span> the matrix <math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math>. Note
+that the augmented matrix <math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math>
+determines the system Eq. (<a href="#x5-16001r36">1.36</a>) completely because it contains all the given numbers appearing in Eq.
+(<a href="#x5-16001r36">1.36</a>)
+.
+</p>
+<div class="block-major exer-block" id="exer-block-1.15"> <a class="copiable-link" href="#exer-block-1.15"> ¶</a> <span class="upper"> <span class="header"> <b>Example 1.<a id="x5-17004r15"></a>15: </b> </span> <span class="title"> Geometric Interpretation. Existence and Uniqueness of Solutions </span> </span>
+<div class="body">
+<p class="noindent">If <math display="inline"><mi>m</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>n</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>2</mn></math>, we have two (<span class="alert">2</span>) equations
+in two (<span class="alert">2</span>) unknowns <math display="inline"><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub></math>,
+namely: </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x5-17005r40"></mstyle><mtable class="aligned" displaystyle="true"><mtr><mtd columnalign="right"><msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>1</mn></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>2</mn></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub></mtd>
+<mtd columnalign="left"> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>b</mi></mrow><mrow><mn>1</mn></mrow></msub></mtd>
+<mtd columnalign="right"></mtd>
+</mtr><mtr><mtd columnalign="right"><msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mn>1</mn></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mn>2</mn></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub></mtd><mtd columnalign="left"> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>b</mi></mrow><mrow><mn>2</mn></mrow></msub><mo class="MathClass-punc" stretchy="false">.</mo></mtd>
+</mtr> </mtable>
+</math></td><td class="eq-no">(1.40)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">If we interpret <math display="inline"><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub></math> as
+coordinates in the <math display="inline"><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub></math>-plane,
+then each of the two equations represents a straight line, and
+<math display="inline"><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo></math> is a solution if and only if
+the point P with coordinates <math display="inline"><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub></math>
+lies on both lines. Hence there are three (<span class="alert">3</span>) possible cases:
+</p>
+<dl class="enumerate-enumitem"><dt class="enumerate-enumitem">
+1. 
+</dt><dd class="enumerate-enumitem">Precisely one solution if the lines intersect
+</dd>
+<dt class="enumerate-enumitem">  
+2. 
+</dt><dd class="enumerate-enumitem">Infinitely many solutions if the lines coincide
+</dd>
+<dt class="enumerate-enumitem">
+3. 
+</dt><dd class="enumerate-enumitem">No solution if the lines are parallel</dd></dl>
+<p class="noindent"></p>
+<hr/>
+<p class="noindent"> 
+If the system is homogenous, Case 1. cannot happen, because then those two straight lines pass through
+the origin, whose coordinates (0, 0) constitute the trivial solution.
+</p>
+</div> </div>
+<p class="noindent">Our simple aforementioned example illustrated that a system given in Eq. (<a href="#x5-16001r36">1.36</a>) may have no solution.
+This leads to such questions as: </p><div class="quote">  Does a given system in Eq. (<a href="#x5-16001r36">1.36</a>) have a solution? Under what
+conditions does it have precisely one solution? If it has more than one solution, how can we characterize
+the set of all solutions? </div>
+<p class="noindent">First, before looking at this in significant detail, let us discuss an important systematic method for
+solving linear systems.
+</p>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-1.2.2"> <a class="pdf-icon" href="HigherMathematicsILectureBook.pdf#subsection.1.2.2"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">1.2.2</span> <span class="title"> <a id="x5-180001.2.2"></a>Gauss Elimination and Back Substitution</span></h4></div>
+</p><p class="noindent">The Gauss elimination method can be explained as <span class="margin-block"><span class="margin"><span>follows. <a class="ellipsis" href="#m-ref-15">[15]</a></span><span class="sidenote"><a class="copiable-link" href="#m-ref-15" id="m-ref-15"> ¶</a><span class="sidenote-image"> <img alt="PIC" src="figures/Linear-Algebra-I---Fundamentals/figures-1.png" style=""/> </span><span class="sidenote-text"><span class="ellipsis">[15]</span>Examples of possible solutions a
+system of linear equations can take.</span></span></span></span>
+</p><p class="noindent">Consider a linear system that is in triangular <span class="margin-block">form <span class="margin-comment"><a class="ellipsis" href="#m-ref-16">[16]</a>
+<span class="sidenote">in full, upper triangular form</span></span></span> such as:
+</p><table class="equation-star"><tr><td>
+<math class="equation" display="block">
+<mn>2</mn><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>5</mn><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>2</mn><mspace class="qquad" width="2em"></mspace><mstyle class="text"><mtext>and</mtext></mstyle><mspace class="qquad" width="2em"></mspace><mn>1</mn><mn>3</mn><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-bin" stretchy="false">−</mo><mn>2</mn><mn>6</mn>
+</math></td></tr></table>
+<div class="block-minor knowledge"><div class="body">
+<p class="noindent">Triangular means all the <span class="alert">nonzero entries of the corresponding coefficient matrix lie above the diagonal</span> and form an upside-down
+<math display="inline"><mstyle class="text"><mtext>90</mtext></mstyle><mi>◦</mi></math>
+triangle. </p></div></div>
+<p class="noindent">Then we can solve the system by <b>back substitution</b>, that is, we solve the last equation for the variable,
+<math display="inline"><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-bin" stretchy="false">−</mo><mn>2</mn><mn>6</mn><mo class="MathClass-bin" stretchy="false">/</mo><mn>1</mn><mn>3</mn> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-bin" stretchy="false">−</mo><mn>2</mn></math>, No solution and then work
+backward, substituting <math display="inline"><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-bin" stretchy="false">−</mo><mn>2</mn></math> into the
+first equation and solving it for <math display="inline"><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub></math>,
+obtaining <math display="inline"><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<mn>2</mn></mrow></mfrac><mo class="MathClass-open" stretchy="false">(</mo><mn>2</mn> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>5</mn><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<mn>2</mn></mrow></mfrac><mo class="MathClass-open" stretchy="false">(</mo><mn>2</mn> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>5</mn> <mi>·</mi> <mo class="MathClass-open" stretchy="false">(</mo><mo class="MathClass-bin" stretchy="false">−</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>6</mn></math>.
+This gives us the idea of first reducing a general system to triangular form. For instance, let the given
+system be
+</p>
+<table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x5-18001r41"></mstyle><mtable class="aligned" displaystyle="true"><mtr><mtd columnalign="right"><mn>2</mn><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub></mtd>
+<mtd columnalign="left"></mtd>
+<mtd columnalign="right"><mo class="MathClass-bin" stretchy="false">+</mo></mtd>
+<mtd columnalign="left"></mtd>
+<mtd columnalign="right"><mn>5</mn><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub></mtd>
+<mtd columnalign="left"> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>2</mn></mtd>
+<mtd columnalign="right"></mtd>
+</mtr><mtr><mtd columnalign="right"> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>4</mn><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub></mtd><mtd columnalign="left"></mtd><mtd columnalign="right"><mo class="MathClass-bin" stretchy="false">+</mo></mtd><mtd columnalign="left"></mtd><mtd columnalign="right"><mn>3</mn><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub></mtd><mtd columnalign="left"> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-bin" stretchy="false">−</mo><mn>3</mn><mn>0</mn><mo class="MathClass-punc" stretchy="false">.</mo></mtd>
+</mtr> </mtable><mspace class="qquad" width="2em"></mspace><mstyle class="text"><mtext>where its augmented matrix is</mtext></mstyle><mspace class="qquad" width="2em"></mspace> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>2</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>5</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>2</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>4</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>3</mn> </mtd> <mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>3</mn><mn>0</mn></mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow><mo class="MathClass-punc" stretchy="false">.</mo>
+</math></td><td class="eq-no">(1.41)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">We leave the first equation as it is. We eliminate
+<math display="inline"><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub></math> from
+the second equation, to get a triangular system. For this we add twice the first equation to the second,
+and we do the same operation on the <span class="alert">rows</span> of the augmented matrix.
+</p><p class="noindent">This gives <math display="inline"> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>4</mn><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>4</mn><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>3</mn><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>1</mn><mn>0</mn><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-bin" stretchy="false">−</mo><mn>3</mn><mn>0</mn> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>2</mn> <mi>·</mi> <mn>2</mn></math>,
+that is, </p><table class="equation-star"><tr><td>
+<math class="equation" display="block">
+<mtable class="aligned" displaystyle="true"><mtr><mtd columnalign="right"><mn>2</mn><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub></mtd>
+<mtd columnalign="left"></mtd>
+<mtd columnalign="right"><mo class="MathClass-bin" stretchy="false">+</mo></mtd>
+<mtd columnalign="left"></mtd>
+<mtd columnalign="right"><mn>5</mn><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub></mtd>
+<mtd columnalign="left"> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>2</mn></mtd>
+<mtd columnalign="right"></mtd>
+</mtr><mtr><mtd columnalign="right"></mtd> <mtd columnalign="left"></mtd><mtd columnalign="right"></mtd> <mtd columnalign="left"></mtd><mtd columnalign="right"><mn>1</mn><mn>3</mn><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub></mtd><mtd columnalign="left"> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-bin" stretchy="false">−</mo><mn>2</mn><mn>6</mn></mtd>
+</mtr> </mtable><mspace class="qquad" width="2em"></mspace><mspace class="qquad" width="2em"></mspace> <mtable align="axis" class="array" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mstyle class="text"><mtext>Row 2 + 2 Row 1</mtext></mstyle></mtd>
+</mtr></mtable> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>2</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>5</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>2</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>1</mn><mn>3</mn> </mtd> <mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>2</mn><mn>6</mn></mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow>
+</math></td></tr></table>
+<p class="noindent">where <b><span style="color:#925DA7;">Row 2 + 2 Row 1</span></b> means <i>Add twice Row 1 to Row 2</i> in the original matrix. This is the Gauss
+<span class="margin-block">elimination <span class="margin-comment"><a class="ellipsis" href="#m-ref-17">[17]</a>
+<span class="sidenote">for 2 equations in 2 unknowns.</span></span></span> giving the triangular form, from which back substitution now
+give us <math display="inline"><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-bin" stretchy="false">−</mo><mn>2</mn></math>
+and <math display="inline"><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>6</mn></math>, as
+before.
+</p><p class="noindent">Since a linear system is completely determined by its augmented matrix,<span class="alert"> Gauss elimination</span> can be done by merely
+considering the matrices, as we have just indicated. We do this again in the next example, emphasizing
+the matrices by writing them first and the equations behind them, just as a help in order not to lose
+track.
+</p>
+<div class="block-major exer-block" id="exer-block-1.16"> <a class="copiable-link" href="#exer-block-1.16"> ¶</a> <span class="upper"> <span class="header"> <b>Example 1.<a id="x5-18002r16"></a>16: </b> </span> <span class="title"> Solving an Electrical Network </span> </span> <div class="body">
+<p class="noindent">Gauss Elimination. Electrical Network
+</p>
+</div> </div>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-1.2.3"> <a class="pdf-icon" href="HigherMathematicsILectureBook.pdf#subsection.1.2.3"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">1.2.3</span> <span class="title"> <a id="x5-190001.2.3"></a>Elementary Row Operations. Row-Equivalent Systems</span></h4></div>
+</p><p class="noindent">The aforementioned <a class="block-ref" href="#x5-18002r16">Example 1.16</a> illustrates the operations of the Gauss elimination. These are the
+first two of three operations, which are called
+</p>
+<p class="noindent"><span class="paragraphHead"> <a id="x5-20000"></a>Elementary Row Operations for Matrices</span>
+The steps which are as follows: </p>
+<ul class="itemize1">
+<li class="itemize">
+<p class="noindent">Interchange of two rows
+</p>
+</li>
+<li class="itemize">
+<p class="noindent">Addition of a constant multiple of one row to another row
+</p>
+</li>
+<li class="itemize">
+<p class="noindent">Multiplication of a row by a <b>nonzero</b> constant <math display="inline"><mi>c</mi></math>.</p></li></ul>
+<div class="block-minor warning"><div class="body">
+<p class="noindent">These operations are for rows, <span class="alert">not for columns</span>. </p></div></div>
+<p class="noindent"><span class="paragraphHead"> <a id="x5-21000"></a>Elementary Operations for Equations</span>
+The steps which are as follows: </p>
+<ul class="itemize1">
+<li class="itemize">
+<p class="noindent">Interchange of two equations
+</p>
+</li>
+<li class="itemize">
+<p class="noindent">Addition of a constant multiple of one equation to another equation
+</p>
+</li>
+<li class="itemize">
+<p class="noindent">Multiplication of an equation by a nonzero constant <math display="inline"><mi>c</mi></math>.</p></li></ul>
+<p class="noindent">Clearly, the interchange of two equations does not alter the solution set. Neither
+does their addition because we can undo it by a corresponding subtraction. Similarly
+for their multiplication, which we can undo by multiplying the new equation by
+<math display="inline"><mn>1</mn><mo class="MathClass-bin" stretchy="false">/</mo><mi>c</mi></math>, since
+<math display="inline"><mi>c</mi> <mi>≠</mi> <mn>0</mn></math>,
+producing the original equation.
+</p><p class="noindent">We now call a linear system <math display="inline"><msub><mrow><mi>S</mi></mrow><mrow><mn>1</mn></mrow></msub></math>
+row-equivalent to a linear system <math display="inline"><msub><mrow><mi>S</mi></mrow><mrow><mn>2</mn></mrow></msub></math>
+if <math display="inline"><msub><mrow><mi>S</mi></mrow><mrow><mn>1</mn></mrow></msub></math> can be
+obtained from <math display="inline"><msub><mrow><mi>S</mi></mrow><mrow><mn>2</mn></mrow></msub></math>
+by finitely many row operations. This justifies Gauss elimination and establishes the following
+result.
+</p>
+<div class="block-major theo-block" id="theo-block-1.1"> <a class="copiable-link" href="#theo-block-1.1"> ¶</a> <span class="upper"> <span class="header"> <b>Theory 1.<a id="x5-21001r1"></a>1: </b> </span> <span class="title"> Row-Equivalent Systems </span> </span> <div class="body">
+<p class="noindent">Row-equivalent linear systems have the same set of solutions.
+</p>
+</div> </div>
+<p class="noindent">Because of this theorem, systems having the same solution sets are often called <span class="alert">equivalent systems</span>. But note well that we
+are dealing with row operations. No column operations on the augmented matrix are permitted in this
+context because they would generally alter the solution set.
+</p><p class="noindent">A linear system given in Eq. (<a href="#x5-16001r36">1.36</a>) is called <b>overdetermined</b> if it has more equations than unknowns, as in <a class="block-ref" href="#x5-18002r16">Example
+1.16</a>, <b>determined</b> if <math display="inline"><mi>m</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>n</mi></math>,
+as in <a class="block-ref" href="#x5-17004r15">Example 1.15</a>, and <b>underdetermined</b> if it has fewer equations than unknowns.
+</p><p class="noindent">In addition, a system of Eq. (<a href="#x5-16001r36">1.36</a>) is called <b>consistent</b> if it has at least one <span class="margin-block">solution, <span class="margin-comment"><a class="ellipsis" href="#m-ref-18">[18]</a>
+<span class="sidenote">Therefore,
+one solution or infinitely many solutions.</span></span></span> but <b>inconsistent</b> if it has no solutions at all, as
+<math display="inline"><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></math> in
+<a class="block-ref" href="#x5-17004r15">Example 1.15</a>, Case c.
+<div class="section-header">
+<h3 id="header-section-references">
+<span class="number">
+<i class="fa-regular fa-note-sticky"></i>
+</span>
+<span class="title">
+<a id="page-glossary"></a>
+                    Page Footnotes</span>
+</h3>
+</div>
+<div class="footnote-block">
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-16"><span class="acr-short">[16].</span></dt>
+<dd class="enumerate-enumitem"><span class="">in full, upper triangular form</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-17"><span class="acr-short">[17].</span></dt>
+<dd class="enumerate-enumitem"><span class="">for 2 equations in 2 unknowns.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-18"><span class="acr-short">[18].</span></dt>
+<dd class="enumerate-enumitem"><span class="">Therefore,
+one solution or infinitely many solutions.</span></dd>
+</dl></div><nav class="crosslinks-bottom"><div class="navigation"><span class="nav-button"><a href="LinearIndependenceandRankofaMatrixVectorSpace.html"><i class="fa-solid fa-caret-right"></i></a></span><span class="nav-button"><a href="MatricesVectorsAdditionandScalarMultiplication.html"><i class="fa-solid fa-caret-left"></i></a></span><span class="nav-button"><a href="LinearAlgebraIFundamentals.html#LinearSystemsofEquationsGaussElimination.html"><i class="fa-solid fa-caret-up"></i></a></span><span class="nav-button">
+<a href="index.html" rel="index" title="Index">
+<i class="fa-solid fa-table-list">
+</i>
+</a></span><span class="nav-button">
+<a href="Index.html" rel="index" title="Index">
+<i class="fa-brands fa-git-alt"></i>
+</a></span></div></nav> </p><div class="footer"> <div class="footer-left"><span class="footer-lecture">D. T. McGuiness, PhD</span>
+<span class="footer-webBook"><b>Last Updated:</b> 20.10.2026, at 10:2.</span></div></div><div class="author-notes">
+<span class="note">Authors Note </span>
+<span class="text">The website you are viewing is auto-generated using lms-WebBook and therefore subject to slight errors in typography and formatting. When in doubt, please consult the LectureBook. </span>
+</div>
+</article>
+<div class="mode-line">
+<div class="core-line"><div class="core-line-image"><img class="webbook-logo" src="logo/webbook-logo.svg"/></div>
+<div class="current-header">
+<span class="header-pretext">Viewing | </span>
+<span class="header-text">Section 1.2: Linear Systems of Equations Gauss Elimination</span>
+</div>
+<div class="button-group">
+</div>
+</div>
+<div class="supp-line"></div>
+</div>
+</page>
+</body>
+</html>

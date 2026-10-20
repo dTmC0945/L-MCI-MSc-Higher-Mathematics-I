@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><title>Inverse of a Matrix using Gauss-Jordan Elimination</title>
+<meta charset="utf-8"/>
+<meta content="lms-WebBook" name="generator"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js" type="text/javascript"></script>
+<link href="logo/lms.ico" rel="icon" type="image/x-icon"/>
+<link href="./pagefind/pagefind-component-ui.css" rel="stylesheet"/>
+<script src="./pagefind/pagefind-component-ui.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link href="https://cdn.jsdelivr.net/gh/sugina-dev/latin-modern-web@1.0.1/style/latinmodern-mono.css" rel="stylesheet"/>
+<link href="flatweb.css" rel="stylesheet" type="text/css"/>
+<script src="flatweb.js" type="text/javascript"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/base16/solarized-light.min.css" rel="stylesheet"/>
+<script src="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.js"></script>
+<link href="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/cpp.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/latex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/matlab.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/dockerfile.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/cmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/makefile.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/markdown.min.js"></script>
+ </head><body>
+<page>
+<nav class="wide"> <div class="header"><div class="header-left"><span class="header-lecture-grade">M.Sc</span>
+<span class="header-lecture-name">Higher Mathematics I</span>
+<span class="header-webBook">WebBook 2.1</span></div><div class="header-right"><span class="header-version">2026.WS</span>
+<span class="header-chapter">Linear Algebra I - Fundamentals</span></div></div><div class="toc"><pagefind-modal-trigger></pagefind-modal-trigger><pagefind-modal></pagefind-modal><div class="toc-links"><a href="https://github.com/dTmC0945" title="Lecturer GitHub Repo"><i class="fab fa-github" style="font-size:20px"></i></a><a href="https://scholar.google.com/citations?view_op=list_works\&amp;hl=en\&amp;user=lxQGADMAAAAJ" title="Lecturer Google Scholar Page"><i class="fa-brands fa-google-scholar" style="font-size:20px"></i></a><a href="https://www.researchgate.net/profile/Daniel-Mcguiness-2" title="Lecturer ResearchGate Account"><i class="fa-brands fa-researchgate" style="font-size:20px"></i></a><a href="https://dtmc0945.github.io/Th-MCI-Thesis-Topics/" title="Lecturer Thesis Ideas for B.Sc and M.Sc"><i class="fa-solid fa-book" style="font-size:20px"></i></a><a href="https://github.com/dTmC0945/C-MCI-LaTeX-Class-mcidoc/tree/main" title="mcidoc LaTeX Standard"><i class="fa-regular fa-file-lines" style="font-size:20px"></i></a></div><hr/><span class="chapterToc"><span class="number"></span><span class="title"><a href="index.html#x2-10000">Entry Point</a></span></span><span class="chapterToc"><span class="number">1</span><span class="title"><a href="LinearAlgebraIFundamentals.html#x3-20001">Linear Algebra I - Fundamentals</a></span></span><span class="sectionToc"><span class="number">1.1</span><span class="title"><a href="MatricesVectorsAdditionandScalarMultiplication.html#x4-30001.1">Matrices, Vectors: Addition and Scalar
+Multiplication</a></span></span><span class="subsectionToc"><span class="number">1.1.1</span><span class="title"><a href="MatricesVectorsAdditionandScalarMultiplication.html#x4-40001.1.1">General Concepts and Notations</a></span></span><span class="subsectionToc"><span class="number">1.1.2</span><span class="title"><a href="MatricesVectorsAdditionandScalarMultiplication.html#x4-50001.1.2">Vectors</a></span></span><span class="subsectionToc"><span class="number">1.1.3</span><span class="title"><a href="MatricesVectorsAdditionandScalarMultiplication.html#x4-60001.1.3">Addition and
+Scalar Multiplication of Matrices and Vectors</a></span></span><span class="subsectionToc"><span class="number">1.1.4</span><span class="title"><a href="MatricesVectorsAdditionandScalarMultiplication.html#x4-80001.1.4">Matrix Multiplication</a></span></span><span class="subsectionToc"><span class="number">1.1.5</span><span class="title"><a href="MatricesVectorsAdditionandScalarMultiplication.html#x4-90001.1.5">The use
+of Linear Transformations in Multiplication of Matrices</a></span></span><span class="sectionToc"><span class="number">1.2</span><span class="title"><a href="LinearSystemsofEquationsGaussElimination.html#x5-150001.2">Linear Systems of Equations
+Gauss Elimination</a></span></span><span class="subsectionToc"><span class="number">1.2.1</span><span class="title"><a href="LinearSystemsofEquationsGaussElimination.html#x5-160001.2.1">Linear System, Coefficient Matrix, Augmented Matrix</a></span></span><span class="subsectionToc"><span class="number">1.2.2</span><span class="title"><a href="LinearSystemsofEquationsGaussElimination.html#x5-180001.2.2">Gauss
+Elimination and Back Substitution</a></span></span><span class="subsectionToc"><span class="number">1.2.3</span><span class="title"><a href="LinearSystemsofEquationsGaussElimination.html#x5-190001.2.3">Elementary Row Operations. Row-Equivalent
+Systems</a></span></span><span class="sectionToc"><span class="number">1.3</span><span class="title"><a href="LinearIndependenceandRankofaMatrixVectorSpace.html#x6-220001.3">Linear Independence and Rank of a Matrix Vector Space</a></span></span><span class="subsectionToc"><span class="number">1.3.1</span><span class="title"><a href="LinearIndependenceandRankofaMatrixVectorSpace.html#x6-230001.3.1">Linear
+Independence and Dependence of Vectors</a></span></span><span class="subsectionToc"><span class="number">1.3.2</span><span class="title"><a href="LinearIndependenceandRankofaMatrixVectorSpace.html#x6-240001.3.2">Rank of a Matrix</a></span></span><span class="subsectionToc"><span class="number">1.3.3</span><span class="title"><a href="LinearIndependenceandRankofaMatrixVectorSpace.html#x6-250001.3.3">Vector
+Space</a></span></span><span class="subsectionToc"><span class="number">1.3.4</span><span class="title"><a href="LinearIndependenceandRankofaMatrixVectorSpace.html#x6-260001.3.4">Solutions of Linear Systems: Existence, Uniqueness</a></span></span><span class="sectionToc"><span class="number">1.4</span><span class="title"><a href="DeterminantsandCramersRule.html#x7-290001.4">Determinants
+and Cramer’s Rule</a></span></span><span class="subsectionToc"><span class="number">1.4.1</span><span class="title"><a href="DeterminantsandCramersRule.html#x7-300001.4.1">A Quick Refreshment on Determinants</a></span></span><span class="subsectionToc"><span class="number">1.4.2</span><span class="title"><a href="DeterminantsandCramersRule.html#x7-320001.4.2">Third-Order
+Determinants</a></span></span><span class="subsectionToc"><span class="number">1.4.3</span><span class="title"><a href="DeterminantsandCramersRule.html#x7-340001.4.3">General Properties of Determinants</a></span></span><span class="subsectionToc"><span class="number">1.4.4</span><span class="title"><a href="DeterminantsandCramersRule.html#x7-350001.4.4">Cramer’s Rule</a></span></span><span class="sectionToc"><span class="number">1.5</span><span class="title"><a href="#x8-360001.5">Inverse
+of a Matrix using Gauss-Jordan Elimination</a></span></span><span class="subsectionToc"><span class="number">1.5.1</span><span class="title"><a href="#x8-370001.5.1">Determination of the Inverse by the
+Gauss-Jordan Method</a></span></span><span class="subsectionToc"><span class="number">1.5.2</span><span class="title"><a href="#x8-390001.5.2">Formulas for Inverses</a></span></span><span class="subsectionToc"><span class="number">1.5.3</span><span class="title"><a href="#x8-400001.5.3">Unusual Properties of Matrix
+Multiplication. Cancellation Laws</a></span></span><span class="subsectionToc"><span class="number">1.5.4</span><span class="title"><a href="#x8-410001.5.4">Determinants of Matrix Products</a></span></span><span class="sectionToc"><span class="number">1.6</span><span class="title"><a href="VectorandInnerProductSpacesLinearTransformations.html#x9-420001.6">Vector, and
+Inner Product Spaces, Linear Transformations</a></span></span><span class="subsectionToc"><span class="number">1.6.1</span><span class="title"><a href="VectorandInnerProductSpacesLinearTransformations.html#x9-430001.6.1">Inner Product Spaces</a></span></span><span class="subsectionToc"><span class="number">1.6.2</span><span class="title"><a href="VectorandInnerProductSpacesLinearTransformations.html#x9-440001.6.2">Linear
+Transformations</a></span></span><span class="subsectionToc"><span class="number">1.6.3</span><span class="title"><a href="VectorandInnerProductSpacesLinearTransformations.html#x9-460001.6.3">Composition of Linear Transformations</a></span></span><span class="chapterToc"><span class="number">2</span><span class="title"><a href="LinearAlgebraIIEigenvalueProblems.html#x10-470002">Linear Algebra II - Eigenvalue
+Problems</a></span></span><span class="sectionToc"><span class="number">2.1</span><span class="title"><a href="DeterminingEigenvaluesandEigenvectors.html#x11-500002.1">Determining Eigenvalues and Eigenvectors</a></span></span><span class="subsectionToc"><span class="number">2.1.1</span><span class="title"><a href="DeterminingEigenvaluesandEigenvectors.html#x11-510002.1.1">How to Find Eigenvalues and
+Eigenvectors</a></span></span><span class="subsectionToc"><span class="number">2.1.2</span><span class="title"><a href="DeterminingEigenvaluesandEigenvectors.html#x11-520002.1.2">Applications of Eigenvalue Problems</a></span></span><span class="sectionToc"><span class="number">2.2</span><span class="title"><a href="SymmetricSkewSymmetricandOrthogonalMatrices.html#x12-530002.2">Symmetric, Skew-Symmetric,
+and Orthogonal Matrices</a></span></span><span class="subsectionToc"><span class="number">2.2.1</span><span class="title"><a href="SymmetricSkewSymmetricandOrthogonalMatrices.html#x12-540002.2.1">Orthogonal Transformations and Orthogonal
+Matrices</a></span></span><span class="sectionToc"><span class="number">2.3</span><span class="title"><a href="EigenbasesDiagonalizationQuadraticForms.html#x13-550002.3">Eigenbases. Diagonalization. Quadratic Forms</a></span></span><span class="subsectionToc"><span class="number">2.3.1</span><span class="title"><a href="EigenbasesDiagonalizationQuadraticForms.html#x13-560002.3.1">Similarity of Matrices and
+Diagonalization</a></span></span><span class="subsectionToc"><span class="number">2.3.2</span><span class="title"><a href="EigenbasesDiagonalizationQuadraticForms.html#x13-570002.3.2">Quadratic Forms and Transformation to Principal Axes</a></span></span><span class="sectionToc"><span class="number">2.4</span><span class="title"><a href="ComplexMatricesandForms.html#x14-580002.4">Complex
+Matrices and Forms</a></span></span><span class="subsectionToc"><span class="number">2.4.1</span><span class="title"><a href="ComplexMatricesandForms.html#x14-590002.4.1">Eigenvalues</a></span></span><span class="subsectionToc"><span class="number">2.4.2</span><span class="title"><a href="ComplexMatricesandForms.html#x14-600002.4.2">Hermitian and Skew-Hermitian Forms</a></span></span>
+<div class="nav-footer"><div class="nav-footer-left"><span class="nav-footer-lecture">D. T. McGuiness, PhD</span>
+<span class="nav-footer-webBook"><b>Last Updated:</b> 20.10.2026, at 10:2.</span></div></div><p class="nav-comments">The website you are viewing is auto-generated using lms-WebBook and therefore subject to slight errors in typography and formatting. When in doubt, please consult the LectureBook. </p></div></nav>
+<article class="chapter">
+<nav class="crosslinks-top"> <span class="nav-button"><i class="fa-solid fa-caret-right"></i><a class="nav-link" href="VectorandInnerProductSpacesLinearTransformations.html">Vector, and Inner Product Spaces, Linear Transformations</a></span><span class="nav-button"><i class="fa-solid fa-caret-left"></i><a class="nav-link" href="DeterminantsandCramersRule.html">Determinants and Cramer’s Rule</a></span><span class="nav-button"><i class="fa-solid fa-caret-up"></i><a class="nav-link" href="LinearAlgebraIFundamentals.html#InverseofaMatrixusingGaussJordanElimination.html">Chapter: Linear Algebra I -
+Fundamentals</a></span><span class="nav-button">
+<a href="index.html" rel="index" title="Visit Entry Point">
+<i class="fa-solid fa-table-list">
+</i>
+<span class="nav-info">Visit Index Page</span>
+</a></span><span class="nav-button">
+<a href="Index.html" rel="index" title="Visit Material GitHub Repo">
+<i class="fa-brands fa-git-alt"></i>
+<span class="nav-info">Visit Material GitHub Repo</span>
+</a></span></nav>
+<div class="section-header"> <h3 id="header-section-1.5"> <a class="pdf-icon" href="HigherMathematicsILectureBook.pdf#section.1.5"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a> <span class="number">1.5</span> <span class="title"> <a id="x8-360001.5"></a>Inverse of a Matrix using
+Gauss-Jordan Elimination</span></h3></div>
+<div class="block-minor warning"><div class="body">
+<p class="noindent">In the calculation of inverses we consider <span class="alert">only</span> square matrices. </p></div></div>
+<p class="noindent">The <b>inverse</b> of an <math display="inline"><mi>n</mi> <mi>×</mi> <mi>n</mi></math>
+matrix <math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-open" stretchy="false">[</mo><msub><mrow><mi>a</mi></mrow><mrow><mi>i</mi><mi>k</mi></mrow></msub><mo class="MathClass-close" stretchy="false">]</mo></math> is
+denoted by <math display="inline"><msup><mrow><mstyle mathvariant="bold"><mi>A</mi></mstyle></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msup></math>
+and is an <math display="inline"><mi>n</mi> <mi>×</mi> <mi>n</mi></math>
+matrix such that the following identity holds: </p><div class="highlight-eq-block"><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x8-36001r72"></mstyle><msup><mrow>
+<mstyle mathvariant="bold">
+<mi>A</mi><mi>A</mi>
+</mstyle>
+</mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msup>
+<mo class="MathClass-rel" stretchy="false">=</mo><msup><mrow> <mstyle mathvariant="bold"><mi>A</mi></mstyle></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msup><mstyle mathvariant="bold"><mi>A</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="bold"><mi>I</mi></mstyle>
+</math></td><td class="eq-no">(1.72)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent"></p></div>
+<p class="noindent">where <b>I</b> is the <math display="inline"><mi>n</mi> <mi>×</mi> <mi>n</mi></math>
+unit, or the identity, matrix.
+</p>
+<ul class="itemize1">
+<li class="itemize">
+<p class="noindent">If <math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math>
+has an inverse, then <math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math>
+is called a <b>nonsingular matrix</b>.
+</p>
+</li>
+<li class="itemize">
+<p class="noindent">If <math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math>
+has no inverse, then <math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math>
+is called a <b>singular matrix</b>.</p></li></ul>
+<div class="block-major info-block" id="info-block-1.2"> <a class="copiable-link" href="#info-block-1.2"> ¶</a> <span class="upper"> <span class="header"> <b>Information 1.<a id="x8-36002r2"></a>2: </b> </span> <span class="title"> The Uniqueness of the Inverse </span> </span> <div class="body">
+<p class="noindent">If <math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math>
+has an inverse, the inverse is <span class="alert">unique</span>. </p>
+<hr/>
+<p class="noindent"> 
+If both <b>B</b> and <b>C</b> are inverses of <b>A</b>, then
+<math display="inline"><mi>A</mi><mi>B</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>I</mi></math> and
+<math display="inline"><mi>C</mi><mi>A</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>I</mi></math>, so
+that we obtain the uniqueness from </p><table class="equation-star"><tr><td>
+<math class="equation" display="block">
+<mstyle mathvariant="bold">
+<mi>B</mi></mstyle>
+<mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="bold"><mi>I</mi><mi>B</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo><msup><mrow> <mrow><mo fence="true" form="prefix">(</mo><mrow><mstyle mathvariant="bold"><mi>C</mi><mi>A</mi></mstyle></mrow><mo fence="true" form="postfix">)</mo></mrow></mrow><mrow></mrow></msup><mstyle mathvariant="bold"><mi>B</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="bold"><mi>C</mi></mstyle><msup><mrow> <mrow><mo fence="true" form="prefix">(</mo><mrow><mstyle mathvariant="bold"><mi>A</mi><mi>B</mi></mstyle></mrow><mo fence="true" form="postfix">)</mo></mrow></mrow><mrow></mrow></msup> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="bold"><mi>C</mi><mi>I</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="bold"><mi>C</mi></mstyle><mspace class="quad" width="1em"></mspace><mo class="MathClass-ord">■</mo>
+</math></td></tr></table>
+</div></div>
+<p class="noindent">We will also state that <math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math>
+has an <span class="margin-block">inverse <span class="margin-comment"><a class="ellipsis" href="#m-ref-27">[27]</a>
+<span class="sidenote">Meaning it is non-singular.</span></span></span> if and only if it has maximum possible rank n.
+</p>
+<div class="block-major theo-block" id="theo-block-1.16"> <a class="copiable-link" href="#theo-block-1.16"> ¶</a> <span class="upper"> <span class="header"> <b>Theory 1.<a id="x8-36003r16"></a>16: </b> </span> <span class="title"> Existence of the Inverse </span> </span> <div class="body">
+<p class="noindent">The inverse <math display="inline"><msup><mrow><mstyle mathvariant="bold"><mi>A</mi></mstyle></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msup></math>
+of an <math display="inline"><mi>n</mi> <mi>×</mi> <mi>n</mi></math> matrix
+<math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math> exists if and only if
+rank <math display="inline"><mi>A</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>n</mi></math>, therefore if and
+only if det <math display="inline"><mi>A</mi> <mi>≠</mi> <mn>0</mn></math>. Therefore
+<math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math> is nonsingular
+if rank <math display="inline"><mi>A</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>n</mi></math>, and is
+singular if rank <math display="inline"><mi>A</mi> <mo class="MathClass-rel" stretchy="false">&lt;</mo> <mi>n</mi></math>.
+</p>
+</div> </div>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-1.5.1"> <a class="pdf-icon" href="HigherMathematicsILectureBook.pdf#subsection.1.5.1"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">1.5.1</span> <span class="title"> <a id="x8-370001.5.1"></a>Determination of the Inverse by the Gauss-Jordan Method</span></h4></div>
+</p><p class="noindent">To actually determine the inverse <math display="inline"><msup><mrow><mstyle mathvariant="bold"><mi>A</mi></mstyle></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msup></math>
+of a nonsingular <math display="inline"><mi>n</mi> <mi>×</mi> <mi>n</mi></math>
+matrix <math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math>,
+we can use a variant of the Gauss elimination, called the <i>Gauss-Jordan elimination</i>.&lt;sup&gt;3&lt;/sup&gt;
+The idea of the method is as follows.
+</p><p class="noindent">Using <math display="inline"><mi>A</mi></math>, we
+form <math display="inline"><mi>n</mi></math>
+linear systems </p><table class="equation-star"><tr><td>
+<math class="equation" display="block">
+<mi>A</mi><msub><mrow><mi>x</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>e</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><mo>…</mo><mo class="MathClass-punc" stretchy="false">,</mo><mi>A</mi><msub><mrow><mi>x</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>e</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub>
+</math></td></tr></table>
+<p class="noindent">where the vectors <math display="inline"><msub><mrow><mstyle mathvariant="bold"><mi>e</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><mi>…</mi><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mstyle mathvariant="bold"><mi>e</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub></math> are
+the columns of the <math display="inline"><mi>n</mi> <mi>×</mi> <mi>n</mi></math>
+unit matrix <math display="inline"><mstyle mathvariant="bold"><mi>I</mi></mstyle></math>; thus,
+<math display="inline"><msub><mrow><mstyle mathvariant="bold"><mi>e</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo><msup><mrow> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd><mtd class="array-td" columnalign="center"> <mo class="MathClass-rel" stretchy="false">⋯</mo> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow></mrow><mrow><mi>T</mi></mrow></msup><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mstyle mathvariant="bold"><mi>e</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo><msup><mrow> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd><mtd class="array-td" columnalign="center"> <mo class="MathClass-rel" stretchy="false">⋯</mo> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow></mrow><mrow><mi>T</mi></mrow></msup></math>, etc. These are
+<math display="inline"><mi>n</mi></math> vector equations in
+the unknown vectors <math display="inline"><msub><mrow><mstyle mathvariant="bold"><mi>x</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><mi>…</mi><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mstyle mathvariant="bold"><mi>x</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub></math>.
+We combine them into a single matrix equation
+</p><p class="noindent"><math display="inline"><mstyle mathvariant="bold"><mi>A</mi><mi>X</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="bold"><mi>I</mi></mstyle></math>, with the unknown
+matrix <math display="inline"><mstyle mathvariant="bold"><mi>X</mi></mstyle></math> having
+the columns <math display="inline"><msub><mrow><mstyle mathvariant="bold"><mi>x</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><mi>…</mi><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mstyle mathvariant="bold"><mi>x</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub></math>.
+Correspondingly, we combine the &lt;i&gt;n&lt;/i&gt; augmented matrices
+<math display="inline"><mo class="MathClass-open" stretchy="false">[</mo><mstyle mathvariant="bold"><mi>A</mi></mstyle><mspace class="nbsp" width="0.33em"></mspace><msub><mrow><mstyle mathvariant="bold"><mi>e</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub><mo class="MathClass-close" stretchy="false">]</mo><mo class="MathClass-punc" stretchy="false">,</mo><mi>…</mi><mo class="MathClass-punc" stretchy="false">,</mo> <mo class="MathClass-open" stretchy="false">[</mo><mstyle mathvariant="bold"><mi>A</mi></mstyle><mspace class="nbsp" width="0.33em"></mspace><msub><mrow><mstyle mathvariant="bold"><mi>e</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub><mo class="MathClass-close" stretchy="false">]</mo></math> into one wide
+<math display="inline"><mi>n</mi> <mi>×</mi> <mn>2</mn><mi>n</mi></math> augmented
+matrix <math display="inline"><mover accent="true"><mrow><mstyle mathvariant="bold"><mi>A</mi></mstyle></mrow><mo accent="true">~</mo></mover> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-open" stretchy="false">[</mo><mstyle mathvariant="bold"><mi>A</mi></mstyle><mspace class="nbsp" width="0.33em"></mspace><mstyle mathvariant="bold"><mi>I</mi></mstyle><mo class="MathClass-close" stretchy="false">]</mo></math>. Now
+multiplication of <math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle><mstyle mathvariant="bold"><mi>X</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="bold"><mi>I</mi></mstyle></math> by
+<math display="inline"><msup><mrow><mstyle mathvariant="bold"><mi>A</mi></mstyle></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msup></math> from the left elimination
+to <math display="inline"><mover accent="true"><mrow><mstyle mathvariant="bold"><mi>A</mi></mstyle></mrow><mo accent="true">~</mo></mover> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-open" stretchy="false">[</mo><mstyle mathvariant="bold"><mi>A</mi></mstyle><mspace class="nbsp" width="0.33em"></mspace><mstyle mathvariant="bold"><mi>I</mi></mstyle><mo class="MathClass-close" stretchy="false">]</mo></math>. This gives a
+matrix of the form <math display="inline"><mo class="MathClass-open" stretchy="false">[</mo><mstyle mathvariant="bold"><mi>U</mi></mstyle><mspace class="nbsp" width="0.33em"></mspace><mstyle mathvariant="bold"><mi>H</mi></mstyle><mo class="MathClass-close" stretchy="false">]</mo></math>
+with upper triangular U because the Gauss elimination triangularizes systems. The Gauss-Jordan
+method reduces U by further elementary row operations to diagonal form, in fact to the unit matrix I.
+This is done by eliminating the entries of U above the main diagonal and making the diagonal entries
+all 1 by multiplication (see Example 1). Of course, the method operates on the entire matrix
+<math display="inline"><mo class="MathClass-open" stretchy="false">[</mo><mstyle mathvariant="bold"><mi>U</mi></mstyle><mspace class="nbsp" width="0.33em"></mspace><mstyle mathvariant="bold"><mi>H</mi></mstyle><mo class="MathClass-close" stretchy="false">]</mo></math>, transforming
+<math display="inline"><mstyle mathvariant="bold"><mi>H</mi></mstyle></math> into some
+matrix <math display="inline"><mstyle mathvariant="bold"><mi>K</mi></mstyle></math>, hence
+the entire <math display="inline"><mo class="MathClass-open" stretchy="false">[</mo><mstyle mathvariant="bold"><mi>U</mi></mstyle><mspace class="nbsp" width="0.33em"></mspace><mstyle mathvariant="bold"><mi>H</mi></mstyle><mo class="MathClass-close" stretchy="false">]</mo></math>
+to [I K]. This is the "augmented matrix" of IX = K. Now IX =
+<math display="inline"><mi>X</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <msup><mrow><mi>A</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msup></math>, as shown before.
+By comparison, <math display="inline"><mi>K</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <msup><mrow><mi>A</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msup></math>,
+so that we can read <math display="inline"><msup><mrow><mi>A</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msup></math>
+directly from <math display="inline"><mo class="MathClass-open" stretchy="false">[</mo><mi>I</mi><mspace class="nbsp" width="0.33em"></mspace><mi>K</mi><mo class="MathClass-close" stretchy="false">]</mo></math>.
+The following example illustrates the practical details of the method.
+</p>
+<p class="noindent"><h5 class="subsubsectionHead" id="header-subsubsection-6"> <a id="x8-38000"></a>An Example of Calculating the Inverse of a Matrix</h5>
+</p><p class="noindent">Therefore as an example let’s calculate the inverse of the matrix: </p><table class="equation-star"><tr><td>
+<math class="equation" display="block">
+<mstyle mathvariant="bold"><mi>A</mi></mstyle>
+<mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>2</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>3</mn> </mtd> <mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>1</mn></mtd>
+</mtr>
+<mtr class="array-row"><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn> </mtd>
+<mtd class="array-td" columnalign="center"> <mn>3</mn> </mtd>
+<mtd class="array-td" columnalign="center"> <mn>4</mn> </mtd>
+</mtr>
+</mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow><mo class="MathClass-punc" stretchy="false">.</mo>
+</math></td></tr></table>
+<p class="noindent">We start by applying the <i>Gauss elimination</i> to the following
+<math display="inline"><mi>n</mi> <mi>×</mi> <mn>2</mn><mi>n</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>3</mn> <mi>×</mi> <mn>6</mn></math> matrix, where
+the color <math display="inline"><mstyle style="color:#925DA7;"><mo class="MathClass-ord">■</mo></mstyle></math>
+always refers to the previous matrix. </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x8-38001r73"></mstyle><mtable class="aligned" displaystyle="true"><mtr><mtd columnalign="right"><mo class="MathClass-open" stretchy="false">[</mo><mstyle mathvariant="bold"><mi>A</mi></mstyle><mspace class="quad" width="1em"></mspace><mstyle mathvariant="bold"><mi>I</mi></mstyle><mo class="MathClass-close" stretchy="false">]</mo> <mo class="MathClass-rel" stretchy="false">=</mo></mtd>
+<mtd columnalign="left"> <mrow><mo fence="true" form="prefix">[</mo><mrow> <mtable align="axis" class="array" columnlines="none none solid none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>1</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>2</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>3</mn> </mtd> <mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>1</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>0</mn></mtd>
+</mtr>
+<mtr class="array-row"><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>1</mn> </mtd>
+<mtd class="array-td" columnalign="center"> <mn>3</mn> </mtd>
+<mtd class="array-td" columnalign="center"> <mn>4</mn> </mtd>
+<mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd>
+<mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd>
+<mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow></mtd>
+<mtd columnalign="right"></mtd>
+</mtr><mtr><mtd columnalign="right"></mtd>
+<mtd columnalign="left"> <mrow><mo fence="true" form="prefix">[</mo><mrow> <mtable align="axis" class="array" columnlines="none none solid none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>1</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>2</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>2</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>7</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>3</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>0</mn></mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>2</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>2</mn> </mtd><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>1</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd>
+</mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow></mtd>
+</mtr><mtr><mtd columnalign="right"></mtd>
+<mtd columnalign="left"> <mrow><mo fence="true" form="prefix">[</mo><mrow> <mtable align="axis" class="array" columnlines="none none solid none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>1</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>2</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>2</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>7</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>3</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>0</mn></mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>5</mn> </mtd><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>4</mn> </mtd><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>1</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd>
+</mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow></mtd>
+</mtr><mtr><mtd columnalign="right"></mtd>
+</mtr> </mtable>
+</math></td><td class="eq-no">(1.73)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">This is <math display="inline"><mo class="MathClass-open" stretchy="false">[</mo><mstyle mathvariant="bold"><mi>U</mi></mstyle><mstyle mathvariant="bold"><mi>H</mi></mstyle><mo class="MathClass-close" stretchy="false">]</mo></math>
+as produced by the Gauss elimination. Now follow the additional Gauss-Jordan steps, reducing U to I,
+that is, to diagonal form with entries 1 on the main diagonal.
+</p>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-1.5.2"> <a class="pdf-icon" href="HigherMathematicsILectureBook.pdf#subsection.1.5.2"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">1.5.2</span> <span class="title"> <a id="x8-390001.5.2"></a>Formulas for Inverses</span></h4></div>
+</p><p class="noindent">Since finding the inverse of a matrix is really a problem of solving a system of linear
+equations, it is clear that Cramer’s rule might come into play. And similarly, as Cramer’s
+rule was useful for theoretical study but not for computation, so too is the explicit
+formula (4) in the following theorem useful for theoretical considerations but not
+recommended for actually determining inverse matrices, except for the frequently occurring
+<math display="inline"><mn>2</mn> <mi>×</mi> <mn>2</mn></math> case as
+given in <math display="inline"><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mn>4</mn></mrow><mrow><mo class="MathClass-bin" stretchy="false">∗</mo></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></math>.
+</p>
+<div class="block-major theo-block" id="theo-block-1.17"> <a class="copiable-link" href="#theo-block-1.17"> ¶</a> <span class="upper"> <span class="header"> <b>Theory 1.<a id="x8-39001r17"></a>17: </b> </span> <span class="title"> Inverse of a Matrix by Determinants </span> </span> <div class="body">
+<p class="noindent">Inverse of a Matrix by Determinants The inverse of a nonsingular
+<math display="inline"><mi>n</mi> <mi>×</mi> <mi>n</mi></math> matrix
+<math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-open" stretchy="false">[</mo><msub><mrow><mi>a</mi></mrow><mrow><mi>i</mi><mi>k</mi></mrow></msub><mo class="MathClass-close" stretchy="false">]</mo></math> is given
+by (4) </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x8-39002r74"></mstyle><msup><mrow><mstyle mathvariant="bold"><mi>A</mi></mstyle>
+</mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msup>
+<mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<mi class="qopname">det</mi><mo> ⁡ </mo><mstyle mathvariant="bold"><mi>A</mi></mstyle></mrow></mfrac><msup><mrow><mo class="MathClass-open" stretchy="false">[</mo><msub><mrow><mi>C</mi></mrow><mrow><mi>j</mi><mi>k</mi></mrow></msub><mo class="MathClass-close" stretchy="false">]</mo></mrow><mrow><mi>T</mi></mrow></msup> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<mi class="qopname">det</mi><mo> ⁡ </mo><mstyle mathvariant="bold"><mi>A</mi></mstyle></mrow></mfrac> <mrow><mo fence="true" form="prefix">|</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>C</mi></mrow><mrow><mn>1</mn><mn>1</mn></mrow></msub> </mtd>
+<mtd class="array-td" columnalign="center"> <msub><mrow><mi>C</mi></mrow><mrow><mn>2</mn><mn>1</mn></mrow></msub> </mtd>
+<mtd class="array-td" columnalign="center"> <mo class="MathClass-rel" stretchy="false">⋯</mo> </mtd><mtd class="array-td" columnalign="center"> <msub><mrow><mi>C</mi></mrow><mrow><mi>n</mi><mn>1</mn></mrow></msub> </mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>C</mi></mrow><mrow><mn>1</mn><mn>2</mn></mrow></msub> </mtd><mtd class="array-td" columnalign="center"> <msub><mrow><mi>C</mi></mrow><mrow><mn>2</mn><mn>2</mn></mrow></msub> </mtd><mtd class="array-td" columnalign="center"> <mo class="MathClass-rel" stretchy="false">⋯</mo> </mtd><mtd class="array-td" columnalign="center"> <msub><mrow><mi>C</mi></mrow><mrow><mi>n</mi><mn>2</mn></mrow></msub> </mtd>
+</mtr>
+<mtr class="array-row"><mtd class="array-td" columnalign="center"> <mi>⋮</mi> </mtd>
+<mtd class="array-td" columnalign="center"> <mi>⋮</mi> </mtd>
+<mtd class="array-td" columnalign="center"> <mo class="MathClass-rel" stretchy="false">⋱</mo> </mtd>
+<mtd class="array-td" columnalign="center"> <mi>⋮</mi> </mtd>
+</mtr>
+</mtable> </mrow><mo fence="true" form="postfix">|</mo></mrow><mo class="MathClass-punc" stretchy="false">,</mo>
+</math></td><td class="eq-no">(1.74)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">where <math display="inline"><msub><mrow><mi>C</mi></mrow><mrow><mi>j</mi><mi>k</mi></mrow></msub></math> is the cofactor of
+<math display="inline"><msub><mrow><mi>a</mi></mrow><mrow><mi>j</mi><mi>k</mi></mrow></msub></math> in det A (see Sec. 7.7).
+(CAUTION! Note well that in <math display="inline"><msup><mrow><mi>A</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msup></math>,
+the cofactor <math display="inline"><msub><mrow><mi>C</mi></mrow><mrow><mi>j</mi><mi>k</mi></mrow></msub></math> occupies
+the same place as <math display="inline"><msub><mrow><mi>a</mi></mrow><mrow><mi>k</mi><mi>j</mi></mrow></msub></math>
+(not <math display="inline"><msub><mrow><mi>a</mi></mrow><mrow><mi>j</mi><mi>k</mi></mrow></msub></math>) does
+in <math display="inline"><mi>A</mi></math>.) In
+particular, the inverse of </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x8-39003r75"></mstyle><mstyle mathvariant="bold"><mi>A</mi></mstyle>
+<mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>1</mn></mrow></msub> </mtd><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>2</mn></mrow></msub> </mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mn>1</mn></mrow></msub> </mtd><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mn>2</mn></mrow></msub> </mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow> <mspace class="quad" width="1em"></mspace><mi>i</mi><mi>s</mi><mspace class="quad" width="1em"></mspace><msup><mrow><mstyle mathvariant="bold"><mi>A</mi></mstyle></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msup> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<mi class="qopname">det</mi><mo> ⁡ </mo><mstyle mathvariant="bold"><mi>A</mi></mstyle></mrow></mfrac> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mn>2</mn></mrow></msub> </mtd><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>2</mn></mrow></msub> </mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mn>1</mn></mrow></msub> </mtd><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>1</mn></mrow></msub> </mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow> <mo class="MathClass-punc" stretchy="false">.</mo>
+</math></td><td class="eq-no">(1.75)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent"><math display="inline"><mo class="MathClass-open" stretchy="false">(</mo><mn>4</mn><mo class="MathClass-bin" stretchy="false">∗</mo><mo class="MathClass-close" stretchy="false">)</mo></math>
+</p>
+</div> </div>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-1.5.3"> <a class="pdf-icon" href="HigherMathematicsILectureBook.pdf#subsection.1.5.3"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">1.5.3</span> <span class="title"> <a id="x8-400001.5.3"></a>Unusual Properties of Matrix Multiplication. Cancellation Laws</span></h4></div>
+</p>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-1.5.4"> <a class="pdf-icon" href="HigherMathematicsILectureBook.pdf#subsection.1.5.4"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">1.5.4</span> <span class="title"> <a id="x8-410001.5.4"></a>Determinants of Matrix Products</span></h4></div>
+</p><p class="noindent">The determinant of a matrix product AB or BA can be written as the product of the determinants of the factors, and it
+is interesting that det <math display="inline"><mi>A</mi><mi>B</mi> <mo class="MathClass-rel" stretchy="false">=</mo><mi class="qopname"> det</mi><mo> ⁡ </mo><mi>B</mi><mi>A</mi></math>,
+although <math display="inline"><mi>A</mi><mi>B</mi> <mi>≠</mi> <mi>B</mi><mi>A</mi></math>
+in general. The corresponding formula (10) is needed occasionally and can be obtained by Gauss-Jordan
+elimination (see Example 1) and from the theorem just proved.
+</p>
+<div class="block-major theo-block" id="theo-block-1.18"> <a class="copiable-link" href="#theo-block-1.18"> ¶</a> <span class="upper"> <span class="header"> <b>Theory 1.<a id="x8-41001r18"></a>18: </b> </span> <span class="title"> Determinant of a Product of Matrices </span> </span> <div class="body">
+<p class="noindent">For any <math display="inline"><mi>n</mi> <mi>×</mi> <mi>n</mi></math>
+matrices <b>A</b> and <b>B</b>, </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x8-41002r76"></mstyle>
+<mi>d</mi><mi>e</mi><mi>t</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>A</mi><mi>B</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>d</mi><mi>e</mi><mi>t</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>B</mi><mi>A</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>d</mi><mi>e</mi><mi>t</mi><mi>A</mi><mi>d</mi><mi>e</mi><mi>t</mi><mi>B</mi><mo class="MathClass-punc" stretchy="false">.</mo>
+</math></td><td class="eq-no">(1.76)</td></tr></table>
+<p class="noindent"></p>
+</div> </div>
+<div class="section-header">
+<h3 id="header-section-references">
+<span class="number">
+<i class="fa-regular fa-note-sticky"></i>
+</span>
+<span class="title">
+<a id="page-glossary"></a>
+                    Page Footnotes</span>
+</h3>
+</div>
+<div class="footnote-block">
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-27"><span class="acr-short">[27].</span></dt>
+<dd class="enumerate-enumitem"><span class="">Meaning it is non-singular.</span></dd>
+</dl></div><nav class="crosslinks-bottom"><div class="navigation"><span class="nav-button"><a href="VectorandInnerProductSpacesLinearTransformations.html"><i class="fa-solid fa-caret-right"></i></a></span><span class="nav-button"><a href="DeterminantsandCramersRule.html"><i class="fa-solid fa-caret-left"></i></a></span><span class="nav-button"><a href="LinearAlgebraIFundamentals.html#InverseofaMatrixusingGaussJordanElimination.html"><i class="fa-solid fa-caret-up"></i></a></span><span class="nav-button">
+<a href="index.html" rel="index" title="Index">
+<i class="fa-solid fa-table-list">
+</i>
+</a></span><span class="nav-button">
+<a href="Index.html" rel="index" title="Index">
+<i class="fa-brands fa-git-alt"></i>
+</a></span></div></nav> <div class="footer"> <div class="footer-left"><span class="footer-lecture">D. T. McGuiness, PhD</span>
+<span class="footer-webBook"><b>Last Updated:</b> 20.10.2026, at 10:2.</span></div></div><div class="author-notes">
+<span class="note">Authors Note </span>
+<span class="text">The website you are viewing is auto-generated using lms-WebBook and therefore subject to slight errors in typography and formatting. When in doubt, please consult the LectureBook. </span>
+</div>
+</article>
+<div class="mode-line">
+<div class="core-line"><div class="core-line-image"><img class="webbook-logo" src="logo/webbook-logo.svg"/></div>
+<div class="current-header">
+<span class="header-pretext">Viewing | </span>
+<span class="header-text">Section 1.5: Inverse of a Matrix using Gauss-Jordan Elimination</span>
+</div>
+<div class="button-group">
+</div>
+</div>
+<div class="supp-line"></div>
+</div>
+</page>
+</body>
+</html>

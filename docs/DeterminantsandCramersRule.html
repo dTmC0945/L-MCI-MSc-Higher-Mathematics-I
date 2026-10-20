@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><title>Determinants and Cramer’s Rule</title>
+<meta charset="utf-8"/>
+<meta content="lms-WebBook" name="generator"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js" type="text/javascript"></script>
+<link href="logo/lms.ico" rel="icon" type="image/x-icon"/>
+<link href="./pagefind/pagefind-component-ui.css" rel="stylesheet"/>
+<script src="./pagefind/pagefind-component-ui.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link href="https://cdn.jsdelivr.net/gh/sugina-dev/latin-modern-web@1.0.1/style/latinmodern-mono.css" rel="stylesheet"/>
+<link href="flatweb.css" rel="stylesheet" type="text/css"/>
+<script src="flatweb.js" type="text/javascript"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/base16/solarized-light.min.css" rel="stylesheet"/>
+<script src="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.js"></script>
+<link href="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/cpp.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/latex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/matlab.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/dockerfile.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/cmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/makefile.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/markdown.min.js"></script>
+ </head><body>
+<page>
+<nav class="wide"> <div class="header"><div class="header-left"><span class="header-lecture-grade">M.Sc</span>
+<span class="header-lecture-name">Higher Mathematics I</span>
+<span class="header-webBook">WebBook 2.1</span></div><div class="header-right"><span class="header-version">2026.WS</span>
+<span class="header-chapter">Linear Algebra I - Fundamentals</span></div></div><div class="toc"><pagefind-modal-trigger></pagefind-modal-trigger><pagefind-modal></pagefind-modal><div class="toc-links"><a href="https://github.com/dTmC0945" title="Lecturer GitHub Repo"><i class="fab fa-github" style="font-size:20px"></i></a><a href="https://scholar.google.com/citations?view_op=list_works\&amp;hl=en\&amp;user=lxQGADMAAAAJ" title="Lecturer Google Scholar Page"><i class="fa-brands fa-google-scholar" style="font-size:20px"></i></a><a href="https://www.researchgate.net/profile/Daniel-Mcguiness-2" title="Lecturer ResearchGate Account"><i class="fa-brands fa-researchgate" style="font-size:20px"></i></a><a href="https://dtmc0945.github.io/Th-MCI-Thesis-Topics/" title="Lecturer Thesis Ideas for B.Sc and M.Sc"><i class="fa-solid fa-book" style="font-size:20px"></i></a><a href="https://github.com/dTmC0945/C-MCI-LaTeX-Class-mcidoc/tree/main" title="mcidoc LaTeX Standard"><i class="fa-regular fa-file-lines" style="font-size:20px"></i></a></div><hr/><span class="chapterToc"><span class="number"></span><span class="title"><a href="index.html#x2-10000">Entry Point</a></span></span><span class="chapterToc"><span class="number">1</span><span class="title"><a href="LinearAlgebraIFundamentals.html#x3-20001">Linear Algebra I - Fundamentals</a></span></span><span class="sectionToc"><span class="number">1.1</span><span class="title"><a href="MatricesVectorsAdditionandScalarMultiplication.html#x4-30001.1">Matrices, Vectors: Addition and Scalar
+Multiplication</a></span></span><span class="subsectionToc"><span class="number">1.1.1</span><span class="title"><a href="MatricesVectorsAdditionandScalarMultiplication.html#x4-40001.1.1">General Concepts and Notations</a></span></span><span class="subsectionToc"><span class="number">1.1.2</span><span class="title"><a href="MatricesVectorsAdditionandScalarMultiplication.html#x4-50001.1.2">Vectors</a></span></span><span class="subsectionToc"><span class="number">1.1.3</span><span class="title"><a href="MatricesVectorsAdditionandScalarMultiplication.html#x4-60001.1.3">Addition and
+Scalar Multiplication of Matrices and Vectors</a></span></span><span class="subsectionToc"><span class="number">1.1.4</span><span class="title"><a href="MatricesVectorsAdditionandScalarMultiplication.html#x4-80001.1.4">Matrix Multiplication</a></span></span><span class="subsectionToc"><span class="number">1.1.5</span><span class="title"><a href="MatricesVectorsAdditionandScalarMultiplication.html#x4-90001.1.5">The use
+of Linear Transformations in Multiplication of Matrices</a></span></span><span class="sectionToc"><span class="number">1.2</span><span class="title"><a href="LinearSystemsofEquationsGaussElimination.html#x5-150001.2">Linear Systems of Equations
+Gauss Elimination</a></span></span><span class="subsectionToc"><span class="number">1.2.1</span><span class="title"><a href="LinearSystemsofEquationsGaussElimination.html#x5-160001.2.1">Linear System, Coefficient Matrix, Augmented Matrix</a></span></span><span class="subsectionToc"><span class="number">1.2.2</span><span class="title"><a href="LinearSystemsofEquationsGaussElimination.html#x5-180001.2.2">Gauss
+Elimination and Back Substitution</a></span></span><span class="subsectionToc"><span class="number">1.2.3</span><span class="title"><a href="LinearSystemsofEquationsGaussElimination.html#x5-190001.2.3">Elementary Row Operations. Row-Equivalent
+Systems</a></span></span><span class="sectionToc"><span class="number">1.3</span><span class="title"><a href="LinearIndependenceandRankofaMatrixVectorSpace.html#x6-220001.3">Linear Independence and Rank of a Matrix Vector Space</a></span></span><span class="subsectionToc"><span class="number">1.3.1</span><span class="title"><a href="LinearIndependenceandRankofaMatrixVectorSpace.html#x6-230001.3.1">Linear
+Independence and Dependence of Vectors</a></span></span><span class="subsectionToc"><span class="number">1.3.2</span><span class="title"><a href="LinearIndependenceandRankofaMatrixVectorSpace.html#x6-240001.3.2">Rank of a Matrix</a></span></span><span class="subsectionToc"><span class="number">1.3.3</span><span class="title"><a href="LinearIndependenceandRankofaMatrixVectorSpace.html#x6-250001.3.3">Vector
+Space</a></span></span><span class="subsectionToc"><span class="number">1.3.4</span><span class="title"><a href="LinearIndependenceandRankofaMatrixVectorSpace.html#x6-260001.3.4">Solutions of Linear Systems: Existence, Uniqueness</a></span></span><span class="sectionToc"><span class="number">1.4</span><span class="title"><a href="#x7-290001.4">Determinants
+and Cramer’s Rule</a></span></span><span class="subsectionToc"><span class="number">1.4.1</span><span class="title"><a href="#x7-300001.4.1">A Quick Refreshment on Determinants</a></span></span><span class="subsectionToc"><span class="number">1.4.2</span><span class="title"><a href="#x7-320001.4.2">Third-Order
+Determinants</a></span></span><span class="subsectionToc"><span class="number">1.4.3</span><span class="title"><a href="#x7-340001.4.3">General Properties of Determinants</a></span></span><span class="subsectionToc"><span class="number">1.4.4</span><span class="title"><a href="#x7-350001.4.4">Cramer’s Rule</a></span></span><span class="sectionToc"><span class="number">1.5</span><span class="title"><a href="InverseofaMatrixusingGaussJordanElimination.html#x8-360001.5">Inverse
+of a Matrix using Gauss-Jordan Elimination</a></span></span><span class="subsectionToc"><span class="number">1.5.1</span><span class="title"><a href="InverseofaMatrixusingGaussJordanElimination.html#x8-370001.5.1">Determination of the Inverse by the
+Gauss-Jordan Method</a></span></span><span class="subsectionToc"><span class="number">1.5.2</span><span class="title"><a href="InverseofaMatrixusingGaussJordanElimination.html#x8-390001.5.2">Formulas for Inverses</a></span></span><span class="subsectionToc"><span class="number">1.5.3</span><span class="title"><a href="InverseofaMatrixusingGaussJordanElimination.html#x8-400001.5.3">Unusual Properties of Matrix
+Multiplication. Cancellation Laws</a></span></span><span class="subsectionToc"><span class="number">1.5.4</span><span class="title"><a href="InverseofaMatrixusingGaussJordanElimination.html#x8-410001.5.4">Determinants of Matrix Products</a></span></span><span class="sectionToc"><span class="number">1.6</span><span class="title"><a href="VectorandInnerProductSpacesLinearTransformations.html#x9-420001.6">Vector, and
+Inner Product Spaces, Linear Transformations</a></span></span><span class="subsectionToc"><span class="number">1.6.1</span><span class="title"><a href="VectorandInnerProductSpacesLinearTransformations.html#x9-430001.6.1">Inner Product Spaces</a></span></span><span class="subsectionToc"><span class="number">1.6.2</span><span class="title"><a href="VectorandInnerProductSpacesLinearTransformations.html#x9-440001.6.2">Linear
+Transformations</a></span></span><span class="subsectionToc"><span class="number">1.6.3</span><span class="title"><a href="VectorandInnerProductSpacesLinearTransformations.html#x9-460001.6.3">Composition of Linear Transformations</a></span></span><span class="chapterToc"><span class="number">2</span><span class="title"><a href="LinearAlgebraIIEigenvalueProblems.html#x10-470002">Linear Algebra II - Eigenvalue
+Problems</a></span></span><span class="sectionToc"><span class="number">2.1</span><span class="title"><a href="DeterminingEigenvaluesandEigenvectors.html#x11-500002.1">Determining Eigenvalues and Eigenvectors</a></span></span><span class="subsectionToc"><span class="number">2.1.1</span><span class="title"><a href="DeterminingEigenvaluesandEigenvectors.html#x11-510002.1.1">How to Find Eigenvalues and
+Eigenvectors</a></span></span><span class="subsectionToc"><span class="number">2.1.2</span><span class="title"><a href="DeterminingEigenvaluesandEigenvectors.html#x11-520002.1.2">Applications of Eigenvalue Problems</a></span></span><span class="sectionToc"><span class="number">2.2</span><span class="title"><a href="SymmetricSkewSymmetricandOrthogonalMatrices.html#x12-530002.2">Symmetric, Skew-Symmetric,
+and Orthogonal Matrices</a></span></span><span class="subsectionToc"><span class="number">2.2.1</span><span class="title"><a href="SymmetricSkewSymmetricandOrthogonalMatrices.html#x12-540002.2.1">Orthogonal Transformations and Orthogonal
+Matrices</a></span></span><span class="sectionToc"><span class="number">2.3</span><span class="title"><a href="EigenbasesDiagonalizationQuadraticForms.html#x13-550002.3">Eigenbases. Diagonalization. Quadratic Forms</a></span></span><span class="subsectionToc"><span class="number">2.3.1</span><span class="title"><a href="EigenbasesDiagonalizationQuadraticForms.html#x13-560002.3.1">Similarity of Matrices and
+Diagonalization</a></span></span><span class="subsectionToc"><span class="number">2.3.2</span><span class="title"><a href="EigenbasesDiagonalizationQuadraticForms.html#x13-570002.3.2">Quadratic Forms and Transformation to Principal Axes</a></span></span><span class="sectionToc"><span class="number">2.4</span><span class="title"><a href="ComplexMatricesandForms.html#x14-580002.4">Complex
+Matrices and Forms</a></span></span><span class="subsectionToc"><span class="number">2.4.1</span><span class="title"><a href="ComplexMatricesandForms.html#x14-590002.4.1">Eigenvalues</a></span></span><span class="subsectionToc"><span class="number">2.4.2</span><span class="title"><a href="ComplexMatricesandForms.html#x14-600002.4.2">Hermitian and Skew-Hermitian Forms</a></span></span>
+<div class="nav-footer"><div class="nav-footer-left"><span class="nav-footer-lecture">D. T. McGuiness, PhD</span>
+<span class="nav-footer-webBook"><b>Last Updated:</b> 20.10.2026, at 10:2.</span></div></div><p class="nav-comments">The website you are viewing is auto-generated using lms-WebBook and therefore subject to slight errors in typography and formatting. When in doubt, please consult the LectureBook. </p></div></nav>
+<article class="chapter">
+<nav class="crosslinks-top"> <span class="nav-button"><i class="fa-solid fa-caret-right"></i><a class="nav-link" href="InverseofaMatrixusingGaussJordanElimination.html">Inverse of a Matrix using Gauss-Jordan Elimination</a></span><span class="nav-button"><i class="fa-solid fa-caret-left"></i><a class="nav-link" href="LinearIndependenceandRankofaMatrixVectorSpace.html">Linear Independence and Rank of a Matrix Vector Space</a></span><span class="nav-button"><i class="fa-solid fa-caret-up"></i><a class="nav-link" href="LinearAlgebraIFundamentals.html#DeterminantsandCramersRule.html">Chapter: Linear Algebra I -
+Fundamentals</a></span><span class="nav-button">
+<a href="index.html" rel="index" title="Visit Entry Point">
+<i class="fa-solid fa-table-list">
+</i>
+<span class="nav-info">Visit Index Page</span>
+</a></span><span class="nav-button">
+<a href="Index.html" rel="index" title="Visit Material GitHub Repo">
+<i class="fa-brands fa-git-alt"></i>
+<span class="nav-info">Visit Material GitHub Repo</span>
+</a></span></nav>
+<div class="section-header"> <h3 id="header-section-1.4"> <a class="pdf-icon" href="HigherMathematicsILectureBook.pdf#section.1.4"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a> <span class="number">1.4</span> <span class="title"> <a id="x7-290001.4"></a>Determinants and
+Cramer’s Rule</span></h3></div>
+<p class="noindent"><span class="margin-block">Determinants <span class="margin-comment"><a class="ellipsis" href="#m-ref-24">[24]</a>
+<span class="sidenote">Historically, determinants were used long before matrices: A determinant was originally
+defined as a property of a system of linear equations. The determinant “determines” whether the
+system has a unique solution, which occurs precisely if the determinant is non-zero. In Europe,
+solutions of linear systems of two equations were expressed by <i>Cardano</i> in 1545 by a determinant-like
+entity <span class="cite"><a class="cite-show" href="#w3-20001">[†-1]</a><span class="cite-detail"> <a id="x7-29001"></a>Grattan-Guinness, I. Companion encyclopedia of the history and philosophy of the
+mathematical sciences (Routledge, 2002)</span></span>.</span></span></span> were originally introduced for solving linear systems and
+therefore has a significant place in their application to wide variety of engineering problems.
+However, before we tackle them in detail, it is worthwhile to have a good refreshment on the
+topic.
+</p>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-1.4.1"> <a class="pdf-icon" href="HigherMathematicsILectureBook.pdf#subsection.1.4.1"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">1.4.1</span> <span class="title"> <a id="x7-300001.4.1"></a>A Quick Refreshment on Determinants</span></h4></div>
+</p><p class="noindent">A <span class="alert">determinant of second order</span> is denoted and defined by </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x7-30001r52"></mstyle><mi>D</mi> <mo class="MathClass-rel" stretchy="false">=</mo><mi class="qopname"> det</mi><mo> ⁡ </mo><mstyle mathvariant="bold"><mi>A</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">|</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>1</mn></mrow></msub> </mtd><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>2</mn></mrow></msub> </mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mn>1</mn></mrow></msub> </mtd><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mn>2</mn></mrow></msub> </mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">|</mo></mrow> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>1</mn></mrow></msub><msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mn>2</mn></mrow></msub><mo class="MathClass-bin" stretchy="false">−</mo><msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>2</mn></mrow></msub><msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mn>1</mn></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo>
+</math></td><td class="eq-no">(1.52)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">where we use bars instead of brackets to denote the aforementioned operation is a <b>determinant</b>.
+</p>
+<p class="noindent"><span class="paragraphHead"> <a id="x7-31000"></a>Cramer’s Rule</span>
+for solving linear systems of two (<span class="alert">2</span>) equations in two unknowns is represented as follows:
+</p>
+<table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x7-31001r53"></mstyle><mtable class="aligned" displaystyle="true"><mtr><mtd columnalign="right"><msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>1</mn></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>2</mn></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub></mtd>
+<mtd columnalign="left"> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>b</mi></mrow><mrow><mn>1</mn></mrow></msub></mtd>
+<mtd columnalign="right"></mtd>
+</mtr><mtr><mtd columnalign="right"><msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mn>1</mn></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mn>2</mn></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub></mtd><mtd columnalign="left"> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>b</mi></mrow><mrow><mn>2</mn></mrow></msub></mtd>
+</mtr> </mtable><mspace class="qquad" width="2em"></mspace><mstyle class="text"><mtext>where</mtext></mstyle><mspace class="qquad" width="2em"></mspace><mtable class="aligned" displaystyle="true"><mtr><mtd columnalign="right"><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac>
+<mrow>
+<mtable align="axis" class="array" columnlines="none" displaystyle="true" equalcolumns="false" equalrows="false" style="border-right:solid 1px black;border-left:solid 1px black;"> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>b</mi></mrow><mrow><mn>1</mn></mrow></msub> </mtd>
+<mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>2</mn></mrow></msub> </mtd>
+</mtr>
+<mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>b</mi></mrow><mrow><mn>2</mn></mrow></msub> </mtd>
+<mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mn>2</mn></mrow></msub> </mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> </mtd> </mtr> </mtable> </mrow>
+<mrow>
+<mi>D</mi></mrow></mfrac> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><msub><mrow><mi>b</mi></mrow><mrow><mn>1</mn></mrow></msub><msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mn>2</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">−</mo> <msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>2</mn></mrow></msub><msub><mrow><mi>b</mi></mrow><mrow><mn>2</mn></mrow></msub></mrow>
+<mrow>
+<mi>D</mi></mrow></mfrac> <mo class="MathClass-punc" stretchy="false">,</mo></mtd>
+</mtr><mtr><mtd columnalign="right"><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac>
+<mrow>
+<mtable align="axis" class="array" columnlines="none" displaystyle="true" equalcolumns="false" equalrows="false" style="border-right:solid 1px black;border-left:solid 1px black;"> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>1</mn></mrow></msub> </mtd>
+<mtd class="array-td" columnalign="center"> <msub><mrow><mi>b</mi></mrow><mrow><mn>1</mn></mrow></msub> </mtd>
+</mtr>
+<mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mn>1</mn></mrow></msub> </mtd>
+<mtd class="array-td" columnalign="center"> <msub><mrow><mi>b</mi></mrow><mrow><mn>2</mn></mrow></msub> </mtd>
+</mtr></mtable> </mrow>
+<mrow>
+<mi>D</mi></mrow></mfrac> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>1</mn></mrow></msub><msub><mrow><mi>b</mi></mrow><mrow><mn>2</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">−</mo> <msub><mrow><mi>b</mi></mrow><mrow><mn>1</mn></mrow></msub><msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mn>1</mn></mrow></msub></mrow>
+<mrow>
+<mi>D</mi></mrow></mfrac> </mtd>
+</mtr> </mtable>
+</math></td><td class="eq-no">(1.53)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">with <math display="inline"><mi>D</mi></math> as in Eq. (<a href="#x7-30001r52">1.52</a>),
+provided that <math display="inline"><mi>D</mi> <mi>≠</mi> <mn>0</mn></math>,
+where the value <math display="inline"><mi>D</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></math>
+appears for homogeneous systems with nontrivial solutions.
+</p>
+<div class="block-major exer-block" id="exer-block-1.22"> <a class="copiable-link" href="#exer-block-1.22"> ¶</a> <span class="upper"> <span class="header"> <b>Example 1.<a id="x7-31002r22"></a>22: </b> </span> <span class="title"> Cramer’s Rule for Two Equation </span> </span> <div class="body">
+<p class="noindent">If </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x7-31003r54"></mstyle><mtable class="aligned" displaystyle="true"><mtr><mtd columnalign="right"><mn>4</mn><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>3</mn><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub></mtd>
+<mtd columnalign="left"> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn><mn>2</mn></mtd>
+<mtd columnalign="right"></mtd>
+</mtr><mtr><mtd columnalign="right"><mn>2</mn><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>5</mn><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub></mtd><mtd columnalign="left"> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-bin" stretchy="false">−</mo><mn>8</mn></mtd>
+</mtr> </mtable>
+</math></td><td class="eq-no">(1.54)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">then we can calculate the unknowns as: </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x7-31004r55"></mstyle><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">|</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>1</mn><mn>2</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>3</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>8</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>5</mn></mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">|</mo></mrow> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><mn>8</mn><mn>4</mn></mrow>
+<mrow>
+<mn>1</mn><mn>4</mn></mrow></mfrac> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>6</mn><mo class="MathClass-punc" stretchy="false">,</mo><mspace class="quad" width="1em"></mspace><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">|</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>4</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>1</mn><mn>2</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>2</mn> </mtd> <mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>8</mn></mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">|</mo></mrow> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>5</mn><mn>6</mn></mrow>
+<mrow>
+<mn>1</mn><mn>4</mn></mrow></mfrac> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-bin" stretchy="false">−</mo><mn>4</mn><mo class="MathClass-punc" stretchy="false">.</mo>
+</math></td><td class="eq-no">(1.55)</td></tr></table>
+<p class="noindent"></p>
+</div> </div>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-1.4.2"> <a class="pdf-icon" href="HigherMathematicsILectureBook.pdf#subsection.1.4.2"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">1.4.2</span> <span class="title"> <a id="x7-320001.4.2"></a>Third-Order Determinants</span></h4></div>
+</p><p class="noindent">A <span class="alert">determinant of third order</span> can be defined by as follows: </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x7-32001r56"></mstyle><mi>D</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">|</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>1</mn></mrow></msub> </mtd>
+<mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>2</mn></mrow></msub> </mtd>
+<mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>3</mn></mrow></msub> </mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mn>1</mn></mrow></msub> </mtd><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mn>2</mn></mrow></msub> </mtd><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mn>3</mn></mrow></msub> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow>
+<mn>3</mn><mn>1</mn></mrow></msub> </mtd><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow>
+<mn>3</mn><mn>2</mn></mrow></msub> </mtd><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow>
+<mn>3</mn><mn>3</mn></mrow></msub> </mtd>
+</mtr>
+</mtable> </mrow><mo fence="true" form="postfix">|</mo></mrow> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>1</mn></mrow></msub> <mrow><mo fence="true" form="prefix">|</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mn>2</mn></mrow></msub> </mtd><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mn>3</mn></mrow></msub> </mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>3</mn><mn>2</mn></mrow></msub> </mtd><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>3</mn><mn>3</mn></mrow></msub> </mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">|</mo></mrow> <mo class="MathClass-bin" stretchy="false">−</mo><msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mn>1</mn></mrow></msub> <mrow><mo fence="true" form="prefix">|</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>2</mn></mrow></msub> </mtd><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>3</mn></mrow></msub> </mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>3</mn><mn>2</mn></mrow></msub> </mtd><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>3</mn><mn>3</mn></mrow></msub> </mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">|</mo></mrow> <mo class="MathClass-bin" stretchy="false">+</mo><msub><mrow><mi>a</mi></mrow><mrow><mn>3</mn><mn>1</mn></mrow></msub> <mrow><mo fence="true" form="prefix">|</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>2</mn></mrow></msub> </mtd><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>3</mn></mrow></msub> </mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mn>2</mn></mrow></msub> </mtd><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mn>3</mn></mrow></msub> </mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">|</mo></mrow>
+</math></td><td class="eq-no">(1.56)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">Note the following. The signs on the right are <math display="inline"> <mo class="MathClass-bin" stretchy="false">+</mo> <mo class="MathClass-bin" stretchy="false">−</mo><mo class="MathClass-bin" stretchy="false">+</mo></math>.
+Each of the three terms on the right is an entry in the first column of
+<math display="inline"><mi>D</mi></math>
+times its <b>minor</b>, that is, the second-order determinant obtained from
+<math display="inline"><mi>D</mi></math>
+by deleting the row and column of that entry; therefore, for
+<math display="inline"><msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>1</mn></mrow></msub></math> delete
+the first row and first column, and so on. If we write out the minors in Eq. (<a href="#x7-32001r56">1.56</a>), we obtain:
+</p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x7-32002r57"></mstyle>
+<mi>D</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>1</mn></mrow></msub><msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mn>2</mn></mrow></msub><msub><mrow><mi>a</mi></mrow><mrow><mn>3</mn><mn>3</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">−</mo> <msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>1</mn></mrow></msub><msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mn>3</mn></mrow></msub><msub><mrow><mi>a</mi></mrow><mrow><mn>3</mn><mn>2</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mn>1</mn></mrow></msub><msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>3</mn></mrow></msub><msub><mrow><mi>a</mi></mrow><mrow><mn>3</mn><mn>2</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">−</mo> <msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mn>1</mn></mrow></msub><msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>2</mn></mrow></msub><msub><mrow><mi>a</mi></mrow><mrow><mn>3</mn><mn>3</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>a</mi></mrow><mrow><mn>3</mn><mn>1</mn></mrow></msub><msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>2</mn></mrow></msub><msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mn>3</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">−</mo> <msub><mrow><mi>a</mi></mrow><mrow><mn>3</mn><mn>1</mn></mrow></msub><msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>3</mn></mrow></msub><msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mn>2</mn></mrow></msub><mo class="MathClass-punc" stretchy="false">.</mo>
+</math></td><td class="eq-no">(1.57)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent"><span class="paragraphHead"> <a id="x7-33000"></a>Cramer’s Rule for Linear Systems of Three Equations</span>
+</p>
+<table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x7-33001r58"></mstyle><mtable class="aligned" displaystyle="true"><mtr><mtd columnalign="right"><msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>1</mn></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>2</mn></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>3</mn></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mn>3</mn></mrow></msub></mtd>
+<mtd columnalign="left"> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>b</mi></mrow><mrow><mn>1</mn></mrow></msub></mtd>
+<mtd columnalign="right"></mtd>
+</mtr><mtr><mtd columnalign="right"><msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mn>1</mn></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mn>2</mn></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mn>3</mn></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mn>3</mn></mrow></msub></mtd>
+<mtd columnalign="left"> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>b</mi></mrow><mrow><mn>2</mn></mrow></msub></mtd>
+</mtr><mtr><mtd columnalign="right"><msub><mrow><mi>a</mi></mrow><mrow><mn>3</mn><mn>1</mn></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>a</mi></mrow><mrow><mn>3</mn><mn>2</mn></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>a</mi></mrow><mrow><mn>3</mn><mn>3</mn></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mn>3</mn></mrow></msub></mtd><mtd columnalign="left"> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>b</mi></mrow><mrow><mn>3</mn></mrow></msub></mtd>
+</mtr><mtr><mtd columnalign="right"></mtd>
+</mtr> </mtable><mspace class="quad" width="1em"></mspace><mstyle class="text"><mtext>is</mtext></mstyle><mspace class="quad" width="1em"></mspace><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><msub><mrow><mi>D</mi></mrow><mrow><mn>1</mn></mrow></msub></mrow>
+<mrow>
+<mi>D</mi></mrow></mfrac> <mo class="MathClass-punc" stretchy="false">,</mo><mspace class="quad" width="1em"></mspace><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><msub><mrow><mi>D</mi></mrow><mrow><mn>2</mn></mrow></msub></mrow>
+<mrow>
+<mi>D</mi></mrow></mfrac> <mo class="MathClass-punc" stretchy="false">,</mo><mspace class="quad" width="1em"></mspace><msub><mrow><mi>x</mi></mrow><mrow><mn>3</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><msub><mrow><mi>D</mi></mrow><mrow><mn>3</mn></mrow></msub></mrow>
+<mrow>
+<mi>D</mi></mrow></mfrac> <mspace class="quad" width="1em"></mspace><mstyle class="text"><mtext>where</mtext></mstyle><mspace class="quad" width="1em"></mspace><mo class="MathClass-open" stretchy="false">(</mo><mi>D</mi> <mi>≠</mi> <mn>0</mn><mo class="MathClass-close" stretchy="false">)</mo>
+</math></td><td class="eq-no">(1.58)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">with the determinant D of the system given by Eq. (<a href="#x7-32002r57">1.57</a>) and: </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x7-33002r59"></mstyle><msub><mrow><mi>D</mi></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">|</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>b</mi></mrow><mrow><mn>1</mn></mrow></msub> </mtd>
+<mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>2</mn></mrow></msub> </mtd>
+<mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>3</mn></mrow></msub> </mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>b</mi></mrow><mrow><mn>2</mn></mrow></msub> </mtd><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mn>2</mn></mrow></msub> </mtd><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mn>3</mn></mrow></msub> </mtd>
+</mtr>
+<mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>b</mi></mrow><mrow><mn>3</mn></mrow></msub> </mtd>
+<mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>3</mn><mn>2</mn></mrow></msub> </mtd>
+<mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>3</mn><mn>3</mn></mrow></msub> </mtd>
+</mtr>
+</mtable> </mrow><mo fence="true" form="postfix">|</mo></mrow> <mo class="MathClass-punc" stretchy="false">,</mo><mspace class="quad" width="1em"></mspace><msub><mrow><mi>D</mi></mrow><mrow><mn>2</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">|</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>1</mn></mrow></msub> </mtd>
+<mtd class="array-td" columnalign="center"> <msub><mrow><mi>b</mi></mrow><mrow><mn>1</mn></mrow></msub> </mtd>
+<mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>3</mn></mrow></msub> </mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mn>1</mn></mrow></msub> </mtd><mtd class="array-td" columnalign="center"> <msub><mrow><mi>b</mi></mrow><mrow><mn>2</mn></mrow></msub> </mtd><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mn>3</mn></mrow></msub> </mtd>
+</mtr>
+<mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>3</mn><mn>1</mn></mrow></msub> </mtd>
+<mtd class="array-td" columnalign="center"> <msub><mrow><mi>b</mi></mrow><mrow><mn>3</mn></mrow></msub> </mtd>
+<mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>3</mn><mn>3</mn></mrow></msub> </mtd>
+</mtr>
+</mtable> </mrow><mo fence="true" form="postfix">|</mo></mrow> <mo class="MathClass-punc" stretchy="false">,</mo><mspace class="quad" width="1em"></mspace><msub><mrow><mi>D</mi></mrow><mrow><mn>3</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">|</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>1</mn></mrow></msub> </mtd>
+<mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>2</mn></mrow></msub> </mtd>
+<mtd class="array-td" columnalign="center"> <msub><mrow><mi>b</mi></mrow><mrow><mn>1</mn></mrow></msub> </mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mn>1</mn></mrow></msub> </mtd><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mn>2</mn></mrow></msub> </mtd><mtd class="array-td" columnalign="center"> <msub><mrow><mi>b</mi></mrow><mrow><mn>2</mn></mrow></msub> </mtd>
+</mtr>
+<mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>3</mn><mn>1</mn></mrow></msub> </mtd>
+<mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>3</mn><mn>2</mn></mrow></msub> </mtd>
+<mtd class="array-td" columnalign="center"> <msub><mrow><mi>b</mi></mrow><mrow><mn>3</mn></mrow></msub> </mtd>
+</mtr>
+</mtable> </mrow><mo fence="true" form="postfix">|</mo></mrow>
+</math></td><td class="eq-no">(1.59)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">Please observe that <math display="inline"><msub><mrow><mi>D</mi></mrow><mrow><mn>1</mn></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>D</mi></mrow><mrow><mn>2</mn></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>D</mi></mrow><mrow><mn>3</mn></mrow></msub></math>
+are obtained by replacing Columns 1, 2, 3, respectively, by the column of the right sides of Eq.
+(<a href="#x7-33001r58">1.58</a>)
+.
+</p><p class="noindent">Cramer’s rule in Eq. (<a href="#x7-33001r58">1.58</a>) can be derived by eliminations similar to those for Eq. (??), but it also
+follows from the general case as explained in Theorem 4c.
+</p>
+<div class="block-minor knowledge"><div class="body">
+<p class="noindent">Although <i>impractical</i> in computations, they have important engineering applications in <span class="alert">eigenvalue</span> problems
+(<span class="refclass-ref"><a href="LinearAlgebraIIEigenvalueProblems.html#x10-470002">Linear Algebra II - Eigenvalue Problems</a></span>), differential equations, vector algebra (<span class="refclass-ref">??</span>), and in other
+areas. </p></div></div>
+<p class="noindent">They can be introduced in numerous equivalent ways. Our definition is particularly for dealing with
+linear systems.
+</p><p class="noindent">A determinant of order <math display="inline"><mi>n</mi></math>
+is a <span class="alert">scalar</span> associated with an <math display="inline"><mi>n</mi> <mi>×</mi> <mi>n</mi></math>
+<span class="margin-block">matrix <span class="margin-comment"><a class="ellipsis" href="#m-ref-25">[25]</a>
+<span class="sidenote">This means for there to be a determinant, the said matrix must be of square shape.</span></span></span>
+<math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-open" stretchy="false">[</mo><msub><mrow><mi>a</mi></mrow><mrow><mi>j</mi><mi>k</mi></mrow></msub><mo class="MathClass-close" stretchy="false">]</mo></math>, and is
+denoted by </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x7-33003r60"></mstyle><mi>D</mi> <mo class="MathClass-rel" stretchy="false">=</mo><mi class="qopname"> det</mi><mo> ⁡ </mo><mstyle mathvariant="bold"><mi>A</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">|</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>1</mn></mrow></msub> </mtd>
+<mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>2</mn></mrow></msub> </mtd>
+<mtd class="array-td" columnalign="center"> <mo class="MathClass-rel" stretchy="false">⋯</mo> </mtd>
+<mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mi>n</mi></mrow></msub> </mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mn>1</mn></mrow></msub> </mtd><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mn>2</mn></mrow></msub> </mtd><mtd class="array-td" columnalign="center"> <mo class="MathClass-rel" stretchy="false">⋯</mo> </mtd><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mi>n</mi></mrow></msub> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mi>·</mi> </mtd> <mtd class="array-td" columnalign="center"> <mi>·</mi> </mtd> <mtd class="array-td" columnalign="center"> <mo class="MathClass-rel" stretchy="false">⋱</mo> </mtd> <mtd class="array-td" columnalign="center"> <mi class="qopname">⋮</mi><mo> ⁡ </mo></mtd>
+</mtr>
+<mtr class="array-row"><mtd class="array-td" columnalign="center"> <mi>·</mi> </mtd>
+<mtd class="array-td" columnalign="center"> <mo class="MathClass-rel" stretchy="false">⋯</mo> </mtd>
+<mtd class="array-td" columnalign="center"> <mo class="MathClass-rel" stretchy="false">⋯</mo> </mtd>
+<mtd class="array-td" columnalign="center"> <mi>·</mi> </mtd>
+</mtr>
+</mtable> </mrow><mo fence="true" form="postfix">|</mo></mrow>
+</math></td><td class="eq-no">(1.60)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">For <math display="inline"><mi>n</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn></math>,
+this determinant is defined by </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x7-33004r61"></mstyle>
+<mi>D</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>1</mn></mrow></msub><mo class="MathClass-punc" stretchy="false">.</mo>
+</math></td><td class="eq-no">(1.61)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">For <math display="inline"><mi>n</mi> <mo class="MathClass-rel" stretchy="false">⩾</mo> <mn>2</mn></math> the
+calculation could be either:
+</p><math display="block"><mtable class="align" columnalign="left" displaystyle="true">
+<mtr><mtd class="align-odd" columnalign="right"><mi>D</mi></mtd>
+<mtd class="align-even"> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>a</mi></mrow><mrow><mi>i</mi><mn>1</mn></mrow></msub><msub><mrow><mi>C</mi></mrow><mrow><mi>i</mi><mn>1</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>a</mi></mrow><mrow><mi>i</mi><mn>2</mn></mrow></msub><msub><mrow><mi>C</mi></mrow><mrow><mi>i</mi><mn>2</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <mo class="MathClass-rel" stretchy="false">⋯</mo> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>a</mi></mrow><mrow><mi>i</mi><mi>n</mi></mrow></msub><msub><mrow><mi>C</mi></mrow><mrow><mi>i</mi><mi>n</mi></mrow></msub><mspace class="qquad" width="2em"></mspace><mspace width="2em"></mspace></mtd>
+<mtd class="align-odd" columnalign="right"></mtd>
+<mtd class="align-even"><mo class="MathClass-open" stretchy="false">(</mo><mi>j</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn><mo class="MathClass-punc" stretchy="false">,</mo><mn>2</mn><mo class="MathClass-punc" stretchy="false">,</mo><mi>…</mi><mo class="MathClass-punc" stretchy="false">,</mo><mstyle class="text"><mtext> or </mtext></mstyle><mi>n</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-punc" stretchy="false">,</mo><mspace width="2em"></mspace></mtd>
+<mtd class="align-label" columnalign="right"><mstyle class="label" id="x7-33005r62"></mstyle><mstyle class="maketag"><mtext>(1.62) </mtext></mstyle><mspace class="nbsp" width="0.33em"></mspace>
+</mtd></mtr><mtr><mtd class="align-odd" columnalign="right"><mi>D</mi></mtd>
+<mtd class="align-even"> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mi>k</mi></mrow></msub><msub><mrow><mi>C</mi></mrow><mrow><mn>1</mn><mi>k</mi></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mi>k</mi></mrow></msub><msub><mrow><mi>C</mi></mrow><mrow><mn>2</mn><mi>k</mi></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <mo class="MathClass-rel" stretchy="false">⋯</mo> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>a</mi></mrow><mrow><mi>n</mi><mi>k</mi></mrow></msub><msub><mrow><mi>C</mi></mrow><mrow><mi>n</mi><mi>k</mi></mrow></msub><mspace class="qquad" width="2em"></mspace><mspace width="2em"></mspace></mtd>
+<mtd class="align-odd" columnalign="right"></mtd>
+<mtd class="align-even"><mo class="MathClass-open" stretchy="false">(</mo><mi>k</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn><mo class="MathClass-punc" stretchy="false">,</mo><mn>2</mn><mo class="MathClass-punc" stretchy="false">,</mo><mi>…</mi><mo class="MathClass-punc" stretchy="false">,</mo><mstyle class="text"><mtext> or </mtext></mstyle><mi>n</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-punc" stretchy="false">.</mo><mspace class="qquad" width="2em"></mspace><mstyle class="text"><mtext>where</mtext></mstyle><mspace class="qquad" width="2em"></mspace><msub><mrow><mi>C</mi></mrow><mrow><mi>j</mi><mi>k</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <msup><mrow><mo class="MathClass-open" stretchy="false">(</mo><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mi>j</mi><mo class="MathClass-bin" stretchy="false">+</mo><mi>k</mi></mrow></msup><msub><mrow><mi>M</mi></mrow><mrow>
+<mi>j</mi><mi>k</mi></mrow></msub><mspace width="2em"></mspace></mtd>
+<mtd class="align-label" columnalign="right">
+<mstyle class="label" id="x7-33006r63"></mstyle>
+<mstyle class="maketag"><mtext>(1.63)</mtext></mstyle><mspace class="nbsp" width="0.33em"></mspace>
+</mtd></mtr></mtable></math>
+<p class="noindent">and <math display="inline"><msub><mrow><mi>M</mi></mrow><mrow><mi>j</mi><mi>k</mi></mrow></msub></math> is a determinant of order
+<math display="inline"><mi>n</mi> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>1</mn></math>, namely, the determinant of
+the submatrix of <math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math> obtained
+from <math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math> by omitting the row
+and column of the entry <math display="inline"><msub><mrow><mi>a</mi></mrow><mrow><mi>i</mi><mi>k</mi></mrow></msub></math>,
+that is, the <math display="inline"><msup><mrow><mstyle class="text"><mtext>j</mtext></mstyle></mrow><mrow><mstyle class="text"><mtext>th</mtext></mstyle></mrow></msup></math>
+row and the <math display="inline"><msup><mrow><mstyle class="text"><mtext>k</mtext></mstyle></mrow><mrow><mstyle class="text"><mtext>th</mtext></mstyle></mrow></msup></math>
+column.
+</p><p class="noindent">In this way, <math display="inline"><mi>D</mi></math> is defined in
+terms of <math display="inline"><mi>n</mi></math> determinants of
+order <math display="inline"><mi>n</mi> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>1</mn></math>, each of which is, in
+turn, defined in terms of <math display="inline"><mi>n</mi> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>1</mn></math>
+determinants of order <math display="inline"><mi>n</mi> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>2</mn></math>,
+and so onuntil we finally arrive at second-order determinants, in which those submatrices consist of
+single entries whose determinant is defined to be the entry itself.
+</p><p class="noindent">From the definition it follows that we may expand
+<math display="inline"><mi>D</mi></math> by any row
+or column, that is, choose in Eq. (??) or Eq. (??), the entries in any row or column, similarly when expanding
+the <math display="inline"><msub><mrow><mi>C</mi></mrow><mrow><mi>i</mi><mi>k</mi></mrow></msub></math>’s in
+Eq. 
+(??) 
+or Eq. (??), and so on.
+</p>
+<div class="block-minor warning"><div class="body">
+<p class="noindent">This definition is <span class="alert">unambiguous</span>, meaning, it gives the same value for
+<math display="inline"><mi>D</mi></math> no
+matter which columns or rows we choose in expanding. </p></div></div>
+<p class="noindent">Terms used in connection with determinants are taken from matrices. In
+<math display="inline"><mi>D</mi></math> we have
+<math display="inline"><msup><mrow><mi>n</mi></mrow><mrow><mn>2</mn></mrow></msup></math> <b>entries</b>
+<math display="inline"><msub><mrow><mi>a</mi></mrow><mrow><mi>i</mi><mi>k</mi></mrow></msub></math>, also
+<math display="inline"><mi>n</mi></math> <b>rows</b> and
+<math display="inline"><mi>n</mi></math> <b>columns</b>, and a <b>main
+diagonal</b> on which <math display="inline"><msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>1</mn></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mn>2</mn></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><mi>…</mi><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>a</mi></mrow><mrow><mi>n</mi><mi>n</mi></mrow></msub></math> stand.
+Two terms are new: </p><div class="quote"> <math display="inline"><msub><mrow><mi>M</mi></mrow><mrow><mi>j</mi><mi>k</mi></mrow></msub></math>
+is called the <b>minor</b> of <math display="inline"><msub><mrow><mi>a</mi></mrow><mrow><mi>j</mi><mi>k</mi></mrow></msub></math>
+in <math display="inline"><mi>D</mi></math>, and
+<math display="inline"><msub><mrow><mi>C</mi></mrow><mrow><mi>j</mi><mi>k</mi></mrow></msub></math> the <b>cofactor</b>
+of <math display="inline"><msub><mrow><mi>a</mi></mrow><mrow><mi>j</mi><mi>k</mi></mrow></msub></math> in
+<math display="inline"><mi>D</mi></math>.
+</div>
+<p class="noindent">For later use we note that, Eq. (??) or Eq. (??), can also be written in terms of minors
+</p><math display="block"><mtable class="align" columnalign="left" displaystyle="true">
+<mtr><mtd class="align-odd" columnalign="right"><mi>D</mi></mtd>
+<mtd class="align-even"> <mo class="MathClass-rel" stretchy="false">=</mo><munderover accent="false" accentunder="false"><mrow><mo> ∑</mo>
+</mrow><mrow><mi>k</mi><mo class="MathClass-rel" stretchy="false">=</mo><mn>1</mn></mrow><mrow><mi>n</mi></mrow></munderover><msup><mrow><mo class="MathClass-open" stretchy="false">(</mo><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mi>j</mi><mo class="MathClass-bin" stretchy="false">+</mo><mi>k</mi></mrow></msup><msub><mrow><mi>a</mi></mrow><mrow>
+<mi>j</mi><mi>k</mi></mrow></msub><msub><mrow><mi>M</mi></mrow><mrow><mi>j</mi><mi>k</mi></mrow></msub><mspace class="qquad" width="2em"></mspace><mo class="MathClass-open" stretchy="false">(</mo><mi>j</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn><mo class="MathClass-punc" stretchy="false">,</mo><mn>2</mn><mo class="MathClass-punc" stretchy="false">,</mo><mo class="MathClass-rel" stretchy="false">⋯</mo><mspace class="thinspace" width="0.17em"></mspace><mo class="MathClass-punc" stretchy="false">,</mo><mstyle class="text"><mtext> or </mtext></mstyle><mi>n</mi><mo class="MathClass-close" stretchy="false">)</mo><mspace width="2em"></mspace></mtd>
+<mtd class="align-label" columnalign="right"><mstyle class="label" id="x7-33007r64"></mstyle><mstyle class="maketag"><mtext>(1.64)</mtext></mstyle><mspace class="nbsp" width="0.33em"></mspace>
+</mtd></mtr><mtr><mtd class="align-odd" columnalign="right"><mi>D</mi></mtd>
+<mtd class="align-even"> <mo class="MathClass-rel" stretchy="false">=</mo><munderover accent="false" accentunder="false"><mrow><mo> ∑</mo>
+</mrow><mrow><mi>i</mi><mo class="MathClass-rel" stretchy="false">=</mo><mn>1</mn></mrow><mrow><mi>n</mi></mrow></munderover><msup><mrow><mo class="MathClass-open" stretchy="false">(</mo><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mi>j</mi><mo class="MathClass-bin" stretchy="false">+</mo><mi>k</mi></mrow></msup><msub><mrow><mi>a</mi></mrow><mrow>
+<mi>j</mi><mi>k</mi></mrow></msub><msub><mrow><mi>M</mi></mrow><mrow><mi>j</mi><mi>k</mi></mrow></msub><mspace class="qquad" width="2em"></mspace><mo class="MathClass-open" stretchy="false">(</mo><mi>k</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn><mo class="MathClass-punc" stretchy="false">,</mo><mn>2</mn><mo class="MathClass-punc" stretchy="false">,</mo><mo>…</mo><mo class="MathClass-punc" stretchy="false">,</mo><mstyle class="text"><mtext> or </mtext></mstyle><mi>n</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-punc" stretchy="false">.</mo><mspace width="2em"></mspace></mtd>
+<mtd class="align-label" columnalign="right"><mstyle class="label" id="x7-33008r65"></mstyle><mstyle class="maketag"><mtext>(1.65)</mtext></mstyle><mspace class="nbsp" width="0.33em"></mspace>
+</mtd></mtr></mtable></math>
+<div class="block-major exer-block" id="exer-block-1.23"> <a class="copiable-link" href="#exer-block-1.23"> ¶</a> <span class="upper"> <span class="header"> <b>Example 1.<a id="x7-33009r23"></a>23: </b> </span> <span class="title"> Minors and Cofactors of a Third-Order Determinant </span> </span> <div class="body">
+<p class="noindent">In Eq. (<a href="#x7-33007r64">1.64</a>) and Eq. (<a href="#x7-33008r65">1.65</a>), of the previous section the minors and cofactors of the entries
+in the first column can be seen directly. For the entries in the second row the minors are
+</p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x7-33010r66"></mstyle><msub><mrow><mi>M</mi></mrow><mrow><mn>2</mn><mn>1</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">|</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>2</mn></mrow></msub> </mtd><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>3</mn></mrow></msub> </mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>3</mn><mn>2</mn></mrow></msub> </mtd><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>3</mn><mn>3</mn></mrow></msub> </mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">|</mo></mrow> <mo class="MathClass-punc" stretchy="false">,</mo><mspace class="qquad" width="2em"></mspace><msub><mrow><mi>M</mi></mrow><mrow><mn>2</mn><mn>2</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">|</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>1</mn></mrow></msub> </mtd><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>3</mn></mrow></msub> </mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>3</mn><mn>1</mn></mrow></msub> </mtd><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>3</mn><mn>3</mn></mrow></msub> </mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">|</mo></mrow> <mo class="MathClass-punc" stretchy="false">,</mo><mspace class="qquad" width="2em"></mspace><msub><mrow><mi>M</mi></mrow><mrow><mn>2</mn><mn>3</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">|</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>1</mn></mrow></msub> </mtd><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>2</mn></mrow></msub> </mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>3</mn><mn>1</mn></mrow></msub> </mtd><mtd class="array-td" columnalign="center"> <msub><mrow><mi>a</mi></mrow><mrow><mn>3</mn><mn>2</mn></mrow></msub> </mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">|</mo></mrow>
+</math></td><td class="eq-no">(1.66)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">and the cofactors are <math display="inline"><msub><mrow><mi>C</mi></mrow><mrow><mn>2</mn><mn>1</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-bin" stretchy="false">−</mo><msub><mrow><mi>M</mi></mrow><mrow><mn>2</mn><mn>1</mn></mrow></msub></math>,
+<math display="inline"><msub><mrow><mi>C</mi></mrow><mrow><mn>2</mn><mn>2</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-bin" stretchy="false">+</mo><msub><mrow><mi>M</mi></mrow><mrow><mn>2</mn><mn>2</mn></mrow></msub></math>, and
+<math display="inline"><msub><mrow><mi>C</mi></mrow><mrow><mn>2</mn><mn>3</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-bin" stretchy="false">−</mo><msub><mrow><mi>M</mi></mrow><mrow><mn>2</mn><mn>3</mn></mrow></msub></math>
+<math display="inline"><mspace class="quad" width="1em"></mspace><mo class="MathClass-ord">■</mo></math>
+</p>
+</div> </div>
+<div class="block-major exer-block" id="exer-block-1.24"> <a class="copiable-link" href="#exer-block-1.24"> ¶</a><span class="upper"><span class="header"><b>Example 1.<a id="x7-33011r24"></a>24: </b> </span> <span class="title"> Expansions of a Third-Order Determinant </span> </span> <div class="body">
+<table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x7-33012r67"></mstyle><mtable class="aligned" displaystyle="true"><mtr><mtd columnalign="right"><mi>D</mi> <mo class="MathClass-rel" stretchy="false">=</mo></mtd>
+<mtd columnalign="left"> <mrow><mo fence="true" form="prefix">|</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>3</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>2</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>6</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>4</mn></mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>2</mn> </mtd>
+</mtr>
+</mtable> </mrow><mo fence="true" form="postfix">|</mo></mrow> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn> <mrow><mo fence="true" form="prefix">|</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>6</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>4</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>2</mn></mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">|</mo></mrow> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>3</mn> <mrow><mo fence="true" form="prefix">|</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>2</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>4</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>2</mn></mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">|</mo></mrow> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>0</mn> <mrow><mo fence="true" form="prefix">|</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>2</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>6</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>0</mn></mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">|</mo></mrow></mtd>
+<mtd columnalign="right"></mtd>
+</mtr><mtr><mtd columnalign="right"> <mo class="MathClass-rel" stretchy="false">=</mo></mtd> <mtd columnalign="left"><mn>1</mn><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mn>2</mn> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>0</mn><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>3</mn><mo class="MathClass-open" stretchy="false">(</mo><mn>4</mn> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>4</mn><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>0</mn><mo class="MathClass-open" stretchy="false">(</mo><mn>0</mn> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>6</mn><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn><mn>2</mn><mo class="MathClass-punc" stretchy="false">.</mo></mtd>
+</mtr> </mtable>
+</math></td><td class="eq-no">(1.67)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">This is the expansion by the first row. The expansion by the third column is </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x7-33013r68"></mstyle><mi>D</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn> <mrow><mo fence="true" form="prefix">|</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>2</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>6</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>0</mn></mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">|</mo></mrow> <mo class="MathClass-bin" stretchy="false">−</mo><mn>4</mn> <mrow><mo fence="true" form="prefix">|</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>3</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>0</mn></mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">|</mo></mrow> <mo class="MathClass-bin" stretchy="false">+</mo><mn>2</mn> <mrow><mo fence="true" form="prefix">|</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>3</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>2</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>6</mn></mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">|</mo></mrow> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn><mn>2</mn><mo class="MathClass-bin" stretchy="false">+</mo><mn>0</mn> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn><mn>2</mn><mspace class="quad" width="1em"></mspace><mo class="MathClass-ord">■</mo>
+</math></td><td class="eq-no">(1.68)</td></tr></table>
+<p class="noindent"></p>
+</div> </div>
+<div class="block-major exer-block" id="exer-block-1.25"> <a class="copiable-link" href="#exer-block-1.25"> ¶</a> <span class="upper"> <span class="header"> <b>Example 1.<a id="x7-33014r25"></a>25: </b> </span> <span class="title"> Determinant of a Triangular Matrix </span> </span> <div class="body">
+<p class="noindent">The determinant of a triangular matrix is simply the multiplication of all the diagonal values:
+</p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x7-33015r69"></mstyle>
+<mrow><mo fence="true" form="prefix">|</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>3</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>6</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>4</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>0</mn></mtd>
+</mtr>
+<mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd>
+<mtd class="array-td" columnalign="center"> <mn>2</mn> </mtd>
+<mtd class="array-td" columnalign="center"> <mn>5</mn> </mtd>
+</mtr>
+</mtable>
+</mrow><mo fence="true" form="postfix">|</mo></mrow> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-bin" stretchy="false">−</mo><mn>3</mn><mi>·</mi><mn>4</mn><mi>·</mi><mn>5</mn> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-bin" stretchy="false">−</mo><mn>6</mn><mn>0</mn><mspace class="quad" width="1em"></mspace><mo class="MathClass-ord">■</mo>
+</math></td><td class="eq-no">(1.69)</td></tr></table>
+<p class="noindent"></p>
+</div> </div>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-1.4.3"> <a class="pdf-icon" href="HigherMathematicsILectureBook.pdf#subsection.1.4.3"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">1.4.3</span> <span class="title"> <a id="x7-340001.4.3"></a>General Properties of Determinants</span></h4></div>
+</p><p class="noindent">There is an attractive way of finding determinants Eq. (<a href="#x7-33003r60">1.60</a>) which consists of applying elementary row
+operations to Eq. (<a href="#x7-33003r60">1.60</a>). By doing so we obtain an <span class="alert">upper triangular</span> determinant (see Sec. 7.1, for definition with
+"matrix" replaced by "determinant") whose value is then very easy to compute, being just the product
+of its diagonal entries. This approach is similar (but not the same!) to what we did to matrices in Sec.
+7.3.
+</p>
+<div class="block-minor warning"><div class="body">
+<p class="noindent">Interchanging two rows in a determinant introduces a multiplicative factor of
+<math display="inline"> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>1</mn></math> to the
+value of the determinant! </p></div></div>
+<div class="block-major theo-block" id="theo-block-1.12"> <a class="copiable-link" href="#theo-block-1.12"> ¶</a> <span class="upper"> <span class="header"> <b>Theory 1.<a id="x7-34001r12"></a>12: </b> </span> <span class="title"> Behavior of an nth-Order Determinant under Elementary Row Operations </span> </span>
+<div class="body">
+<p class="noindent">
+</p>
+<dl class="enumerate-enumitem"><dt class="enumerate-enumitem">   
+i. 
+</dt><dd class="enumerate-enumitem">Interchange of two rows multiplies the value of the determinant by <math display="inline"> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>1</mn></math>.
+</dd>
+<dt class="enumerate-enumitem">
+ii. 
+</dt><dd class="enumerate-enumitem">Addition of a multiple of a row to another row does not alter the value of the determinant.
+</dd>
+<dt class="enumerate-enumitem">
+iii. 
+</dt><dd class="enumerate-enumitem">Multiplication of a row by a nonzero constant <math display="inline"><mi>c</mi></math>
+multiplies the value of the determinant by <math display="inline"><mi>c</mi></math><span class="margin-block">.
+<span class="margin-comment"><a class="ellipsis" href="#m-ref-26">[26]</a>
+<span class="sidenote">This holds also when <math display="inline"><mi>c</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></math>,
+but no longer gives an elementary row operation.</span></span></span></dd></dl>
+<p class="noindent"></p>
+<hr/>
+<p class="noindent"> 
+An interesting property worth mentioning is <math display="inline"><mi class="qopname">det</mi><mo> ⁡ </mo><mo class="MathClass-open" stretchy="false">(</mo><mi>c</mi><mstyle mathvariant="bold"><mi>A</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <msup><mrow><mi>c</mi></mrow><mrow><mi>n</mi></mrow></msup><mi class="qopname"> det</mi><mo> ⁡ </mo><mstyle mathvariant="bold"><mi>A</mi></mstyle></math>,
+and <b>NOT</b> <math display="inline"><mi>c</mi><mi class="qopname">det</mi><mo> ⁡ </mo><mstyle mathvariant="bold"><mi>A</mi></mstyle></math>).
+</p>
+</div> </div>
+<div class="block-major theo-block" id="theo-block-1.13"> <a class="copiable-link" href="#theo-block-1.13"> ¶</a> <span class="upper"> <span class="header"> <b>Theory 1.<a id="x7-34005r13"></a>13: </b> </span> <span class="title"> Further Properties of nth-Order Determinants </span> </span> <div class="body">
+<p class="noindent">i. - iii in <a class="block-ref" href="#x7-34001r12">Theory 1.12</a> hold also for columns. (d) Transposition leaves the value of a determinant
+unaltered. (e) A zero row or column renders the value of a determinant zero. (f) Proportional rows or
+columns render the value of a determinant zero. In particular, a determinant with two identical rows or
+columns has the value zero.
+</p>
+</div> </div>
+<p class="noindent">It is quite remarkable that the important concept of the rank of a matrix A,
+which is the maximum number of linearly independent row or column vectors of
+A (see Sec. 7.4), can be related to determinants. Here we may assume that rank
+<math display="inline"><mi>A</mi> <mo class="MathClass-rel" stretchy="false">&gt;</mo> <mn>0</mn></math>
+because the only matrices with rank 0 are the zero matrices (see Sec. 7.4).
+</p>
+<div class="block-major theo-block" id="theo-block-1.14"> <a class="copiable-link" href="#theo-block-1.14"> ¶</a> <span class="upper"> <span class="header"> <b>Theory 1.<a id="x7-34006r14"></a>14: </b> </span> <span class="title"> Rank in Terms of Determinants </span> </span> <div class="body">
+<p class="noindent">Consider an <math display="inline"><mi>m</mi> <mi>×</mi> <mi>n</mi></math>
+matrix <math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-open" stretchy="false">[</mo><msub><mrow><mi>a</mi></mrow><mrow><mi>i</mi><mi>k</mi></mrow></msub><mo class="MathClass-close" stretchy="false">]</mo></math>:
+</p>
+<dl class="enumerate-enumitem"><dt class="enumerate-enumitem">
+1. 
+</dt><dd class="enumerate-enumitem"><b>A</b> has rank <math display="inline"><mi>r</mi> <mo class="MathClass-rel" stretchy="false">⩾</mo> <mn>1</mn></math>
+if and only if <math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math>
+has an <math display="inline"><mi>r</mi> <mi>×</mi> <mi>r</mi></math>
+submatrix with a nonzero determinant.
+</dd>
+<dt class="enumerate-enumitem">
+2. 
+</dt><dd class="enumerate-enumitem">The determinant of any square submatrix with more than <math display="inline"><mi>r</mi></math>
+rows, contained in <math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math>,
+if such a matrix exists, has a value equal to zero.</dd></dl>
+<p class="noindent">Furthermore, if <math display="inline"><mi>m</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>n</mi></math>,
+we have:
+</p>
+<dl class="enumerate-enumitem"><dt class="enumerate-enumitem">
+3. 
+</dt><dd class="enumerate-enumitem">An <math display="inline"><mi>n</mi> <mi>×</mi> <mi>n</mi></math>
+square matrix <b>A</b> has rank <math display="inline"><mi>n</mi></math>
+if and only if <math display="inline"><mi class="qopname">det</mi><mo> ⁡ </mo><mstyle mathvariant="bold"><mi>A</mi></mstyle> <mi>≠</mi> <mn>0</mn></math>.</dd></dl>
+</div> </div>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-1.4.4"> <a class="pdf-icon" href="HigherMathematicsILectureBook.pdf#subsection.1.4.4"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">1.4.4</span> <span class="title"> <a id="x7-350001.4.4"></a>Cramer’s Rule</span></h4></div>
+</p><p class="noindent"><a class="block-ref" href="#x7-34006r14">Theory 1.14</a> opens the way to the classical solution formula for linear systems known as <i>Cramer’s rule</i>,
+which gives solutions as quotients of determinants.
+</p>
+<div class="block-minor knowledge"><div class="body">
+<p class="noindent">Cramer’s rule is <b>NOT</b> practical in computations for which the methods in Secs, 7.3 and 20.120.3 are
+suitable. However, Cramer’s rule is of theoretical interest in differential equations (Secs. 2.10 and 3.3)
+and in other theoretical work that has engineering applications. </p></div></div>
+<div class="block-major theo-block" id="theo-block-1.15"> <a class="copiable-link" href="#theo-block-1.15"> ¶</a> <span class="upper"> <span class="header"> <b>Theory 1.<a id="x7-35001r15"></a>15: </b> </span> <span class="title"> Cramer’s Theorem </span> </span> <div class="body">
+<p class="noindent">If a linear system of n equations in the same number of unknowns
+<math display="inline"><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><mi>…</mi><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>x</mi></mrow><mrow><mi>n</mi></mrow></msub></math>:
+</p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x7-35002r70"></mstyle><mtable class="aligned" displaystyle="true"><mtr><mtd columnalign="right"><msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>1</mn></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mn>2</mn></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <mo class="MathClass-rel" stretchy="false">⋯</mo> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>a</mi></mrow><mrow><mn>1</mn><mi>n</mi></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mi>n</mi></mrow></msub></mtd>
+<mtd columnalign="left"> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>b</mi></mrow><mrow><mn>1</mn></mrow></msub></mtd>
+<mtd columnalign="right"></mtd>
+</mtr><mtr><mtd columnalign="right"><msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mn>1</mn></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mn>2</mn></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <mo class="MathClass-rel" stretchy="false">⋯</mo> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>a</mi></mrow><mrow><mn>2</mn><mi>n</mi></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mi>n</mi></mrow></msub></mtd>
+<mtd columnalign="left"> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>b</mi></mrow><mrow><mn>2</mn></mrow></msub></mtd>
+</mtr><mtr><mtd columnalign="right"><mo class="MathClass-rel" stretchy="false">⋯</mo><mo class="MathClass-rel" stretchy="false">⋯</mo><mo class="MathClass-rel" stretchy="false">⋯</mo><mo class="MathClass-rel" stretchy="false">⋯</mo><mo class="MathClass-rel" stretchy="false">⋯</mo><mo class="MathClass-rel" stretchy="false">⋯</mo><mo class="MathClass-rel" stretchy="false">⋯</mo></mtd> <mtd columnalign="left"> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>·</mi></mtd>
+</mtr><mtr><mtd columnalign="right"><msub><mrow><mi>a</mi></mrow><mrow><mi>n</mi><mn>1</mn></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>a</mi></mrow><mrow><mi>n</mi><mn>2</mn></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <mo class="MathClass-rel" stretchy="false">⋯</mo> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>a</mi></mrow><mrow><mi>n</mi><mi>n</mi></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mi>n</mi></mrow></msub></mtd>
+<mtd columnalign="left"> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>b</mi></mrow><mrow><mi>n</mi></mrow></msub></mtd>
+</mtr> </mtable>
+</math></td><td class="eq-no">(1.70)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">has a nonzero coefficient determinant <math display="inline"><mi>D</mi> <mo class="MathClass-rel" stretchy="false">=</mo><mi class="qopname"> det</mi><mo> ⁡ </mo><mi>A</mi></math>,
+the system has precisely one solution. This solution is given by the formulas </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x7-35003r71"></mstyle>
+<msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><msub><mrow><mi>D</mi></mrow><mrow><mn>1</mn></mrow></msub></mrow>
+<mrow>
+<mi>D</mi></mrow></mfrac> <mo class="MathClass-punc" stretchy="false">,</mo><mspace class="qquad" width="2em"></mspace><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><msub><mrow><mi>D</mi></mrow><mrow><mn>2</mn></mrow></msub></mrow>
+<mrow>
+<mi>D</mi></mrow></mfrac> <mo class="MathClass-punc" stretchy="false">,</mo><mspace class="qquad" width="2em"></mspace><mo class="MathClass-rel" stretchy="false">⋯</mo><mspace class="thinspace" width="0.17em"></mspace><mo class="MathClass-punc" stretchy="false">,</mo><mspace class="qquad" width="2em"></mspace><msub><mrow><mi>x</mi></mrow><mrow><mi>n</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><msub><mrow><mi>D</mi></mrow><mrow><mi>n</mi></mrow></msub></mrow>
+<mrow>
+<mi>D</mi></mrow></mfrac> <mo class="MathClass-punc" stretchy="false">.</mo>
+</math></td><td class="eq-no">(1.71)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">where <math display="inline"><msub><mrow><mi>D</mi></mrow><mrow><mi>k</mi></mrow></msub></math> is the determinant
+obtained from <math display="inline"><mi>D</mi></math> by
+replacing in <math display="inline"><mi>D</mi></math> the
+<math display="inline"><msup><mrow><mstyle class="text"><mtext>k</mtext></mstyle></mrow><mrow><mstyle class="text"><mtext>th</mtext></mstyle></mrow></msup></math> column by the column with the
+entries <math display="inline"><msub><mrow><mi>b</mi></mrow><mrow><mn>1</mn></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><mi>…</mi><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>b</mi></mrow><mrow><mi>n</mi></mrow></msub></math>. </p>
+<hr/>
+<p class="noindent"> 
+Hence if the system Eq.
+(<a href="#x7-35002r70">1.70</a>) 
+is <b>homogeneous</b> and <math display="inline"><mi>D</mi> <mi>≠</mi> <mn>0</mn></math>,
+it has only the trivial solution <math display="inline"><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn><mo class="MathClass-punc" stretchy="false">,</mo><mi>…</mi><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>x</mi></mrow><mrow><mi>n</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></math>.
+If <math display="inline"><mi>D</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></math>, the
+homogeneous system also has nontrivial solutions.
+</p>
+</div> </div>
+<p class="noindent">Finally, an important application for Cramer’s rule dealing with inverse matrices will be given in the
+next section.
+<div class="section-header">
+<h3 id="header-section-references">
+<span class="number">
+<i class="fa-solid fa-magnifying-glass"></i>
+</span>
+<span class="title">
+<a id="page-glossary"></a>
+            Page References</span>
+</h3>
+</div>
+<div class="cite-block">
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="w3-20001"><span class="acr-short">1.</span><span class="acr-long"></span></dt>
+<dd class="enumerate-enumitem"> Grattan-Guinness, I. Companion encyclopedia of the history and philosophy of the mathematical sciences (Routledge, 2002)</dd>
+</dl></div>
+<div class="section-header">
+<h3 id="header-section-references">
+<span class="number">
+<i class="fa-regular fa-note-sticky"></i>
+</span>
+<span class="title">
+<a id="page-glossary"></a>
+                    Page Footnotes</span>
+</h3>
+</div>
+<div class="footnote-block">
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-24"><span class="acr-short">[24].</span></dt>
+<dd class="enumerate-enumitem"><span class="">Historically, determinants were used long before matrices: A determinant was originally
+defined as a property of a system of linear equations. The determinant “determines” whether the
+system has a unique solution, which occurs precisely if the determinant is non-zero. In Europe,
+solutions of linear systems of two equations were expressed by <i>Cardano</i> in 1545 by a determinant-like
+entity <span class="cite"><a class="cite-show" href="#w3-20001">[†-1]</a><span class="cite-detail"> <a id="x7-29001"></a>Grattan-Guinness, I. Companion encyclopedia of the history and philosophy of the
+mathematical sciences (Routledge, 2002)</span></span>.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-25"><span class="acr-short">[25].</span></dt>
+<dd class="enumerate-enumitem"><span class="">This means for there to be a determinant, the said matrix must be of square shape.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-26"><span class="acr-short">[26].</span></dt>
+<dd class="enumerate-enumitem"><span class="">This holds also when <math display="inline"><mi>c</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></math>,
+but no longer gives an elementary row operation.</span></dd>
+</dl></div><nav class="crosslinks-bottom"><div class="navigation"><span class="nav-button"><a href="InverseofaMatrixusingGaussJordanElimination.html"><i class="fa-solid fa-caret-right"></i></a></span><span class="nav-button"><a href="LinearIndependenceandRankofaMatrixVectorSpace.html"><i class="fa-solid fa-caret-left"></i></a></span><span class="nav-button"><a href="LinearAlgebraIFundamentals.html#DeterminantsandCramersRule.html"><i class="fa-solid fa-caret-up"></i></a></span><span class="nav-button">
+<a href="index.html" rel="index" title="Index">
+<i class="fa-solid fa-table-list">
+</i>
+</a></span><span class="nav-button">
+<a href="Index.html" rel="index" title="Index">
+<i class="fa-brands fa-git-alt"></i>
+</a></span></div></nav> </p><div class="footer"> <div class="footer-left"><span class="footer-lecture">D. T. McGuiness, PhD</span>
+<span class="footer-webBook"><b>Last Updated:</b> 20.10.2026, at 10:2.</span></div></div><div class="author-notes">
+<span class="note">Authors Note </span>
+<span class="text">The website you are viewing is auto-generated using lms-WebBook and therefore subject to slight errors in typography and formatting. When in doubt, please consult the LectureBook. </span>
+</div>
+</article>
+<div class="mode-line">
+<div class="core-line"><div class="core-line-image"><img class="webbook-logo" src="logo/webbook-logo.svg"/></div>
+<div class="current-header">
+<span class="header-pretext">Viewing | </span>
+<span class="header-text">Section 1.4: Determinants and Cramer’s Rule</span>
+</div>
+<div class="button-group">
+</div>
+</div>
+<div class="supp-line"></div>
+</div>
+</page>
+</body>
+</html>
